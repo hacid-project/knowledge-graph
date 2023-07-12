@@ -1,0 +1,665 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/medical/onto/"
+     xml:base="https://w3id.org/hacid/medical/onto/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/medical/onto/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/sctid -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/hacid/medical/onto/sctid">
+        <rdfs:comment xml:lang="en">Property for annotating entities of the KG with corresponding SNOMED-CT identifiers.</rdfs:comment>
+        <rdfs:label xml:lang="en">SNOMED-CT identifier</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/after -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/after">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasTemporalRelationWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/before"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing that a certain entity (e.g. event, finding, etc.) temporally follows another.</rdfs:comment>
+        <rdfs:label xml:lang="en">after</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">255234002</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/assosiatedWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/assosiatedWith">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">A property for representing the top-level relation.</rdfs:comment>
+        <rdfs:label xml:lang="en">associatedWith</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47429007</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/before -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/before">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasTemporalRelationWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing that a certain entity (e.g. event, finding, etc.) temporally precedes another.</rdfs:comment>
+        <rdfs:label xml:lang="en">Before</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">288556008</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/during -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/during">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasTemporalRelationWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing that a certain entity (e.g. event, finding, etc.) occurs during another.</rdfs:comment>
+        <rdfs:label xml:lang="en">during</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">371881003</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasCause -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasCause">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isCauseOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The causative relation.</rdfs:comment>
+        <rdfs:label xml:lang="en">has cause</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">246075003</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasConstitutionalPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasConstitutionalPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasProperPart"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isConstitutionalPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a whole and one of its constitutional parts.</rdfs:comment>
+        <rdfs:label xml:lang="en">has constitutional part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasLateralHalf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasLateralHalf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasRegionalPart"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isLateralHalfOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a whole and one of its lateral halfs.</rdfs:comment>
+        <rdfs:label xml:lang="en">has lateral half</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasLaterality -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasLaterality">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isLateralityOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Side"/>
+        <rdfs:comment xml:lang="en">The property for expressing a laterality, e.g. left side, right side or both.</rdfs:comment>
+        <rdfs:label xml:lang="en">has laterality</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">272741003</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasMorphologicAbnormality -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasMorphologicAbnormality">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/MorphologicAbnormality"/>
+        <rdfs:comment xml:lang="en">The relation for connection an term to a morphologic abnormality.</rdfs:comment>
+        <rdfs:label xml:lang="en">has morphologic abnormality</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">116676008</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing the relation between a whole and one of its parts transitively.</rdfs:comment>
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasProperPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasProperPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasPart"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isPropertPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment xml:lang="en">The property for expressing a relation between a whole and one of its proper parts.</rdfs:comment>
+        <rdfs:label xml:lang="en">has propert part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasRegionalPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasRegionalPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasProperPart"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isRegionalPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a whole and one of its regional parts.</rdfs:comment>
+        <rdfs:label xml:lang="en">has regional part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasSystemicPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasSystemicPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasProperPart"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isSystemicPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a whole and one of its systemic parts.</rdfs:comment>
+        <rdfs:label xml:lang="en">has systemic part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasTemporalRelationWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasTemporalRelationWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The general property for representing tempora relations.</rdfs:comment>
+        <rdfs:label xml:lang="en">has temporal relation with</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">726633004</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isCauseOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isCauseOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The inverse object property of has cause.</rdfs:comment>
+        <rdfs:label xml:lang="en">is cause of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isConstitutionalPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isConstitutionalPartOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isPropertPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a constitutional part and its whole.</rdfs:comment>
+        <rdfs:label xml:lang="en">is constitutional part of</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">733931002</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isLateralHalfOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isLateralHalfOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isRegionalPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a latarl half and its whole.</rdfs:comment>
+        <rdfs:label xml:lang="en">is lateral half of</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">733933004</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isLateralityOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isLateralityOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Side"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for associating a laterality (e.g. left side) to a possible entity with a laterality property (e.g. an anatomical structure).</rdfs:comment>
+        <rdfs:label xml:lang="en">is laterality of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isMorphologicAbnormalityOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isMorphologicAbnormalityOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/MorphologicAbnormality"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The inverse relation of has morphologic abnormality.</rdfs:comment>
+        <rdfs:label xml:lang="en">is morphologic abnormality of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isPartOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing the transitive relation between a part and its whole.</rdfs:comment>
+        <rdfs:label xml:lang="en">is part of</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">733928003</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isPropertPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isPropertPartOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a relation between a proper part and its whole.</rdfs:comment>
+        <rdfs:label xml:lang="en">is proper part of</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">774081006</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isRegionalPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isRegionalPartOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isPropertPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a regional part and its whole.</rdfs:comment>
+        <rdfs:label xml:lang="en">is regional part of</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">733930001</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isSystemicPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isSystemicPartOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isPropertPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The property for expressing a non-transitive relation between a systemic part and its whole.</rdfs:comment>
+        <rdfs:label xml:lang="en">is systemic part of</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">733932009</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/AnatomicalStructure -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/AnatomicalStructure">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasLaterality"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/Side"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An anatomical structure is any biological entity that occupies space and is distinguished from its surroundings. Anatomical structures can be macroscopic such as a carpel, or microscopic such as an acrosome.</rdfs:comment>
+        <rdfs:label xml:lang="en">Anatomical structure</rdfs:label>
+        <sctid xml:lang="en">91723000</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/BodyRegionStructure -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/BodyRegionStructure">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/AnatomicalStructure"/>
+        <rdfs:comment xml:lang="en">The class for representing top level body region structures.</rdfs:comment>
+        <rdfs:label xml:lang="en">Body region</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52530000</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/BodyStructure -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/BodyStructure">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/isConstitutionalPartOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/isLateralHalfOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/isPartOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/isPropertPartOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/isRegionalPartOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/isSystemicPartOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The body structure domain includes anatomical structures, as well as morphologic abnormalities.</rdfs:comment>
+        <rdfs:label xml:lang="en">Body structure</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">123037004</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/ClinicalFinding -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/after"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Event"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Procedure"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Event"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Organism"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalForce"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalObject"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Procedure"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Substance"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/before"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/Procedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasCause"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Organism"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalForce"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalObject"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Substance"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasMorphologicAbnormality"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/MorphologicAbnormality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An assertion about the state of the patient (or the subject of study), including findings, diseases, disorders, observations, assessments, conclusions, inferences, and so forth.</rdfs:comment>
+        <rdfs:label xml:lang="en">Clinical finding</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">271781008</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/ClinicalFindingOrDisorder -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFindingOrDisorder">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+                    <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Disorder"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The union class of clinical finding and disorders.</rdfs:comment>
+        <rdfs:label xml:lang="en">Clinical finding or disorder</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Disorder -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Disorder">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">Always and necessarily an abnormal clinical state</rdfs:comment>
+        <rdfs:label xml:lang="en">Disorder</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Entity"/>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Event -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Event">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The concept for events.</rdfs:comment>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">272379006</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/MorphologicAbnormality -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/MorphologicAbnormality">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/BodyStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/isMorphologicAbnormalityOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A morphological abnormality can be seen as a difference in form that is inconsistent, discordant, and/or atypical. This definition inherently implies two important aspects. Firstly, they are only relatively defined and can only exist given prior knowledge of what is normal, consistent, harmonious, and/or typical.</rdfs:comment>
+        <rdfs:label xml:lang="en">Morphologic abnormality</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49755003</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Organism -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Organism">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">A physical objects with biological characteristics, typically that organisms can self-reproduce.</rdfs:comment>
+        <rdfs:label xml:lang="en">Organism</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">410607006</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/medical/onto/Substance"/>
+        <rdfs:comment xml:lang="en">A top-level hierarchy to clearly distinguish drug products (products) from their chemical constituents (substances)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pharmaceutical / Biologic Product</rdfs:comment>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">373873005</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/PhysicalForce -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/PhysicalForce">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">Forces applied to the body that may cause injury.</rdfs:comment>
+        <rdfs:label xml:lang="en">Physical force</rdfs:label>
+        <sctid xml:lang="en">362980004</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/PhysicalObject -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/PhysicalObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">Any Object that has a proper space region. The prototypical physical object has also an associated mass, but the nature of its mass can greatly vary based on the epistemological status of the object (scientifically measured, subjectively possible, imaginary).</rdfs:comment>
+        <rdfs:label xml:lang="en">Physical object</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">260787004</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Procedure -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Procedure">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The concept for procedures.</rdfs:comment>
+        <rdfs:label xml:lang="en">Procedure</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71388002</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/QualifierValue -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/QualifierValue">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">A qualifier value</rdfs:comment>
+        <rdfs:label xml:lang="en">Qualifier value</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">362981000</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Side -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Side">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The class for expressing sides, e.g. left side or right side, as qualifier values.</rdfs:comment>
+        <rdfs:label xml:lang="en">Side</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">182353008</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Substance -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Substance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">Material with particular features.</rdfs:comment>
+        <rdfs:label xml:lang="en">Substrance</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105590001</sctid>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
