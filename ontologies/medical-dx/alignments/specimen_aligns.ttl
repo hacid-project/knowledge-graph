@@ -1,0 +1,32 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/AnatomicalOrAcquiredBodyStructure> owl:equivalentClass <http://snomed.info/id/442083009> .
+
+<https://w3id.org/hacid/onto/mdx/Community> owl:equivalentClass <http://snomed.info/id/133928008> .
+
+<https://w3id.org/hacid/onto/mdx/Environment> owl:equivalentClass <http://snomed.info/id/276339004> .
+
+<https://w3id.org/hacid/onto/mdx/Family> owl:equivalentClass <http://snomed.info/id/35359004> .
+
+<https://w3id.org/hacid/onto/mdx/MorphologicallyAbnormalStructure> owl:equivalentClass <http://snomed.info/id/49755003> .
+
+<https://w3id.org/hacid/onto/mdx/Person> owl:equivalentClass <http://snomed.info/id/125676002> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalObject> owl:equivalentClass <http://snomed.info/id/260787004> .
+
+<https://w3id.org/hacid/onto/mdx/Procedure> owl:equivalentClass <http://snomed.info/id/71388002> .
+
+<https://w3id.org/hacid/onto/mdx/Specimen> owl:equivalentClass <http://snomed.info/id/123038009> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/specimenProcedure> owl:equivalentProperty <http://snomed.info/id/118171006> .
+
+<https://w3id.org/hacid/onto/mdx/specimenSourceIdentity> owl:equivalentProperty <http://snomed.info/id/118170007> .
+
+<https://w3id.org/hacid/onto/mdx/specimenSourceMorphology> owl:equivalentProperty <http://snomed.info/id/118168003> .
+
+<https://w3id.org/hacid/onto/mdx/specimenSourceTopography> owl:equivalentProperty <http://snomed.info/id/118169006> .
+
+<https://w3id.org/hacid/onto/mdx/specimenSubstance> owl:equivalentProperty <http://snomed.info/id/370133003> .
+

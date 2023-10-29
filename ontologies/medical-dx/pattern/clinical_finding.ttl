@@ -1,0 +1,446 @@
+@prefix : <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
+
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
+
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
+
+:AbnormalImmuneProcess a owl:Class ;
+    rdfs:label "Abnormal immune process"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 769247005 .
+
+:AnatomicalOrAcquiredBodyStructure a owl:Class ;
+    rdfs:label "Anatomical or acquired body structure"@en ;
+    rdfs:subClassOf :BodyStructure ;
+    :sctid 442083009 .
+
+:ClinicalFindingDescription a owl:Class ;
+    rdfs:label "Clinical finding description"@en ;
+    rdfs:comment "The description of a Clinical finding."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :associatedWith ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding :Organism :PhysicalObject :Substance :Event :PhysicalForce ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :severity ;
+            owl:someValuesFrom :SeverityType ],
+        [ a owl:Restriction ;
+            owl:onProperty :clinicalCourse ;
+            owl:someValuesFrom :CourseType ],
+        [ a owl:Restriction ;
+            owl:onProperty :pathologicalProcess ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :InfectiousProcess :HypersensitivityProcess :PathologicalDevelopmentalProcess :ProliferationOfNeoplasm :AbnormalImmuneProcess ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :occurrence ;
+            owl:someValuesFrom :PeriodsOfLife ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasRealization ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :Process :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :findingInformer ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :PersonWithCharacteristicRelatedToSubjectOfRecord :PerformerOfMethod :SubjectOfRecordOrOtherProviderOfHistory ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :before ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :ClinicalFinding ],
+        [ a owl:Restriction ;
+            owl:onProperty :after ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :associatedMorphology ;
+            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :temporallyRelatedTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :findingSite ;
+            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :dueTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :episodicity ;
+            owl:someValuesFrom :EpisodicityType ],
+        [ a owl:Restriction ;
+            owl:onProperty :findingMethod ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasInterpretation ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :FindingValue :Colors ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :during ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :causativeAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Organism :PhysicalForce :PhysicalObject :Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :interprets ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :EvaluationProcedure :ObservableEntity :LaboratoryProcedure ) ] ],
+        :Description .
+
+:Colors a owl:Class ;
+    rdfs:label "Colors"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 263714004 .
+
+:EvaluationProcedure a owl:Class ;
+    rdfs:label "Evaluation procedure"@en ;
+    rdfs:subClassOf :Procedure ;
+    :sctid 386053000 .
+
+:FindingValue a owl:Class ;
+    rdfs:label "Finding value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 260245000 .
+
+:HypersensitivityProcess a owl:Class ;
+    rdfs:label "Hypersensitivity process"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 472963003 .
+
+:InfectiousProcess a owl:Class ;
+    rdfs:label "Infectious process"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 441862004 .
+
+:LaboratoryProcedure a owl:Class ;
+    rdfs:label "Laboratory procedure"@en ;
+    rdfs:subClassOf :Procedure ;
+    :sctid 108252007 .
+
+:ObservableEntity a owl:Class ;
+    rdfs:label "Observable entity"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 363787002 .
+
+:PathologicalDevelopmentalProcess a owl:Class ;
+    rdfs:label "Pathological developmental process"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 308490002 .
+
+:PerformerOfMethod a owl:Class ;
+    rdfs:label "Performer of method"@en ;
+    rdfs:subClassOf :Person ;
+    :sctid 420158005 .
+
+:PeriodsOfLife a owl:Class ;
+    rdfs:label "Periods of life"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 282032007 .
+
+:PersonWithCharacteristicRelatedToSubjectOfRecord a owl:Class ;
+    rdfs:label "Person with characteristic related to subject of record"@en ;
+    rdfs:subClassOf :Person ;
+    :sctid 444018008 .
+
+:Process a owl:Class ;
+    rdfs:label "Process"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 719982003 .
+
+:ProliferationOfNeoplasm a owl:Class ;
+    rdfs:label "Proliferation of neoplasm"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 1495041000004108 .
+
+:SubjectOfRecordOrOtherProviderOfHistory a owl:Class ;
+    rdfs:label "Subject of record or other provider of history"@en ;
+    rdfs:subClassOf :Person ;
+    :sctid 419358007 .
+
+:associatedMorphology a owl:ObjectProperty ;
+    rdfs:label "associated morphology"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :MorphologicallyAbnormalStructure ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 116676008 .
+
+:before a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "before"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :after ;
+    :sctid 288556008 .
+
+:causativeAgent a owl:ObjectProperty ;
+    rdfs:label "causative agent"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246075003 .
+
+:characterizes a owl:ObjectProperty ;
+    rdfs:domain :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:clinicalCourse a owl:ObjectProperty ;
+    rdfs:label "clinical course"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :CourseType ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 263502005 .
+
+:dueTo a owl:ObjectProperty ;
+    rdfs:label "due to"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Eventuality ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 42752001 .
+
+:during a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "during"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Procedure ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 371881003 .
+
+:episodicity a owl:ObjectProperty ;
+    rdfs:label "episodicity"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :EpisodicityType ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246456000 .
+
+:findingInformer a owl:ObjectProperty ;
+    rdfs:label "finding informer"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 419066007 .
+
+:findingMethod a owl:ObjectProperty ;
+    rdfs:label "finding method"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 418775008 .
+
+:findingSite a owl:ObjectProperty ;
+    rdfs:label "finding site"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 363698007 .
+
+:hasInterpretation a owl:ObjectProperty ;
+    rdfs:label "has interpretation"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 363713009 .
+
+:hasRealization a owl:ObjectProperty ;
+    rdfs:label "has realization"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 719722006 .
+
+:interprets a owl:ObjectProperty ;
+    rdfs:label "interprets"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 363714003 .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
+
+:occurrence a owl:ObjectProperty ;
+    rdfs:label "occurrence"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :PeriodOfLife ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246454002 .
+
+:pathologicalProcess a owl:ObjectProperty ;
+    rdfs:label "pathological process"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :PathologicalProcess ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370135005 .
+
+:severity a owl:ObjectProperty ;
+    rdfs:label "severity"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :SeverityType ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246112005 .
+
+:temporallyRelatedTo a owl:ObjectProperty ;
+    rdfs:label "temporally related to"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Eventuality ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 726633004 .
+
+:BodyStructure a owl:Class ;
+    rdfs:label "Body Structure"@en,
+        "body structure"@en ;
+    rdfs:subClassOf :Entity .
+
+<https://w3id.org/hacid/onto/mdx/ClinicalFinding/> a owl:Ontology ;
+    owl:imports top: .
+
+:CourseType a owl:Class ;
+    rdfs:label "Course type"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 288524001 .
+
+:EpisodicityType a owl:Class ;
+    rdfs:label "Episodicity type"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 288526004 .
+
+:MorphologicallyAbnormalStructure a owl:Class ;
+    rdfs:label "Morphologically abnormal structure"@en ;
+    rdfs:subClassOf :BodyStructure ;
+    :sctid 49755003 .
+
+:Organism a owl:Class ;
+    rdfs:label "Organism"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 410607006 .
+
+:PhysicalForce a owl:Class ;
+    rdfs:label "Physical force"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 78621006 .
+
+:PhysicalObject a owl:Class ;
+    rdfs:label "Physical object"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 260787004 .
+
+:SeverityType a owl:Class ;
+    rdfs:label "Severity type"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 272141005 .
+
+:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 105590001 .
+
+:after a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "after"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 255234002 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf :Entity .
+
+:Person a owl:Class ;
+    rdfs:label "person"@en ;
+    rdfs:subClassOf :Entity .
+
+:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 272379006 .
+
+:ClinicalFinding a owl:Class ;
+    rdfs:label "Clinical finding"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ClinicalFindingDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 404684003 .
+
+:Procedure a owl:Class ;
+    rdfs:label "Procedure"@en,
+        "procedure"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 71388002 .
+
+:QualifierValue a owl:Class ;
+    rdfs:label "qualifier value"@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ClinicalFinding/> ;
+    rdfs:subClassOf :Entity .
+
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 47429007 .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ClinicalFinding/> .
+

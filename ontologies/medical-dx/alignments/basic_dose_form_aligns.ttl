@@ -1,0 +1,8 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/BasicDoseForm> owl:equivalentClass <http://snomed.info/id/736478001> .
+
+<https://w3id.org/hacid/onto/mdx/StateOfMatter> owl:equivalentClass <http://snomed.info/id/736471007> .
+
+<https://w3id.org/hacid/onto/mdx/hasStateOfMatter> owl:equivalentProperty <http://snomed.info/id/736518005> .
+

@@ -1,0 +1,22 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/BodyStructure> owl:equivalentClass <http://snomed.info/id/123037004> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalObject> owl:equivalentClass <http://snomed.info/id/260787004> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/hasAbsorbability> owl:equivalentProperty <http://snomed.info/id/1148969005> .
+
+<https://w3id.org/hacid/onto/mdx/hasCoatingMaterial> owl:equivalentProperty <http://snomed.info/id/1148967007> .
+
+<https://w3id.org/hacid/onto/mdx/hasCompositionalMaterial> owl:equivalentProperty <http://snomed.info/id/840560000> .
+
+<https://w3id.org/hacid/onto/mdx/hasDeviceIntendedSite> owl:equivalentProperty <http://snomed.info/id/836358009> .
+
+<https://w3id.org/hacid/onto/mdx/hasFilling> owl:equivalentProperty <http://snomed.info/id/827081001> .
+
+<https://w3id.org/hacid/onto/mdx/hasSurfaceTexture> owl:equivalentProperty <http://snomed.info/id/1148968002> .
+
+<https://w3id.org/hacid/onto/mdx/isSterile> owl:equivalentProperty <http://snomed.info/id/1148965004> .
+

@@ -1,0 +1,457 @@
+@prefix : <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
+
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
+
+:units a owl:DatatypeProperty ;
+    rdfs:label "units"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 246514001 .
+
+:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 272379006 .
+
+:NarrativeValue a owl:Class ;
+    rdfs:label "Narrative value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117364006 .
+
+:NominalValue a owl:Class ;
+    rdfs:label "Nominal value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117362005 .
+
+:ObservableEntityDescription a owl:Class ;
+    rdfs:label "Observable entity description"@en ;
+    rdfs:comment "The description of a Observable entity."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :ObservableEntity ],
+        [ a owl:Restriction ;
+            owl:onProperty :usingDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :inheresIn ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :Person :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :processExtendsTo ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :inherentLocation ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :precondition ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding :PreconditionValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :processActsOn ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :BodyStructure :Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :scaleType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :OrdinalValue :TextValue :OrdinalORQuantitativeValue :NarrativeValue :Qualitative :Quantitative :NominalValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :towards ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasRealization ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :Process :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :processAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :BodyStructure :PhysicalObject :Substance :Organism ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :relativeTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :relativeToPartOf ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :directSite ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :characterizes ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Process :Procedure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :component ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :processDuration ;
+            owl:someValuesFrom :TimeFrame ],
+        [ a owl:Restriction ;
+            owl:onProperty :timeAspect ;
+            owl:someValuesFrom :TimeFrame ],
+        [ a owl:Restriction ;
+            owl:onProperty :processOutput ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Process :Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :technique ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Technique :StagingAndScales ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :procedureDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :property ;
+            owl:someValuesFrom :Property ],
+        :Description .
+
+:OrdinalORQuantitativeValue a owl:Class ;
+    rdfs:label "Ordinal OR quantitative value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117365007 .
+
+:OrdinalValue a owl:Class ;
+    rdfs:label "Ordinal value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117363000 .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 125676002 .
+
+:PreconditionValue a owl:Class ;
+    rdfs:label "Precondition value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 703763000 .
+
+:Qualitative a owl:Class ;
+    rdfs:label "Qualitative"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 26716007 .
+
+:Quantitative a owl:Class ;
+    rdfs:label "Quantitative"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 30766002 .
+
+:StagingAndScales a owl:Class ;
+    rdfs:label "Staging and scales"@en ;
+    rdfs:subClassOf :StagingScale ;
+    :sctid 254291000 .
+
+:StagingScale a owl:Class ;
+    rdfs:label "staging scale"@en ;
+    rdfs:subClassOf :Entity .
+
+:TextValue a owl:Class ;
+    rdfs:label "Text value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117444000 .
+
+:component a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "component"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :ObservableEntity ;
+    rdfs:subPropertyOf :associatedWith,
+        :properPartOf ;
+    :sctid 246093002 .
+
+:directSite a owl:ObjectProperty ;
+    rdfs:label "direct site"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :AnatomicalOrAcquiredBodyStructure ;
+    rdfs:subPropertyOf :associatedSite,
+        :associatedWith ;
+    :sctid 704327008 .
+
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
+
+:hasRealization a owl:ObjectProperty ;
+    rdfs:label "has realization"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 719722006 .
+
+:inherentLocation a owl:ObjectProperty ;
+    rdfs:label "inherent location"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 718497002 .
+
+:inheresIn a owl:ObjectProperty ;
+    rdfs:label "inheres in"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704319004 .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
+
+:precondition a owl:ObjectProperty ;
+    rdfs:label "precondition"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Eventuality ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704326004 .
+
+:procedureDevice a owl:ObjectProperty ;
+    rdfs:label "procedure device"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 405815000 .
+
+:processActsOn a owl:ObjectProperty ;
+    rdfs:label "process acts on"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 1003735000 .
+
+:processAgent a owl:ObjectProperty ;
+    rdfs:label "process agent"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704322002 .
+
+:processDuration a owl:ObjectProperty ;
+    rdfs:label "process duration"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704323007 .
+
+:processExtendsTo a owl:ObjectProperty ;
+    rdfs:label "process extends to"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 1003703000 .
+
+:processOutput a owl:ObjectProperty ;
+    rdfs:label "process output"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704324001 .
+
+:property a owl:ObjectProperty ;
+    rdfs:label "property"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Property ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370130000 .
+
+:relativeTo a owl:ObjectProperty ;
+    rdfs:label "relative to"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704325000 .
+
+:relativeToPartOf a owl:ObjectProperty ;
+    rdfs:label "relative to part of"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 719715003 .
+
+:scaleType a owl:ObjectProperty ;
+    rdfs:label "scale type"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370132008 .
+
+:technique a owl:ObjectProperty ;
+    rdfs:label "technique"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Technique ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246501002 .
+
+:timeAspect a owl:ObjectProperty ;
+    rdfs:label "time aspect"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :TimeFrame ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370134009 .
+
+:towards a owl:ObjectProperty ;
+    rdfs:label "towards"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704320005 .
+
+:usingDevice a owl:ObjectProperty ;
+    rdfs:label "using device"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Device ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 424226004 .
+
+:ClinicalFinding a owl:Class ;
+    rdfs:label "Clinical finding"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 404684003 .
+
+<https://w3id.org/hacid/onto/mdx/ObservableEntity/> a owl:Ontology ;
+    owl:imports top: .
+
+:Property a owl:Class ;
+    rdfs:label "Property"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 118598001 .
+
+:Technique a owl:Class ;
+    rdfs:label "Technique"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 272394005 .
+
+:characterizes a owl:ObjectProperty ;
+    rdfs:label "characterizes"@en ;
+    rdfs:domain :Entity,
+        :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity,
+        :ObservableEntity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 704321009 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf :Entity .
+
+:Device a owl:Class ;
+    rdfs:label "Device"@en ;
+    rdfs:subClassOf :PhysicalObject ;
+    :sctid 49062001 .
+
+:ObservableEntity a owl:Class ;
+    rdfs:label "Observable entity"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ObservableEntityDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 363787002 .
+
+:Procedure a owl:Class ;
+    rdfs:label "Procedure"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 71388002 .
+
+:Process a owl:Class ;
+    rdfs:label "Process"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 719982003 .
+
+:TimeFrame a owl:Class ;
+    rdfs:label "Time frame"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 7389001 .
+
+:RecordArtifact a owl:Class ;
+    rdfs:label "Record artifact"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 419891008 .
+
+:Specimen a owl:Class ;
+    rdfs:label "Specimen"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 123038009 .
+
+:Organism a owl:Class ;
+    rdfs:label "Organism"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 410607006 .
+
+:PhysicalObject a owl:Class ;
+    rdfs:label "Physical object"@en,
+        "physical object"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 260787004 .
+
+:BodyStructure a owl:Class ;
+    rdfs:label "Body structure"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 123037004 .
+
+:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 105590001 .
+
+:QualifierValue a owl:Class ;
+    rdfs:label "qualifier value"@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ObservableEntity/> ;
+    rdfs:subClassOf :Entity .
+
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ObservableEntity/> .
+

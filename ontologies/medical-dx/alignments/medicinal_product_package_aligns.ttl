@@ -1,0 +1,16 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/MedicinalProduct> owl:equivalentClass <http://snomed.info/id/763158003> .
+
+<https://w3id.org/hacid/onto/mdx/MedicinalProductPackage> owl:equivalentClass <http://snomed.info/id/781405001> .
+
+<https://w3id.org/hacid/onto/mdx/UnitOfMeasure> owl:equivalentClass <http://snomed.info/id/767524001> .
+
+<https://w3id.org/hacid/onto/mdx/containsClinicalDrug> owl:equivalentProperty <http://snomed.info/id/774160008> .
+
+<https://w3id.org/hacid/onto/mdx/countOfClinicalDrugType> owl:equivalentProperty <http://snomed.info/id/1142143009> .
+
+<https://w3id.org/hacid/onto/mdx/hasPackSize> owl:equivalentProperty <http://snomed.info/id/1142142004> .
+
+<https://w3id.org/hacid/onto/mdx/hasPackSizeUnit> owl:equivalentProperty <http://snomed.info/id/774163005> .
+

@@ -1,0 +1,402 @@
+@prefix : <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:hasBasisOfStrengthSubstance a owl:DatatypeProperty ;
+    rdfs:label "has basis of strength substance"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 732943007 .
+
+:hasConcentrationStrengthDenominatorUnit a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength denominator unit"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 733722007 .
+
+:hasConcentrationStrengthNumeratorUnit a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength numerator unit"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 733725009 .
+
+:hasPresentationStrengthDenominatorUnit a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength denominator unit"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :UnitOfMeasure ;
+    rdfs:subPropertyOf :hasDataValue,
+        :hasUnitOfMeasure ;
+    :sctid 732947008 .
+
+:hasPresentationStrengthNumeratorUnit a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength numerator unit"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :UnitOfMeasure ;
+    rdfs:subPropertyOf :hasDataValue,
+        :hasUnitOfMeasure ;
+    :sctid 732945000 .
+
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
+
+:PharmaceuticalDoseForm a owl:Class ;
+    rdfs:label "Pharmaceutical dose form"@en ;
+    rdfs:subClassOf :DoseForm ;
+    :sctid 736542009 .
+
+:PharmaceuticalOrBiologicProduct a owl:Class ;
+    rdfs:label "Pharmaceutical or biologic product"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :PharmaceuticalOrBiologicProductDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 373873005 .
+
+:PharmaceuticalOrBiologicProductDescription a owl:Class ;
+    rdfs:label "Pharmaceutical or biologic product description"@en ;
+    rdfs:comment "The description of a Pharmaceutical or biologic product."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :playsRole ;
+            owl:someValuesFrom :Role ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasActiveIngredient ;
+            owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty :countOfBaseOfActiveIngredient ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasSupplier ;
+            owl:someValuesFrom :Supplier ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasPresentationStrengthDenominatorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasTargetPopulation ;
+            owl:someValuesFrom :ProductTargetPopulation ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :PharmaceuticalOrBiologicProduct ],
+        [ a owl:Restriction ;
+            owl:onProperty :unitOfPresentationSizeUnit ;
+            owl:someValuesFrom :UnitOfMeasure ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasIngredient ;
+            owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty :countOfActiveIngredient ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasPreciseActiveIngredient ;
+            owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasProductCharacteristic ;
+            owl:someValuesFrom :QualifierValue ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasConcentrationStrengthNumeratorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasPresentationStrengthNumeratorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasConcentrationStrengthDenominatorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasProductName ;
+            owl:someValuesFrom :ProductName ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasUnitOfPresentation ;
+            owl:someValuesFrom :UnitOfPresentation ],
+        [ a owl:Restriction ;
+            owl:onProperty :countOfBaseAndModificationPair ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty :unitOfPresentationSizeQuantity ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasManufacturedDoseForm ;
+            owl:someValuesFrom :PharmaceuticalDoseForm ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasIngredientQualitativeStrength ;
+            owl:someValuesFrom :IngredientQualitativeStrength ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasIngredientCharacteristic ;
+            owl:someValuesFrom :QualifierValue ],
+        :Description .
+
+:ProductTargetPopulation a owl:Class ;
+    rdfs:label "Product target population"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 27821000087106 .
+
+:characterizes a owl:ObjectProperty ;
+    rdfs:domain :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:countOfActiveIngredient a owl:DatatypeProperty ;
+    rdfs:label "count of active ingredient"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1142140007 .
+
+:countOfBaseAndModificationPair a owl:DatatypeProperty ;
+    rdfs:label "count of base and modification pair"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1142141006 .
+
+:countOfBaseOfActiveIngredient a owl:DatatypeProperty ;
+    rdfs:label "count of base of active ingredient"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1142139005 .
+
+:hasConcentrationStrengthDenominatorValue a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength denominator value"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1142137007 .
+
+:hasConcentrationStrengthNumeratorValue a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength numerator value"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1142138002 .
+
+:hasIngredientQualitativeStrength a owl:ObjectProperty ;
+    rdfs:label "has ingredient qualitative strength"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :IngredientQualitativeStrength ;
+    rdfs:subPropertyOf :associatedWith,
+        :hasIngredientCharacteristic ;
+    :sctid 1149366004 .
+
+:hasManufacturedDoseForm a owl:ObjectProperty ;
+    rdfs:label "has manufactured dose form"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :DoseForm ;
+    rdfs:subPropertyOf :associatedWith,
+        :hasDoseForm ;
+    :sctid 411116001 .
+
+:hasPreciseActiveIngredient a owl:ObjectProperty ;
+    rdfs:label "has precise active ingredient"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Substance ;
+    rdfs:subPropertyOf :associatedWith,
+        :hasActiveIngredient ;
+    :sctid 762949000 .
+
+:hasPresentationStrengthDenominatorValue a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength denominator value"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1142136003 .
+
+:hasPresentationStrengthNumeratorValue a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength numerator value"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1142135004 .
+
+:hasProductCharacteristic a owl:ObjectProperty ;
+    rdfs:label "has product characteristic"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith,
+        :isCharacterizedBy ;
+    :sctid 860781008 .
+
+:hasProductName a owl:ObjectProperty ;
+    rdfs:label "has product name"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :ProductName ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 774158006 .
+
+:hasSupplier a owl:ObjectProperty ;
+    rdfs:label "has supplier"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Supplier ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 774159003 .
+
+:hasTargetPopulation a owl:ObjectProperty ;
+    rdfs:label "has target population"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 1149367008 .
+
+:hasUnitOfPresentation a owl:ObjectProperty ;
+    rdfs:label "has unit of presentation"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :UnitOfPresentation ;
+    rdfs:subPropertyOf :associatedWith,
+        :hasUnitOfMeasure ;
+    :sctid 763032000 .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
+
+:playsRole a owl:ObjectProperty ;
+    rdfs:label "plays role"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Role ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 766939001 .
+
+:unitOfPresentationSizeQuantity a owl:DatatypeProperty ;
+    rdfs:label "unit of presentation size quantity"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 1148793005 .
+
+:unitOfPresentationSizeUnit a owl:ObjectProperty ;
+    rdfs:label "unit of presentation size unit"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :UnitOfMeasure ;
+    rdfs:subPropertyOf :associatedWith,
+        :hasUnitOfMeasure ;
+    :sctid 320091000221107 .
+
+:DoseForm a owl:Class ;
+    rdfs:label "dose form"@en ;
+    rdfs:subClassOf :Entity .
+
+:IngredientQualitativeStrength a owl:Class ;
+    rdfs:label "Ingredient qualitative strength"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 1149484003 .
+
+<https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/> a owl:Ontology ;
+    owl:imports top: .
+
+:ProductName a owl:Class ;
+    rdfs:label "Product name"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 774167006 .
+
+:Role a owl:Class ;
+    rdfs:label "Role"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 766940004 .
+
+:Supplier a owl:Class ;
+    rdfs:label "Supplier"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 774164004 .
+
+:UnitOfPresentation a owl:Class ;
+    rdfs:label "Unit of presentation"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 732935002 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:hasActiveIngredient a owl:ObjectProperty ;
+    rdfs:label "has active ingredient"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Substance ;
+    rdfs:subPropertyOf :associatedWith,
+        :hasIngredient ;
+    :sctid 127489000 .
+
+:hasIngredient a owl:ObjectProperty ;
+    rdfs:label "has ingredient"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Substance ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 762951001 .
+
+:hasIngredientCharacteristic a owl:ObjectProperty ;
+    rdfs:label "has ingredient characteristic"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith,
+        :isCharacterizedBy ;
+    :sctid 860779006 .
+
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf :Entity .
+
+:UnitOfMeasure a owl:Class ;
+    rdfs:label "Unit of measure"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 767524001 .
+
+:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 105590001 .
+
+:QualifierValue a owl:Class ;
+    rdfs:label "Qualifier value"@en,
+        "qualifier value"@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/> ;
+    rdfs:subClassOf :Entity ;
+    :sctid 362981000 .
+
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
+
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/> .
+

@@ -1,0 +1,249 @@
+@prefix : <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
+
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
+
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
+
+:BodyStructure a owl:Class ;
+    rdfs:label "Body structure"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 123037004 .
+
+:EvaluationProcedure a owl:Class ;
+    rdfs:label "Evaluation procedure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :EvaluationProcedureDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 386053000 .
+
+:EvaluationProcedureDescription a owl:Class ;
+    rdfs:label "Evaluation procedure description"@en ;
+    rdfs:comment "The description of a Evaluation procedure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :EvaluationProcedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasSpecimen ;
+            owl:someValuesFrom :Specimen ],
+        [ a owl:Restriction ;
+            owl:onProperty :property ;
+            owl:someValuesFrom :Property ],
+        [ a owl:Restriction ;
+            owl:onProperty :timeAspect ;
+            owl:someValuesFrom :TimeFrame ],
+        [ a owl:Restriction ;
+            owl:onProperty :scaleType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :OrdinalValue :TextValue :OrdinalORQuantitativeValue :NarrativeValue :Qualitative :Quantitative :NominalValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :component ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :measurementMethod ;
+            owl:someValuesFrom :LaboratoryProcedureCategorizedByMethod ],
+        :Description .
+
+:LaboratoryProcedureCategorizedByMethod a owl:Class ;
+    rdfs:label "Laboratory procedure categorized by method"@en ;
+    rdfs:subClassOf :Procedure ;
+    :sctid 127789004 .
+
+:NarrativeValue a owl:Class ;
+    rdfs:label "Narrative value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117364006 .
+
+:NominalValue a owl:Class ;
+    rdfs:label "Nominal value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117362005 .
+
+:OrdinalORQuantitativeValue a owl:Class ;
+    rdfs:label "Ordinal OR quantitative value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117365007 .
+
+:OrdinalValue a owl:Class ;
+    rdfs:label "Ordinal value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117363000 .
+
+:Organism a owl:Class ;
+    rdfs:label "Organism"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 410607006 .
+
+:PhysicalObject a owl:Class ;
+    rdfs:label "Physical object"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 260787004 .
+
+:Qualitative a owl:Class ;
+    rdfs:label "Qualitative"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 26716007 .
+
+:Quantitative a owl:Class ;
+    rdfs:label "Quantitative"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 30766002 .
+
+:RecordArtifact a owl:Class ;
+    rdfs:label "Record artifact"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 419891008 .
+
+:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 105590001 .
+
+:TextValue a owl:Class ;
+    rdfs:label "Text value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 117444000 .
+
+:characterizes a owl:ObjectProperty ;
+    rdfs:domain :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:component a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "component"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :ObservableEntity ;
+    rdfs:subPropertyOf :associatedWith,
+        :properPartOf ;
+    :sctid 246093002 .
+
+:hasSpecimen a owl:ObjectProperty ;
+    rdfs:label "has specimen"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Specimen ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 116686009 .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
+
+:measurementMethod a owl:ObjectProperty ;
+    rdfs:label "measurement method"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Procedure ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370129005 .
+
+:property a owl:ObjectProperty ;
+    rdfs:label "property"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Property ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370130000 .
+
+:scaleType a owl:ObjectProperty ;
+    rdfs:label "scale type"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370132008 .
+
+:timeAspect a owl:ObjectProperty ;
+    rdfs:label "time aspect"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :TimeFrame ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370134009 .
+
+<https://w3id.org/hacid/onto/mdx/EvaluationProcedure/> a owl:Ontology ;
+    owl:imports top: .
+
+:Procedure a owl:Class ;
+    rdfs:label "procedure"@en ;
+    rdfs:subClassOf :Entity .
+
+:Property a owl:Class ;
+    rdfs:label "Property"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 118598001 .
+
+:TimeFrame a owl:Class ;
+    rdfs:label "Time frame"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 7389001 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf :Entity .
+
+:Specimen a owl:Class ;
+    rdfs:label "Specimen"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 123038009 .
+
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity .
+
+:QualifierValue a owl:Class ;
+    rdfs:label "qualifier value"@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/EvaluationProcedure/> ;
+    rdfs:subClassOf :Entity .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/EvaluationProcedure/> .
+

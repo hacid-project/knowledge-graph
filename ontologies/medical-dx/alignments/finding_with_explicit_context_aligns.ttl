@@ -1,0 +1,14 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/ClinicalFinding> owl:equivalentClass <http://snomed.info/id/404684003> .
+
+<https://w3id.org/hacid/onto/mdx/Event> owl:equivalentClass <http://snomed.info/id/272379006> .
+
+<https://w3id.org/hacid/onto/mdx/FindingContextValue> owl:equivalentClass <http://snomed.info/id/410514004> .
+
+<https://w3id.org/hacid/onto/mdx/FindingWithExplicitContext> owl:equivalentClass <http://snomed.info/id/413350009> .
+
+<https://w3id.org/hacid/onto/mdx/associatedFinding> owl:equivalentProperty <http://snomed.info/id/246090004> .
+
+<https://w3id.org/hacid/onto/mdx/findingContext> owl:equivalentProperty <http://snomed.info/id/408729009> .
+

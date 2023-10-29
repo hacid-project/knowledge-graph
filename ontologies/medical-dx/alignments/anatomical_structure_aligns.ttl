@@ -1,0 +1,8 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/AnatomicalStructure> owl:equivalentClass <http://snomed.info/id/91723000> .
+
+<https://w3id.org/hacid/onto/mdx/Side> owl:equivalentClass <http://snomed.info/id/182353008> .
+
+<https://w3id.org/hacid/onto/mdx/laterality> owl:equivalentProperty <http://snomed.info/id/272741003> .
+

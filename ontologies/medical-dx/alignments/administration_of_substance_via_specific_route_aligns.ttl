@@ -1,0 +1,8 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/AdministrationOfSubstanceViaSpecificRoute> owl:equivalentClass <http://snomed.info/id/433590000> .
+
+<https://w3id.org/hacid/onto/mdx/RouteOfAdministrationValue> owl:equivalentClass <http://snomed.info/id/284009009> .
+
+<https://w3id.org/hacid/onto/mdx/routeOfAdministration> owl:equivalentProperty <http://snomed.info/id/410675002> .
+

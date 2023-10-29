@@ -1,0 +1,177 @@
+@prefix : <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
+
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
+
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
+
+:BodyStructureDescription a owl:Class ;
+    rdfs:label "Body structure description"@en ;
+    rdfs:comment "The description of a Body structure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :allOrPartOf ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :lateralHalfOf ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :isVasculatureOf ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :constitutionalPartOf ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :systemicPartOf ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :regionalPartOf ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :properPartOf ;
+            owl:someValuesFrom :BodyStructure ],
+        :Description .
+
+:characterizes a owl:ObjectProperty ;
+    rdfs:domain :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:constitutionalPartOf a owl:ObjectProperty ;
+    rdfs:label "constitutional part of"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith,
+        :properPartOf ;
+    :sctid 733931002 .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
+
+:isVasculatureOf a owl:ObjectProperty ;
+    rdfs:label "is vasculature of"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 1230370004 .
+
+:lateralHalfOf a owl:ObjectProperty ;
+    rdfs:label "lateral half of"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith,
+        :regionalPartOf ;
+    :sctid 733933004 .
+
+:systemicPartOf a owl:ObjectProperty ;
+    rdfs:label "systemic part of"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith,
+        :properPartOf ;
+    :sctid 733932009 .
+
+<https://w3id.org/hacid/onto/mdx/BodyStructure/> a owl:Ontology ;
+    owl:imports top: .
+
+:QualifierValue a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/BodyStructure/> ;
+    rdfs:subClassOf :Entity .
+
+:allOrPartOf a owl:ObjectProperty,
+        owl:ReflexiveProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "all or part of"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 733928003 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:regionalPartOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "regional part of"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith,
+        :properPartOf ;
+    :sctid 733930001 .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf :Entity .
+
+:properPartOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "proper part of"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :allOrPartOf,
+        :associatedWith ;
+    :sctid 774081006 .
+
+:BodyStructure a owl:Class ;
+    rdfs:label "Body structure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :BodyStructureDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 123037004 .
+
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/BodyStructure/> .
+

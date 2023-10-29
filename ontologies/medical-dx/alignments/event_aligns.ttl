@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/ClinicalFinding> owl:equivalentClass <http://snomed.info/id/404684003> .
+
+<https://w3id.org/hacid/onto/mdx/Event> owl:equivalentClass <http://snomed.info/id/272379006> .
+
+<https://w3id.org/hacid/onto/mdx/Organism> owl:equivalentClass <http://snomed.info/id/410607006> .
+
+<https://w3id.org/hacid/onto/mdx/PeriodsOfLife> owl:equivalentClass <http://snomed.info/id/282032007> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalForce> owl:equivalentClass <http://snomed.info/id/78621006> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalObject> owl:equivalentClass <http://snomed.info/id/260787004> .
+
+<https://w3id.org/hacid/onto/mdx/Procedure> owl:equivalentClass <http://snomed.info/id/71388002> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/after> owl:equivalentProperty <http://snomed.info/id/255234002> .
+
+<https://w3id.org/hacid/onto/mdx/associatedWith> owl:equivalentProperty <http://snomed.info/id/47429007> .
+
+<https://w3id.org/hacid/onto/mdx/before> owl:equivalentProperty <http://snomed.info/id/288556008> .
+
+<https://w3id.org/hacid/onto/mdx/causativeAgent> owl:equivalentProperty <http://snomed.info/id/246075003> .
+
+<https://w3id.org/hacid/onto/mdx/dueTo> owl:equivalentProperty <http://snomed.info/id/42752001> .
+
+<https://w3id.org/hacid/onto/mdx/during> owl:equivalentProperty <http://snomed.info/id/371881003> .
+
+<https://w3id.org/hacid/onto/mdx/occurrence> owl:equivalentProperty <http://snomed.info/id/246454002> .
+
+<https://w3id.org/hacid/onto/mdx/temporallyRelatedTo> owl:equivalentProperty <http://snomed.info/id/726633004> .
+

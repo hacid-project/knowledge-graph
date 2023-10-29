@@ -1,0 +1,96 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/AbnormalImmuneProcess> owl:equivalentClass <http://snomed.info/id/769247005> .
+
+<https://w3id.org/hacid/onto/mdx/AnatomicalOrAcquiredBodyStructure> owl:equivalentClass <http://snomed.info/id/442083009> .
+
+<https://w3id.org/hacid/onto/mdx/ClinicalFinding> owl:equivalentClass <http://snomed.info/id/404684003> .
+
+<https://w3id.org/hacid/onto/mdx/Colors> owl:equivalentClass <http://snomed.info/id/263714004> .
+
+<https://w3id.org/hacid/onto/mdx/CourseType> owl:equivalentClass <http://snomed.info/id/288524001> .
+
+<https://w3id.org/hacid/onto/mdx/Disorder> owl:equivalentClass <http://snomed.info/id/64572001> .
+
+<https://w3id.org/hacid/onto/mdx/EpisodicityType> owl:equivalentClass <http://snomed.info/id/288526004> .
+
+<https://w3id.org/hacid/onto/mdx/EvaluationProcedure> owl:equivalentClass <http://snomed.info/id/386053000> .
+
+<https://w3id.org/hacid/onto/mdx/Event> owl:equivalentClass <http://snomed.info/id/272379006> .
+
+<https://w3id.org/hacid/onto/mdx/FindingValue> owl:equivalentClass <http://snomed.info/id/260245000> .
+
+<https://w3id.org/hacid/onto/mdx/HypersensitivityProcess> owl:equivalentClass <http://snomed.info/id/472963003> .
+
+<https://w3id.org/hacid/onto/mdx/InfectiousProcess> owl:equivalentClass <http://snomed.info/id/441862004> .
+
+<https://w3id.org/hacid/onto/mdx/LaboratoryProcedure> owl:equivalentClass <http://snomed.info/id/108252007> .
+
+<https://w3id.org/hacid/onto/mdx/MorphologicallyAbnormalStructure> owl:equivalentClass <http://snomed.info/id/49755003> .
+
+<https://w3id.org/hacid/onto/mdx/ObservableEntity> owl:equivalentClass <http://snomed.info/id/363787002> .
+
+<https://w3id.org/hacid/onto/mdx/Organism> owl:equivalentClass <http://snomed.info/id/410607006> .
+
+<https://w3id.org/hacid/onto/mdx/PathologicalDevelopmentalProcess> owl:equivalentClass <http://snomed.info/id/308490002> .
+
+<https://w3id.org/hacid/onto/mdx/PerformerOfMethod> owl:equivalentClass <http://snomed.info/id/420158005> .
+
+<https://w3id.org/hacid/onto/mdx/PeriodsOfLife> owl:equivalentClass <http://snomed.info/id/282032007> .
+
+<https://w3id.org/hacid/onto/mdx/PersonWithCharacteristicRelatedToSubjectOfRecord> owl:equivalentClass <http://snomed.info/id/444018008> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalForce> owl:equivalentClass <http://snomed.info/id/78621006> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalObject> owl:equivalentClass <http://snomed.info/id/260787004> .
+
+<https://w3id.org/hacid/onto/mdx/Procedure> owl:equivalentClass <http://snomed.info/id/71388002> .
+
+<https://w3id.org/hacid/onto/mdx/Process> owl:equivalentClass <http://snomed.info/id/719982003> .
+
+<https://w3id.org/hacid/onto/mdx/ProliferationOfNeoplasm> owl:equivalentClass <http://snomed.info/id/1495041000004108> .
+
+<https://w3id.org/hacid/onto/mdx/SeverityType> owl:equivalentClass <http://snomed.info/id/272141005> .
+
+<https://w3id.org/hacid/onto/mdx/SubjectOfRecordOrOtherProviderOfHistory> owl:equivalentClass <http://snomed.info/id/419358007> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/after> owl:equivalentProperty <http://snomed.info/id/255234002> .
+
+<https://w3id.org/hacid/onto/mdx/associatedMorphology> owl:equivalentProperty <http://snomed.info/id/116676008> .
+
+<https://w3id.org/hacid/onto/mdx/associatedWith> owl:equivalentProperty <http://snomed.info/id/47429007> .
+
+<https://w3id.org/hacid/onto/mdx/before> owl:equivalentProperty <http://snomed.info/id/288556008> .
+
+<https://w3id.org/hacid/onto/mdx/causativeAgent> owl:equivalentProperty <http://snomed.info/id/246075003> .
+
+<https://w3id.org/hacid/onto/mdx/clinicalCourse> owl:equivalentProperty <http://snomed.info/id/263502005> .
+
+<https://w3id.org/hacid/onto/mdx/dueTo> owl:equivalentProperty <http://snomed.info/id/42752001> .
+
+<https://w3id.org/hacid/onto/mdx/during> owl:equivalentProperty <http://snomed.info/id/371881003> .
+
+<https://w3id.org/hacid/onto/mdx/episodicity> owl:equivalentProperty <http://snomed.info/id/246456000> .
+
+<https://w3id.org/hacid/onto/mdx/findingInformer> owl:equivalentProperty <http://snomed.info/id/419066007> .
+
+<https://w3id.org/hacid/onto/mdx/findingMethod> owl:equivalentProperty <http://snomed.info/id/418775008> .
+
+<https://w3id.org/hacid/onto/mdx/findingSite> owl:equivalentProperty <http://snomed.info/id/363698007> .
+
+<https://w3id.org/hacid/onto/mdx/hasInterpretation> owl:equivalentProperty <http://snomed.info/id/363713009> .
+
+<https://w3id.org/hacid/onto/mdx/hasRealization> owl:equivalentProperty <http://snomed.info/id/719722006> .
+
+<https://w3id.org/hacid/onto/mdx/interprets> owl:equivalentProperty <http://snomed.info/id/363714003> .
+
+<https://w3id.org/hacid/onto/mdx/occurrence> owl:equivalentProperty <http://snomed.info/id/246454002> .
+
+<https://w3id.org/hacid/onto/mdx/pathologicalProcess> owl:equivalentProperty <http://snomed.info/id/370135005> .
+
+<https://w3id.org/hacid/onto/mdx/severity> owl:equivalentProperty <http://snomed.info/id/246112005> .
+
+<https://w3id.org/hacid/onto/mdx/temporallyRelatedTo> owl:equivalentProperty <http://snomed.info/id/726633004> .
+

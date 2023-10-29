@@ -1,0 +1,10 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/Disposition> owl:equivalentClass <http://snomed.info/id/726711005> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/hasDisposition> owl:equivalentProperty <http://snomed.info/id/726542003> .
+
+<https://w3id.org/hacid/onto/mdx/isModificationOf> owl:equivalentProperty <http://snomed.info/id/738774007> .
+

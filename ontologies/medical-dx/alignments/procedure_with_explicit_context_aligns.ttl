@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/ContextValuesForActions> owl:equivalentClass <http://snomed.info/id/288532009> .
+
+<https://w3id.org/hacid/onto/mdx/Procedure> owl:equivalentClass <http://snomed.info/id/71388002> .
+
+<https://w3id.org/hacid/onto/mdx/ProcedureWithExplicitContext> owl:equivalentClass <http://snomed.info/id/129125009> .
+
+<https://w3id.org/hacid/onto/mdx/associatedProcedure> owl:equivalentProperty <http://snomed.info/id/363589002> .
+
+<https://w3id.org/hacid/onto/mdx/procedureContext> owl:equivalentProperty <http://snomed.info/id/408730004> .
+

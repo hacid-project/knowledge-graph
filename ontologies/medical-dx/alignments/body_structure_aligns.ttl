@@ -1,0 +1,18 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/BodyStructure> owl:equivalentClass <http://snomed.info/id/123037004> .
+
+<https://w3id.org/hacid/onto/mdx/allOrPartOf> owl:equivalentProperty <http://snomed.info/id/733928003> .
+
+<https://w3id.org/hacid/onto/mdx/constitutionalPartOf> owl:equivalentProperty <http://snomed.info/id/733931002> .
+
+<https://w3id.org/hacid/onto/mdx/isVasculatureOf> owl:equivalentProperty <http://snomed.info/id/1230370004> .
+
+<https://w3id.org/hacid/onto/mdx/lateralHalfOf> owl:equivalentProperty <http://snomed.info/id/733933004> .
+
+<https://w3id.org/hacid/onto/mdx/properPartOf> owl:equivalentProperty <http://snomed.info/id/774081006> .
+
+<https://w3id.org/hacid/onto/mdx/regionalPartOf> owl:equivalentProperty <http://snomed.info/id/733930001> .
+
+<https://w3id.org/hacid/onto/mdx/systemicPartOf> owl:equivalentProperty <http://snomed.info/id/733932009> .
+

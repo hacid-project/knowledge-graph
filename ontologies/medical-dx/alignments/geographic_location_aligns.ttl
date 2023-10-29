@@ -1,0 +1,4 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/GeographicLocation> owl:equivalentClass <http://snomed.info/id/223496003> .
+

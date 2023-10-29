@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/Person> owl:equivalentClass <http://snomed.info/id/125676002> .
+
+<https://w3id.org/hacid/onto/mdx/SituationWithExplicitContext> owl:equivalentClass <http://snomed.info/id/243796009> .
+
+<https://w3id.org/hacid/onto/mdx/TemporalContextValue> owl:equivalentClass <http://snomed.info/id/410510008> .
+
+<https://w3id.org/hacid/onto/mdx/subjectRelationshipContext> owl:equivalentProperty <http://snomed.info/id/408732007> .
+
+<https://w3id.org/hacid/onto/mdx/temporalContext> owl:equivalentProperty <http://snomed.info/id/408731000> .
+

@@ -1,0 +1,76 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/IngredientQualitativeStrength> owl:equivalentClass <http://snomed.info/id/1149484003> .
+
+<https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm> owl:equivalentClass <http://snomed.info/id/736542009> .
+
+<https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct> owl:equivalentClass <http://snomed.info/id/373873005> .
+
+<https://w3id.org/hacid/onto/mdx/ProductName> owl:equivalentClass <http://snomed.info/id/774167006> .
+
+<https://w3id.org/hacid/onto/mdx/ProductTargetPopulation> owl:equivalentClass <http://snomed.info/id/27821000087106> .
+
+<https://w3id.org/hacid/onto/mdx/QualifierValue> owl:equivalentClass <http://snomed.info/id/362981000> .
+
+<https://w3id.org/hacid/onto/mdx/Role> owl:equivalentClass <http://snomed.info/id/766940004> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/Supplier> owl:equivalentClass <http://snomed.info/id/774164004> .
+
+<https://w3id.org/hacid/onto/mdx/UnitOfMeasure> owl:equivalentClass <http://snomed.info/id/767524001> .
+
+<https://w3id.org/hacid/onto/mdx/UnitOfPresentation> owl:equivalentClass <http://snomed.info/id/732935002> .
+
+<https://w3id.org/hacid/onto/mdx/countOfActiveIngredient> owl:equivalentProperty <http://snomed.info/id/1142140007> .
+
+<https://w3id.org/hacid/onto/mdx/countOfBaseAndModificationPair> owl:equivalentProperty <http://snomed.info/id/1142141006> .
+
+<https://w3id.org/hacid/onto/mdx/countOfBaseOfActiveIngredient> owl:equivalentProperty <http://snomed.info/id/1142139005> .
+
+<https://w3id.org/hacid/onto/mdx/hasActiveIngredient> owl:equivalentProperty <http://snomed.info/id/127489000> .
+
+<https://w3id.org/hacid/onto/mdx/hasBasisOfStrengthSubstance> owl:equivalentProperty <http://snomed.info/id/732943007> .
+
+<https://w3id.org/hacid/onto/mdx/hasConcentrationStrengthDenominatorUnit> owl:equivalentProperty <http://snomed.info/id/733722007> .
+
+<https://w3id.org/hacid/onto/mdx/hasConcentrationStrengthDenominatorValue> owl:equivalentProperty <http://snomed.info/id/1142137007> .
+
+<https://w3id.org/hacid/onto/mdx/hasConcentrationStrengthNumeratorUnit> owl:equivalentProperty <http://snomed.info/id/733725009> .
+
+<https://w3id.org/hacid/onto/mdx/hasConcentrationStrengthNumeratorValue> owl:equivalentProperty <http://snomed.info/id/1142138002> .
+
+<https://w3id.org/hacid/onto/mdx/hasIngredient> owl:equivalentProperty <http://snomed.info/id/762951001> .
+
+<https://w3id.org/hacid/onto/mdx/hasIngredientCharacteristic> owl:equivalentProperty <http://snomed.info/id/860779006> .
+
+<https://w3id.org/hacid/onto/mdx/hasIngredientQualitativeStrength> owl:equivalentProperty <http://snomed.info/id/1149366004> .
+
+<https://w3id.org/hacid/onto/mdx/hasManufacturedDoseForm> owl:equivalentProperty <http://snomed.info/id/411116001> .
+
+<https://w3id.org/hacid/onto/mdx/hasPreciseActiveIngredient> owl:equivalentProperty <http://snomed.info/id/762949000> .
+
+<https://w3id.org/hacid/onto/mdx/hasPresentationStrengthDenominatorUnit> owl:equivalentProperty <http://snomed.info/id/732947008> .
+
+<https://w3id.org/hacid/onto/mdx/hasPresentationStrengthDenominatorValue> owl:equivalentProperty <http://snomed.info/id/1142136003> .
+
+<https://w3id.org/hacid/onto/mdx/hasPresentationStrengthNumeratorUnit> owl:equivalentProperty <http://snomed.info/id/732945000> .
+
+<https://w3id.org/hacid/onto/mdx/hasPresentationStrengthNumeratorValue> owl:equivalentProperty <http://snomed.info/id/1142135004> .
+
+<https://w3id.org/hacid/onto/mdx/hasProductCharacteristic> owl:equivalentProperty <http://snomed.info/id/860781008> .
+
+<https://w3id.org/hacid/onto/mdx/hasProductName> owl:equivalentProperty <http://snomed.info/id/774158006> .
+
+<https://w3id.org/hacid/onto/mdx/hasSupplier> owl:equivalentProperty <http://snomed.info/id/774159003> .
+
+<https://w3id.org/hacid/onto/mdx/hasTargetPopulation> owl:equivalentProperty <http://snomed.info/id/1149367008> .
+
+<https://w3id.org/hacid/onto/mdx/hasUnitOfPresentation> owl:equivalentProperty <http://snomed.info/id/763032000> .
+
+<https://w3id.org/hacid/onto/mdx/playsRole> owl:equivalentProperty <http://snomed.info/id/766939001> .
+
+<https://w3id.org/hacid/onto/mdx/unitOfPresentationSizeQuantity> owl:equivalentProperty <http://snomed.info/id/1148793005> .
+
+<https://w3id.org/hacid/onto/mdx/unitOfPresentationSizeUnit> owl:equivalentProperty <http://snomed.info/id/320091000221107> .
+

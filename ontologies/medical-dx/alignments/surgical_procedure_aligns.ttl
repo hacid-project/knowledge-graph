@@ -1,0 +1,8 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/ProceduralApproach> owl:equivalentClass <http://snomed.info/id/103379005> .
+
+<https://w3id.org/hacid/onto/mdx/SurgicalProcedure> owl:equivalentClass <http://snomed.info/id/387713003> .
+
+<https://w3id.org/hacid/onto/mdx/surgicalApproach> owl:equivalentProperty <http://snomed.info/id/424876005> .
+

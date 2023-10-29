@@ -1,0 +1,2407 @@
+@prefix ns1: <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:hasAbsorbability a owl:DatatypeProperty ;
+    rdfs:label "has absorbability"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1148969005 .
+
+ns1:hasBasisOfStrengthSubstance a owl:DatatypeProperty ;
+    rdfs:label "has basis of strength substance"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 732943007 .
+
+ns1:hasCoatingMaterial a owl:DatatypeProperty ;
+    rdfs:label "has coating material"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1148967007 .
+
+ns1:hasConcentrationStrengthDenominatorUnit a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength denominator unit"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 733722007 .
+
+ns1:hasConcentrationStrengthNumeratorUnit a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength numerator unit"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 733725009 .
+
+ns1:hasIntent a owl:DatatypeProperty ;
+    rdfs:label "has intent"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 363703001 .
+
+ns1:hasPresentationStrengthDenominatorUnit a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength denominator unit"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:UnitOfMeasure ;
+    rdfs:subPropertyOf ns1:hasDataValue,
+        ns1:hasUnitOfMeasure ;
+    ns1:sctid 732947008 .
+
+ns1:hasPresentationStrengthNumeratorUnit a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength numerator unit"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:UnitOfMeasure ;
+    rdfs:subPropertyOf ns1:hasDataValue,
+        ns1:hasUnitOfMeasure ;
+    ns1:sctid 732945000 .
+
+ns1:hasSurfaceTexture a owl:DatatypeProperty ;
+    rdfs:label "has surface texture"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1148968002 .
+
+ns1:isSterile a owl:DatatypeProperty ;
+    rdfs:label "is sterile"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1148965004 .
+
+ns1:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy ns1: .
+
+ns1:units a owl:DatatypeProperty ;
+    rdfs:label "units"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 246514001 .
+
+ns1:AdministrationMethod a owl:Class ;
+    rdfs:label "administration method"@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:AdministrationOfSubstanceViaSpecificRoute a owl:Class ;
+    rdfs:label "Administration of substance via specific route"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:AdministrationOfSubstanceViaSpecificRouteDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 433590000 .
+
+ns1:AdministrationOfSubstanceViaSpecificRouteDescription a owl:Class ;
+    rdfs:label "Administration of substance via specific route description"@en ;
+    rdfs:comment "The description of a Administration of substance via specific route."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:AdministrationOfSubstanceViaSpecificRoute ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:routeOfAdministration ;
+            owl:someValuesFrom ns1:RouteOfAdministrationValue ],
+        ns1:Description .
+
+ns1:AnatomicalStructure a owl:Class ;
+    rdfs:label "Anatomical structure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:AnatomicalStructureDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 91723000 .
+
+ns1:AnatomicalStructureDescription a owl:Class ;
+    rdfs:label "Anatomical structure description"@en ;
+    rdfs:comment "The description of a Anatomical structure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:laterality ;
+            owl:someValuesFrom ns1:Side ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:AnatomicalStructure ],
+        ns1:Description .
+
+ns1:BasicDoseFormDescription a owl:Class ;
+    rdfs:label "Basic dose form description"@en ;
+    rdfs:comment "The description of a Basic dose form."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:BasicDoseForm ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasStateOfMatter ;
+            owl:someValuesFrom ns1:StateOfMatter ],
+        ns1:Description .
+
+ns1:BodyStructureDescription a owl:Class ;
+    rdfs:label "Body structure description"@en ;
+    rdfs:comment "The description of a Body structure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:allOrPartOf ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:lateralHalfOf ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:isVasculatureOf ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:constitutionalPartOf ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:systemicPartOf ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:regionalPartOf ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:properPartOf ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        ns1:Description .
+
+ns1:ClinicalFindingDescription a owl:Class ;
+    rdfs:label "Clinical finding description"@en ;
+    rdfs:comment "The description of a Clinical finding."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:associatedWith ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ns1:Organism ns1:PhysicalObject ns1:Substance ns1:Event ns1:PhysicalForce ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:severity ;
+            owl:someValuesFrom ns1:SeverityType ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:clinicalCourse ;
+            owl:someValuesFrom ns1:CourseType ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:pathologicalProcess ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:InfectiousProcess ns1:HypersensitivityProcess ns1:PathologicalDevelopmentalProcess ns1:ProliferationOfNeoplasm ns1:AbnormalImmuneProcess ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:occurrence ;
+            owl:someValuesFrom ns1:PeriodsOfLife ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasRealization ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:Process ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:findingInformer ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:PersonWithCharacteristicRelatedToSubjectOfRecord ns1:PerformerOfMethod ns1:SubjectOfRecordOrOtherProviderOfHistory ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:before ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:ClinicalFinding ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:after ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:associatedMorphology ;
+            owl:someValuesFrom ns1:MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:temporallyRelatedTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:findingSite ;
+            owl:someValuesFrom ns1:AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:dueTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:episodicity ;
+            owl:someValuesFrom ns1:EpisodicityType ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:findingMethod ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasInterpretation ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:FindingValue ns1:Colors ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:during ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:causativeAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Organism ns1:PhysicalForce ns1:PhysicalObject ns1:Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:interprets ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:EvaluationProcedure ns1:ObservableEntity ns1:LaboratoryProcedure ) ] ],
+        ns1:Description .
+
+ns1:Disorder a owl:Class ;
+    rdfs:label "Disorder"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:DisorderDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 64572001 .
+
+ns1:DisorderDescription a owl:Class ;
+    rdfs:label "Disorder description"@en ;
+    rdfs:comment "The description of a Disorder."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:findingSite ;
+            owl:someValuesFrom ns1:AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:findingInformer ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:PersonWithCharacteristicRelatedToSubjectOfRecord ns1:PerformerOfMethod ns1:SubjectOfRecordOrOtherProviderOfHistory ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:severity ;
+            owl:someValuesFrom ns1:SeverityType ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasInterpretation ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:FindingValue ns1:Colors ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:temporallyRelatedTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:during ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:interprets ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:EvaluationProcedure ns1:ObservableEntity ns1:LaboratoryProcedure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:occurrence ;
+            owl:someValuesFrom ns1:PeriodsOfLife ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:causativeAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Organism ns1:PhysicalForce ns1:PhysicalObject ns1:Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:after ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:associatedWith ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ns1:Organism ns1:PhysicalObject ns1:Substance ns1:Event ns1:PhysicalForce ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:episodicity ;
+            owl:someValuesFrom ns1:EpisodicityType ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasRealization ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:Process ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:clinicalCourse ;
+            owl:someValuesFrom ns1:CourseType ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:dueTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:Disorder ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:associatedMorphology ;
+            owl:someValuesFrom ns1:MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:pathologicalProcess ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:InfectiousProcess ns1:HypersensitivityProcess ns1:PathologicalDevelopmentalProcess ns1:ProliferationOfNeoplasm ns1:AbnormalImmuneProcess ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:before ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:findingMethod ;
+            owl:someValuesFrom ns1:Procedure ],
+        ns1:Description .
+
+ns1:DoseFormAdministrationMethod a owl:Class ;
+    rdfs:label "Dose form administration method"@en ;
+    rdfs:subClassOf ns1:AdministrationMethod ;
+    ns1:sctid 736665006 .
+
+ns1:DoseFormIntendedSite a owl:Class ;
+    rdfs:label "Dose form intended site"@en ;
+    rdfs:subClassOf ns1:IntendedSite ;
+    ns1:sctid 736479009 .
+
+ns1:DoseFormReleaseCharacteristic a owl:Class ;
+    rdfs:label "Dose form release characteristic"@en ;
+    rdfs:subClassOf ns1:ReleaseCharacteristic ;
+    ns1:sctid 736480007 .
+
+ns1:DoseFormTransformation a owl:Class ;
+    rdfs:label "Dose form transformation"@en ;
+    rdfs:subClassOf ns1:Transformation ;
+    ns1:sctid 736477006 .
+
+ns1:Environment a owl:Class ;
+    rdfs:label "Environment"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 276339004 .
+
+ns1:EvaluationProcedureDescription a owl:Class ;
+    rdfs:label "Evaluation procedure description"@en ;
+    rdfs:comment "The description of a Evaluation procedure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:EvaluationProcedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasSpecimen ;
+            owl:someValuesFrom ns1:Specimen ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:property ;
+            owl:someValuesFrom ns1:Property ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:timeAspect ;
+            owl:someValuesFrom ns1:TimeFrame ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:scaleType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:OrdinalValue ns1:TextValue ns1:OrdinalORQuantitativeValue ns1:NarrativeValue ns1:Qualitative ns1:Quantitative ns1:NominalValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:component ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:measurementMethod ;
+            owl:someValuesFrom ns1:LaboratoryProcedureCategorizedByMethod ],
+        ns1:Description .
+
+ns1:EventDescription a owl:Class ;
+    rdfs:label "Event description"@en ;
+    rdfs:comment "The description of a Event."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:before ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:during ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:temporallyRelatedTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:dueTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:associatedWith ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ns1:Organism ns1:PhysicalObject ns1:Substance ns1:Event ns1:PhysicalForce ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:after ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:Event ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:causativeAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Organism ns1:PhysicalForce ns1:PhysicalObject ns1:Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:occurrence ;
+            owl:someValuesFrom ns1:PeriodsOfLife ],
+        ns1:Description .
+
+ns1:FindingContextValue a owl:Class ;
+    rdfs:label "Finding context value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 410514004 .
+
+ns1:FindingWithExplicitContext a owl:Class ;
+    rdfs:label "Finding with explicit context"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:FindingWithExplicitContextDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 413350009 .
+
+ns1:FindingWithExplicitContextDescription a owl:Class ;
+    rdfs:label "Finding with explicit context description"@en ;
+    rdfs:comment "The description of a Finding with explicit context."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:FindingWithExplicitContext ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:findingContext ;
+            owl:someValuesFrom ns1:FindingContextValue ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:associatedFinding ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:ClinicalFinding ) ] ],
+        ns1:Description .
+
+ns1:GeographicLocation a owl:Class ;
+    rdfs:label "Geographic location"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:GeographicLocationDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 223496003 .
+
+ns1:GeographicLocationDescription a owl:Class ;
+    rdfs:label "Geographic location description"@en ;
+    rdfs:comment "The description of a Geographic location."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:GeographicLocation ],
+        ns1:Description .
+
+ns1:Group a owl:Class ;
+    rdfs:label "Group"@en ;
+    rdfs:subClassOf ns1:SocialConcept ;
+    ns1:sctid 389109008 .
+
+ns1:IntendedSite a owl:Class ;
+    rdfs:label "intended site"@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:LaboratoryProcedureCategorizedByMethod a owl:Class ;
+    rdfs:label "Laboratory procedure categorized by method"@en ;
+    rdfs:subClassOf ns1:Procedure ;
+    ns1:sctid 127789004 .
+
+ns1:MedicinalProduct a owl:Class ;
+    rdfs:label "Medicinal product"@en ;
+    rdfs:subClassOf ns1:Product ;
+    ns1:sctid 763158003 .
+
+ns1:MedicinalProductPackage a owl:Class ;
+    rdfs:label "Medicinal product package"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:MedicinalProductPackageDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 781405001 .
+
+ns1:MedicinalProductPackageDescription a owl:Class ;
+    rdfs:label "Medicinal product package description"@en ;
+    rdfs:comment "The description of a Medicinal product package."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:containsClinicalDrug ;
+            owl:someValuesFrom ns1:MedicinalProduct ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:MedicinalProductPackage ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasPackSize ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasPackSizeUnit ;
+            owl:someValuesFrom ns1:UnitOfMeasure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:countOfClinicalDrugType ;
+            owl:someValuesFrom xsd:integer ],
+        ns1:Description .
+
+ns1:ObservableEntityDescription a owl:Class ;
+    rdfs:label "Observable entity description"@en ;
+    rdfs:comment "The description of a Observable entity."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:ObservableEntity ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:usingDevice ;
+            owl:someValuesFrom ns1:Device ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:inheresIn ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:Person ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:processExtendsTo ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:inherentLocation ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:precondition ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ns1:PreconditionValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:processActsOn ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:BodyStructure ns1:Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:scaleType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:OrdinalValue ns1:TextValue ns1:OrdinalORQuantitativeValue ns1:NarrativeValue ns1:Qualitative ns1:Quantitative ns1:NominalValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:towards ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasRealization ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Event ns1:Procedure ns1:Process ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:processAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:BodyStructure ns1:PhysicalObject ns1:Substance ns1:Organism ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:relativeTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:relativeToPartOf ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:directSite ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:characterizes ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Process ns1:Procedure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:component ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Specimen ns1:RecordArtifact ns1:Organism ns1:PhysicalObject ns1:Substance ns1:BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:processDuration ;
+            owl:someValuesFrom ns1:TimeFrame ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:timeAspect ;
+            owl:someValuesFrom ns1:TimeFrame ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:processOutput ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Process ns1:Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:technique ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Technique ns1:StagingAndScales ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:procedureDevice ;
+            owl:someValuesFrom ns1:Device ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:property ;
+            owl:someValuesFrom ns1:Property ],
+        ns1:Description .
+
+ns1:PartOfMultistageProcedure a owl:Class ;
+    rdfs:label "Part of multistage procedure"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 257958009 .
+
+ns1:PharmaceuticalDoseFormDescription a owl:Class ;
+    rdfs:label "Pharmaceutical dose form description"@en ;
+    rdfs:comment "The description of a Pharmaceutical dose form."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:hasDoseFormIntendedSite ;
+            owl:someValuesFrom ns1:DoseFormIntendedSite ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:PharmaceuticalDoseForm ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasDoseFormAdministrationMethod ;
+            owl:someValuesFrom ns1:DoseFormAdministrationMethod ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasBasicDoseForm ;
+            owl:someValuesFrom ns1:BasicDoseForm ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasDoseFormTransformation ;
+            owl:someValuesFrom ns1:DoseFormTransformation ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasDoseFormReleaseCharacteristic ;
+            owl:someValuesFrom ns1:DoseFormReleaseCharacteristic ],
+        ns1:Description .
+
+ns1:PharmaceuticalOrBiologicProduct a owl:Class ;
+    rdfs:label "Pharmaceutical or biologic product"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:PharmaceuticalOrBiologicProductDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 373873005 .
+
+ns1:PharmaceuticalOrBiologicProductDescription a owl:Class ;
+    rdfs:label "Pharmaceutical or biologic product description"@en ;
+    rdfs:comment "The description of a Pharmaceutical or biologic product."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:playsRole ;
+            owl:someValuesFrom ns1:Role ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasActiveIngredient ;
+            owl:someValuesFrom ns1:Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:countOfBaseOfActiveIngredient ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasSupplier ;
+            owl:someValuesFrom ns1:Supplier ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasPresentationStrengthDenominatorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasTargetPopulation ;
+            owl:someValuesFrom ns1:ProductTargetPopulation ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:PharmaceuticalOrBiologicProduct ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:unitOfPresentationSizeUnit ;
+            owl:someValuesFrom ns1:UnitOfMeasure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasIngredient ;
+            owl:someValuesFrom ns1:Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:countOfActiveIngredient ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasPreciseActiveIngredient ;
+            owl:someValuesFrom ns1:Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasProductCharacteristic ;
+            owl:someValuesFrom ns1:QualifierValue ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasConcentrationStrengthNumeratorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasPresentationStrengthNumeratorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasConcentrationStrengthDenominatorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasProductName ;
+            owl:someValuesFrom ns1:ProductName ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasUnitOfPresentation ;
+            owl:someValuesFrom ns1:UnitOfPresentation ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:countOfBaseAndModificationPair ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:unitOfPresentationSizeQuantity ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasManufacturedDoseForm ;
+            owl:someValuesFrom ns1:PharmaceuticalDoseForm ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasIngredientQualitativeStrength ;
+            owl:someValuesFrom ns1:IngredientQualitativeStrength ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasIngredientCharacteristic ;
+            owl:someValuesFrom ns1:QualifierValue ],
+        ns1:Description .
+
+ns1:PhysicalForceDescription a owl:Class ;
+    rdfs:label "Physical force description"@en ;
+    rdfs:comment "The description of a Physical force."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:PhysicalForce ],
+        ns1:Description .
+
+ns1:PhysicalObjectDescription a owl:Class ;
+    rdfs:label "Physical object description"@en ;
+    rdfs:comment "The description of a Physical object."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:hasFilling ;
+            owl:someValuesFrom ns1:Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:PhysicalObject ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasDeviceIntendedSite ;
+            owl:someValuesFrom ns1:BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasCompositionalMaterial ;
+            owl:someValuesFrom ns1:Substance ],
+        ns1:Description .
+
+ns1:PreconditionValue a owl:Class ;
+    rdfs:label "Precondition value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 703763000 .
+
+ns1:PrimaryOperation a owl:Class ;
+    rdfs:label "Primary operation"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 261424001 .
+
+ns1:ProcedureDescription a owl:Class ;
+    rdfs:label "Procedure description"@en ;
+    rdfs:comment "The description of a Procedure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:usingSubstance ;
+            owl:someValuesFrom ns1:Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:directSubstance ;
+            owl:someValuesFrom ns1:Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:usingEnergy ;
+            owl:someValuesFrom ns1:PhysicalForce ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:procedureDevice ;
+            owl:someValuesFrom ns1:Device ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:usingAccessDevice ;
+            owl:someValuesFrom ns1:Device ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:indirectProcedureSite ;
+            owl:someValuesFrom ns1:AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:indirectDevice ;
+            owl:someValuesFrom ns1:Device ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:usingDevice ;
+            owl:someValuesFrom ns1:Device ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:revisionStatus ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:PartOfMultistageProcedure ns1:PrimaryOperation ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:directDevice ;
+            owl:someValuesFrom ns1:Device ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:priority ;
+            owl:someValuesFrom ns1:PriorityLevel ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasFocus ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Procedure ns1:ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:procedureMorphology ;
+            owl:someValuesFrom ns1:MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:access ;
+            owl:someValuesFrom ns1:SurgicalAccessValue ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:recipientCategory ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Person ns1:Family ns1:Community ns1:Group ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:procedureSite ;
+            owl:someValuesFrom ns1:AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:directMorphology ;
+            owl:someValuesFrom ns1:MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:method ;
+            owl:someValuesFrom ns1:ActionType ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:directProcedureSite ;
+            owl:someValuesFrom ns1:AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:indirectMorphology ;
+            owl:someValuesFrom ns1:MorphologicallyAbnormalStructure ],
+        ns1:Description .
+
+ns1:ProcedureWithExplicitContext a owl:Class ;
+    rdfs:label "Procedure with explicit context"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:ProcedureWithExplicitContextDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 129125009 .
+
+ns1:ProcedureWithExplicitContextDescription a owl:Class ;
+    rdfs:label "Procedure with explicit context description"@en ;
+    rdfs:comment "The description of a Procedure with explicit context."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:procedureContext ;
+            owl:someValuesFrom ns1:ContextValuesForActions ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:associatedProcedure ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:ProcedureWithExplicitContext ],
+        ns1:Description .
+
+ns1:ProductTargetPopulation a owl:Class ;
+    rdfs:label "Product target population"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 27821000087106 .
+
+ns1:QualifierValueDescription a owl:Class ;
+    rdfs:label "Qualifier value description"@en ;
+    rdfs:comment "The description of a Qualifier value."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:QualifierValue ],
+        ns1:Description .
+
+ns1:RecordArtifactDescription a owl:Class ;
+    rdfs:label "Record artifact description"@en ;
+    rdfs:comment "The description of a Record artifact."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:RecordArtifact ],
+        ns1:Description .
+
+ns1:ReleaseCharacteristic a owl:Class ;
+    rdfs:label "release characteristic"@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:RouteOfAdministrationValue a owl:Class ;
+    rdfs:label "Route of administration value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 284009009 .
+
+ns1:SituationWithExplicitContext a owl:Class ;
+    rdfs:label "Situation with explicit context"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:SituationWithExplicitContextDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 243796009 .
+
+ns1:SituationWithExplicitContextDescription a owl:Class ;
+    rdfs:label "Situation with explicit context description"@en ;
+    rdfs:comment "The description of a Situation with explicit context."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:subjectRelationshipContext ;
+            owl:someValuesFrom ns1:Person ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:SituationWithExplicitContext ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:temporalContext ;
+            owl:someValuesFrom ns1:TemporalContextValue ],
+        ns1:Description .
+
+ns1:SocialConceptDescription a owl:Class ;
+    rdfs:label "Social concept description"@en ;
+    rdfs:comment "The description of a Social concept."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:SocialConcept ],
+        ns1:Description .
+
+ns1:SpecimenDescription a owl:Class ;
+    rdfs:label "Specimen description"@en ;
+    rdfs:comment "The description of a Specimen."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:Specimen ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:specimenSourceIdentity ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:Person ns1:PhysicalObject ns1:Community ns1:Family ns1:Environment ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:specimenProcedure ;
+            owl:someValuesFrom ns1:Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:specimenSourceTopography ;
+            owl:someValuesFrom ns1:AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:specimenSourceMorphology ;
+            owl:someValuesFrom ns1:MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:specimenSubstance ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ns1:PhysicalObject ns1:Substance ) ] ],
+        ns1:Description .
+
+ns1:StagingAndScales a owl:Class ;
+    rdfs:label "Staging and scales"@en ;
+    rdfs:subClassOf ns1:StagingScale ;
+    ns1:sctid 254291000 .
+
+ns1:StagingScale a owl:Class ;
+    rdfs:label "staging scale"@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:SubstanceDescription a owl:Class ;
+    rdfs:label "Substance description"@en ;
+    rdfs:comment "The description of a Substance."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:hasDisposition ;
+            owl:someValuesFrom ns1:Disposition ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:isModificationOf ;
+            owl:someValuesFrom ns1:Substance ],
+        ns1:Description .
+
+ns1:SurgicalProcedure a owl:Class ;
+    rdfs:label "Surgical procedure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:SurgicalProcedureDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 387713003 .
+
+ns1:SurgicalProcedureDescription a owl:Class ;
+    rdfs:label "Surgical procedure description"@en ;
+    rdfs:comment "The description of a Surgical procedure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:describes ;
+            owl:someValuesFrom ns1:SurgicalProcedure ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:surgicalApproach ;
+            owl:someValuesFrom ns1:ProceduralApproach ],
+        ns1:Description .
+
+ns1:Transformation a owl:Class ;
+    rdfs:label "transformation"@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:access a owl:ObjectProperty ;
+    rdfs:label "access"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:SurgicalAccessValue ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 260507000 .
+
+ns1:associatedFinding a owl:ObjectProperty ;
+    rdfs:label "associated finding"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Eventuality ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 246090004 .
+
+ns1:associatedProcedure a owl:ObjectProperty ;
+    rdfs:label "associated procedure"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Procedure ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 363589002 .
+
+ns1:constitutionalPartOf a owl:ObjectProperty ;
+    rdfs:label "constitutional part of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:properPartOf ;
+    ns1:sctid 733931002 .
+
+ns1:containsClinicalDrug a owl:ObjectProperty ;
+    rdfs:label "contains clinical drug"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Product ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 774160008 .
+
+ns1:countOfActiveIngredient a owl:DatatypeProperty ;
+    rdfs:label "count of active ingredient"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142140007 .
+
+ns1:countOfBaseAndModificationPair a owl:DatatypeProperty ;
+    rdfs:label "count of base and modification pair"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142141006 .
+
+ns1:countOfBaseOfActiveIngredient a owl:DatatypeProperty ;
+    rdfs:label "count of base of active ingredient"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142139005 .
+
+ns1:countOfClinicalDrugType a owl:DatatypeProperty ;
+    rdfs:label "count of clinical drug type"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142143009 .
+
+ns1:directDevice a owl:ObjectProperty ;
+    rdfs:label "direct device"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Device ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:device ;
+    ns1:sctid 363699004 .
+
+ns1:directMorphology a owl:ObjectProperty ;
+    rdfs:label "direct morphology"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:MorphologicallyAbnormalStructure ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:morphology ;
+    ns1:sctid 363700003 .
+
+ns1:directProcedureSite a owl:ObjectProperty ;
+    rdfs:label "direct Procedure site "@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 405813007 .
+
+ns1:directSite a owl:ObjectProperty ;
+    rdfs:label "direct site"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:AnatomicalOrAcquiredBodyStructure ;
+    rdfs:subPropertyOf ns1:associatedSite,
+        ns1:associatedWith ;
+    ns1:sctid 704327008 .
+
+ns1:directSubstance a owl:ObjectProperty ;
+    rdfs:label "direct substance"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:SubstanceOrPharmaceuticalProduct ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 363701004 .
+
+ns1:findingContext a owl:ObjectProperty ;
+    rdfs:label "finding context"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:context ;
+    ns1:sctid 408729009 .
+
+ns1:hasBasicDoseForm a owl:ObjectProperty ;
+    rdfs:label "has basic dose form"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:DoseForm ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasDoseForm ;
+    ns1:sctid 736476002 .
+
+ns1:hasCompositionalMaterial a owl:ObjectProperty ;
+    rdfs:label "has compositional material"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Substance ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 840560000 .
+
+ns1:hasConcentrationStrengthDenominatorValue a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength denominator value"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142137007 .
+
+ns1:hasConcentrationStrengthNumeratorValue a owl:DatatypeProperty ;
+    rdfs:label "has concentration strength numerator value"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142138002 .
+
+ns1:hasDeviceIntendedSite a owl:ObjectProperty ;
+    rdfs:label "has device intended site"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 836358009 .
+
+ns1:hasDisposition a owl:ObjectProperty ;
+    rdfs:label "has disposition"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Disposition ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 726542003 .
+
+ns1:hasDoseFormAdministrationMethod a owl:ObjectProperty ;
+    rdfs:label "has dose form administration method"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 736472000 .
+
+ns1:hasDoseFormIntendedSite a owl:ObjectProperty ;
+    rdfs:label "has dose form intended site"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 736474004 .
+
+ns1:hasDoseFormReleaseCharacteristic a owl:ObjectProperty ;
+    rdfs:label "has dose form release characteristic"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:isCharacterizedBy ;
+    ns1:sctid 736475003 .
+
+ns1:hasDoseFormTransformation a owl:ObjectProperty ;
+    rdfs:label "has dose form transformation"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 736473005 .
+
+ns1:hasFilling a owl:ObjectProperty ;
+    rdfs:label "has filling"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Substance ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 827081001 .
+
+ns1:hasFocus a owl:ObjectProperty ;
+    rdfs:label "has focus"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Eventuality ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 363702006 .
+
+ns1:hasIngredientQualitativeStrength a owl:ObjectProperty ;
+    rdfs:label "has ingredient qualitative strength"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:IngredientQualitativeStrength ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasIngredientCharacteristic ;
+    ns1:sctid 1149366004 .
+
+ns1:hasManufacturedDoseForm a owl:ObjectProperty ;
+    rdfs:label "has manufactured dose form"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:DoseForm ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasDoseForm ;
+    ns1:sctid 411116001 .
+
+ns1:hasPackSize a owl:DatatypeProperty ;
+    rdfs:label "has pack size"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142142004 .
+
+ns1:hasPackSizeUnit a owl:ObjectProperty ;
+    rdfs:label "has pack size unit"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:UnitOfMeasure ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasUnitOfMeasure ;
+    ns1:sctid 774163005 .
+
+ns1:hasPreciseActiveIngredient a owl:ObjectProperty ;
+    rdfs:label "has precise active ingredient"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Substance ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasActiveIngredient ;
+    ns1:sctid 762949000 .
+
+ns1:hasPresentationStrengthDenominatorValue a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength denominator value"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142136003 .
+
+ns1:hasPresentationStrengthNumeratorValue a owl:DatatypeProperty ;
+    rdfs:label "has presentation strength numerator value"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1142135004 .
+
+ns1:hasProductCharacteristic a owl:ObjectProperty ;
+    rdfs:label "has product characteristic"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:isCharacterizedBy ;
+    ns1:sctid 860781008 .
+
+ns1:hasProductName a owl:ObjectProperty ;
+    rdfs:label "has product name"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:ProductName ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 774158006 .
+
+ns1:hasSpecimen a owl:ObjectProperty ;
+    rdfs:label "has specimen"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Specimen ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 116686009 .
+
+ns1:hasStateOfMatter a owl:ObjectProperty ;
+    rdfs:label "has state of matter"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:StateOfMatter ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 736518005 .
+
+ns1:hasSupplier a owl:ObjectProperty ;
+    rdfs:label "has supplier"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Supplier ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 774159003 .
+
+ns1:hasTargetPopulation a owl:ObjectProperty ;
+    rdfs:label "has target population"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 1149367008 .
+
+ns1:hasUnitOfPresentation a owl:ObjectProperty ;
+    rdfs:label "has unit of presentation"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:UnitOfPresentation ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasUnitOfMeasure ;
+    ns1:sctid 763032000 .
+
+ns1:indirectDevice a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "indirect device"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Device ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:device ;
+    ns1:sctid 363710007 .
+
+ns1:indirectMorphology a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "indirect morphology"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:MorphologicallyAbnormalStructure ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:morphology ;
+    ns1:sctid 363709002 .
+
+ns1:indirectProcedureSite a owl:ObjectProperty ;
+    rdfs:label "indirect Procedure site "@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 405814001 .
+
+ns1:inherentLocation a owl:ObjectProperty ;
+    rdfs:label "inherent location"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 718497002 .
+
+ns1:inheresIn a owl:ObjectProperty ;
+    rdfs:label "inheres in"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704319004 .
+
+ns1:isModificationOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "is modification of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Substance ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 738774007 .
+
+ns1:isVasculatureOf a owl:ObjectProperty ;
+    rdfs:label "is vasculature of"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 1230370004 .
+
+ns1:lateralHalfOf a owl:ObjectProperty ;
+    rdfs:label "lateral half of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:regionalPartOf ;
+    ns1:sctid 733933004 .
+
+ns1:laterality a owl:ObjectProperty ;
+    rdfs:label "laterality"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Side ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 272741003 .
+
+ns1:measurementMethod a owl:ObjectProperty ;
+    rdfs:label "measurement method"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Procedure ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 370129005 .
+
+ns1:method a owl:ObjectProperty ;
+    rdfs:label "method"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:ActionType ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 260686004 .
+
+ns1:playsRole a owl:ObjectProperty ;
+    rdfs:label "plays role"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Role ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 766939001 .
+
+ns1:precondition a owl:ObjectProperty ;
+    rdfs:label "precondition"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Eventuality ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704326004 .
+
+ns1:priority a owl:ObjectProperty ;
+    rdfs:label "priority"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:PriorityLevel ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 260870009 .
+
+ns1:procedureContext a owl:ObjectProperty ;
+    rdfs:label "procedure context"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:ContextValuesForActions ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:context ;
+    ns1:sctid 408730004 .
+
+ns1:procedureMorphology a owl:ObjectProperty ;
+    rdfs:label "procedure morphology"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 405816004 .
+
+ns1:procedureSite a owl:ObjectProperty ;
+    rdfs:label "procedure site"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 363704007 .
+
+ns1:processActsOn a owl:ObjectProperty ;
+    rdfs:label "process acts on"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 1003735000 .
+
+ns1:processAgent a owl:ObjectProperty ;
+    rdfs:label "process agent"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704322002 .
+
+ns1:processDuration a owl:ObjectProperty ;
+    rdfs:label "process duration"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704323007 .
+
+ns1:processExtendsTo a owl:ObjectProperty ;
+    rdfs:label "process extends to"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 1003703000 .
+
+ns1:processOutput a owl:ObjectProperty ;
+    rdfs:label "process output"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704324001 .
+
+ns1:recipientCategory a owl:ObjectProperty ;
+    rdfs:label "recipient category"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Agent ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 370131001 .
+
+ns1:relativeTo a owl:ObjectProperty ;
+    rdfs:label "relative to"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704325000 .
+
+ns1:relativeToPartOf a owl:ObjectProperty ;
+    rdfs:label "relative to part of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 719715003 .
+
+ns1:revisionStatus a owl:ObjectProperty ;
+    rdfs:label "revision status"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 246513007 .
+
+ns1:routeOfAdministration a owl:ObjectProperty ;
+    rdfs:label "route of administration"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 410675002 .
+
+ns1:specimenProcedure a owl:ObjectProperty ;
+    rdfs:label "specimen procedure"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 118171006 .
+
+ns1:specimenSourceIdentity a owl:ObjectProperty ;
+    rdfs:label "specimen source identity"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 118170007 .
+
+ns1:specimenSourceMorphology a owl:ObjectProperty ;
+    rdfs:label "specimen source morphology"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 118168003 .
+
+ns1:specimenSourceTopography a owl:ObjectProperty ;
+    rdfs:label "specimen source topography"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 118169006 .
+
+ns1:specimenSubstance a owl:ObjectProperty ;
+    rdfs:label "specimen substance"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 370133003 .
+
+ns1:subjectRelationshipContext a owl:ObjectProperty ;
+    rdfs:label "subject relationship context"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Person ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:context ;
+    ns1:sctid 408732007 .
+
+ns1:surgicalApproach a owl:ObjectProperty ;
+    rdfs:label "surgical approach"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:ProceduralApproach ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 424876005 .
+
+ns1:systemicPartOf a owl:ObjectProperty ;
+    rdfs:label "systemic part of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:properPartOf ;
+    ns1:sctid 733932009 .
+
+ns1:technique a owl:ObjectProperty ;
+    rdfs:label "technique"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Technique ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 246501002 .
+
+ns1:temporalContext a owl:ObjectProperty ;
+    rdfs:label "temporal context"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:TemporalContextValue ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:context ;
+    ns1:sctid 408731000 .
+
+ns1:towards a owl:ObjectProperty ;
+    rdfs:label "towards"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704320005 .
+
+ns1:unitOfPresentationSizeQuantity a owl:DatatypeProperty ;
+    rdfs:label "unit of presentation size quantity"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:hasDataValue ;
+    ns1:sctid 1148793005 .
+
+ns1:unitOfPresentationSizeUnit a owl:ObjectProperty ;
+    rdfs:label "unit of presentation size unit"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:UnitOfMeasure ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasUnitOfMeasure ;
+    ns1:sctid 320091000221107 .
+
+ns1:usingAccessDevice a owl:ObjectProperty ;
+    rdfs:label "using access device"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Device ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:usingDevice ;
+    ns1:sctid 425391005 .
+
+ns1:usingEnergy a owl:ObjectProperty ;
+    rdfs:label "using energy"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:PhysicalForce ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 424244007 .
+
+ns1:usingSubstance a owl:ObjectProperty ;
+    rdfs:label "using substance"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Substance ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 424361007 .
+
+ns1:AbnormalImmuneProcess a owl:Class ;
+    rdfs:label "Abnormal immune process"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 769247005 .
+
+ns1:ActionType a owl:Class ;
+    rdfs:label "Action type"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 129264002 .
+
+<https://w3id.org/hacid/onto/mdx/AdministrationOfSubstanceViaSpecificRoute/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/AnatomicalStructure/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:BasicDoseForm a owl:Class ;
+    rdfs:label "Basic dose form"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:BasicDoseFormDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 736478001 .
+
+<https://w3id.org/hacid/onto/mdx/BasicDoseForm/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/BodyStructure/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/ClinicalFinding/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Colors a owl:Class ;
+    rdfs:label "Colors"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 263714004 .
+
+ns1:Community a owl:Class ;
+    rdfs:label "Community"@en ;
+    rdfs:subClassOf ns1:SocialConcept ;
+    ns1:sctid 133928008 .
+
+ns1:ContextValuesForActions a owl:Class ;
+    rdfs:label "Context values for actions"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 288532009 .
+
+<https://w3id.org/hacid/onto/mdx/Disorder/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Disposition a owl:Class ;
+    rdfs:label "Disposition"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 726711005 .
+
+<https://w3id.org/hacid/onto/mdx/EvaluationProcedure/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/Event/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Family a owl:Class ;
+    rdfs:label "Family"@en ;
+    rdfs:subClassOf ns1:SocialConcept ;
+    ns1:sctid 35359004 .
+
+ns1:FindingValue a owl:Class ;
+    rdfs:label "Finding value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 260245000 .
+
+<https://w3id.org/hacid/onto/mdx/FindingWithExplicitContext/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/GeographicLocation/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:HypersensitivityProcess a owl:Class ;
+    rdfs:label "Hypersensitivity process"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 472963003 .
+
+ns1:InfectiousProcess a owl:Class ;
+    rdfs:label "Infectious process"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 441862004 .
+
+ns1:IngredientQualitativeStrength a owl:Class ;
+    rdfs:label "Ingredient qualitative strength"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 1149484003 .
+
+ns1:LaboratoryProcedure a owl:Class ;
+    rdfs:label "Laboratory procedure"@en ;
+    rdfs:subClassOf ns1:Procedure ;
+    ns1:sctid 108252007 .
+
+<https://w3id.org/hacid/onto/mdx/MedicinalProductPackage/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:NarrativeValue a owl:Class ;
+    rdfs:label "Narrative value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 117364006 .
+
+ns1:NominalValue a owl:Class ;
+    rdfs:label "Nominal value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 117362005 .
+
+<https://w3id.org/hacid/onto/mdx/ObservableEntity/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:OrdinalORQuantitativeValue a owl:Class ;
+    rdfs:label "Ordinal OR quantitative value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 117365007 .
+
+ns1:OrdinalValue a owl:Class ;
+    rdfs:label "Ordinal value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 117363000 .
+
+ns1:PathologicalDevelopmentalProcess a owl:Class ;
+    rdfs:label "Pathological developmental process"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 308490002 .
+
+ns1:PerformerOfMethod a owl:Class ;
+    rdfs:label "Performer of method"@en ;
+    rdfs:subClassOf ns1:Person ;
+    ns1:sctid 420158005 .
+
+ns1:PersonWithCharacteristicRelatedToSubjectOfRecord a owl:Class ;
+    rdfs:label "Person with characteristic related to subject of record"@en ;
+    rdfs:subClassOf ns1:Person ;
+    ns1:sctid 444018008 .
+
+ns1:PharmaceuticalDoseForm a owl:Class ;
+    rdfs:label "Pharmaceutical dose form"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:PharmaceuticalDoseFormDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:DoseForm,
+        ns1:Entity ;
+    ns1:sctid 736542009 .
+
+<https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalForce/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalObject/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:PriorityLevel a owl:Class ;
+    rdfs:label "Priority level"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 272125009 .
+
+ns1:ProceduralApproach a owl:Class ;
+    rdfs:label "Procedural approach"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 103379005 .
+
+<https://w3id.org/hacid/onto/mdx/Procedure/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/ProcedureWithExplicitContext/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Product a owl:Class ;
+    rdfs:label "product"@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:ProductName a owl:Class ;
+    rdfs:label "Product name"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 774167006 .
+
+ns1:ProliferationOfNeoplasm a owl:Class ;
+    rdfs:label "Proliferation of neoplasm"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 1495041000004108 .
+
+<https://w3id.org/hacid/onto/mdx/QualifierValue/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Qualitative a owl:Class ;
+    rdfs:label "Qualitative"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 26716007 .
+
+ns1:Quantitative a owl:Class ;
+    rdfs:label "Quantitative"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 30766002 .
+
+<https://w3id.org/hacid/onto/mdx/RecordArtifact/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Role a owl:Class ;
+    rdfs:label "Role"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 766940004 .
+
+ns1:Side a owl:Class ;
+    rdfs:label "Side"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 182353008 .
+
+<https://w3id.org/hacid/onto/mdx/SituationWithExplicitContext/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/SocialConcept/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+<https://w3id.org/hacid/onto/mdx/Specimen/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:StateOfMatter a owl:Class ;
+    rdfs:label "State of matter"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 736471007 .
+
+ns1:SubjectOfRecordOrOtherProviderOfHistory a owl:Class ;
+    rdfs:label "Subject of record or other provider of history"@en ;
+    rdfs:subClassOf ns1:Person ;
+    ns1:sctid 419358007 .
+
+<https://w3id.org/hacid/onto/mdx/Substance/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Supplier a owl:Class ;
+    rdfs:label "Supplier"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 774164004 .
+
+ns1:SurgicalAccessValue a owl:Class ;
+    rdfs:label "Surgical access value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 309795001 .
+
+<https://w3id.org/hacid/onto/mdx/SurgicalProcedure/> a owl:Ontology ;
+    owl:imports ns1:Top .
+
+ns1:Technique a owl:Class ;
+    rdfs:label "Technique"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 272394005 .
+
+ns1:TemporalContextValue a owl:Class ;
+    rdfs:label "Temporal context value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 410510008 .
+
+ns1:TextValue a owl:Class ;
+    rdfs:label "Text value"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 117444000 .
+
+ns1:UnitOfPresentation a owl:Class ;
+    rdfs:label "Unit of presentation"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 732935002 .
+
+ns1:allOrPartOf a owl:ObjectProperty,
+        owl:ReflexiveProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "all or part of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 733928003 .
+
+ns1:associatedMorphology a owl:ObjectProperty ;
+    rdfs:label "associated morphology"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:MorphologicallyAbnormalStructure ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 116676008 .
+
+ns1:characterizes a owl:ObjectProperty ;
+    rdfs:label "characterizes"@en ;
+    rdfs:domain ns1:Entity,
+        ns1:QualifierValue ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity,
+        ns1:ObservableEntity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 704321009 .
+
+ns1:clinicalCourse a owl:ObjectProperty ;
+    rdfs:label "clinical course"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:CourseType ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 263502005 .
+
+ns1:component a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "component"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:ObservableEntity ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:properPartOf ;
+    ns1:sctid 246093002 .
+
+ns1:episodicity a owl:ObjectProperty ;
+    rdfs:label "episodicity"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:EpisodicityType ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 246456000 .
+
+ns1:findingInformer a owl:ObjectProperty ;
+    rdfs:label "finding informer"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 419066007 .
+
+ns1:findingMethod a owl:ObjectProperty ;
+    rdfs:label "finding method"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 418775008 .
+
+ns1:findingSite a owl:ObjectProperty ;
+    rdfs:label "finding site"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 363698007 .
+
+ns1:hasActiveIngredient a owl:ObjectProperty ;
+    rdfs:label "has active ingredient"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Substance ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:hasIngredient ;
+    ns1:sctid 127489000 .
+
+ns1:hasIngredient a owl:ObjectProperty ;
+    rdfs:label "has ingredient"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Substance ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 762951001 .
+
+ns1:hasIngredientCharacteristic a owl:ObjectProperty ;
+    rdfs:label "has ingredient characteristic"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:isCharacterizedBy ;
+    ns1:sctid 860779006 .
+
+ns1:hasInterpretation a owl:ObjectProperty ;
+    rdfs:label "has interpretation"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 363713009 .
+
+ns1:interprets a owl:ObjectProperty ;
+    rdfs:label "interprets"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 363714003 .
+
+ns1:pathologicalProcess a owl:ObjectProperty ;
+    rdfs:label "pathological process"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:PathologicalProcess ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 370135005 .
+
+ns1:procedureDevice a owl:ObjectProperty ;
+    rdfs:label "procedure device"@en ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 405815000 .
+
+ns1:property a owl:ObjectProperty ;
+    rdfs:label "property"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Property ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 370130000 .
+
+ns1:regionalPartOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "regional part of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith,
+        ns1:properPartOf ;
+    ns1:sctid 733930001 .
+
+ns1:scaleType a owl:ObjectProperty ;
+    rdfs:label "scale type"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 370132008 .
+
+ns1:severity a owl:ObjectProperty ;
+    rdfs:label "severity"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:SeverityType ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 246112005 .
+
+ns1:timeAspect a owl:ObjectProperty ;
+    rdfs:label "time aspect"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:TimeFrame ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 370134009 .
+
+ns1:CourseType a owl:Class ;
+    rdfs:label "Course type"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 288524001 .
+
+ns1:DoseForm a owl:Class ;
+    rdfs:label "dose form"@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:EpisodicityType a owl:Class ;
+    rdfs:label "Episodicity type"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 288526004 .
+
+ns1:EvaluationProcedure a owl:Class ;
+    rdfs:label "Evaluation procedure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:EvaluationProcedureDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity,
+        ns1:Procedure ;
+    ns1:sctid 386053000 .
+
+ns1:PeriodsOfLife a owl:Class ;
+    rdfs:label "Periods of life"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 282032007 .
+
+ns1:Property a owl:Class ;
+    rdfs:label "Property"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 118598001 .
+
+ns1:SeverityType a owl:Class ;
+    rdfs:label "Severity type"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 272141005 .
+
+ns1:before a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "before"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    owl:inverseOf ns1:after ;
+    ns1:sctid 288556008 .
+
+ns1:causativeAgent a owl:ObjectProperty ;
+    rdfs:label "causative agent"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 246075003 .
+
+ns1:dueTo a owl:ObjectProperty ;
+    rdfs:label "due to"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Eventuality ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 42752001 .
+
+ns1:during a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "during"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Procedure ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 371881003 .
+
+ns1:hasRealization a owl:ObjectProperty ;
+    rdfs:label "has realization"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 719722006 .
+
+ns1:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:QualifierValue ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    owl:inverseOf ns1:characterizes .
+
+ns1:occurrence a owl:ObjectProperty ;
+    rdfs:label "occurrence"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:PeriodOfLife ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 246454002 .
+
+ns1:temporallyRelatedTo a owl:ObjectProperty ;
+    rdfs:label "temporally related to"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Eventuality ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 726633004 .
+
+ns1:usingDevice a owl:ObjectProperty ;
+    rdfs:label "using device"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Device ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 424226004 .
+
+ns1:SocialConcept a owl:Class ;
+    rdfs:label "Social concept"@en,
+        "social concept"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:SocialConceptDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 48176007 .
+
+ns1:TimeFrame a owl:Class ;
+    rdfs:label "Time frame"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 7389001 .
+
+ns1:after a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "after"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 255234002 .
+
+ns1:ObservableEntity a owl:Class ;
+    rdfs:label "Observable entity"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:ObservableEntityDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 363787002 .
+
+ns1:Process a owl:Class ;
+    rdfs:label "Process"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 719982003 .
+
+ns1:properPartOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "proper part of"@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:allOrPartOf,
+        ns1:associatedWith ;
+    ns1:sctid 774081006 .
+
+ns1:UnitOfMeasure a owl:Class ;
+    rdfs:label "Unit of measure"@en ;
+    rdfs:subClassOf ns1:QualifierValue ;
+    ns1:sctid 767524001 .
+
+ns1:AnatomicalOrAcquiredBodyStructure a owl:Class ;
+    rdfs:label "Anatomical or acquired body structure"@en ;
+    rdfs:subClassOf ns1:BodyStructure ;
+    ns1:sctid 442083009 .
+
+ns1:Person a owl:Class ;
+    rdfs:label "Person"@en,
+        "person"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 125676002 .
+
+ns1:MorphologicallyAbnormalStructure a owl:Class ;
+    rdfs:label "Morphologically abnormal structure"@en ;
+    rdfs:subClassOf ns1:BodyStructure ;
+    ns1:sctid 49755003 .
+
+ns1:PhysicalForce a owl:Class ;
+    rdfs:label "Physical force"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:PhysicalForceDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 78621006 .
+
+ns1:RecordArtifact a owl:Class ;
+    rdfs:label "Record artifact"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:RecordArtifactDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 419891008 .
+
+ns1:Device a owl:Class ;
+    rdfs:label "Device"@en ;
+    rdfs:subClassOf ns1:PhysicalObject ;
+    ns1:sctid 49062001 .
+
+ns1:Specimen a owl:Class ;
+    rdfs:label "Specimen"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:SpecimenDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 123038009 .
+
+ns1:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:EventDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 272379006 .
+
+ns1:Organism a owl:Class ;
+    rdfs:label "Organism"@en ;
+    rdfs:subClassOf ns1:Entity ;
+    ns1:sctid 410607006 .
+
+ns1:ClinicalFinding a owl:Class ;
+    rdfs:label "Clinical finding"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:ClinicalFindingDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 404684003 .
+
+ns1:PhysicalObject a owl:Class ;
+    rdfs:label "Physical object"@en,
+        "physical object"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:PhysicalObjectDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 260787004 .
+
+ns1:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range rdfs:Literal .
+
+ns1:BodyStructure a owl:Class ;
+    rdfs:label "Body Structure"@en,
+        "Body structure"@en,
+        "body structure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:BodyStructureDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 123037004 .
+
+ns1:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Description ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    owl:inverseOf ns1:describes .
+
+ns1:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain ns1:Description ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith .
+
+ns1:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf ns1:Entity .
+
+ns1:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:SubstanceDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 105590001 .
+
+ns1:Procedure a owl:Class ;
+    rdfs:label "Procedure"@en,
+        "procedure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:ProcedureDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 71388002 .
+
+ns1:QualifierValue a owl:Class ;
+    rdfs:label "Qualifier value"@en,
+        "qualifier value"@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/AdministrationOfSubstanceViaSpecificRoute/>,
+        <https://w3id.org/hacid/onto/mdx/AnatomicalStructure/>,
+        <https://w3id.org/hacid/onto/mdx/BasicDoseForm/>,
+        <https://w3id.org/hacid/onto/mdx/BodyStructure/>,
+        <https://w3id.org/hacid/onto/mdx/ClinicalFinding/>,
+        <https://w3id.org/hacid/onto/mdx/Disorder/>,
+        <https://w3id.org/hacid/onto/mdx/EvaluationProcedure/>,
+        <https://w3id.org/hacid/onto/mdx/Event/>,
+        <https://w3id.org/hacid/onto/mdx/FindingWithExplicitContext/>,
+        <https://w3id.org/hacid/onto/mdx/GeographicLocation/>,
+        <https://w3id.org/hacid/onto/mdx/MedicinalProductPackage/>,
+        <https://w3id.org/hacid/onto/mdx/ObservableEntity/>,
+        <https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm/>,
+        <https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/>,
+        <https://w3id.org/hacid/onto/mdx/PhysicalForce/>,
+        <https://w3id.org/hacid/onto/mdx/PhysicalObject/>,
+        <https://w3id.org/hacid/onto/mdx/Procedure/>,
+        <https://w3id.org/hacid/onto/mdx/ProcedureWithExplicitContext/>,
+        <https://w3id.org/hacid/onto/mdx/QualifierValue/>,
+        <https://w3id.org/hacid/onto/mdx/RecordArtifact/>,
+        <https://w3id.org/hacid/onto/mdx/SituationWithExplicitContext/>,
+        <https://w3id.org/hacid/onto/mdx/SocialConcept/>,
+        <https://w3id.org/hacid/onto/mdx/Specimen/>,
+        <https://w3id.org/hacid/onto/mdx/Substance/>,
+        <https://w3id.org/hacid/onto/mdx/SurgicalProcedure/> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:QualifierValueDescription ;
+            owl:onProperty ns1:isDescribedBy ],
+        ns1:Entity ;
+    ns1:sctid 362981000 .
+
+ns1:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain ns1:Entity ;
+    rdfs:isDefinedBy ns1: ;
+    rdfs:range ns1:Entity ;
+    rdfs:subPropertyOf ns1:associatedWith ;
+    ns1:sctid 47429007 .
+
+ns1:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/AdministrationOfSubstanceViaSpecificRoute/>,
+        <https://w3id.org/hacid/onto/mdx/AnatomicalStructure/>,
+        <https://w3id.org/hacid/onto/mdx/BasicDoseForm/>,
+        <https://w3id.org/hacid/onto/mdx/BodyStructure/>,
+        <https://w3id.org/hacid/onto/mdx/ClinicalFinding/>,
+        <https://w3id.org/hacid/onto/mdx/Disorder/>,
+        <https://w3id.org/hacid/onto/mdx/EvaluationProcedure/>,
+        <https://w3id.org/hacid/onto/mdx/Event/>,
+        <https://w3id.org/hacid/onto/mdx/FindingWithExplicitContext/>,
+        <https://w3id.org/hacid/onto/mdx/GeographicLocation/>,
+        <https://w3id.org/hacid/onto/mdx/MedicinalProductPackage/>,
+        <https://w3id.org/hacid/onto/mdx/ObservableEntity/>,
+        <https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm/>,
+        <https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/>,
+        <https://w3id.org/hacid/onto/mdx/PhysicalForce/>,
+        <https://w3id.org/hacid/onto/mdx/PhysicalObject/>,
+        <https://w3id.org/hacid/onto/mdx/Procedure/>,
+        <https://w3id.org/hacid/onto/mdx/ProcedureWithExplicitContext/>,
+        <https://w3id.org/hacid/onto/mdx/QualifierValue/>,
+        <https://w3id.org/hacid/onto/mdx/RecordArtifact/>,
+        <https://w3id.org/hacid/onto/mdx/SituationWithExplicitContext/>,
+        <https://w3id.org/hacid/onto/mdx/SocialConcept/>,
+        <https://w3id.org/hacid/onto/mdx/Specimen/>,
+        <https://w3id.org/hacid/onto/mdx/Substance/>,
+        <https://w3id.org/hacid/onto/mdx/SurgicalProcedure/> .
+

@@ -1,0 +1,76 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/ActionType> owl:equivalentClass <http://snomed.info/id/129264002> .
+
+<https://w3id.org/hacid/onto/mdx/AnatomicalOrAcquiredBodyStructure> owl:equivalentClass <http://snomed.info/id/442083009> .
+
+<https://w3id.org/hacid/onto/mdx/ClinicalFinding> owl:equivalentClass <http://snomed.info/id/404684003> .
+
+<https://w3id.org/hacid/onto/mdx/Community> owl:equivalentClass <http://snomed.info/id/133928008> .
+
+<https://w3id.org/hacid/onto/mdx/Device> owl:equivalentClass <http://snomed.info/id/49062001> .
+
+<https://w3id.org/hacid/onto/mdx/Family> owl:equivalentClass <http://snomed.info/id/35359004> .
+
+<https://w3id.org/hacid/onto/mdx/Group> owl:equivalentClass <http://snomed.info/id/389109008> .
+
+<https://w3id.org/hacid/onto/mdx/MorphologicallyAbnormalStructure> owl:equivalentClass <http://snomed.info/id/49755003> .
+
+<https://w3id.org/hacid/onto/mdx/PartOfMultistageProcedure> owl:equivalentClass <http://snomed.info/id/257958009> .
+
+<https://w3id.org/hacid/onto/mdx/Person> owl:equivalentClass <http://snomed.info/id/125676002> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalForce> owl:equivalentClass <http://snomed.info/id/78621006> .
+
+<https://w3id.org/hacid/onto/mdx/PrimaryOperation> owl:equivalentClass <http://snomed.info/id/261424001> .
+
+<https://w3id.org/hacid/onto/mdx/PriorityLevel> owl:equivalentClass <http://snomed.info/id/272125009> .
+
+<https://w3id.org/hacid/onto/mdx/Procedure> owl:equivalentClass <http://snomed.info/id/71388002> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/SurgicalAccessValue> owl:equivalentClass <http://snomed.info/id/309795001> .
+
+<https://w3id.org/hacid/onto/mdx/access> owl:equivalentProperty <http://snomed.info/id/260507000> .
+
+<https://w3id.org/hacid/onto/mdx/directDevice> owl:equivalentProperty <http://snomed.info/id/363699004> .
+
+<https://w3id.org/hacid/onto/mdx/directMorphology> owl:equivalentProperty <http://snomed.info/id/363700003> .
+
+<https://w3id.org/hacid/onto/mdx/directProcedureSite> owl:equivalentProperty <http://snomed.info/id/405813007> .
+
+<https://w3id.org/hacid/onto/mdx/directSubstance> owl:equivalentProperty <http://snomed.info/id/363701004> .
+
+<https://w3id.org/hacid/onto/mdx/hasFocus> owl:equivalentProperty <http://snomed.info/id/363702006> .
+
+<https://w3id.org/hacid/onto/mdx/hasIntent> owl:equivalentProperty <http://snomed.info/id/363703001> .
+
+<https://w3id.org/hacid/onto/mdx/indirectDevice> owl:equivalentProperty <http://snomed.info/id/363710007> .
+
+<https://w3id.org/hacid/onto/mdx/indirectMorphology> owl:equivalentProperty <http://snomed.info/id/363709002> .
+
+<https://w3id.org/hacid/onto/mdx/indirectProcedureSite> owl:equivalentProperty <http://snomed.info/id/405814001> .
+
+<https://w3id.org/hacid/onto/mdx/method> owl:equivalentProperty <http://snomed.info/id/260686004> .
+
+<https://w3id.org/hacid/onto/mdx/priority> owl:equivalentProperty <http://snomed.info/id/260870009> .
+
+<https://w3id.org/hacid/onto/mdx/procedureDevice> owl:equivalentProperty <http://snomed.info/id/405815000> .
+
+<https://w3id.org/hacid/onto/mdx/procedureMorphology> owl:equivalentProperty <http://snomed.info/id/405816004> .
+
+<https://w3id.org/hacid/onto/mdx/procedureSite> owl:equivalentProperty <http://snomed.info/id/363704007> .
+
+<https://w3id.org/hacid/onto/mdx/recipientCategory> owl:equivalentProperty <http://snomed.info/id/370131001> .
+
+<https://w3id.org/hacid/onto/mdx/revisionStatus> owl:equivalentProperty <http://snomed.info/id/246513007> .
+
+<https://w3id.org/hacid/onto/mdx/usingAccessDevice> owl:equivalentProperty <http://snomed.info/id/425391005> .
+
+<https://w3id.org/hacid/onto/mdx/usingDevice> owl:equivalentProperty <http://snomed.info/id/424226004> .
+
+<https://w3id.org/hacid/onto/mdx/usingEnergy> owl:equivalentProperty <http://snomed.info/id/424244007> .
+
+<https://w3id.org/hacid/onto/mdx/usingSubstance> owl:equivalentProperty <http://snomed.info/id/424361007> .
+

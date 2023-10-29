@@ -1,0 +1,48 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/BodyStructure> owl:equivalentClass <http://snomed.info/id/123037004> .
+
+<https://w3id.org/hacid/onto/mdx/EvaluationProcedure> owl:equivalentClass <http://snomed.info/id/386053000> .
+
+<https://w3id.org/hacid/onto/mdx/LaboratoryProcedureCategorizedByMethod> owl:equivalentClass <http://snomed.info/id/127789004> .
+
+<https://w3id.org/hacid/onto/mdx/NarrativeValue> owl:equivalentClass <http://snomed.info/id/117364006> .
+
+<https://w3id.org/hacid/onto/mdx/NominalValue> owl:equivalentClass <http://snomed.info/id/117362005> .
+
+<https://w3id.org/hacid/onto/mdx/OrdinalORQuantitativeValue> owl:equivalentClass <http://snomed.info/id/117365007> .
+
+<https://w3id.org/hacid/onto/mdx/OrdinalValue> owl:equivalentClass <http://snomed.info/id/117363000> .
+
+<https://w3id.org/hacid/onto/mdx/Organism> owl:equivalentClass <http://snomed.info/id/410607006> .
+
+<https://w3id.org/hacid/onto/mdx/PhysicalObject> owl:equivalentClass <http://snomed.info/id/260787004> .
+
+<https://w3id.org/hacid/onto/mdx/Property> owl:equivalentClass <http://snomed.info/id/118598001> .
+
+<https://w3id.org/hacid/onto/mdx/Qualitative> owl:equivalentClass <http://snomed.info/id/26716007> .
+
+<https://w3id.org/hacid/onto/mdx/Quantitative> owl:equivalentClass <http://snomed.info/id/30766002> .
+
+<https://w3id.org/hacid/onto/mdx/RecordArtifact> owl:equivalentClass <http://snomed.info/id/419891008> .
+
+<https://w3id.org/hacid/onto/mdx/Specimen> owl:equivalentClass <http://snomed.info/id/123038009> .
+
+<https://w3id.org/hacid/onto/mdx/Substance> owl:equivalentClass <http://snomed.info/id/105590001> .
+
+<https://w3id.org/hacid/onto/mdx/TextValue> owl:equivalentClass <http://snomed.info/id/117444000> .
+
+<https://w3id.org/hacid/onto/mdx/TimeFrame> owl:equivalentClass <http://snomed.info/id/7389001> .
+
+<https://w3id.org/hacid/onto/mdx/component> owl:equivalentProperty <http://snomed.info/id/246093002> .
+
+<https://w3id.org/hacid/onto/mdx/hasSpecimen> owl:equivalentProperty <http://snomed.info/id/116686009> .
+
+<https://w3id.org/hacid/onto/mdx/measurementMethod> owl:equivalentProperty <http://snomed.info/id/370129005> .
+
+<https://w3id.org/hacid/onto/mdx/property> owl:equivalentProperty <http://snomed.info/id/370130000> .
+
+<https://w3id.org/hacid/onto/mdx/scaleType> owl:equivalentProperty <http://snomed.info/id/370132008> .
+
+<https://w3id.org/hacid/onto/mdx/timeAspect> owl:equivalentProperty <http://snomed.info/id/370134009> .
+

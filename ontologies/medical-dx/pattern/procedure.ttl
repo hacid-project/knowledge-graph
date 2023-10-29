@@ -1,0 +1,409 @@
+@prefix : <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:hasIntent a owl:DatatypeProperty ;
+    rdfs:label "has intent"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :hasDataValue ;
+    :sctid 363703001 .
+
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
+
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
+
+:ClinicalFinding a owl:Class ;
+    rdfs:label "Clinical finding"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 404684003 .
+
+:Community a owl:Class ;
+    rdfs:label "Community"@en ;
+    rdfs:subClassOf :SocialConcept ;
+    :sctid 133928008 .
+
+:Family a owl:Class ;
+    rdfs:label "Family"@en ;
+    rdfs:subClassOf :SocialConcept ;
+    :sctid 35359004 .
+
+:Group a owl:Class ;
+    rdfs:label "Group"@en ;
+    rdfs:subClassOf :SocialConcept ;
+    :sctid 389109008 .
+
+:PartOfMultistageProcedure a owl:Class ;
+    rdfs:label "Part of multistage procedure"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 257958009 .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 125676002 .
+
+:PhysicalObject a owl:Class ;
+    rdfs:label "physical object"@en ;
+    rdfs:subClassOf :Entity .
+
+:PrimaryOperation a owl:Class ;
+    rdfs:label "Primary operation"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 261424001 .
+
+:ProcedureDescription a owl:Class ;
+    rdfs:label "Procedure description"@en ;
+    rdfs:comment "The description of a Procedure."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :usingSubstance ;
+            owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty :directSubstance ;
+            owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty :usingEnergy ;
+            owl:someValuesFrom :PhysicalForce ],
+        [ a owl:Restriction ;
+            owl:onProperty :procedureDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :usingAccessDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :indirectProcedureSite ;
+            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :indirectDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :usingDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :revisionStatus ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :PartOfMultistageProcedure :PrimaryOperation ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :directDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :priority ;
+            owl:someValuesFrom :PriorityLevel ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasFocus ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :procedureMorphology ;
+            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :access ;
+            owl:someValuesFrom :SurgicalAccessValue ],
+        [ a owl:Restriction ;
+            owl:onProperty :recipientCategory ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Person :Family :Community :Group ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :procedureSite ;
+            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :directMorphology ;
+            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :method ;
+            owl:someValuesFrom :ActionType ],
+        [ a owl:Restriction ;
+            owl:onProperty :directProcedureSite ;
+            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :indirectMorphology ;
+            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
+        :Description .
+
+:access a owl:ObjectProperty ;
+    rdfs:label "access"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :SurgicalAccessValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 260507000 .
+
+:characterizes a owl:ObjectProperty ;
+    rdfs:domain :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:directDevice a owl:ObjectProperty ;
+    rdfs:label "direct device"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Device ;
+    rdfs:subPropertyOf :associatedWith,
+        :device ;
+    :sctid 363699004 .
+
+:directMorphology a owl:ObjectProperty ;
+    rdfs:label "direct morphology"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :MorphologicallyAbnormalStructure ;
+    rdfs:subPropertyOf :associatedWith,
+        :morphology ;
+    :sctid 363700003 .
+
+:directProcedureSite a owl:ObjectProperty ;
+    rdfs:label "direct Procedure site "@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 405813007 .
+
+:directSubstance a owl:ObjectProperty ;
+    rdfs:label "direct substance"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :SubstanceOrPharmaceuticalProduct ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 363701004 .
+
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
+
+:hasFocus a owl:ObjectProperty ;
+    rdfs:label "has focus"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Eventuality ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 363702006 .
+
+:indirectDevice a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "indirect device"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Device ;
+    rdfs:subPropertyOf :associatedWith,
+        :device ;
+    :sctid 363710007 .
+
+:indirectMorphology a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "indirect morphology"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :MorphologicallyAbnormalStructure ;
+    rdfs:subPropertyOf :associatedWith,
+        :morphology ;
+    :sctid 363709002 .
+
+:indirectProcedureSite a owl:ObjectProperty ;
+    rdfs:label "indirect Procedure site "@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 405814001 .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
+
+:method a owl:ObjectProperty ;
+    rdfs:label "method"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :ActionType ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 260686004 .
+
+:priority a owl:ObjectProperty ;
+    rdfs:label "priority"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :PriorityLevel ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 260870009 .
+
+:procedureDevice a owl:ObjectProperty ;
+    rdfs:label "procedure device"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 405815000 .
+
+:procedureMorphology a owl:ObjectProperty ;
+    rdfs:label "procedure morphology"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 405816004 .
+
+:procedureSite a owl:ObjectProperty ;
+    rdfs:label "procedure site"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 363704007 .
+
+:recipientCategory a owl:ObjectProperty ;
+    rdfs:label "recipient category"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Agent ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 370131001 .
+
+:revisionStatus a owl:ObjectProperty ;
+    rdfs:label "revision status"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246513007 .
+
+:usingAccessDevice a owl:ObjectProperty ;
+    rdfs:label "using access device"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Device ;
+    rdfs:subPropertyOf :associatedWith,
+        :usingDevice ;
+    :sctid 425391005 .
+
+:usingEnergy a owl:ObjectProperty ;
+    rdfs:label "using energy"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :PhysicalForce ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 424244007 .
+
+:usingSubstance a owl:ObjectProperty ;
+    rdfs:label "using substance"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Substance ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 424361007 .
+
+:ActionType a owl:Class ;
+    rdfs:label "Action type"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 129264002 .
+
+:BodyStructure a owl:Class ;
+    rdfs:label "Body Structure"@en,
+        "body structure"@en ;
+    rdfs:subClassOf :Entity .
+
+:PhysicalForce a owl:Class ;
+    rdfs:label "Physical force"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 78621006 .
+
+:PriorityLevel a owl:Class ;
+    rdfs:label "Priority level"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 272125009 .
+
+:Procedure a owl:Class ;
+    rdfs:label "Procedure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ProcedureDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 71388002 .
+
+<https://w3id.org/hacid/onto/mdx/Procedure/> a owl:Ontology ;
+    owl:imports top: .
+
+:SurgicalAccessValue a owl:Class ;
+    rdfs:label "Surgical access value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 309795001 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:usingDevice a owl:ObjectProperty ;
+    rdfs:label "using device"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Device ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 424226004 .
+
+:AnatomicalOrAcquiredBodyStructure a owl:Class ;
+    rdfs:label "Anatomical or acquired body structure"@en ;
+    rdfs:subClassOf :BodyStructure ;
+    :sctid 442083009 .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf :Entity .
+
+:SocialConcept a owl:Class ;
+    rdfs:label "social concept"@en ;
+    rdfs:subClassOf :Entity .
+
+:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 105590001 .
+
+:MorphologicallyAbnormalStructure a owl:Class ;
+    rdfs:label "Morphologically abnormal structure"@en ;
+    rdfs:subClassOf :BodyStructure ;
+    :sctid 49755003 .
+
+:QualifierValue a owl:Class ;
+    rdfs:label "qualifier value"@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Procedure/> ;
+    rdfs:subClassOf :Entity .
+
+:Device a owl:Class ;
+    rdfs:label "Device"@en ;
+    rdfs:subClassOf :PhysicalObject ;
+    :sctid 49062001 .
+
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Procedure/> .
+

@@ -1,0 +1,221 @@
+@prefix : <https://w3id.org/hacid/onto/mdx/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
+
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
+
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
+
+:EventDescription a owl:Class ;
+    rdfs:label "Event description"@en ;
+    rdfs:comment "The description of a Event."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :before ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :during ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :temporallyRelatedTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :dueTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :associatedWith ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding :Organism :PhysicalObject :Substance :Event :PhysicalForce ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :after ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Event ],
+        [ a owl:Restriction ;
+            owl:onProperty :causativeAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Organism :PhysicalForce :PhysicalObject :Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :occurrence ;
+            owl:someValuesFrom :PeriodsOfLife ],
+        :Description .
+
+:PeriodsOfLife a owl:Class ;
+    rdfs:label "Periods of life"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 282032007 .
+
+:before a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "before"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :after ;
+    :sctid 288556008 .
+
+:causativeAgent a owl:ObjectProperty ;
+    rdfs:label "causative agent"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246075003 .
+
+:characterizes a owl:ObjectProperty ;
+    rdfs:domain :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:dueTo a owl:ObjectProperty ;
+    rdfs:label "due to"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Eventuality ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 42752001 .
+
+:during a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "during"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Procedure ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 371881003 .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
+
+:occurrence a owl:ObjectProperty ;
+    rdfs:label "occurrence"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :PeriodOfLife ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 246454002 .
+
+:temporallyRelatedTo a owl:ObjectProperty ;
+    rdfs:label "temporally related to"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Eventuality ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 726633004 .
+
+<https://w3id.org/hacid/onto/mdx/Event/> a owl:Ontology ;
+    owl:imports top: .
+
+:Organism a owl:Class ;
+    rdfs:label "Organism"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 410607006 .
+
+:PhysicalForce a owl:Class ;
+    rdfs:label "Physical force"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 78621006 .
+
+:PhysicalObject a owl:Class ;
+    rdfs:label "Physical object"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 260787004 .
+
+:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 105590001 .
+
+:after a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "after"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 255234002 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
+    rdfs:subClassOf :Entity .
+
+:QualifierValue a owl:Class ;
+    rdfs:label "qualifier value"@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Event/> ;
+    rdfs:subClassOf :Entity .
+
+:ClinicalFinding a owl:Class ;
+    rdfs:label "Clinical finding"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 404684003 .
+
+:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :EventDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 272379006 .
+
+:Procedure a owl:Class ;
+    rdfs:label "Procedure"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 71388002 .
+
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith ;
+    :sctid 47429007 .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Event/> .
+

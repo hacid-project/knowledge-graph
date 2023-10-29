@@ -1,0 +1,24 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/hacid/onto/mdx/BasicDoseForm> owl:equivalentClass <http://snomed.info/id/736478001> .
+
+<https://w3id.org/hacid/onto/mdx/DoseFormAdministrationMethod> owl:equivalentClass <http://snomed.info/id/736665006> .
+
+<https://w3id.org/hacid/onto/mdx/DoseFormIntendedSite> owl:equivalentClass <http://snomed.info/id/736479009> .
+
+<https://w3id.org/hacid/onto/mdx/DoseFormReleaseCharacteristic> owl:equivalentClass <http://snomed.info/id/736480007> .
+
+<https://w3id.org/hacid/onto/mdx/DoseFormTransformation> owl:equivalentClass <http://snomed.info/id/736477006> .
+
+<https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm> owl:equivalentClass <http://snomed.info/id/736542009> .
+
+<https://w3id.org/hacid/onto/mdx/hasBasicDoseForm> owl:equivalentProperty <http://snomed.info/id/736476002> .
+
+<https://w3id.org/hacid/onto/mdx/hasDoseFormAdministrationMethod> owl:equivalentProperty <http://snomed.info/id/736472000> .
+
+<https://w3id.org/hacid/onto/mdx/hasDoseFormIntendedSite> owl:equivalentProperty <http://snomed.info/id/736474004> .
+
+<https://w3id.org/hacid/onto/mdx/hasDoseFormReleaseCharacteristic> owl:equivalentProperty <http://snomed.info/id/736475003> .
+
+<https://w3id.org/hacid/onto/mdx/hasDoseFormTransformation> owl:equivalentProperty <http://snomed.info/id/736473005> .
+
