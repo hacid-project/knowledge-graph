@@ -23,6 +23,9 @@
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
     rdfs:isDefinedBy : .
 
+<https://w3id.org/hacid/onto/mdx/surgical_procedure/> a owl:Ontology ;
+    owl:imports top: .
+
 :SurgicalProcedure a owl:Class ;
     rdfs:label "Surgical procedure"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -70,9 +73,6 @@
     rdfs:subClassOf :QualifierValue ;
     :sctid 103379005 .
 
-<https://w3id.org/hacid/onto/mdx/SurgicalProcedure/> a owl:Ontology ;
-    owl:imports top: .
-
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
     rdfs:comment "The relation between an entity and one of its possible description."@en ;
@@ -91,7 +91,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/SurgicalProcedure/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :associatedWith a owl:ObjectProperty,
@@ -106,5 +106,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/SurgicalProcedure/> .
+    rdfs:isDefinedBy : .
 

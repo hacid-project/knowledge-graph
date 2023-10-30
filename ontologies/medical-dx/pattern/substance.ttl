@@ -23,17 +23,20 @@
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
     rdfs:isDefinedBy : .
 
+<https://w3id.org/hacid/onto/mdx/substance/> a owl:Ontology ;
+    owl:imports top: .
+
 :SubstanceDescription a owl:Class ;
     rdfs:label "Substance description"@en ;
     rdfs:comment "The description of a Substance."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isModificationOf ;
+            owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
             owl:onProperty :hasDisposition ;
             owl:someValuesFrom :Disposition ],
         [ a owl:Restriction ;
             owl:onProperty :describes ;
-            owl:someValuesFrom :Substance ],
-        [ a owl:Restriction ;
-            owl:onProperty :isModificationOf ;
             owl:someValuesFrom :Substance ],
         :Description .
 
@@ -75,11 +78,8 @@
     :sctid 726711005 .
 
 :QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Substance/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
-
-<https://w3id.org/hacid/onto/mdx/Substance/> a owl:Ontology ;
-    owl:imports top: .
 
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
@@ -117,5 +117,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Substance/> .
+    rdfs:isDefinedBy : .
 

@@ -5,6 +5,9 @@
 @prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://w3id.org/hacid/onto/mdx/event/> a owl:Ontology ;
+    owl:imports top: .
+
 :hasDataValue a owl:DatatypeProperty ;
     rdfs:label "has data value"@en ;
     rdfs:comment "The most general datatype property in the ontology."@en ;
@@ -28,19 +31,14 @@
     rdfs:label "Event description"@en ;
     rdfs:comment "The description of a Event."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :before ;
-            owl:someValuesFrom :Procedure ],
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Event ],
         [ a owl:Restriction ;
             owl:onProperty :during ;
             owl:someValuesFrom :Procedure ],
         [ a owl:Restriction ;
-            owl:onProperty :temporallyRelatedTo ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :dueTo ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
+            owl:onProperty :before ;
+            owl:someValuesFrom :Procedure ],
         [ a owl:Restriction ;
             owl:onProperty :associatedWith ;
             owl:someValuesFrom [ a owl:Class ;
@@ -50,15 +48,20 @@
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :describes ;
-            owl:someValuesFrom :Event ],
+            owl:onProperty :temporallyRelatedTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :occurrence ;
+            owl:someValuesFrom :PeriodsOfLife ],
+        [ a owl:Restriction ;
+            owl:onProperty :dueTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
         [ a owl:Restriction ;
             owl:onProperty :causativeAgent ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Organism :PhysicalForce :PhysicalObject :Substance ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :occurrence ;
-            owl:someValuesFrom :PeriodsOfLife ],
         :Description .
 
 :PeriodsOfLife a owl:Class ;
@@ -132,9 +135,6 @@
     rdfs:subPropertyOf :associatedWith ;
     :sctid 726633004 .
 
-<https://w3id.org/hacid/onto/mdx/Event/> a owl:Ontology ;
-    owl:imports top: .
-
 :Organism a owl:Class ;
     rdfs:label "Organism"@en ;
     rdfs:subClassOf :Entity ;
@@ -182,7 +182,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Event/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :ClinicalFinding a owl:Class ;
@@ -217,5 +217,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Event/> .
+    rdfs:isDefinedBy : .
 

@@ -23,20 +23,29 @@
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
     rdfs:isDefinedBy : .
 
-:PhysicalForce a owl:Class ;
-    rdfs:label "Physical force"@en ;
+<https://w3id.org/hacid/onto/mdx/situation_with_explicit_context/> a owl:Ontology ;
+    owl:imports top: .
+
+:SituationWithExplicitContext a owl:Class ;
+    rdfs:label "Situation with explicit context"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom :PhysicalForceDescription ;
+            owl:allValuesFrom :SituationWithExplicitContextDescription ;
             owl:onProperty :isDescribedBy ],
         :Entity ;
-    :sctid 78621006 .
+    :sctid 243796009 .
 
-:PhysicalForceDescription a owl:Class ;
-    rdfs:label "Physical force description"@en ;
-    rdfs:comment "The description of a Physical force."@en ;
+:SituationWithExplicitContextDescription a owl:Class ;
+    rdfs:label "Situation with explicit context description"@en ;
+    rdfs:comment "The description of a Situation with explicit context."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :temporalContext ;
+            owl:someValuesFrom :TemporalContextValue ],
+        [ a owl:Restriction ;
+            owl:onProperty :subjectRelationshipContext ;
+            owl:someValuesFrom :Person ],
+        [ a owl:Restriction ;
             owl:onProperty :describes ;
-            owl:someValuesFrom :PhysicalForce ],
+            owl:someValuesFrom :SituationWithExplicitContext ],
         :Description .
 
 :characterizes a owl:ObjectProperty ;
@@ -54,12 +63,33 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :describes .
 
-<https://w3id.org/hacid/onto/mdx/PhysicalForce/> a owl:Ontology ;
-    owl:imports top: .
+:subjectRelationshipContext a owl:ObjectProperty ;
+    rdfs:label "subject relationship context"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Person ;
+    rdfs:subPropertyOf :associatedWith,
+        :context ;
+    :sctid 408732007 .
 
-:QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PhysicalForce/> ;
-    rdfs:subClassOf :Entity .
+:temporalContext a owl:ObjectProperty ;
+    rdfs:label "temporal context"@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :TemporalContextValue ;
+    rdfs:subPropertyOf :associatedWith,
+        :context ;
+    :sctid 408731000 .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf :Entity ;
+    :sctid 125676002 .
+
+:TemporalContextValue a owl:Class ;
+    rdfs:label "Temporal context value"@en ;
+    rdfs:subClassOf :QualifierValue ;
+    :sctid 410510008 .
 
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
@@ -77,6 +107,11 @@ For example, a Plan is a Description of some actions to be executed by agents in
 Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
     rdfs:subClassOf :Entity .
 
+:QualifierValue a owl:Class ;
+    rdfs:label "qualifier value"@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf :Entity .
+
 :associatedWith a owl:ObjectProperty,
         owl:SymmetricProperty,
         owl:TransitiveProperty ;
@@ -89,5 +124,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PhysicalForce/> .
+    rdfs:isDefinedBy : .
 

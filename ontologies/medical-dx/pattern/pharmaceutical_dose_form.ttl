@@ -11,6 +11,9 @@
     rdfs:isDefinedBy : ;
     rdfs:range rdfs:Literal .
 
+<https://w3id.org/hacid/onto/mdx/pharmaceutical_dose_form/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -61,23 +64,23 @@
     rdfs:label "Pharmaceutical dose form description"@en ;
     rdfs:comment "The description of a Pharmaceutical dose form."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasBasicDoseForm ;
+            owl:someValuesFrom :BasicDoseForm ],
+        [ a owl:Restriction ;
             owl:onProperty :hasDoseFormIntendedSite ;
             owl:someValuesFrom :DoseFormIntendedSite ],
         [ a owl:Restriction ;
             owl:onProperty :describes ;
             owl:someValuesFrom :PharmaceuticalDoseForm ],
         [ a owl:Restriction ;
+            owl:onProperty :hasDoseFormReleaseCharacteristic ;
+            owl:someValuesFrom :DoseFormReleaseCharacteristic ],
+        [ a owl:Restriction ;
             owl:onProperty :hasDoseFormAdministrationMethod ;
             owl:someValuesFrom :DoseFormAdministrationMethod ],
         [ a owl:Restriction ;
-            owl:onProperty :hasBasicDoseForm ;
-            owl:someValuesFrom :BasicDoseForm ],
-        [ a owl:Restriction ;
             owl:onProperty :hasDoseFormTransformation ;
             owl:someValuesFrom :DoseFormTransformation ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasDoseFormReleaseCharacteristic ;
-            owl:someValuesFrom :DoseFormReleaseCharacteristic ],
         :Description .
 
 :ReleaseCharacteristic a owl:Class ;
@@ -150,9 +153,6 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :describes .
 
-<https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm/> a owl:Ontology ;
-    owl:imports top: .
-
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
     rdfs:comment "The relation between an entity and one of its possible description."@en ;
@@ -170,7 +170,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
     rdfs:subClassOf :Entity .
 
 :QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :associatedWith a owl:ObjectProperty,
@@ -185,5 +185,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PharmaceuticalDoseForm/> .
+    rdfs:isDefinedBy : .
 

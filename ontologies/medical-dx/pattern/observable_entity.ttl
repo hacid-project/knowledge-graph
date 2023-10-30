@@ -12,6 +12,9 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :characterizes .
 
+<https://w3id.org/hacid/onto/mdx/observable_entity/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -42,48 +45,60 @@
     rdfs:label "Observable entity description"@en ;
     rdfs:comment "The description of a Observable entity."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :describes ;
-            owl:someValuesFrom :ObservableEntity ],
+            owl:onProperty :processOutput ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Process :Substance ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :usingDevice ;
+            owl:onProperty :procedureDevice ;
             owl:someValuesFrom :Device ],
         [ a owl:Restriction ;
-            owl:onProperty :inheresIn ;
+            owl:onProperty :characterizes ;
             owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Specimen :RecordArtifact :Organism :Person :PhysicalObject :Substance :BodyStructure ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :processExtendsTo ;
-            owl:someValuesFrom :BodyStructure ],
-        [ a owl:Restriction ;
-            owl:onProperty :inherentLocation ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :precondition ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Procedure :ClinicalFinding :PreconditionValue ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :processActsOn ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :BodyStructure :Substance ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :scaleType ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :OrdinalValue :TextValue :OrdinalORQuantitativeValue :NarrativeValue :Qualitative :Quantitative :NominalValue ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :towards ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+                    owl:unionOf ( :Process :Procedure ) ] ],
         [ a owl:Restriction ;
             owl:onProperty :hasRealization ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Event :Procedure :Process :ClinicalFinding ) ] ],
         [ a owl:Restriction ;
+            owl:onProperty :usingDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :processActsOn ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :BodyStructure :Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :timeAspect ;
+            owl:someValuesFrom :TimeFrame ],
+        [ a owl:Restriction ;
+            owl:onProperty :component ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :inheresIn ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :Person :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :precondition ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding :PreconditionValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :scaleType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :OrdinalValue :TextValue :OrdinalORQuantitativeValue :NarrativeValue :Qualitative :Quantitative :NominalValue ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :inherentLocation ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :towards ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
             owl:onProperty :processAgent ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :BodyStructure :PhysicalObject :Substance :Organism ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :relativeTo ;
+            owl:onProperty :directSite ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
         [ a owl:Restriction ;
@@ -91,34 +106,22 @@
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :directSite ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :characterizes ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Process :Procedure ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :component ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
-        [ a owl:Restriction ;
             owl:onProperty :processDuration ;
             owl:someValuesFrom :TimeFrame ],
         [ a owl:Restriction ;
-            owl:onProperty :timeAspect ;
-            owl:someValuesFrom :TimeFrame ],
-        [ a owl:Restriction ;
-            owl:onProperty :processOutput ;
+            owl:onProperty :relativeTo ;
             owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Process :Substance ) ] ],
+                    owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
         [ a owl:Restriction ;
             owl:onProperty :technique ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Technique :StagingAndScales ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :procedureDevice ;
-            owl:someValuesFrom :Device ],
+            owl:onProperty :processExtendsTo ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :ObservableEntity ],
         [ a owl:Restriction ;
             owl:onProperty :property ;
             owl:someValuesFrom :Property ],
@@ -338,9 +341,6 @@
     rdfs:subClassOf :Entity ;
     :sctid 404684003 .
 
-<https://w3id.org/hacid/onto/mdx/ObservableEntity/> a owl:Ontology ;
-    owl:imports top: .
-
 :Property a owl:Class ;
     rdfs:label "Property"@en ;
     rdfs:subClassOf :QualifierValue ;
@@ -438,7 +438,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ObservableEntity/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :associatedWith a owl:ObjectProperty,
@@ -453,5 +453,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ObservableEntity/> .
+    rdfs:isDefinedBy : .
 

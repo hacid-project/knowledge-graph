@@ -18,6 +18,9 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :characterizes .
 
+<https://w3id.org/hacid/onto/mdx/procedure/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -66,71 +69,71 @@
     rdfs:label "Procedure description"@en ;
     rdfs:comment "The description of a Procedure."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :usingSubstance ;
-            owl:someValuesFrom :Substance ],
+            owl:onProperty :recipientCategory ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Person :Family :Community :Group ) ] ],
         [ a owl:Restriction ;
             owl:onProperty :directSubstance ;
             owl:someValuesFrom :Substance ],
         [ a owl:Restriction ;
-            owl:onProperty :usingEnergy ;
-            owl:someValuesFrom :PhysicalForce ],
+            owl:onProperty :directMorphology ;
+            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
         [ a owl:Restriction ;
-            owl:onProperty :procedureDevice ;
-            owl:someValuesFrom :Device ],
-        [ a owl:Restriction ;
-            owl:onProperty :usingAccessDevice ;
-            owl:someValuesFrom :Device ],
-        [ a owl:Restriction ;
-            owl:onProperty :indirectProcedureSite ;
+            owl:onProperty :directProcedureSite ;
             owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
         [ a owl:Restriction ;
-            owl:onProperty :indirectDevice ;
-            owl:someValuesFrom :Device ],
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Procedure ],
         [ a owl:Restriction ;
-            owl:onProperty :usingDevice ;
+            owl:onProperty :usingAccessDevice ;
             owl:someValuesFrom :Device ],
         [ a owl:Restriction ;
             owl:onProperty :revisionStatus ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :PartOfMultistageProcedure :PrimaryOperation ) ] ],
         [ a owl:Restriction ;
+            owl:onProperty :method ;
+            owl:someValuesFrom :ActionType ],
+        [ a owl:Restriction ;
             owl:onProperty :directDevice ;
             owl:someValuesFrom :Device ],
-        [ a owl:Restriction ;
-            owl:onProperty :priority ;
-            owl:someValuesFrom :PriorityLevel ],
         [ a owl:Restriction ;
             owl:onProperty :hasFocus ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :procedureMorphology ;
-            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
-        [ a owl:Restriction ;
-            owl:onProperty :access ;
-            owl:someValuesFrom :SurgicalAccessValue ],
-        [ a owl:Restriction ;
-            owl:onProperty :recipientCategory ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Person :Family :Community :Group ) ] ],
-        [ a owl:Restriction ;
             owl:onProperty :procedureSite ;
-            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
-        [ a owl:Restriction ;
-            owl:onProperty :directMorphology ;
-            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
-        [ a owl:Restriction ;
-            owl:onProperty :describes ;
-            owl:someValuesFrom :Procedure ],
-        [ a owl:Restriction ;
-            owl:onProperty :method ;
-            owl:someValuesFrom :ActionType ],
-        [ a owl:Restriction ;
-            owl:onProperty :directProcedureSite ;
             owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
         [ a owl:Restriction ;
             owl:onProperty :indirectMorphology ;
             owl:someValuesFrom :MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :procedureDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :priority ;
+            owl:someValuesFrom :PriorityLevel ],
+        [ a owl:Restriction ;
+            owl:onProperty :procedureMorphology ;
+            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :indirectProcedureSite ;
+            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :usingDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :usingSubstance ;
+            owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty :usingEnergy ;
+            owl:someValuesFrom :PhysicalForce ],
+        [ a owl:Restriction ;
+            owl:onProperty :indirectDevice ;
+            owl:someValuesFrom :Device ],
+        [ a owl:Restriction ;
+            owl:onProperty :access ;
+            owl:someValuesFrom :SurgicalAccessValue ],
         :Description .
 
 :access a owl:ObjectProperty ;
@@ -332,9 +335,6 @@
         :Entity ;
     :sctid 71388002 .
 
-<https://w3id.org/hacid/onto/mdx/Procedure/> a owl:Ontology ;
-    owl:imports top: .
-
 :SurgicalAccessValue a owl:Class ;
     rdfs:label "Surgical access value"@en ;
     rdfs:subClassOf :QualifierValue ;
@@ -385,7 +385,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Procedure/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :Device a owl:Class ;
@@ -405,5 +405,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Procedure/> .
+    rdfs:isDefinedBy : .
 

@@ -18,31 +18,28 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :characterizes .
 
+<https://w3id.org/hacid/onto/mdx/physical_force/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
     rdfs:isDefinedBy : .
 
-:SituationWithExplicitContext a owl:Class ;
-    rdfs:label "Situation with explicit context"@en ;
+:PhysicalForce a owl:Class ;
+    rdfs:label "Physical force"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom :SituationWithExplicitContextDescription ;
+            owl:allValuesFrom :PhysicalForceDescription ;
             owl:onProperty :isDescribedBy ],
         :Entity ;
-    :sctid 243796009 .
+    :sctid 78621006 .
 
-:SituationWithExplicitContextDescription a owl:Class ;
-    rdfs:label "Situation with explicit context description"@en ;
-    rdfs:comment "The description of a Situation with explicit context."@en ;
+:PhysicalForceDescription a owl:Class ;
+    rdfs:label "Physical force description"@en ;
+    rdfs:comment "The description of a Physical force."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :subjectRelationshipContext ;
-            owl:someValuesFrom :Person ],
-        [ a owl:Restriction ;
             owl:onProperty :describes ;
-            owl:someValuesFrom :SituationWithExplicitContext ],
-        [ a owl:Restriction ;
-            owl:onProperty :temporalContext ;
-            owl:someValuesFrom :TemporalContextValue ],
+            owl:someValuesFrom :PhysicalForce ],
         :Description .
 
 :characterizes a owl:ObjectProperty ;
@@ -60,36 +57,9 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :describes .
 
-:subjectRelationshipContext a owl:ObjectProperty ;
-    rdfs:label "subject relationship context"@en ;
-    rdfs:domain :Entity ;
+:QualifierValue a owl:Class ;
     rdfs:isDefinedBy : ;
-    rdfs:range :Person ;
-    rdfs:subPropertyOf :associatedWith,
-        :context ;
-    :sctid 408732007 .
-
-:temporalContext a owl:ObjectProperty ;
-    rdfs:label "temporal context"@en ;
-    rdfs:domain :Entity ;
-    rdfs:isDefinedBy : ;
-    rdfs:range :TemporalContextValue ;
-    rdfs:subPropertyOf :associatedWith,
-        :context ;
-    :sctid 408731000 .
-
-:Person a owl:Class ;
-    rdfs:label "Person"@en ;
-    rdfs:subClassOf :Entity ;
-    :sctid 125676002 .
-
-<https://w3id.org/hacid/onto/mdx/SituationWithExplicitContext/> a owl:Ontology ;
-    owl:imports top: .
-
-:TemporalContextValue a owl:Class ;
-    rdfs:label "Temporal context value"@en ;
-    rdfs:subClassOf :QualifierValue ;
-    :sctid 410510008 .
+    rdfs:subClassOf :Entity .
 
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
@@ -107,11 +77,6 @@ For example, a Plan is a Description of some actions to be executed by agents in
 Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
     rdfs:subClassOf :Entity .
 
-:QualifierValue a owl:Class ;
-    rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/SituationWithExplicitContext/> ;
-    rdfs:subClassOf :Entity .
-
 :associatedWith a owl:ObjectProperty,
         owl:SymmetricProperty,
         owl:TransitiveProperty ;
@@ -124,5 +89,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/SituationWithExplicitContext/> .
+    rdfs:isDefinedBy : .
 

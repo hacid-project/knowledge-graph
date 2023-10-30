@@ -4,6 +4,9 @@
 @prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://w3id.org/hacid/onto/mdx/body_structure/> a owl:Ontology ;
+    owl:imports top: .
+
 :hasDataValue a owl:DatatypeProperty ;
     rdfs:label "has data value"@en ;
     rdfs:comment "The most general datatype property in the ontology."@en ;
@@ -27,7 +30,13 @@
     rdfs:label "Body structure description"@en ;
     rdfs:comment "The description of a Body structure."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isVasculatureOf ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
             owl:onProperty :describes ;
+            owl:someValuesFrom :BodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :constitutionalPartOf ;
             owl:someValuesFrom :BodyStructure ],
         [ a owl:Restriction ;
             owl:onProperty :allOrPartOf ;
@@ -36,19 +45,13 @@
             owl:onProperty :lateralHalfOf ;
             owl:someValuesFrom :BodyStructure ],
         [ a owl:Restriction ;
-            owl:onProperty :isVasculatureOf ;
-            owl:someValuesFrom :BodyStructure ],
-        [ a owl:Restriction ;
-            owl:onProperty :constitutionalPartOf ;
+            owl:onProperty :properPartOf ;
             owl:someValuesFrom :BodyStructure ],
         [ a owl:Restriction ;
             owl:onProperty :systemicPartOf ;
             owl:someValuesFrom :BodyStructure ],
         [ a owl:Restriction ;
             owl:onProperty :regionalPartOf ;
-            owl:someValuesFrom :BodyStructure ],
-        [ a owl:Restriction ;
-            owl:onProperty :properPartOf ;
             owl:someValuesFrom :BodyStructure ],
         :Description .
 
@@ -100,11 +103,8 @@
         :properPartOf ;
     :sctid 733932009 .
 
-<https://w3id.org/hacid/onto/mdx/BodyStructure/> a owl:Ontology ;
-    owl:imports top: .
-
 :QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/BodyStructure/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :allOrPartOf a owl:ObjectProperty,
@@ -173,5 +173,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/BodyStructure/> .
+    rdfs:isDefinedBy : .
 

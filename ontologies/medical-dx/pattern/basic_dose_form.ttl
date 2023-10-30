@@ -4,6 +4,9 @@
 @prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://w3id.org/hacid/onto/mdx/basic_dose_form/> a owl:Ontology ;
+    owl:imports top: .
+
 :hasDataValue a owl:DatatypeProperty ;
     rdfs:label "has data value"@en ;
     rdfs:comment "The most general datatype property in the ontology."@en ;
@@ -35,11 +38,11 @@
     rdfs:label "Basic dose form description"@en ;
     rdfs:comment "The description of a Basic dose form."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :describes ;
-            owl:someValuesFrom :BasicDoseForm ],
-        [ a owl:Restriction ;
             owl:onProperty :hasStateOfMatter ;
             owl:someValuesFrom :StateOfMatter ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :BasicDoseForm ],
         :Description .
 
 :characterizes a owl:ObjectProperty ;
@@ -65,11 +68,8 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :describes .
 
-<https://w3id.org/hacid/onto/mdx/BasicDoseForm/> a owl:Ontology ;
-    owl:imports top: .
-
 :QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/BasicDoseForm/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :StateOfMatter a owl:Class ;
@@ -105,5 +105,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/BasicDoseForm/> .
+    rdfs:isDefinedBy : .
 

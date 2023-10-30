@@ -5,6 +5,9 @@
 @prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://w3id.org/hacid/onto/mdx/evaluation_procedure/> a owl:Ontology ;
+    owl:imports top: .
+
 :hasDataValue a owl:DatatypeProperty ;
     rdfs:label "has data value"@en ;
     rdfs:comment "The most general datatype property in the ontology."@en ;
@@ -41,25 +44,25 @@
     rdfs:label "Evaluation procedure description"@en ;
     rdfs:comment "The description of a Evaluation procedure."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :describes ;
-            owl:someValuesFrom :EvaluationProcedure ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasSpecimen ;
-            owl:someValuesFrom :Specimen ],
-        [ a owl:Restriction ;
             owl:onProperty :property ;
             owl:someValuesFrom :Property ],
         [ a owl:Restriction ;
             owl:onProperty :timeAspect ;
             owl:someValuesFrom :TimeFrame ],
         [ a owl:Restriction ;
-            owl:onProperty :scaleType ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :OrdinalValue :TextValue :OrdinalORQuantitativeValue :NarrativeValue :Qualitative :Quantitative :NominalValue ) ] ],
+            owl:onProperty :hasSpecimen ;
+            owl:someValuesFrom :Specimen ],
         [ a owl:Restriction ;
             owl:onProperty :component ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Specimen :RecordArtifact :Organism :PhysicalObject :Substance :BodyStructure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :EvaluationProcedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :scaleType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :OrdinalValue :TextValue :OrdinalORQuantitativeValue :NarrativeValue :Qualitative :Quantitative :NominalValue ) ] ],
         [ a owl:Restriction ;
             owl:onProperty :measurementMethod ;
             owl:someValuesFrom :LaboratoryProcedureCategorizedByMethod ],
@@ -190,9 +193,6 @@
     rdfs:subPropertyOf :associatedWith ;
     :sctid 370134009 .
 
-<https://w3id.org/hacid/onto/mdx/EvaluationProcedure/> a owl:Ontology ;
-    owl:imports top: .
-
 :Procedure a owl:Class ;
     rdfs:label "procedure"@en ;
     rdfs:subClassOf :Entity .
@@ -239,11 +239,11 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/EvaluationProcedure/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/EvaluationProcedure/> .
+    rdfs:isDefinedBy : .
 

@@ -5,6 +5,9 @@
 @prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://w3id.org/hacid/onto/mdx/disorder/> a owl:Ontology ;
+    owl:imports top: .
+
 :hasDataValue a owl:DatatypeProperty ;
     rdfs:label "has data value"@en ;
     rdfs:comment "The most general datatype property in the ontology."@en ;
@@ -51,75 +54,75 @@
     rdfs:label "Disorder description"@en ;
     rdfs:comment "The description of a Disorder."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :before ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
             owl:onProperty :findingSite ;
             owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
         [ a owl:Restriction ;
-            owl:onProperty :findingInformer ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :PersonWithCharacteristicRelatedToSubjectOfRecord :PerformerOfMethod :SubjectOfRecordOrOtherProviderOfHistory ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :severity ;
-            owl:someValuesFrom :SeverityType ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasInterpretation ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :FindingValue :Colors ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :temporallyRelatedTo ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :during ;
-            owl:someValuesFrom :Procedure ],
-        [ a owl:Restriction ;
-            owl:onProperty :interprets ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :EvaluationProcedure :ObservableEntity :LaboratoryProcedure ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :occurrence ;
-            owl:someValuesFrom :PeriodsOfLife ],
-        [ a owl:Restriction ;
-            owl:onProperty :causativeAgent ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Organism :PhysicalForce :PhysicalObject :Substance ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :after ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :associatedWith ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Procedure :ClinicalFinding :Organism :PhysicalObject :Substance :Event :PhysicalForce ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :episodicity ;
-            owl:someValuesFrom :EpisodicityType ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasRealization ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Event :Procedure :Process :ClinicalFinding ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :clinicalCourse ;
-            owl:someValuesFrom :CourseType ],
-        [ a owl:Restriction ;
-            owl:onProperty :dueTo ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
-        [ a owl:Restriction ;
             owl:onProperty :describes ;
             owl:someValuesFrom :Disorder ],
-        [ a owl:Restriction ;
-            owl:onProperty :associatedMorphology ;
-            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
         [ a owl:Restriction ;
             owl:onProperty :pathologicalProcess ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :InfectiousProcess :HypersensitivityProcess :PathologicalDevelopmentalProcess :ProliferationOfNeoplasm :AbnormalImmuneProcess ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :before ;
-            owl:someValuesFrom :Procedure ],
-        [ a owl:Restriction ;
             owl:onProperty :findingMethod ;
             owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :after ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :dueTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :temporallyRelatedTo ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :associatedMorphology ;
+            owl:someValuesFrom :MorphologicallyAbnormalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :associatedWith ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Procedure :ClinicalFinding :Organism :PhysicalObject :Substance :Event :PhysicalForce ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :causativeAgent ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Organism :PhysicalForce :PhysicalObject :Substance ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :clinicalCourse ;
+            owl:someValuesFrom :CourseType ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasRealization ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Event :Procedure :Process :ClinicalFinding ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :severity ;
+            owl:someValuesFrom :SeverityType ],
+        [ a owl:Restriction ;
+            owl:onProperty :interprets ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :EvaluationProcedure :ObservableEntity :LaboratoryProcedure ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :during ;
+            owl:someValuesFrom :Procedure ],
+        [ a owl:Restriction ;
+            owl:onProperty :episodicity ;
+            owl:someValuesFrom :EpisodicityType ],
+        [ a owl:Restriction ;
+            owl:onProperty :occurrence ;
+            owl:someValuesFrom :PeriodsOfLife ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasInterpretation ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :FindingValue :Colors ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :findingInformer ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :PersonWithCharacteristicRelatedToSubjectOfRecord :PerformerOfMethod :SubjectOfRecordOrOtherProviderOfHistory ) ] ],
         :Description .
 
 :EvaluationProcedure a owl:Class ;
@@ -345,9 +348,6 @@
     rdfs:subClassOf :QualifierValue ;
     :sctid 288524001 .
 
-<https://w3id.org/hacid/onto/mdx/Disorder/> a owl:Ontology ;
-    owl:imports top: .
-
 :EpisodicityType a owl:Class ;
     rdfs:label "Episodicity type"@en ;
     rdfs:subClassOf :QualifierValue ;
@@ -430,7 +430,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Disorder/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :associatedWith a owl:ObjectProperty,
@@ -447,5 +447,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Disorder/> .
+    rdfs:isDefinedBy : .
 

@@ -11,6 +11,9 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :characterizes .
 
+<https://w3id.org/hacid/onto/mdx/medicinal_product_package/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -33,20 +36,20 @@
     rdfs:label "Medicinal product package description"@en ;
     rdfs:comment "The description of a Medicinal product package."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :containsClinicalDrug ;
-            owl:someValuesFrom :MedicinalProduct ],
-        [ a owl:Restriction ;
-            owl:onProperty :describes ;
-            owl:someValuesFrom :MedicinalProductPackage ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasPackSize ;
-            owl:someValuesFrom xsd:float ],
-        [ a owl:Restriction ;
             owl:onProperty :hasPackSizeUnit ;
             owl:someValuesFrom :UnitOfMeasure ],
         [ a owl:Restriction ;
             owl:onProperty :countOfClinicalDrugType ;
             owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasPackSize ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :MedicinalProductPackage ],
+        [ a owl:Restriction ;
+            owl:onProperty :containsClinicalDrug ;
+            owl:someValuesFrom :MedicinalProduct ],
         :Description .
 
 :characterizes a owl:ObjectProperty ;
@@ -93,9 +96,6 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :describes .
 
-<https://w3id.org/hacid/onto/mdx/MedicinalProductPackage/> a owl:Ontology ;
-    owl:imports top: .
-
 :Product a owl:Class ;
     rdfs:label "product"@en ;
     rdfs:subClassOf :Entity .
@@ -130,7 +130,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/MedicinalProductPackage/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :associatedWith a owl:ObjectProperty,
@@ -145,5 +145,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/MedicinalProductPackage/> .
+    rdfs:isDefinedBy : .
 

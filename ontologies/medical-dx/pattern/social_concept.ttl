@@ -1,139 +1,93 @@
 @prefix : <https://w3id.org/hacid/onto/mdx/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/hacid/onto/mdx/SocialConcept/> .
+@prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/hacid/onto/mdx/SocialConcept/> rdf:type owl:Ontology ;
-                                                  owl:imports <https://w3id.org/hacid/onto/mdx/Top/> .
+:hasDataValue a owl:DatatypeProperty ;
+    rdfs:label "has data value"@en ;
+    rdfs:comment "The most general datatype property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range rdfs:Literal .
 
-#################################################################
-#    Annotation properties
-#################################################################
+:isCharacterizedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :QualifierValue ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :characterizes .
 
-###  https://w3id.org/hacid/onto/mdx/sctid
-:sctid rdf:type owl:AnnotationProperty ;
-       rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
-       rdfs:isDefinedBy : ;
-       rdfs:label "SNOMED-CT identifier"@en .
+:sctid a owl:AnnotationProperty ;
+    rdfs:label "SNOMED-CT identifier"@en ;
+    rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
+    rdfs:isDefinedBy : .
 
+<https://w3id.org/hacid/onto/mdx/social_concept/> a owl:Ontology ;
+    owl:imports top: .
 
-#################################################################
-#    Object Properties
-#################################################################
+:SocialConcept a owl:Class ;
+    rdfs:label "Social concept"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :SocialConceptDescription ;
+            owl:onProperty :isDescribedBy ],
+        :Entity ;
+    :sctid 48176007 .
 
-###  https://w3id.org/hacid/onto/mdx/associatedWith
-:associatedWith rdf:type owl:ObjectProperty ,
-                         owl:SymmetricProperty ,
-                         owl:TransitiveProperty ;
-                rdfs:domain :Entity ;
-                rdfs:range :Entity ;
-                rdfs:comment "The most general object property in the ontology."@en ;
-                rdfs:isDefinedBy : ;
-                rdfs:label "associated with"@en .
+:SocialConceptDescription a owl:Class ;
+    rdfs:label "Social concept description"@en ;
+    rdfs:comment "The description of a Social concept."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :SocialConcept ],
+        :Description .
 
+:characterizes a owl:ObjectProperty ;
+    rdfs:domain :QualifierValue ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
 
-###  https://w3id.org/hacid/onto/mdx/characterizes
-:characterizes rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :associatedWith ;
-               owl:inverseOf :isCharacterizedBy ;
-               rdfs:domain :QualifierValue ;
-               rdfs:range :Entity ;
-               rdfs:isDefinedBy : .
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Description ;
+    rdfs:subPropertyOf :associatedWith ;
+    owl:inverseOf :describes .
 
+:QualifierValue a owl:Class ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf :Entity .
 
-###  https://w3id.org/hacid/onto/mdx/describes
-:describes rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :associatedWith ;
-           owl:inverseOf :isDescribedBy ;
-           rdfs:domain :Description ;
-           rdfs:range :Entity ;
-           rdfs:comment "The relation between an entity and one of its possible description."@en ;
-           rdfs:isDefinedBy : ;
-           rdfs:label "describes"@en .
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "The relation between an entity and one of its possible description."@en ;
+    rdfs:domain :Description ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :associatedWith .
 
-
-###  https://w3id.org/hacid/onto/mdx/isCharacterizedBy
-:isCharacterizedBy rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :associatedWith ;
-                   rdfs:domain :Entity ;
-                   rdfs:range :QualifierValue ;
-                   rdfs:isDefinedBy : .
-
-
-###  https://w3id.org/hacid/onto/mdx/isDescribedBy
-:isDescribedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :associatedWith ;
-               rdfs:domain :Entity ;
-               rdfs:range :Description ;
-               rdfs:comment "The relation between a description and the entity being the object of the description."@en ;
-               rdfs:isDefinedBy : ;
-               rdfs:label "is described by"@en .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/hacid/onto/mdx/hasDataValue
-:hasDataValue rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Entity ;
-              rdfs:range rdfs:Literal ;
-              rdfs:comment "The most general datatype property in the ontology."@en ;
-              rdfs:isDefinedBy : ;
-              rdfs:label "has data value"@en .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/hacid/onto/mdx/Description
-:Description rdf:type owl:Class ;
-             rdfs:subClassOf :Entity ;
-             rdfs:comment """A Description is a SocialObject that represents a conceptualization.
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:comment """A Description is a SocialObject that represents a conceptualization.
 It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations.
 For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
 Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations."""@en ;
-             rdfs:label "Description"@en .
+    rdfs:subClassOf :Entity .
 
+:associatedWith a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "associated with"@en ;
+    rdfs:comment "The most general object property in the ontology."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Entity .
 
-###  https://w3id.org/hacid/onto/mdx/Entity
-:Entity rdf:type owl:Class ;
-        rdfs:comment "The most general class in the ontology."@en ;
-        rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/SocialConcept/> ;
-        rdfs:label "Entity"@en .
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en ;
+    rdfs:comment "The most general class in the ontology."@en ;
+    rdfs:isDefinedBy : .
 
-
-###  https://w3id.org/hacid/onto/mdx/QualifierValue
-:QualifierValue rdf:type owl:Class ;
-                rdfs:subClassOf :Entity ;
-                rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/SocialConcept/> .
-
-
-###  https://w3id.org/hacid/onto/mdx/SocialConcept
-:SocialConcept rdf:type owl:Class ;
-               rdfs:subClassOf :Entity ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :isDescribedBy ;
-                                 owl:allValuesFrom :SocialConceptDescription
-                               ] ;
-               rdfs:label "Social concept"@en ;
-               :sctid 48176007 .
-
-
-###  https://w3id.org/hacid/onto/mdx/SocialConceptDescription
-:SocialConceptDescription rdf:type owl:Class ;
-                          rdfs:subClassOf :Description ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :describes ;
-                                            owl:someValuesFrom :SocialConcept
-                                          ] ;
-                          rdfs:comment "The description of a Social concept."@en ;
-                          rdfs:label "Social concept description"@en .
-
-
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

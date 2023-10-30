@@ -24,6 +24,9 @@
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
     rdfs:isDefinedBy : .
 
+<https://w3id.org/hacid/onto/mdx/specimen/> a owl:Ontology ;
+    owl:imports top: .
+
 :AnatomicalOrAcquiredBodyStructure a owl:Class ;
     rdfs:label "Anatomical or acquired body structure"@en ;
     rdfs:subClassOf :BodyStructure ;
@@ -74,22 +77,22 @@
             owl:onProperty :describes ;
             owl:someValuesFrom :Specimen ],
         [ a owl:Restriction ;
-            owl:onProperty :specimenSourceIdentity ;
+            owl:onProperty :specimenSubstance ;
             owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Person :PhysicalObject :Community :Family :Environment ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :specimenProcedure ;
-            owl:someValuesFrom :Procedure ],
-        [ a owl:Restriction ;
-            owl:onProperty :specimenSourceTopography ;
-            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
+                    owl:unionOf ( :PhysicalObject :Substance ) ] ],
         [ a owl:Restriction ;
             owl:onProperty :specimenSourceMorphology ;
             owl:someValuesFrom :MorphologicallyAbnormalStructure ],
         [ a owl:Restriction ;
-            owl:onProperty :specimenSubstance ;
+            owl:onProperty :specimenSourceIdentity ;
             owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :PhysicalObject :Substance ) ] ],
+                    owl:unionOf ( :Person :PhysicalObject :Community :Family :Environment ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :specimenSourceTopography ;
+            owl:someValuesFrom :AnatomicalOrAcquiredBodyStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :specimenProcedure ;
+            owl:someValuesFrom :Procedure ],
         :Description .
 
 :Substance a owl:Class ;
@@ -153,15 +156,12 @@
     :sctid 260787004 .
 
 :QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Specimen/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :SocialConcept a owl:Class ;
     rdfs:label "social concept"@en ;
     rdfs:subClassOf :Entity .
-
-<https://w3id.org/hacid/onto/mdx/Specimen/> a owl:Ontology ;
-    owl:imports top: .
 
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
@@ -191,5 +191,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/Specimen/> .
+    rdfs:isDefinedBy : .
 

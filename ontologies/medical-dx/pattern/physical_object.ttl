@@ -35,6 +35,9 @@
     rdfs:subPropertyOf :hasDataValue ;
     :sctid 1148965004 .
 
+<https://w3id.org/hacid/onto/mdx/physical_object/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -57,17 +60,17 @@
     rdfs:label "Physical object description"@en ;
     rdfs:comment "The description of a Physical object."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasFilling ;
+            owl:onProperty :hasCompositionalMaterial ;
             owl:someValuesFrom :Substance ],
         [ a owl:Restriction ;
-            owl:onProperty :describes ;
-            owl:someValuesFrom :PhysicalObject ],
+            owl:onProperty :hasFilling ;
+            owl:someValuesFrom :Substance ],
         [ a owl:Restriction ;
             owl:onProperty :hasDeviceIntendedSite ;
             owl:someValuesFrom :BodyStructure ],
         [ a owl:Restriction ;
-            owl:onProperty :hasCompositionalMaterial ;
-            owl:someValuesFrom :Substance ],
+            owl:onProperty :describes ;
+            owl:someValuesFrom :PhysicalObject ],
         :Description .
 
 :characterizes a owl:ObjectProperty ;
@@ -107,11 +110,8 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :describes .
 
-<https://w3id.org/hacid/onto/mdx/PhysicalObject/> a owl:Ontology ;
-    owl:imports top: .
-
 :QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PhysicalObject/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :describes a owl:ObjectProperty ;
@@ -154,5 +154,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PhysicalObject/> .
+    rdfs:isDefinedBy : .
 

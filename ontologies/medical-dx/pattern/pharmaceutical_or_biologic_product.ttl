@@ -40,6 +40,9 @@
         :hasUnitOfMeasure ;
     :sctid 732945000 .
 
+<https://w3id.org/hacid/onto/mdx/pharmaceutical_or_biologic_product/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -62,11 +65,38 @@
     rdfs:label "Pharmaceutical or biologic product description"@en ;
     rdfs:comment "The description of a Pharmaceutical or biologic product."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :playsRole ;
-            owl:someValuesFrom :Role ],
+            owl:onProperty :hasIngredientCharacteristic ;
+            owl:someValuesFrom :QualifierValue ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasPresentationStrengthDenominatorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasUnitOfPresentation ;
+            owl:someValuesFrom :UnitOfPresentation ],
         [ a owl:Restriction ;
             owl:onProperty :hasActiveIngredient ;
             owl:someValuesFrom :Substance ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasConcentrationStrengthDenominatorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasTargetPopulation ;
+            owl:someValuesFrom :ProductTargetPopulation ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasProductCharacteristic ;
+            owl:someValuesFrom :QualifierValue ],
+        [ a owl:Restriction ;
+            owl:onProperty :playsRole ;
+            owl:someValuesFrom :Role ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasConcentrationStrengthNumeratorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasIngredientQualitativeStrength ;
+            owl:someValuesFrom :IngredientQualitativeStrength ],
+        [ a owl:Restriction ;
+            owl:onProperty :countOfBaseAndModificationPair ;
+            owl:someValuesFrom xsd:integer ],
         [ a owl:Restriction ;
             owl:onProperty :countOfBaseOfActiveIngredient ;
             owl:someValuesFrom xsd:integer ],
@@ -74,14 +104,23 @@
             owl:onProperty :hasSupplier ;
             owl:someValuesFrom :Supplier ],
         [ a owl:Restriction ;
-            owl:onProperty :hasPresentationStrengthDenominatorValue ;
-            owl:someValuesFrom xsd:float ],
+            owl:onProperty :hasProductName ;
+            owl:someValuesFrom :ProductName ],
         [ a owl:Restriction ;
-            owl:onProperty :hasTargetPopulation ;
-            owl:someValuesFrom :ProductTargetPopulation ],
+            owl:onProperty :unitOfPresentationSizeQuantity ;
+            owl:someValuesFrom xsd:float ],
         [ a owl:Restriction ;
             owl:onProperty :describes ;
             owl:someValuesFrom :PharmaceuticalOrBiologicProduct ],
+        [ a owl:Restriction ;
+            owl:onProperty :countOfActiveIngredient ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasPresentationStrengthNumeratorValue ;
+            owl:someValuesFrom xsd:float ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasManufacturedDoseForm ;
+            owl:someValuesFrom :PharmaceuticalDoseForm ],
         [ a owl:Restriction ;
             owl:onProperty :unitOfPresentationSizeUnit ;
             owl:someValuesFrom :UnitOfMeasure ],
@@ -89,44 +128,8 @@
             owl:onProperty :hasIngredient ;
             owl:someValuesFrom :Substance ],
         [ a owl:Restriction ;
-            owl:onProperty :countOfActiveIngredient ;
-            owl:someValuesFrom xsd:integer ],
-        [ a owl:Restriction ;
             owl:onProperty :hasPreciseActiveIngredient ;
             owl:someValuesFrom :Substance ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasProductCharacteristic ;
-            owl:someValuesFrom :QualifierValue ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasConcentrationStrengthNumeratorValue ;
-            owl:someValuesFrom xsd:float ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasPresentationStrengthNumeratorValue ;
-            owl:someValuesFrom xsd:float ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasConcentrationStrengthDenominatorValue ;
-            owl:someValuesFrom xsd:float ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasProductName ;
-            owl:someValuesFrom :ProductName ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasUnitOfPresentation ;
-            owl:someValuesFrom :UnitOfPresentation ],
-        [ a owl:Restriction ;
-            owl:onProperty :countOfBaseAndModificationPair ;
-            owl:someValuesFrom xsd:integer ],
-        [ a owl:Restriction ;
-            owl:onProperty :unitOfPresentationSizeQuantity ;
-            owl:someValuesFrom xsd:float ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasManufacturedDoseForm ;
-            owl:someValuesFrom :PharmaceuticalDoseForm ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasIngredientQualitativeStrength ;
-            owl:someValuesFrom :IngredientQualitativeStrength ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasIngredientCharacteristic ;
-            owl:someValuesFrom :QualifierValue ],
         :Description .
 
 :ProductTargetPopulation a owl:Class ;
@@ -290,9 +293,6 @@
     rdfs:subClassOf :QualifierValue ;
     :sctid 1149484003 .
 
-<https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/> a owl:Ontology ;
-    owl:imports top: .
-
 :ProductName a owl:Class ;
     rdfs:label "Product name"@en ;
     rdfs:subClassOf :Entity ;
@@ -375,7 +375,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :QualifierValue a owl:Class ;
     rdfs:label "Qualifier value"@en,
         "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity ;
     :sctid 362981000 .
 
@@ -398,5 +398,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/PharmaceuticalOrBiologicProduct/> .
+    rdfs:isDefinedBy : .
 

@@ -4,6 +4,9 @@
 @prefix top: <https://w3id.org/hacid/onto/mdx/Top> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://w3id.org/hacid/onto/mdx/anatomical_structure/> a owl:Ontology ;
+    owl:imports top: .
+
 :hasDataValue a owl:DatatypeProperty ;
     rdfs:label "has data value"@en ;
     rdfs:comment "The most general datatype property in the ontology."@en ;
@@ -35,11 +38,11 @@
     rdfs:label "Anatomical structure description"@en ;
     rdfs:comment "The description of a Anatomical structure."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :laterality ;
-            owl:someValuesFrom :Side ],
-        [ a owl:Restriction ;
             owl:onProperty :describes ;
             owl:someValuesFrom :AnatomicalStructure ],
+        [ a owl:Restriction ;
+            owl:onProperty :laterality ;
+            owl:someValuesFrom :Side ],
         :Description .
 
 :characterizes a owl:ObjectProperty ;
@@ -65,9 +68,6 @@
     rdfs:subPropertyOf :associatedWith ;
     :sctid 272741003 .
 
-<https://w3id.org/hacid/onto/mdx/AnatomicalStructure/> a owl:Ontology ;
-    owl:imports top: .
-
 :Side a owl:Class ;
     rdfs:label "Side"@en ;
     rdfs:subClassOf :QualifierValue ;
@@ -91,7 +91,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/AnatomicalStructure/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :associatedWith a owl:ObjectProperty,
@@ -106,5 +106,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/AnatomicalStructure/> .
+    rdfs:isDefinedBy : .
 

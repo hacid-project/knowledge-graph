@@ -18,6 +18,9 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :characterizes .
 
+<https://w3id.org/hacid/onto/mdx/record_artifact/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -55,11 +58,8 @@
     owl:inverseOf :describes .
 
 :QualifierValue a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/RecordArtifact/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
-
-<https://w3id.org/hacid/onto/mdx/RecordArtifact/> a owl:Ontology ;
-    owl:imports top: .
 
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
@@ -89,5 +89,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/RecordArtifact/> .
+    rdfs:isDefinedBy : .
 

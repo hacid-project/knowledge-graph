@@ -18,6 +18,9 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :characterizes .
 
+<https://w3id.org/hacid/onto/mdx/procedure_with_explicit_context/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -38,11 +41,11 @@
             owl:onProperty :procedureContext ;
             owl:someValuesFrom :ContextValuesForActions ],
         [ a owl:Restriction ;
-            owl:onProperty :associatedProcedure ;
-            owl:someValuesFrom :Procedure ],
-        [ a owl:Restriction ;
             owl:onProperty :describes ;
             owl:someValuesFrom :ProcedureWithExplicitContext ],
+        [ a owl:Restriction ;
+            owl:onProperty :associatedProcedure ;
+            owl:someValuesFrom :Procedure ],
         :Description .
 
 :associatedProcedure a owl:ObjectProperty ;
@@ -87,9 +90,6 @@
     rdfs:subClassOf :Entity ;
     :sctid 71388002 .
 
-<https://w3id.org/hacid/onto/mdx/ProcedureWithExplicitContext/> a owl:Ontology ;
-    owl:imports top: .
-
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
     rdfs:comment "The relation between an entity and one of its possible description."@en ;
@@ -108,7 +108,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ProcedureWithExplicitContext/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf :Entity .
 
 :associatedWith a owl:ObjectProperty,
@@ -123,5 +123,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/ProcedureWithExplicitContext/> .
+    rdfs:isDefinedBy : .
 

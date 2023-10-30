@@ -18,6 +18,9 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :characterizes .
 
+<https://w3id.org/hacid/onto/mdx/qualifier_value/> a owl:Ontology ;
+    owl:imports top: .
+
 :sctid a owl:AnnotationProperty ;
     rdfs:label "SNOMED-CT identifier"@en ;
     rdfs:comment "Property for annotating entities of the KG with corresponding SNOMED-CT identifiers."@en ;
@@ -46,9 +49,6 @@
     rdfs:subPropertyOf :associatedWith ;
     owl:inverseOf :describes .
 
-<https://w3id.org/hacid/onto/mdx/QualifierValue/> a owl:Ontology ;
-    owl:imports top: .
-
 :describes a owl:ObjectProperty ;
     rdfs:label "describes"@en ;
     rdfs:comment "The relation between an entity and one of its possible description."@en ;
@@ -67,7 +67,7 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 
 :QualifierValue a owl:Class ;
     rdfs:label "Qualifier value"@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/QualifierValue/> ;
+    rdfs:isDefinedBy : ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom :QualifierValueDescription ;
             owl:onProperty :isDescribedBy ],
@@ -86,5 +86,5 @@ Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.""
 :Entity a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:comment "The most general class in the ontology."@en ;
-    rdfs:isDefinedBy <https://w3id.org/hacid/onto/mdx/QualifierValue/> .
+    rdfs:isDefinedBy : .
 
