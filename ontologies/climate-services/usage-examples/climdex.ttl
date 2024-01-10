@@ -1,0 +1,32 @@
+ex:mosmix_stations/AFM00040948 a WeatherStation, MosmixStation,
+    GHCStation;
+    ex:mosmixId 40948;
+    ex:GSN false;
+    label "KABUL INTL";
+    lat 34.5660
+    long 69.2120 
+    altitude 1791.3
+       
+xxx a qb:Observation
+    sdmx-dimension:refArea ex:mosmix_stations/AFM00040948;
+    sdmx-dimension:refPeriod 1990;
+    climdex:CDD 20.
+
+yyy a qb:DataSet;
+
+
+zzz a qb:DataStructureDefinition;
+    qb:component
+        # The dimensions
+        [ qb:dimension sdmx-dimension:refArea;         qb:order 1 ],
+        [ qb:dimension sdmx-dimension:refPeriod;       qb:order 2 ],
+        [ qb:dimension qb:measureType ],
+        # The measure(s)
+        [ qb:measure climdex:CDD],
+        ...
+    .
+
+countries:
+    ghcCode 201
+    label "AFGHANISTAN" 
+
