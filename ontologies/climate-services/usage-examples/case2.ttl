@@ -1,0 +1,92 @@
+<cambridgeCase2> a cc:Request;
+    dcterms:title "Climate impacts in Cambridge city";
+    dcterms:description "The user is the Cambridge council. They need the information to create a climate adaptation plan. They are a 'beginner' and heve little experience with climate adaptation.";
+    dcterms:creator <ylifshits>;
+    dcterms:created 2023-04-25;
+    ex:customer <TFL>;
+    ex:hasScenarioRequirementSet
+        <cambridgeCase2/scenarioReq1>, <cambridgeCase2/scenarioReq2>, <cambridgeCase2/scenarioReq3>, <cambridgeCase2/scenarioReq4>;
+    ex:detailedUserNeeds "They are particularly interested in understanding how climate change will impact their assets, in particular hospitals, schools and the town thatre. They worked with collueagues and gov advice to understand whhich hazards theyu should consider and decided in 1) flooding and 2) heat shock";
+    ex:requiresAssessmentType DataProvision?, BriefingDocument;
+    ex:comments "They don't have guidelines and would like guidance on how to frame the future.";
+    dul:hasPart <cq1>.
+
+<cambridgeCase2/scenarioReq1> a cc:ScenarioRequirementSet;
+    dcterms:spatial <Cambridge>;
+    dcterms:temporal [
+        a time:interval;
+        time:from  2030;
+        time:to 2080.
+    ];
+    ex:hazard ex:flooding;
+    ex:pathway ex:RCP6;
+    ex:risk risk:Low (low/medium/high);
+    ex:relevance 1.0;
+    dcterms:creator <ylifshits>;
+    dcterms:created 2023-04-25.
+
+<cambridgeCase2/scenarioReq2> a cc:ScenarioRequirementSet;
+    ex:metric ...;
+    ex:relevance 0.6;
+    dcterms:creator <ylifshits>;
+    dcterms:created 2023-04-25.
+
+<cambridgeCase2/scenarioReq3> a cc:ScenarioRequirementSet;
+    ex:pathway ...
+    ex:relevance 0.8;
+    dcterms:creator <ylifshits>;
+    dcterms:created 2023-04-25.
+
+<cambridgeCase2/scenarioReq4> a cc:ScenarioRequirementSet;
+    ex:sourceData ...
+    ex:relevance 0.3;
+    dcterms:creator <ylifshits>;
+    dcterms:created 2023-04-25.
+
+<cambridgeCase1> a cc:Request.
+<sussexCase> a cc:Request;
+    dcterms:title "Flooding in Sussex";
+    dcterms:created 2023-04-20;
+
+<ylifshits> a foaf:Person;
+    foaf:firstName "Yury";
+    foaf:surname "Lifshits".
+
+<snightingale> a foaf:Person;
+    foaf:firstName "Sarah";
+    foaf:surname "Nightingale";
+    ex:inChargeOfCase xxx.
+
+<TFL> a foaf:Company;
+    ex:industrySector <Transport> .
+
+<Cambridge> a geo:Place;
+    lat
+    long ...
+
+ex:RCP6 a ex:RepresentativeConcentrationPathway.
+
+<cq1> a cc:Request;
+    dcterms:description "What is the most authorative source of information for exterme rainfall events in teh UK 2025-2050. Is there information available?";
+    ex:hasScenarioRequirementSet <cambridgeCase2/cq1/scenarioReq1>;
+    comments "...".
+
+<cambridgeCase2/cq1/scenarioReq1> a cc:ScenarioRequirementSet;
+    dcterms:spatial <Cambridge>;
+    dcterms:temporal [
+        a time:interval;
+        time:from  2025;
+        time:to 2080.
+    ];
+    ex:hazard ex:flooding, ex:heatshock;
+    ex:baselinePeriod [
+        a time:interval;
+        time:from 1950;
+        time:to 2000.
+    ];
+    ex:relevance 1.0;
+    dcterms:creator <ylifshits>;
+    dcterms:created 2023-04-25.
+
+
+
