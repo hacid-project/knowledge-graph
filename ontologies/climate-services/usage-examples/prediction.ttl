@@ -1,0 +1,33 @@
+ar6_predictions:AIM%2FCGE%202.0_ADVANCE_2020_1.5C-2100 a ex:Prediction;
+    ex:model ar6_model:AIM%2FCGE%202.0;
+    ex:scenario ar6_scenarios:ADVANCE_2020_1.5C-2100;
+    ex:output ar6_prediction_outputs:AIM%2FCGE%202.0_ADVANCE_2020_1.5C-2100.
+
+ar6_scenarios:ADVANCE_2020_1.5C-2100 a ex:Scenario;
+    rdfs:label "ADVANCE_2020_1.5C-2100".
+
+ar6_models:AIM%2FCGE%202.0 a ex:Model;
+    rdfs:label "AIM/CGE 2.0".
+
+ar6_prediction_outputs:AIM%2FCGE%202.0_ADVANCE_2020_1.5C-2100 a ex:Prediction, qb:Dataset;
+    ex:basedOn ar6_scenarios:ADVANCE_2020_1.5C-2100.
+
+ar6_constants:predictionOutputStructureDefinition a qb:DataStructureDefinition;
+    qb:component
+        # The dimensions
+        [ qb:dimension sdmx-dimension:refArea ],
+        [ qb:dimension sdmx-dimension:refPeriod ],
+        [ qb:dimension  qb:measureType ],
+        # The measure(s)
+        [ qb:measure climdex:CDD],
+        ...
+    .
+
+xxx a qb:Observation
+    sdmx-dimension:refArea ex:mosmix_stations/AFM00040948;
+    sdmx-dimension:refPeriod 1990;
+    climdex:CDD 20.
+
+yyy a qb:DataSet;
+
+
