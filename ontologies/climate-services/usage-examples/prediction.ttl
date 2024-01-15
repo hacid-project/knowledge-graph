@@ -28,6 +28,6 @@ xxx a qb:Observation
     sdmx-dimension:refPeriod 1990;
     climdex:CDD 20.
 
-yyy a qb:DataSet;
+yyy a qb:DataSet.
 
 
