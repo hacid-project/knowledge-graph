@@ -84,7 +84,39 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/directDevice -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/countOfActiveIngredient -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/countOfActiveIngredient">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasAmount"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isCountOfActiveIngredientOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Amount"/>
+        <rdfs:comment xml:lang="en">Count of active ingredient</rdfs:comment>
+        <rdfs:label xml:lang="en">count of active ingredient</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">766953001</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/countOfBaseOfActiveIngredient -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/countOfBaseOfActiveIngredient">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasAmount"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isCountOfBaseOfActiveIngredientOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Amount"/>
+        <rdfs:comment xml:lang="en">Count of base of active ingredient</rdfs:comment>
+        <rdfs:label xml:lang="en">count of base of active ingredient</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">766952006</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/during -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/directDevice">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -97,7 +129,24 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/directMorphology -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/hasAmount -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasAmount">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/hasCharacteristic"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isAmountOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Amount"/>
+        <rdfs:comment xml:lang="en">The relation between an entity and an amount.</rdfs:comment>
+        <rdfs:comment xml:lang="en">has amount</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasCause -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/directMorphology">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -110,7 +159,38 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/directSubstance -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/hasCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasCharacteristic">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isCharacteristicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/QualifierValue"/>
+        <rdfs:comment xml:lang="en">A top-level property for connecting an entity with its characteristics, i.e. qualifier values.</rdfs:comment>
+        <rdfs:label xml:lang="en">has characteristic</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">704321009</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasClinicalFinding -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasClinicalFinding">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isClinicalFindingOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+        <rdfs:comment xml:lang="en">The relation between an entity and a clinical finding.</rdfs:comment>
+        <rdfs:label xml:lang="en">has finding</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasConstitutionalPart -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/directSubstance">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -142,7 +222,23 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasAbsorbability -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/hasInterpretation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasInterpretation">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Interpretation"/>
+        <rdfs:comment xml:lang="en">The relation between an entity and an instance of the class tinterpretation.</rdfs:comment>
+        <rdfs:label xml:lang="en">has interpretation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasLateralHalf -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasAbsorbability">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/arco/ontology/core/hasComposition"/>
@@ -183,7 +279,25 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasBasisOfStrengthSubstance -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/hasLocation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/hasLocation">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/isLocationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Location"/>
+        <rdfs:comment xml:lang="en">The relation with a location.</rdfs:comment>
+        <rdfs:label xml:lang="en">has location</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">246267002</sctid>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/hasMorphologicAbnormality -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasBasisOfStrengthSubstance">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -263,7 +377,23 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasDeviceIntendedSite -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/isAmountOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isAmountOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isCharacteristicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Amount"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The relation between an amount and an entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">is amount of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isCauseOf -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasDeviceIntendedSite">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -277,7 +407,35 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasDisposition -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/isCharacteristicOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isCharacteristicOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/QualifierValue"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The inverse relation of the top-level property hasCharacteristic used for connecting a characteristic with its corresponding entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">is characteristic of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isClinicalFindingOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isClinicalFindingOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The relation between a clinical finding and the entity it is a finding of.</rdfs:comment>
+        <rdfs:label xml:lang="en">is clinical findng of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isConstitutionalPartOf -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasDisposition">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -291,7 +449,47 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasDoseFormAdministrationMethod -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/isCountOfActiveIngredientOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isCountOfActiveIngredientOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isAmountOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Amount"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
+        <rdfs:comment xml:lang="en">The relatation for associating the amount representing the number of active ingredient with an entity characterized by such an amount.</rdfs:comment>
+        <rdfs:label xml:lang="en">is count of active ingredient of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isCountOfBaseOfActiveIngredientOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isCountOfBaseOfActiveIngredientOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/isAmountOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Amount"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
+        <rdfs:comment xml:lang="en">The relation between an amount representing the number of base active ingredients and an entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">is count of base of active ingredient</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isInterpretationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isInterpretationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Interpretation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">The relation between an interpretation and any possible entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">is interpretation of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isLateralHalfOf -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasDoseFormAdministrationMethod">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -317,7 +515,21 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasDoseFormReleaseCharacteristic -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/isLocationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isLocationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdfs:comment xml:lang="en">The relation from a location and another entity of any type.</rdfs:comment>
+        <rdfs:label xml:lang="en">is location of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isMorphologicAbnormalityOf -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasDoseFormReleaseCharacteristic">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -370,7 +582,25 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasIngredient -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/isSpecializedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/isSpecializedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/medical/onto/specializes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">A partial order relation that holds between entities.</rdfs:comment>
+        <rdfs:label xml:lang="en">is specialized by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/isSystemicPartOf -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasIngredient">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -383,7 +613,30 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasIngredientCharacteristic -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/specializes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/medical/onto/specializes">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">A partial order relation that holds between entities.</rdfs:comment>
+        <rdfs:label xml:lang="en">specializes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasIngredientCharacteristic">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -397,7 +650,21 @@
     
 
 
+<<<<<<< Updated upstream
     <!-- https://w3id.org/arco/ontology/core/hasIngredientQualitativeStrength -->
+=======
+    <!-- https://w3id.org/hacid/medical/onto/Amount -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Amount">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/QualifierValue"/>
+        <rdfs:comment xml:lang="en">An amount that qualifies an entity as a value.</rdfs:comment>
+        <rdfs:label xml:lang="en">Amount</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/AnatomicalStructure -->
+>>>>>>> Stashed changes
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasIngredientQualitativeStrength">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
@@ -2936,6 +3203,12 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasInterpretation"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/Interpretation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/after"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -3019,42 +3292,18 @@
     
 
 
+    <!-- https://w3id.org/hacid/medical/onto/ClinicalFindingStatement -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFindingStatement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Situation"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/medical/onto/Disorder -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Disorder">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
-        <rdfs:comment xml:lang="en">Always and necessarily an abnormal clinical state</rdfs:comment>
-        <rdfs:label xml:lang="en">Disorder</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/medical/onto/Entity -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Entity">
-        <rdfs:label xml:lang="en">entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/medical/onto/Event -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Event">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/dueTo"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
-                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Event"/>
-                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Procedure"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/after"/>
@@ -3078,6 +3327,7 @@
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Event"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Organism"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalForce"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalObject"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Procedure"/>
@@ -3095,18 +3345,11 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/during"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/Procedure"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasCause"/>
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Organism"/>
-                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalForce"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalObject"/>
                             <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Substance"/>
@@ -3117,6 +3360,118 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasMorphologicAbnormality"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/MorphologicAbnormality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Always and necessarily an abnormal clinical state</rdfs:comment>
+        <rdfs:label xml:lang="en">Disorder</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Entity">
+        <rdfs:label xml:lang="en">entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Event -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Event">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+<<<<<<< Updated upstream
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/dueTo"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Event"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Procedure"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+=======
+>>>>>>> Stashed changes
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/after"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Event"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Procedure"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/assosiatedWith"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/ClinicalFinding"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Event"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Organism"/>
+<<<<<<< Updated upstream
+=======
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
+>>>>>>> Stashed changes
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalForce"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalObject"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Procedure"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Substance"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/before"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/Procedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+<<<<<<< Updated upstream
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/during"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/Procedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+=======
+>>>>>>> Stashed changes
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasCause"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Organism"/>
+<<<<<<< Updated upstream
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct"/>
+=======
+>>>>>>> Stashed changes
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalForce"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/PhysicalObject"/>
+                            <rdf:Description rdf:about="https://w3id.org/hacid/medical/onto/Substance"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+<<<<<<< Updated upstream
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasTemporalRelationWith"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -3126,11 +3481,47 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+=======
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasMorphologicAbnormality"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/MorphologicAbnormality"/>
+>>>>>>> Stashed changes
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The concept for events.</rdfs:comment>
         <rdfs:label xml:lang="en">Event</rdfs:label>
         <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">272379006</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/GeographicalLocation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/GeographicalLocation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Location"/>
+        <rdfs:label xml:lang="en">Geographical Location</rdfs:label>
+        <rdfs:label xml:lang="en">The class for representing geographical location, e.g. Italy.</rdfs:label>
+        <sctid xml:lang="en">223496003</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Interpretation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Interpretation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Situation"/>
+        <rdfs:comment xml:lang="en">The class for representing interpretation in terms of qualifiers given to certain entities.</rdfs:comment>
+        <rdfs:label xml:lang="en">Interpretation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Location -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Location">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+        <rdfs:comment xml:lang="en">This class represent a general location. In SNOMED-CT this class is represented by the concept Environment or geographical location.</rdfs:comment>
+        <rdfs:label xml:lang="en">Location</rdfs:label>
+        <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">308916002</sctid>
     </owl:Class>
     
 
@@ -3152,6 +3543,22 @@
     
 
 
+    <!-- https://w3id.org/hacid/medical/onto/MorphologicChange -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/MorphologicChange">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/ClinicalFindingStatement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/medical/onto/hasMorphologicAbnormality"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/medical/onto/MorphologicAbnormality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A morphologic change seen at the tissue or cellular level that are characteristic of a disease.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Morphologic change</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/medical/onto/Organism -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Organism">
@@ -3166,6 +3573,7 @@
     <!-- https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/PharmaceuticalOrBiologicProduct">
+<<<<<<< Updated upstream
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -3275,6 +3683,9 @@
                 <owl:allValuesFrom rdf:resource="https://w3id.org/arco/ontology/core/UnitOfMeasure"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+=======
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Product"/>
+>>>>>>> Stashed changes
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/medical/onto/Substance"/>
         <rdfs:comment xml:lang="en">A top-level hierarchy to clearly distinguish drug products (products) from their chemical constituents (substances)</rdfs:comment>
         <rdfs:label xml:lang="en">Pharmaceutical / Biologic Product</rdfs:label>
@@ -3543,6 +3954,14 @@
     
 
 
+    <!-- https://w3id.org/hacid/medical/onto/Product -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Product">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/medical/onto/QualifierValue -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/QualifierValue">
@@ -3561,6 +3980,14 @@
         <rdfs:comment xml:lang="en">The class for expressing sides, e.g. left side or right side, as qualifier values.</rdfs:comment>
         <rdfs:label xml:lang="en">Side</rdfs:label>
         <sctid rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">182353008</sctid>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/medical/onto/Situation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/medical/onto/Situation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/medical/onto/Entity"/>
     </owl:Class>
     
 
