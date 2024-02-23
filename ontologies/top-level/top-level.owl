@@ -1,0 +1,1727 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/top-level/"
+     xml:base="https://w3id.org/hacid/onto/top-level/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/top-level"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#time -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#time"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/associatedWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/associatedWith">
+        <rdfs:comment xml:lang="it">La relazione più generica nella rete di ontologie ISPRA.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The most generic relation that can be used within the ISPRA ontonet.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">associated with</rdfs:label>
+        <rdfs:label xml:lang="it">associato a</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/atTime -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/atTime">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isTimeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra una qualsiasi entità ed un&apos;entità temporale.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between an entity ad a temporal entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">al tempo</rdfs:label>
+        <rdfs:label xml:lang="en">at time</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/classifies -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/classifies">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La proprietà utilizzata per affermare che un concetto classificava una certa entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property used to state that a concept classified a certain entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">classifica</rdfs:label>
+        <rdfs:label xml:lang="en">classifies</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/directlyFollows -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/directlyFollows">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/follows"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/directlyPrecedes"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">L&apos;intransitivo segue la relazione. Ad esempio, il martedì segue direttamente il lunedì. L&apos;immediatezza della precedenza dipende dalla concettualizzazione del progettista.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The intransitive follows relation. For example, Tuesday directly follows Monday. Directness of precedence depends on the designer conceptualization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">directly follows</rdfs:label>
+        <rdfs:label xml:lang="it">segue direttamente</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/directlyPrecedes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/directlyPrecedes">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/precedes"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">L&apos;intransitivo precede la relazione. Ad esempio, il lunedì precede direttamente il martedì. L&apos;immediatezza della precedenza dipende dalla concettualizzazione del progettista.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The intransitive precedes relation. For example, Monday directly precedes Tuesday. Directness of precedence depends on the designer conceptualization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">directly precedes</rdfs:label>
+        <rdfs:label xml:lang="it">precede direttamente</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/follows -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/follows">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/precedes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A relation between entities, expressing a &apos;sequence&apos; schema.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una relazione tra entità, che esprime uno schema di &apos;sequenza&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">follows</rdfs:label>
+        <rdfs:label xml:lang="it">segue</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasAgentRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasAgentRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasEventuality"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isAgentRoleOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:comment xml:lang="it">La relazione che permette di collegare un&apos;entità alla relazione n-aria che rappresenta il ruolo ricoperto da un agente.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that allows you to connect an entity to the n-aria relationship that represents the role played by an agent.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha ruolo-agente</rdfs:label>
+        <rdfs:label xml:lang="en">has agent-role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasBroader -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasBroader">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasNarrower"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">La relazione per creare tassonomie di concetti dal più specifico al più generale.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation for creating hierarchies of concepts from the most specific to the most general.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha più generale</rdfs:label>
+        <rdfs:label xml:lang="en">has broader</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasCharacteristic">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCharacteristicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:comment xml:lang="it">La relazione di primo livello che intercorre tra un&apos;entità e una delle sue caratteristiche.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The top-level relation holding between an entity and one of its characteristics.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha caratteristica</rdfs:label>
+        <rdfs:label xml:lang="en">has characteristic</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasCollection -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasCollection">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCollectionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Collection"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra un&apos;entità ed una collezione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between an entity and a collection.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha collezione</rdfs:label>
+        <rdfs:label xml:lang="en">has collection</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasCreator -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasCreator">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCreatorOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="it">Relazione per associare ad un&apos;entità un agente creatore.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation for associating an entity to an agent being the creator.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha creatore</rdfs:label>
+        <rdfs:label xml:lang="en">has creator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasDataSchema -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasDataSchema">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasDescription"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDataSchemaOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
+        <rdfs:comment xml:lang="it">La relazione che sussiste tra un media e il suo schema di dati.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between a media and its data schema.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha schema di dati</rdfs:label>
+        <rdfs:label xml:lang="en">has data schema</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasDescription -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasDescription">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDescriptionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment xml:lang="en">Property that associates an entity with its description.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà che associa un&apos;entità alla sua descrizione.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha descrizione</rdfs:label>
+        <rdfs:label xml:lang="en">has description</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasDownloadURL -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasDownloadURL">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
+        <rdfs:comment xml:lang="it">Questo è un link diretto al file scaricabile in un dato formato. E.g. un file CSV o un file RDF. Il formato è descritto dal dct:format e/o dal dcat:mediaType della distribuzione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution&apos;s dct:format and/or dcat:mediaType.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha URL di scaricamento</rdfs:label>
+        <rdfs:label xml:lang="en">has download URL</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasEventuality -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasEventuality">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isEventualityOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra una qualsiasi entità ed una di tipo Eventualità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship existing between any entity and another typed as Eventuality.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha eventualità</rdfs:label>
+        <rdfs:label xml:lang="en">has eventuality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasIdentifierSchema -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasIdentifierSchema">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasDescription"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isIdentifierSchemaOf"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/IdentifierSchema"/>
+        <rdfs:comment xml:lang="it">La relazione che lega un identificativo unico al suo schema di definizione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation that associates a unique identifier to its defining schema.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha schema di identificazione</rdfs:label>
+        <rdfs:label xml:lang="en">has identifier schema</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasLocation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasLocation">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isLocationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Location"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra un qualsiasi tipo di entità ed un luogo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between any kind of entity and a place.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha luogo</rdfs:label>
+        <rdfs:label xml:lang="en">has place</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasMedia -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasMedia">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isMediaOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
+        <rdfs:comment xml:lang="it">La relazione tra un&apos;entità ed un&apos;istanza della classe Media.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship between an entity and an instance of the middle class.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha media</rdfs:label>
+        <rdfs:label xml:lang="en">has media</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasMember -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasMember">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isMemberOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Collection"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione di membership.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The membership relation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha membro</rdfs:label>
+        <rdfs:label xml:lang="en">has member</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasNarrower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasNarrower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">La relazione per creare tassonomie di concetti dal più generale al più specifico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation for generating taxonomies of concepts from the most general to the most specific.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha più specifico</rdfs:label>
+        <rdfs:label xml:lang="en">has narrower</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione di parte definita come proprietà transitiva e riflessiva.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The parthood relation defined as a transitive and reflexive property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha parte</rdfs:label>
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRoleOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/top-level/isAgentInvolvedIn"/>
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/top-level/involvesRole"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">La relazione che permette di classificare un&apos;entità in base al ruolo che essa ricopre.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that allows you to classify an entity based on the role it holds.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha il ruolo</rdfs:label>
+        <rdfs:label xml:lang="en">has role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasSchemaAttribute -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasSchemaAttribute">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasCharacteristic"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSchemaAttributeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
+        <rdfs:comment xml:lang="it">La relazione che consente di associare uno schema di dati ai suoi attributi dello schema.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation that allows one to associate a data schema with its schema attributes.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha attributo di schema di dati</rdfs:label>
+        <rdfs:label xml:lang="en">has data schema attribute</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasSetting -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasSetting">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La proprietà per collegare una situazione con i suoi argomenti.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for associating a situation with its arguments.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">has setting</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasSource -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasSource">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSouceOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione che permette di stabilire che una certa entità è sorgente di un&apos;altra.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation that allows one that a certain entity is the source of another.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha sorgente</rdfs:label>
+        <rdfs:label xml:lang="en">has source</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasSystem -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasSystem">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSystemOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/System"/>
+        <rdfs:comment xml:lang="it">La relazione che sussiste tra una qualsiasi entità ed un sistema.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between any entity and a system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">has system</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasUniqueIdentifier -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasUniqueIdentifier">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasCharacteristic"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isUniqueIdentifierOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra un&apos;entità e il suo identificatore univoco.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between an entity and its unique identifier.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha identificativo univoco</rdfs:label>
+        <rdfs:label xml:lang="en">has unique identifier</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasCharacteristic"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isUnitOfMeasureOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/UnitOfMeasure"/>
+        <rdfs:comment xml:lang="en">Property that links an object that can be measured to its corresponding unit of measure.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà che collega un oggetto misurabile alla sua unità di misura corrispondente.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha unità di misura</rdfs:label>
+        <rdfs:label xml:lang="en">has unit of measure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasValue -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasValue">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasCharacteristic"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isValueOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Value"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra un&apos;entità ed il valore ad essa associata.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship between an entity and the value it is associated with.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha valore</rdfs:label>
+        <rdfs:label xml:lang="en">has value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/involvesAgent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/involvesAgent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isEventualityOf"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isAgentInvolvedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="it">La relazione che collega una situazione ruolo-agente a un agente coinvolto in tale situazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that links an agent-role situation to an agent involved in such a situation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">coinvolge l&apos;agente</rdfs:label>
+        <rdfs:label xml:lang="en">involves agent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/involvesRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/involvesRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isEventualityOf"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:comment xml:lang="it">La relazione che sussiste tra l&apos;eventualità identificata da un ruolo-agente ed uno o più ruoli ad esso associata.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between an agent-role eventualoty and the one or more roles.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">coinvolge il ruolo</rdfs:label>
+        <rdfs:label xml:lang="en">involves role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isAgentInvolvedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isAgentInvolvedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasEventuality"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:comment xml:lang="it">La relazione che lega un agente alla situazione ruolo-agente in cui è coinvolto.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that links an agent to the agent-role situation it is involved in.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is agent involved in</rdfs:label>
+        <rdfs:label xml:lang="it">è l&apos;agente coinvolto in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isAgentRoleOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isAgentRoleOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isEventualityOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione che collega un ruolo-agente ad un&apos;entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation that links an agent-role to an entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is agent-role of</rdfs:label>
+        <rdfs:label xml:lang="it">è ruolo-agente di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isCharacteristicOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isCharacteristicOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione che collega una caratteristica all&apos;entità a cui essa può essere associata.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that links a characteristic to the entity it can be associated with.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is characteristic of</rdfs:label>
+        <rdfs:label xml:lang="it">è caratteristica di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isClassifiedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isClassifiedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">La proprietà per stabilire che un certo concetto viene usato per classificare una certa entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property to state that a certain concept is used to classify a certain entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is classified by</rdfs:label>
+        <rdfs:label xml:lang="it">è classificato da</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isCollectionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isCollectionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Collection"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra una collezione ed una qualsiasi entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between a collection and any possible entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is collection of</rdfs:label>
+        <rdfs:label xml:lang="it">è collezione di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isCreatorOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isCreatorOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione per associare un agente creatore ad un&apos;entità creata.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation for asserting that a certain agent is the creator of an entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is creator of</rdfs:label>
+        <rdfs:label xml:lang="it">è creatore di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isDataSchemaOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isDataSchemaOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDescriptionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra uno schema di dati e il supporto.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation existing between a data schema and the media.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is data schema of</rdfs:label>
+        <rdfs:label xml:lang="it">è schema di dati di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isDescriptionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isDescriptionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra una descrizione e l&apos;entità descritta.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship between a description and the entity described.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is description of</rdfs:label>
+        <rdfs:label xml:lang="it">è descrizione di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isEventualityOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isEventualityOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">Il rapporto esistente tra un&apos;eventualità e qualsiasi entità possibile.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship existing between an eventuality and any possible entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">is eventuality of</rdfs:label>
+        <rdfs:label xml:lang="it">è eventualità di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isIdentifierSchemaOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isIdentifierSchemaOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDescriptionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/IdentifierSchema"/>
+        <rdfs:comment xml:lang="it">La relazione che lega uno schema di identificazione ad un identificativo unico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation between an identifier schema and a unique identifier.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is identifier schema of</rdfs:label>
+        <rdfs:label xml:lang="it">è schema identificativo di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isIssuedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isIssuedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/issues"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="it">La relazione che consente di affermare che un&apos;entità è creata da un determinato agente.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation that allows one to state that an entity is created by a given agent.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha creatore</rdfs:label>
+        <rdfs:label xml:lang="en">has creator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isLocationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isLocationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Location"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La proprietà che permette di dire che un determinato luogo è la posizione di un dato oggetto.</rdfs:comment>
+        <rdfs:comment xml:lang="it">La relazione esistente tra un luogo ed un&apos;entità di un qualsiasi tipo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that allows to say that a certain place is the location of a given object.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between a place and an entity of any possible type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">is location of</rdfs:label>
+        <rdfs:label xml:lang="en">is place of</rdfs:label>
+        <rdfs:label xml:lang="it">è luogo di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isMediaOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isMediaOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione tra un&apos;istanza di un&apos;entità di classe Media e un&apos;entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship between an instance Media class entity and an entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is media of</rdfs:label>
+        <rdfs:label xml:lang="it">è media di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isMemberOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isMemberOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Collection"/>
+        <rdfs:comment xml:lang="it">La relazione inversa di &apos;ha membro&apos;. Come la sua inversa permette di stabilire relazione di memberhip tra un elemento ed la sua collezione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The inverse relation of &apos;has member&apos;. It allows to represent membership relations.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is member of</rdfs:label>
+        <rdfs:label xml:lang="it">è membro di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isParametrisedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isParametrisedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/parametrises"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
+        <rdfs:comment xml:lang="it">La relazione che sussiste tra l&apos;entità oggetto della parametrizzazione ed il parametro.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between the entity being object of the parametrisation and a parameter.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is parametrised by</rdfs:label>
+        <rdfs:label xml:lang="it">è parametrizzato da</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isPartOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">L&apos;inversa di &apos;ha parte&apos; per rappresentare la relazione di parte dal punto di vista della parte. La proprietà è definita come riflessiva e transitiva.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The inverse of &apos;has part&apos; for representing parthood from the perspective of the part. The property is defined as reflexive and transitive.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is part of</rdfs:label>
+        <rdfs:label xml:lang="it">è parte di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasEventuality"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:comment xml:lang="it">La relazione che collega un ruolo alla situazione ruolo-agente in cui esso partecipa.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that links a role to the agent-role situation it is involved in.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is role involved in</rdfs:label>
+        <rdfs:label xml:lang="it">è il ruolo coinvolto in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isRoleOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn"/>
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/top-level/involvesAgent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">La relazione che consente di utilizzare un ruolo per classificare una determinata entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation that allows you to use a role for classifying a certain entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is role of</rdfs:label>
+        <rdfs:label xml:lang="it">è ruolo di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isSatisfiedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSatisfiedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/satisfies"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">La relazione tra una descrizione ed un&apos;eventualità.</rdfs:label>
+        <rdfs:label xml:lang="en">The relation between a description and an eventuality.</rdfs:label>
+        <rdfs:label xml:lang="en">is satisfied by</rdfs:label>
+        <rdfs:label xml:lang="it">è soddisfatto da</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isSchemaAttributeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSchemaAttributeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCharacteristicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
+        <rdfs:comment xml:lang="it">La proprietà che permette di collegare un attributo allo schema di dati.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that allows you to link an attribute to the data schema.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is data schema attribute of</rdfs:label>
+        <rdfs:label xml:lang="it">è attributo di schema di dati di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isSouceOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSouceOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">Inverse object property of hasSource.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Object property inversa di hasSource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is source of</rdfs:label>
+        <rdfs:label xml:lang="it">è sorgente di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isSpecialisedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSpecialisedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/specialises"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione inverse di &apos;specializza&apos;.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The inverse releation of &apos;specialises&apos;</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is specialised by</rdfs:label>
+        <rdfs:label xml:lang="it">è specializzato da</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isSystemOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSystemOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/System"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione che sussiste tra un sistema ed una qualsiasi entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship holding between a system and any entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is system of</rdfs:label>
+        <rdfs:label xml:lang="it">è sistema di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isTimeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isTimeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra un&apos;entità temporale ed una qualsiasi altra entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship existing between a time entity and any other entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is time of</rdfs:label>
+        <rdfs:label xml:lang="it">è tempo di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isUniqueIdentifierOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isUniqueIdentifierOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCharacteristicOf"/>
+        <rdfs:comment xml:lang="en">La relazione che sussiste tra un identificatore univoco e l&apos;entità che identifica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between a unique identifier and the entity it identifies.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is unique identifier of</rdfs:label>
+        <rdfs:label xml:lang="it">è identificativo univoco di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isUnitOfMeasureOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isUnitOfMeasureOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCharacteristicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/UnitOfMeasure"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">Property that links a unit of measure to the object or measured value.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà che collega un&apos;unità di misura all&apos;oggetto o al valore misurato.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is unit of measure of</rdfs:label>
+        <rdfs:label xml:lang="it">è unità di misura di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isValueOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isValueOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCharacteristicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Value"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione esistente tra un valore ed un&apos;entità a cui tale valore è associato.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship between a value and an entity to which that value is associated.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is value of</rdfs:label>
+        <rdfs:label xml:lang="it">è valore di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/issues -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/issues">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione che consente di affermare che un determinato agente è il creatore di una certa entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that allows us to state that a certain agent is the creator of a certain entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is creator of</rdfs:label>
+        <rdfs:label xml:lang="it">è creatore di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/parametrises -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/parametrises">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione che sussiste tra un parametro e l&apos;entità oggetto della parametrizzazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation holding between a parameter and the entity being object of the parametrisation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">parametrises</rdfs:label>
+        <rdfs:label xml:lang="it">parametrizza</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/precedes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/precedes">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A relation between entities, expressing a &apos;sequence&apos; schema.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una relazione tra entità, che esprime uno schema di &apos;sequenza&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">precede</rdfs:label>
+        <rdfs:label xml:lang="en">precedes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/satisfies -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/satisfies">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment xml:lang="it">La proprietà usata per asserire che un&apos;eventualità soddisfa una certa descrizione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for asserting that an eventuality satisfies a description.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">satisfies</rdfs:label>
+        <rdfs:label xml:lang="it">soddisfa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/specialises -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/specialises">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La proprietà per esprimere relazioni di specializzazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for expressing specialisation relations.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">specialises</rdfs:label>
+        <rdfs:label xml:lang="it">specializza</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/acronym -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/acronym">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">A value for the acronym that is used for referring to an entity.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un valore per l&apos;acronimo utilizzato per fare riferimento a un&apos;entità.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">acronimo</rdfs:label>
+        <rdfs:label xml:lang="en">acronym</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/endTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/endTime">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/time"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/TimeInterval"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#time"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">end time</rdfs:label>
+        <rdfs:label xml:lang="it">tempo di fine</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/identifier -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/identifier">
+        <rdfs:comment xml:lang="it">Il valore letterale di un identificativo, ex. il codice WMO &apos;6100218&apos;.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The literal value of an identifier, e.g. the WMO code &apos;6100218&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">identificativo</rdfs:label>
+        <rdfs:label xml:lang="en">identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/mediaType -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/mediaType">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">A value for the media type, e.g. text/csv, rdf/xml, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un valore per il tipo di supporto, ad es. text/csv, rdf/xml, ecc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">media type</rdfs:label>
+        <rdfs:label xml:lang="it">tipo di supporto</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/name -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/name">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Il letterale che rappresenta il nome di un&apos;entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The literal representing the name of an entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">name</rdfs:label>
+        <rdfs:label xml:lang="it">nome</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/startTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/startTime">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/time"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/TimeInterval"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#time"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">start time</rdfs:label>
+        <rdfs:label xml:lang="it">tempo di inizio</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/symbol -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/symbol">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+        <rdfs:comment xml:lang="en">Property used to specify a symbol. For instance the symbol of a unit of measure</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà  utilizzata per specificare un simbolo. Ad esempio il simbolo dell&apos;unità di misura</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">simbolo</rdfs:label>
+        <rdfs:label xml:lang="en">symbol</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/time -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/time">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">La proprietà per associare la rappresentazione letterale del tempo a un&apos;entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for associating the literal representation of time to an entity.</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">https://w3id.org/italia/env/onto/top</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="it">tempo</rdfs:label>
+        <rdfs:label xml:lang="en">time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/value -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/value">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">La rappresentazione letterale di un valore.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The literal representation of a value.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">valore</rdfs:label>
+        <rdfs:label xml:lang="en">value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/year -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/year">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/time"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:comment xml:lang="it">La proprietà per collegare il valore in gYear ad un istanza della classe TemporalEntity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that relates a valued expressed a gYear to an instance of the class TemporalEntity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">anno</rdfs:label>
+        <rdfs:label xml:lang="en">year</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Agent -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">Il concetto astratto di agente. Esempi di agente sono le persone e le organizzazioni.</rdfs:comment>
+        <rdfs:comment xml:lang="it">The abstract concept of agent. Examples of agents are people and organisations.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+        <rdfs:label xml:lang="it">Agente</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/AgentRole -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/AgentRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/atTime"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/involvesAgent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/involvesRole"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Characteristic -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Characteristic">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La classe delle caratteristiche, intese come aspetti, attributi o qualità di un&apos;entità. Ex. una quantità, qualità estetica, colore, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class of characteristics, intended as any aspect, attribuite, or quality of an entity. E.g. a certain size, aesthetic quality, color, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Caratteristica</rdfs:label>
+        <rdfs:label xml:lang="en">Characteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Collection -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Collection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasMember"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Collection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La classe per rappresentare collezioni che rendono possibile l&apos;aggregazione di oggetti.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class for representing collections and aggregating objects into collections.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+        <rdfs:label xml:lang="it">Collezione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Concept -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Concept">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">It is an object that is defined in some description. Once defined it can be used in other descriptions</rdfs:comment>
+        <rdfs:comment xml:lang="it">È un oggetto che è definito in qualche descrizione. Una volta definito può essere utilizzato in altre descrizioni</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Concept</rdfs:label>
+        <rdfs:label xml:lang="it">Concetto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/DataSchema -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/DataSchema">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasSchemaAttribute"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasSchemaAttribute"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/IdentifierSchema"/>
+        <rdfs:comment xml:lang="it">La classe per la rappresentazione di schemi di dati.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class for representing data schemata.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Data schema</rdfs:label>
+        <rdfs:label xml:lang="it">Schema di dati.</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Dataset -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Dataset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Collection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A collection of data.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una collezione di dati.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Dataset</rdfs:label>
+        <rdfs:label xml:lang="it">Dataset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Description -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Description">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:comment xml:lang="it">La classe degli oggetti costruiti socialmente (testi, valori, categorie, relazioni, contesti) usati per descrivere qualcos&apos;altro in modo structuratto. Gli esempi includono i piani (come descrizioni strutturate di azioni da eseguire ex. in un processo industriale), le diagnosi (come descrizioni strutturate di situazioni osservate ex. clinicamente), le spiegazioni (come testi strutturati per chiarire ex. un concetto in un sistema normativo), osservazioni oggettive (come insiemi di valori strutturati che identificano una situazione rilevante ex. da un sistema di sensori).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class of socially-created objects (texts, values, categories, relations, contexts) used to describe something else in a structured way. Examples include plans (as structured descriptions of actions to be executed), diagnoses (as structured descriptions of observed situations, explanations (as structured texts clarifying e.g. a concept), objective observations (as structured sets of values that identify a relevant situation).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <rdfs:label xml:lang="it">Descrizione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Entity">
+        <rdfs:comment xml:lang="it">La classe più generica in ISPRA ontonet.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The top level class of ISPRA ontonet.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+        <rdfs:label xml:lang="it">Entità</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/IdentifierSchema -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/IdentifierSchema">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment xml:lang="en">A schema for identifiers.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Uno schema di identificativi.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Identifier schema</rdfs:label>
+        <rdfs:label xml:lang="it">Schema di identificatori</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Location -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Location">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">Il concetto più generico per rappresentare ad alto livello qualsiasi tipo di oggetto che possa essere identificato come luogo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The most generic concept for any kind of location.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Luogo</rdfs:label>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Material -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Material">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:comment xml:lang="it">La classe dei materiali.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The material class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Material</rdfs:label>
+        <rdfs:label xml:lang="it">Materiale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Media -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Media">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isSouceOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasDataSchema"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasDownloadURL"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/mediaType"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any media encoding data in any format.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Qualsiasi supporto che codifica i dati in qualsiasi formato.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Media</rdfs:label>
+        <rdfs:label xml:lang="it">Media</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Organisation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Organisation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Person"/>
+        <rdfs:comment xml:lang="en">An organisation.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un&apos;organizzazione.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Organisation</rdfs:label>
+        <rdfs:label xml:lang="it">Organizzazione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Parameter -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Parameter">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">La classe dei parametri. Esempio, il parametro di un&apos;osservazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class of parameters. Example, the parameter of an observation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Parameter</rdfs:label>
+        <rdfs:label xml:lang="it">Parametro</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Person -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Person">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="en">A person</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una persona.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+        <rdfs:label xml:lang="it">Persona</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/PhysicalObject -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/PhysicalObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">Any Object that has a proper space region. The prototypical physical object has also an associated mass, but the nature of its mass can greatly vary based on the epistemological status of the object (scientifically measured, subjectively possible, imaginary).</rdfs:comment>
+        <rdfs:comment xml:lang="it">Qualsiasi oggetto che abbia una propria regione spaziale. L&apos;oggetto fisico prototipico ha anche una massa associata, ma la natura della sua massa può variare notevolmente in base allo status epistemologico dell&apos;oggetto (scientificamente misurato, soggettivamente possibile, immaginario).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Oggetto fisico</rdfs:label>
+        <rdfs:label xml:lang="en">Physical object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Role -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Role">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">La classe per rappresentare i ruoli.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class for representing roles.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+        <rdfs:label xml:lang="it">Ruolo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/SchemaAttribute -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/SchemaAttribute">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La classe degli attributi di uno schema dati</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class of the attributes of a data schema.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Attributo dello Schema</rdfs:label>
+        <rdfs:label xml:lang="en">Schema Attribute</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Situation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Situation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/satisfies"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any event, situation, activity, event type, etc. Used to abstract from formal criteria that distinguish between event occurrences, their types, and constructed objects (situations, tropes, qua-entities) that provide a setting for multiple entities.
+This is a catch all class to make sense of ambiguous data that cannot be made more precise, e.g. at the lexical level.
+This is the same concept as defined in http://www.ontologydesignpatterns.org/ont/d0.owl.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Qualsiasi evento, situazione, attività, tipo di evento, ecc. Utilizzato per astrarre da criteri formali che distinguono tra occorrenze di eventi, i loro tipi e oggetti costruiti (situazioni, tropi, qua-entità) che forniscono un&apos;ambientazione per più entità.
+Questa è una classe catch all per dare un senso a dati ambigui che non possono essere resi più precisi, ad es. a livello lessicale.
+Questo è lo stesso concetto definito in http://www.ontologydesignpatterns.org/ont/d0.owl.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Situation</rdfs:label>
+        <rdfs:label xml:lang="it">Situazione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/System -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/System">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">Any possible kind of system.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Ogni possibile tipo di sistema.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Sistema</rdfs:label>
+        <rdfs:label xml:lang="en">System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/TemporalEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/TemporalEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/time"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/time"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta qualsiasi tipo di entità temporale, ad es. intervalli di tempo, mesi, giorni, ecc...</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents a temporal entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Entità temporale</rdfs:label>
+        <rdfs:label xml:lang="en">Temporal entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/TimeInterval -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/TimeInterval">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/endTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#time"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/startTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#time"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La classe per rappresentare gli intervalli temporali aventi un inizio ed una fine.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class for representing time intervals having a start and end time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Intervallo di tempo</rdfs:label>
+        <rdfs:label xml:lang="en">Time interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/UnitOfMeasure -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/UnitOfMeasure">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
+        <rdfs:comment xml:lang="it">Questa classe viene utilizzata per modellare un&apos;unità di misura, ad es. metro, chilometro, grammo, ecc...</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class is used to model a measurement unit, e.g. meter, kilometer, gram, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Unit of measure</rdfs:label>
+        <rdfs:label xml:lang="it">Unità di misura</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Value -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Value">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/hacid/onto/top-level/UnitOfMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/value"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure"/>
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/top-level/value"/>
+        </owl:hasKey>
+        <rdfs:comment xml:lang="it">La classe che modella generici valori che tipicamente hanno un&apos;unità di misura e il valore stesso.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The generic class for the values that typically have the unit of measure and the value itself.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Valore</rdfs:label>
+        <rdfs:label xml:lang="en">Value</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Workflow -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Workflow">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment xml:lang="en">A workflow with tasks.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un flusso di lavoro composto da attività.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Flusso di lavoro</rdfs:label>
+        <rdfs:label xml:lang="en">Workflow</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Year -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Year">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/year"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La classe per rappresentare un anno.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class for representing a year.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Anno</rdfs:label>
+        <rdfs:label xml:lang="en">Year</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
