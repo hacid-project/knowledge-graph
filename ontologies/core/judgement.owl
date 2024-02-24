@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/core/judgement/"
+     xml:base="https://w3id.org/hacid/onto/core/judgement/"
+     xmlns:top="https://w3id.org/hacid/onto/top-level/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/core/judgement">
+        <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/hasJudge -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/judgement/hasJudge">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/involves"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="it">La proprietà usata per identificare il giudice che fornisce il giudizio.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property to identify the judge providing a judgement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">ha giudice</rdfs:label>
+        <rdfs:label xml:lang="en">has judge</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/involves"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/judgement/JudgementResult"/>
+        <rdfs:comment xml:lang="it">La proprietà che permette di identificare il risultato di un giudizio.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that identifies the result of a judgement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">ha risultato di giudizio</rdfs:label>
+        <rdfs:label xml:lang="en">has judgement result</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/isJudgementOn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/judgement/isJudgementOn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/involves"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La proprietà che collega un giudizio all&apos;entità che rappresenta l&apos;oggetto del giudizio.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that links a judgment to the entity that represents the object of the judgment.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">is judgement on</rdfs:label>
+        <rdfs:label xml:lang="it">è giudizio su</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/Judgement -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/Judgement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudge"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/JudgementResult"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/isJudgementOn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">Il giudizio è un tipo particolare di situazione che si verifica frequentemente nei nostri scenari. Ad esempio, una diagnosi medica o la formulazione di una proiezione per i servizi climatici sono casi di giudizio che richiedono che un agente giudichi su una determinata entità per formulare una determinata decisione sull&apos;entità su cui questo agente sta giudicando.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Judgement is a particular type of situation that in our scenarios occurs frequently. For example, a medical diagnosis or the formulation of a projection for climate services are cases of judgement that requires an agent to judge on a certain entity to formulate a certain decision on the entity this agent is judging on.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">Giudizio</rdfs:label>
+        <rdfs:label xml:lang="en">Judgement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/JudgementResult -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/JudgementResult">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:comment xml:lang="it">La classe che rappresenta il risultato di un giudizio.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class that represent the result of a judgement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="en">Judgement result</rdfs:label>
+        <rdfs:label xml:lang="it">Risultato del giudizio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/MetaJudgement -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/MetaJudgement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/isJudgementOn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/isJudgementOn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A judgement can be the object of evaluation of another judgement that we refer to as meta judgement.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un giudizio può essere oggetto di valutazione di un altro giudizio che chiameremo meta giudizio.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">Meta giudizio</rdfs:label>
+        <rdfs:label xml:lang="en">Meta judgement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevancy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevancy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A specific case of judgement is identified by the assignment of a relevance score to a certain object of assessment.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Uno specifico caso di giudizio è individuato mediante l&apos;assegnazione di un punteggio di pertinenza a un determinato oggetto di valutazione.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">Assegnazione di rilevanza</rdfs:label>
+        <rdfs:label xml:lang="en">Relevance assignment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/RelevanceAssignmentOnJudgement -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignmentOnJudgement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/MetaJudgement"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment"/>
+        <rdfs:comment xml:lang="en">A specific case of judgement is identified by the assignment of a relevance score to another judgement.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Attribuzione di rilevanza sul giudizio</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relevance assignment on judgement</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una specifica fattispecie di giudizio è individuata mediante l&apos;assegnazione di un punteggio di rilevanza ad un altro giudizio.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/Relevancy -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/Relevancy">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/JudgementResult"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasValue"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Value"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La caratteristica di rilevanza espressa come valore (ed es. numerico, ordinale, ecc...)</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relevancy expressed in any possible value.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="en">Relevancy</rdfs:label>
+        <rdfs:label xml:lang="it">Rilevanza</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
