@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/mdx/"
+     xml:base="https://w3id.org/hacid/onto/mdx/"
+     xmlns:ar="https://w3id.org/hacid/onto/core/agentrole/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:jdg="https://w3id.org/hacid/onto/core/judgement/">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/mdx">
+        <owl:imports rdf:resource="https://w3id.org/hacid/onto/core/agentrole"/>
+        <owl:imports rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/forClinicalCase -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/forClinicalCase">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/isJudgementOn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalCase"/>
+        <rdfs:comment xml:lang="it">La relazione per associare una valutazione clinica ad un caso clinico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation for associating a clinical evaluation with a clinical case.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">for clinical case</rdfs:label>
+        <rdfs:label xml:lang="it">per caso clinico</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/hasCaseType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasCaseType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/mdx/isCaseTypeOf"/>
+        <rdfs:comment xml:lang="it">La relazione che permette di classificare un caso clinico con il suo tipo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that allows you to classify a clinical case with its type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">ha tipo di caso</rdfs:label>
+        <rdfs:label xml:lang="en">has case type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/hasDiagnosis -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasDiagnosis">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/Diagnosis"/>
+        <rdfs:comment xml:lang="it">La proprietà per associare una valutazione clinica alla diagnosi corrispondente.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property to associate a clinical evaluation the its resulting diagnosis.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">ha diagnosi</rdfs:label>
+        <rdfs:label xml:lang="it">has diagnosis</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/hasDiagnostician -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasDiagnostician">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudge"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/HeatlhcareProfessional"/>
+        <rdfs:comment xml:lang="en">The relation to link a clinical evaluation to a healthcare professional who performs the evaluation.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/hasFinding -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasFinding">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isInvolvedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/Finding"/>
+        <rdfs:comment xml:lang="it">La relazione che permette di collegare un&apos;entità ad un finding</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation to link an entity to a finding.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">ha finding</rdfs:label>
+        <rdfs:label xml:lang="en">has finding</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/hasPatient -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasPatient">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/involves"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/mdx/isPatientOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalCase"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Person"/>
+        <rdfs:comment xml:lang="it">La proprietà che consente di associare un caso clinico a una persona che è il paziente coinvolto in tale caso.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that allows to associate a clinical case with a person that is the patient involved in such a case.</rdfs:comment>
+        <rdfs:label xml:lang="it">ha paziente</rdfs:label>
+        <rdfs:label xml:lang="en">has patient</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/hasSpecialty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasSpecialty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/mdx/isSpecialtyOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/Specialty"/>
+        <rdfs:comment xml:lang="it">La proprietà per classificare un&apos;entità con una specialità medica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for classifying an entity with a medical specialty.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">ha specialità</rdfs:label>
+        <rdfs:label xml:lang="en">has specialty</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/isCaseTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/isCaseTypeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/CaseType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalCase"/>
+        <rdfs:comment xml:lang="it">La specifica relazione di classificazione che permette di dire che un tipo di caso classifica un caso clinico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The specific classification relationship that allows us to say that a case type classifies a clinical case.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">is case type of</rdfs:label>
+        <rdfs:label xml:lang="it">è tipo di caso di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/isFindingOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/isFindingOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/involves"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/Finding"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="it">La relazione per collegare un finding ad una qualsiasi entità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation to link a finding to an enity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">è finding di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/isInScopeOfDiagnosis -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/isInScopeOfDiagnosis">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/DisorderDescription"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/Diagnosis"/>
+        <rdfs:comment xml:lang="it">La relazione per collegare una descrizione di un disturbo ad una diagnosi.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation for linkig a disorder description to a diagnos.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">is in scope of diagnosis</rdfs:label>
+        <rdfs:label xml:lang="it">rientra nell&apos;ambito della diagnosi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/isPatientOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/isPatientOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isInvolvedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalCase"/>
+        <rdfs:comment xml:lang="it">La proprietà che consente di associare a una persona ad un caso clinico . Tale persona è il paziente coinvolto nel caso.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that allows you to associate a person with a clinical case. This person is the patient involved in the case.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">is patient of</rdfs:label>
+        <rdfs:label xml:lang="it">è paziente di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/isSpecialtyOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/isSpecialtyOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:comment xml:lang="it">La proprietà per usare un specialità medica per classificare un oggetto.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property to use a medical specialty to classify an object.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">is specialty of</rdfs:label>
+        <rdfs:label xml:lang="it">è specialità di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/worksFor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/worksFor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/agentrole/involvesAgent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/agentrole/AgentRole"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Organization"/>
+        <rdfs:comment xml:lang="it">La specializzazione della relazione &quot;coinvolge agente &quot; per esprimere la relazione &quot;lavora per&quot;.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The specilisation of involves agent for expressing the &quot;work for&quot; relation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">lavora per</rdfs:label>
+        <rdfs:label xml:lang="en">works for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/satisfies -->
+
+    <rdf:Description rdf:about="https://w3id.org/hacid/onto/top-level/satisfies">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/mdx/isInScopeOfDiagnosis"/>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/mdx/hasDiagnosis"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/mdx/forClinicalCase"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/CaseType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/CaseType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">La classe per rappresentare la tipologia di caso clinico, e.g. caso risolto, caso non risolto.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class to represent the type of clinical case, e.g. case solved, case not solved.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">Case type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di caso</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/ClinicalCase -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/ClinicalCase">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasCaseType"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/CaseType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasFinding"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Finding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasPatient"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasSpecialty"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Specialty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La classe per rappresentare un caso clinico oggetto di valutazione per una diagnosi.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class to represent a clinical case being evaluated for a diagnosis.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">Caso clinico</rdfs:label>
+        <rdfs:label xml:lang="en">Clinical case</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/ClinicalEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/ClinicalEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/forClinicalCase"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalCase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasDiagnosis"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Diagnosis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasDiagnostician"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/HeatlhcareProfessional"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/satisfies"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/DisorderDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/Diagnosis -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/Diagnosis">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/describes"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalCase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">L’identificazione della natura e della causa di una determinata condizione clinica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The identification of the nature and cause of a certain clinical condition.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">Diagnosi</rdfs:label>
+        <rdfs:label xml:lang="en">Diagnosis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/Disorder -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/Disorder">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="en">An abnormal condition that affects the body&apos;s function but may or may not have specific signs and symptoms.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una condizione anormale che influenza la funzione del corpo ma che può o meno presentare segni e sintomi specifici.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">Disorder</rdfs:label>
+        <rdfs:label xml:lang="it">Disturbo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/DisorderDescription -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/DisorderDescription">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/describes"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Disorder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/isInScopeOfDiagnosis"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Diagnosis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/describes"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Disorder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La descrizione di un determinato disturbo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The description of a certain disorder.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">Descrizione di un disturbo</rdfs:label>
+        <rdfs:label xml:lang="en">Disroder description</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/Finding -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/Finding">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:comment xml:lang="en">Any finding with medical relevance</rdfs:comment>
+        <rdfs:comment xml:lang="it">Qualsiasi finding di rilevanza medica.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">Finding</rdfs:label>
+        <rdfs:label xml:lang="it">Finding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/HeatlhcareProfessional -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/HeatlhcareProfessional">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasLocation"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La classe per rappresentare una persona che è un professionista sanitario.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class for representing a  person who is a heatlhcare professional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">Healthcare professional</rdfs:label>
+        <rdfs:label xml:lang="it">Professionista sanitario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/HeatlhcareProfessionalRole -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/HeatlhcareProfessionalRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/agentrole/AgentRole"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/agentrole/involvesAgent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/HeatlhcareProfessional"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasSpecialty"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Specialty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/worksFor"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/agentrole/involvesAgent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/HeatlhcareProfessional"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La situazione del ruolo di agente specifica degli operatori sanitari.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The agent-role situation which is speficic to healthcare professionals.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">Healthcare professional role</rdfs:label>
+        <rdfs:label xml:lang="it">Ruole di professionista sanitario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/Specialty -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/Specialty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="en">A medical discipline.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una discilpina medica.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">Specialità</rdfs:label>
+        <rdfs:label xml:lang="en">Specialty</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

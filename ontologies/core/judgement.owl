@@ -54,6 +54,21 @@
     
 
 
+    <!-- https://w3id.org/hacid/onto/core/judgement/hasRelevance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/judgement/hasRelevance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevance"/>
+        <rdfs:comment xml:lang="it">La proprietà per collegare una certa rilevanza (indipendentemente da come è rappresentata) nel contesto di un&apos;assegnazione di rilevanza.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for associating a relevance score in the context of a relevancy assignment.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">ha rilevanza</rdfs:label>
+        <rdfs:label xml:lang="en">has relevance</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/core/judgement/isJudgementOn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/judgement/isJudgementOn">
@@ -149,6 +164,25 @@
     
 
 
+    <!-- https://w3id.org/hacid/onto/core/judgement/Relevance -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/Relevance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/JudgementResult"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasValue"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Value"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">La caratteristica di rilevanza espressa come valore (ed es. numerico, ordinale, ecc...)</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relevancy expressed in any possible value.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="en">Relevancy</rdfs:label>
+        <rdfs:label xml:lang="it">Rilevanza</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment">
@@ -156,13 +190,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevancy"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevance"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevancy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevance"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A specific case of judgement is identified by the assignment of a relevance score to a certain object of assessment.</rdfs:comment>
@@ -184,25 +218,6 @@
         <rdfs:comment xml:lang="en">Relevance assignment on judgement</rdfs:comment>
         <rdfs:comment xml:lang="it">Una specifica fattispecie di giudizio è individuata mediante l&apos;assegnazione di un punteggio di rilevanza ad un altro giudizio.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/core/judgement/Relevancy -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/Relevancy">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/JudgementResult"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasValue"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Value"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="it">La caratteristica di rilevanza espressa come valore (ed es. numerico, ordinale, ecc...)</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relevancy expressed in any possible value.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
-        <rdfs:label xml:lang="en">Relevancy</rdfs:label>
-        <rdfs:label xml:lang="it">Rilevanza</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 

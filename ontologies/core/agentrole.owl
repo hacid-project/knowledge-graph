@@ -11,19 +11,80 @@
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
     </owl:Ontology>
     
-    
-    <!-- https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasEventuality"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
-        <rdfs:comment xml:lang="it">La relazione che collega un ruolo alla situazione ruolo-agente in cui esso partecipa.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relationship that links a role to the agent-role situation it is involved in.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">is role involved in</rdfs:label>
-        <rdfs:label xml:lang="it">è il ruolo coinvolto in</rdfs:label>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/agentrole/involvesAgent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/agentrole/involvesAgent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/involves"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/core/agentrole/isAgentInolvedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/agentrole/AgentRole"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="it">La proprietà che permette di specificare qual è l&apos;agente coinvolto in una situazione di tipo AgentRole</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for specifying the agent involved into an AgentRole situation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/agentrole"/>
+        <rdfs:label xml:lang="it">coinvolge agente</rdfs:label>
+        <rdfs:label xml:lang="en">involves agent</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/agentrole/involvesRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/agentrole/involvesRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/involves"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/agentrole/AgentRole"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:comment xml:lang="it">La relazioe che permette di associare un ruolo nel contesto di una situazione di tipo AgentRole.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relation between an AgentRole and an instance of role.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/agentrole"/>
+        <rdfs:label xml:lang="it">coinvolge ruole</rdfs:label>
+        <rdfs:label xml:lang="en">involves role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/core/agentrole/isAgentInolvedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/agentrole/isAgentInolvedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isInvolvedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/agentrole/AgentRole"/>
+        <rdfs:comment xml:lang="it">La proprietà per legare un agente nel contesto di una situazione di tipo AgentRole.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property for bounding an agent to the context expressed by an AgentRole situation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/agentroleù"/>
+        <rdfs:label xml:lang="en">is agent involved in</rdfs:label>
+        <rdfs:label xml:lang="it">è agente coinvolto in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasAgentRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasAgentRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasEventuality"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isAgentRoleOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:comment xml:lang="it">La relazione che permette di collegare un&apos;entità alla relazione n-aria che rappresenta il ruolo ricoperto da un agente.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that allows you to connect an entity to the n-aria relationship that represents the role played by an agent.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha ruolo-agente</rdfs:label>
+        <rdfs:label xml:lang="en">has agent-role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
 
     <!-- https://w3id.org/hacid/onto/top-level/involvesAgent -->
 
@@ -72,20 +133,6 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/hasAgentRole -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasAgentRole">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasEventuality"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isAgentRoleOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
-        <rdfs:comment xml:lang="it">La relazione che permette di collegare un&apos;entità alla relazione n-aria che rappresenta il ruolo ricoperto da un agente.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relationship that allows you to connect an entity to the n-aria relationship that represents the role played by an agent.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">ha ruolo-agente</rdfs:label>
-        <rdfs:label xml:lang="en">has agent-role</rdfs:label>
-    </owl:ObjectProperty>
-
     <!-- https://w3id.org/hacid/onto/top-level/isAgentRoleOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isAgentRoleOf">
@@ -98,7 +145,22 @@
         <rdfs:label xml:lang="en">is agent-role of</rdfs:label>
         <rdfs:label xml:lang="it">è ruolo-agente di</rdfs:label>
     </owl:ObjectProperty>
+    
 
+
+    <!-- https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasEventuality"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/AgentRole"/>
+        <rdfs:comment xml:lang="it">La relazione che collega un ruolo alla situazione ruolo-agente in cui esso partecipa.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relationship that links a role to the agent-role situation it is involved in.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is role involved in</rdfs:label>
+        <rdfs:label xml:lang="it">è il ruolo coinvolto in</rdfs:label>
+    </owl:ObjectProperty>
+    
 
 
     <!-- 
@@ -118,25 +180,6 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/atTime"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-    
-    <!-- https://w3id.org/hacid/onto/core/agentrole/AgentRole -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/agentrole/AgentRole">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/atTime"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/agentrole/involvesAgent"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
             </owl:Restriction>
@@ -147,7 +190,19 @@
                 <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/atTime"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/AgentRole -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/AgentRole"/>
 </rdf:RDF>
 
 
