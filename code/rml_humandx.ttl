@@ -1,0 +1,132 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix crml: <http://w3id.org/stlab/crml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix places: <https://dati.isprambiente.it/ontology/places/> .
+@prefix core: <https://dati.isprambiente.it/ontology/core/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix snomedct: <http://purl.bioontology.org/ontology/SNOMEDCT/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix crome: <https://w3id.org/stlab/crome/ontology/> .
+
+
+<#MatchingSource>
+  rml:source "{{ csv }}" ;
+  rml:referenceFormulation ql:CSV;
+  crml:separator "\t".
+
+<#Matching>
+  rml:logicalSource <#MatchingSource>;
+  
+  rr:subjectMap [
+    rr:template 'https://w3id.org/stlab/crome/data/matching/%eval:match_uri("{Case Dx}", "{Solve Dx}")%';
+    rr:class crome:Matching
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rr:template 'Matching for case Dx "{Case Dx}" and solve Dx "{Solve Dx}" with human match "{Human Match}".';
+      rr:datatype xsd:string
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate crome:hasCaseDisease;
+    rr:objectMap [
+      rr:parentTriplesMap <#CaseDisease>
+    ]
+  ];
+  
+  rr:predicateObjectMap [
+    rr:predicate crome:hasDiagnosisCollection;
+    rr:objectMap [
+      rr:parentTriplesMap <#DiagnosisCollection>
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate crome:hasSolveDisease;
+    rr:objectMap [
+      rr:parentTriplesMap <#SolveDisease>
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate crome:hasHumanClassification;
+    rr:objectMap [
+      rr:parentTriplesMap <#Classification>
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate crome:hasRelationType;
+    rr:objectMap [
+      rr:parentTriplesMap <#Relation>
+    ]
+  ] .
+
+<#CaseDisease>
+  rml:logicalSource <#MatchingSource>;
+  
+  rr:subjectMap [
+    rr:template 'https://w3id.org/stlab/crome/data/disease/%eval:digest("{Case Dx}")%';
+    rr:class crome:Disease
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "Case Dx";
+      rr:datatype xsd:string
+    ]
+  ] .
+
+<#SolveDisease>
+  rml:logicalSource <#MatchingSource>;
+  
+  rr:subjectMap [
+    rr:template 'https://w3id.org/stlab/crome/data/disease/%eval:digest("{Solve Dx}")%';
+    rr:class crome:Disease
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "Solve Dx";
+      rr:datatype xsd:string
+    ]
+  ] .
+
+<#Classification>
+  rml:logicalSource <#MatchingSource>;
+  
+  rr:subjectMap [
+    rr:template 'https://w3id.org/stlab/crome/data/disease/%eval:human_classification("{Human Match}")%';
+    rr:class crome:MatchingClassification
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rr:template '%eval:human_classification("{Human Match}")%';
+      rr:datatype xsd:string
+    ]
+  ] .
+
+<#Relation>
+  rml:logicalSource <#MatchingSource>;
+  
+  rr:subjectMap [
+    rr:template 'https://w3id.org/stlab/crome/data/disease/%eval:lower_case("{Relation}")%';
+    rr:class crome:MatchingRelation
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference 'Relation';
+      rr:datatype xsd:string
+    ]
+  ] .
