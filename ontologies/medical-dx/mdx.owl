@@ -56,6 +56,22 @@
     
 
 
+    <!-- https://w3id.org/hacid/onto/mdx/hasClinicalEvaluationType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasClinicalEvaluationType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/mdx/isClinicalEvaluationTypeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType"/>
+        <rdfs:comment xml:lang="it">La proprietà per associare una categoria a una valutazione clinica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property to associate a category to a clinical evalution.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="it">ha tipo di valutazione clinica</rdfs:label>
+        <rdfs:label xml:lang="en">has clinical evaluation type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/mdx/hasDiagnosis -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/hasDiagnosis">
@@ -139,6 +155,21 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
         <rdfs:label xml:lang="en">is case type of</rdfs:label>
         <rdfs:label xml:lang="it">è tipo di caso di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/isClinicalEvaluationTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/mdx/isClinicalEvaluationTypeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluation"/>
+        <rdfs:comment xml:lang="it">La proprietà per associare una categoria ad una valutazione clinica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property to associate a category to a clinical evaluation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">is clinical evaluation type of</rdfs:label>
+        <rdfs:label xml:lang="it">è tipo di valutazione clinica di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -302,6 +333,12 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasClinicalEvaluationType"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/mdx/hasDiagnosis"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/Diagnosis"/>
             </owl:Restriction>
@@ -318,6 +355,19 @@
                 <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/mdx/DisorderDescription"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">La classe per classificare una valutazione clinica con una categoria.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class for classifying a clinical evaluation with a category.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">Clinical evaluation type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di valutazione clinica</rdfs:label>
     </owl:Class>
     
 
@@ -464,6 +514,56 @@
         <rdfs:label xml:lang="it">Specialità</rdfs:label>
         <rdfs:label xml:lang="en">Specialty</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/participatory_solution -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/mdx/participatory_solution">
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType"/>
+        <rdfs:comment xml:lang="en">A solution provided by a participant.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una soluzione fornita da un partecipante.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">participatory solution</rdfs:label>
+        <rdfs:label xml:lang="it">soluzione partecipativa</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/primary_solution -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/mdx/primary_solution">
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType"/>
+        <rdfs:comment xml:lang="en">A primary solution.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una soluzione principale.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">primary solution</rdfs:label>
+        <rdfs:label xml:lang="en">soluzione primaria</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/mdx/secondary_solution -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/mdx/secondary_solution">
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/mdx/ClinicalEvaluationType"/>
+        <rdfs:comment xml:lang="en">An alternative or secondary solution.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una soluzione alternativa o secondaria.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/mdx"/>
+        <rdfs:label xml:lang="en">secondary solution</rdfs:label>
+        <rdfs:label xml:lang="it">soluzione secondaria</rdfs:label>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
