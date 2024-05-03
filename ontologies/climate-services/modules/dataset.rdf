@@ -89,6 +89,11 @@
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/DimensionProperty">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:comment xml:lang="en">A Property about the dimension that can be associated with a component specification.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una proprietà sulla dimensione che può essere associata alla specifica di un componente.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Dimension property</rdfs:label>
+        <rdfs:label xml:lang="it">Proprietà di dimensionamento</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 
