@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/cs/algorithm#"
+     xml:base="https://w3id.org/hacid/onto/cs/algorithm"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/Algorithm">
+        <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:comment xml:lang="it">Questo modulo ontologico del dominio Climate Service specifica gli algoritmi.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This ontology module of the Climate Service domain specifies algorithms.</rdfs:comment>
+        <rdfs:label xml:lang="en">Algorithm module of the Climate Service domain</rdfs:label>
+        <rdfs:label xml:lang="it">Modulo Algoritmo del dominio Climate Service</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/bindToDataPort -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/bindToDataPort">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/isDataPortBindingOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/DataBinding"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/DataPort"/>
+        <rdfs:label xml:lang="en">binds to data port</rdfs:label>
+        <rdfs:label xml:lang="it">si lega alla porta dati</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/bindsData -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/bindsData">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/DataBinding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">binds data</rdfs:label>
+        <rdfs:label xml:lang="it">lega i dati</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/executionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/executionOf">
+        <rdfs:label xml:lang="it">esecuzione di</rdfs:label>
+        <rdfs:label xml:lang="en">execution of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/hasDataBinding -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/hasDataBinding">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/isDataBindingOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/Execution"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/DataBinding"/>
+        <rdfs:label xml:lang="en">has data binding</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/hasDataPort -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/hasDataPort">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/DataPort"/>
+        <rdfs:label xml:lang="en">has data port</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/hasImplementation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/hasImplementation">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/implementationOf"/>
+        <rdfs:label xml:lang="en">has implementation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/implementationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/implementationOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/AlgorithmComputerProgram"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/AlgorithmAbstractAlgorithm"/>
+        <rdfs:label xml:lang="en">implementation of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/isDataBindingOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/isDataBindingOf">
+        <rdfs:label xml:lang="en">is data binding of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/isDataPortBindingOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/isDataPortBindingOf">
+        <rdfs:label xml:lang="en">is data port binding of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Algorithm">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/InformationEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/AlgorithmAbstractAlgorithm -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/AlgorithmAbstractAlgorithm">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm"/>
+        <rdfs:comment xml:lang="en">Abstract algorithm</rdfs:comment>
+        <rdfs:comment xml:lang="it">Algoritmo astratto</rdfs:comment>
+        <rdfs:label xml:lang="en">abstract algorithm</rdfs:label>
+        <rdfs:label xml:lang="it">algoritmo astratto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/AlgorithmComputerProgram -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/AlgorithmComputerProgram">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm"/>
+        <rdfs:comment xml:lang="en">Computer program</rdfs:comment>
+        <rdfs:comment xml:lang="it">Programma per computer</rdfs:comment>
+        <rdfs:label xml:lang="en">computer program</rdfs:label>
+        <rdfs:label xml:lang="it">programma per computer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/DataBinding -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/DataBinding">
+        <rdfs:label xml:lang="it">Associazione dati</rdfs:label>
+        <rdfs:label xml:lang="en">Data binding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/DataPort -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/DataPort">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/FormalEntity"/>
+        <rdfs:comment xml:lang="en">Data port</rdfs:comment>
+        <rdfs:label xml:lang="en">Data port</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/Execution -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/Execution">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+        <rdfs:label xml:lang="it">Esecuzione</rdfs:label>
+        <rdfs:label xml:lang="en">Execution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/InputPort -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/InputPort">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/DataPort"/>
+        <rdfs:label xml:lang="en">Input port</rdfs:label>
+        <rdfs:label xml:lang="it">Porta d&apos;ingresso</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Algorithm/OutputPort -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Algorithm/OutputPort">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Algorithm/DataPort"/>
+        <rdfs:comment xml:lang="en">Output port</rdfs:comment>
+        <rdfs:comment xml:lang="it">Porta di uscita</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/InformationEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/InformationEntity"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
