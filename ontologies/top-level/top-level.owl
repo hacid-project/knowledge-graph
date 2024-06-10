@@ -399,21 +399,6 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/hasRegion -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
-        <rdfs:comment xml:lang="en">A relation between entities and regions, e.g. &apos;the number of wheels of that truck is 12&apos;, &apos;the time of the experiment is August 9th, 2004&apos;, &apos;the whale has been localized at 34 degrees E, 20 degrees S&apos;.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Una relazione tra entità e regioni, ad es. &apos;il numero di ruote di quel camion è 12&apos;, &apos;l&apos;ora dell&apos;esperimento è il 9 agosto 2004&apos;, &apos;la balena è stata localizzata a 34 gradi E, 20 gradi S&apos;</rdfs:comment>
-        <rdfs:label xml:lang="it">ha attributo</rdfs:label>
-        <rdfs:label xml:lang="en">has region</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/top-level/hasRole -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasRole">
@@ -473,21 +458,6 @@
         <rdfs:comment xml:lang="en">The relation holding between any entity and a system.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">has system</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/hasTimeInterval -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasTimeInterval">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isTimeIntervalOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/TimeInterval"/>
-        <rdfs:comment xml:lang="it">La relazione generica tra eventi e intervalli di tempo.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The generic relation between events and time intervals.</rdfs:comment>
-        <rdfs:label xml:lang="it">ha intervallo temporale</rdfs:label>
-        <rdfs:label xml:lang="en">has time interval</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -816,20 +786,6 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/isRegionFor -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRegionFor">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">A relation between entities and regions, e.g. &apos;the color of my car is red&apos;.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Una relazione tra entità e regioni, ad es. &apos;il colore della mia macchina è rosso&apos;.</rdfs:comment>
-        <rdfs:label xml:lang="en">is region for</rdfs:label>
-        <rdfs:label xml:lang="it">è una regione di</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleInvolvedIn">
@@ -933,20 +889,6 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">is system of</rdfs:label>
         <rdfs:label xml:lang="it">è sistema di</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/isTimeIntervalOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isTimeIntervalOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/TimeInterval"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
-        <rdfs:comment xml:lang="it">La relazione generica tra eventi e intervalli di tempo.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The generic relation between time intervals and events.</rdfs:comment>
-        <rdfs:label xml:lang="it">intervallo temporale di</rdfs:label>
-        <rdfs:label xml:lang="en">is time interval of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1263,20 +1205,6 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/AbstractEntity -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/AbstractEntity">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">Entities that are formally defined and are considered independent from the social context in which they are used. They cannot be localized in space or time. Also called &apos;Platonic entities&apos;.
-Mathematical and logical entities are included in this class: sets, categories, tuples, costants, variables, etc.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Entità formalmente definite e considerate indipendenti dal contesto sociale in cui vengono utilizzate. Non possono essere localizzati nello spazio o nel tempo. Chiamate anche &quot;entità platoniche&quot;.
-In questa classe sono incluse le entità matematiche e logiche: insiemi, categorie, tuple, costanti, variabili, ecc.</rdfs:comment>
-        <rdfs:label xml:lang="it">Entità formale astratta</rdfs:label>
-        <rdfs:label xml:lang="en">Formal entity</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/hacid/onto/top-level/Agent -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
@@ -1412,20 +1340,14 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/Event -->
+    <!-- https://w3id.org/hacid/onto/top-level/FormalEntity -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Event">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/FormalEntity">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Any physical, social, or mental process, event, or state.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Qualsiasi processo, evento o stato fisico, sociale o mentale.</rdfs:comment>
-        <rdfs:label xml:lang="en">event</rdfs:label>
-        <rdfs:label xml:lang="it">evento</rdfs:label>
+        <rdfs:comment xml:lang="en">Entities that are formally defined and are considered independent from the social context in which they are used. They cannot be localized in space or time. Also called &apos;Platonic entities&apos;.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Entità formalmente definite e considerate indipendenti dal contesto sociale in cui vengono utilizzate. Non possono essere localizzati nello spazio o nel tempo. Chiamate anche &quot;entità platoniche&quot;.</rdfs:comment>
+        <rdfs:label xml:lang="it">Entità formale astratta</rdfs:label>
+        <rdfs:label xml:lang="en">Formal entity</rdfs:label>
     </owl:Class>
     
 
@@ -1454,18 +1376,6 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">Entità informativa</rdfs:label>
         <rdfs:label xml:lang="en">Information entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Judgement -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Judgement">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="it">Il processo di formazione di un&apos;opinione o di valutazione attraverso il discernimento e il confronto.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The process of forming an opinion or evaluation by discerning and comparing.</rdfs:comment>
-        <rdfs:label xml:lang="it">Giudizio</rdfs:label>
-        <rdfs:label xml:lang="en">Judgement</rdfs:label>
     </owl:Class>
     
 
@@ -1586,18 +1496,6 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">Oggetto fisico</rdfs:label>
         <rdfs:label xml:lang="en">Physical object</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Region -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Region">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">Any region in a dimensional space (a dimensional space is a maximal Region), which can be used as a value for a quality of an Entity . For example, TimeInterval, SpaceRegion, PhysicalAttribute, Amount, SocialAttribute are all subclasses of Region.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Qualsiasi regione in uno spazio dimensionale (uno spazio dimensionale è una regione massimale), che può essere utilizzata come valore per una qualità di un&apos;entità. Ad esempio, TimeInterval, SpaceRegion, PhysicalAttribute, Amount, SocialAttribute sono tutte sottoclassi di Region.</rdfs:comment>
-        <rdfs:label xml:lang="it">Regione</rdfs:label>
-        <rdfs:label xml:lang="en">region</rdfs:label>
     </owl:Class>
     
 
