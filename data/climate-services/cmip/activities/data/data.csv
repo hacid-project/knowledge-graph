@@ -1,0 +1,25 @@
+,id,label
+0,AerChemMIP,Aerosols and Chemistry Model Intercomparison Project
+1,C4MIP,Coupled Climate Carbon Cycle Model Intercomparison Project
+2,CDRMIP,Carbon Dioxide Removal Model Intercomparison Project
+3,CFMIP,Cloud Feedback Model Intercomparison Project
+4,CMIP,"CMIP DECK: 1pctCO2, abrupt4xCO2, amip, esm-piControl, esm-historical, historical, and piControl experiments"
+5,CORDEX,Coordinated Regional Climate Downscaling Experiment
+6,DAMIP,Detection and Attribution Model Intercomparison Project
+7,DCPP,Decadal Climate Prediction Project
+8,DynVarMIP,Dynamics and Variability Model Intercomparison Project
+9,FAFMIP,Flux-Anomaly-Forced Model Intercomparison Project
+10,GMMIP,Global Monsoons Model Intercomparison Project
+11,GeoMIP,Geoengineering Model Intercomparison Project
+12,HighResMIP,High-Resolution Model Intercomparison Project
+13,ISMIP6,Ice Sheet Model Intercomparison Project for CMIP6
+14,LS3MIP,"Land Surface, Snow and Soil Moisture"
+15,LUMIP,Land-Use Model Intercomparison Project
+16,OMIP,Ocean Model Intercomparison Project
+17,PAMIP,Polar Amplification Model Intercomparison Project
+18,PMIP,Palaeoclimate Modelling Intercomparison Project
+19,RFMIP,Radiative Forcing Model Intercomparison Project
+20,SIMIP,Sea Ice Model Intercomparison Project
+21,ScenarioMIP,Scenario Model Intercomparison Project
+22,VIACSAB,"Vulnerability, Impacts, Adaptation and Climate Services Advisory Board"
+23,VolMIP,Volcanic Forcings Model Intercomparison Project

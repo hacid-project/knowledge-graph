@@ -1,0 +1,51 @@
+@prefix : <https://w3id.org/hacid/data/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix ispra-top: <https:/w3id.org/italia/env/onto/top/> .
+@prefix ispra-plc: <https://w3id.org/italia/env/onto/place/> .
+@prefix hm: <https://w3id.org/whow/onto/health-monitoring/> .
+@prefix clvapit: <https://w3id.org/italia/onto/CLV/> .
+@prefix covapit: <https://w3id.org/italia/onto/COV/> .
+@prefix sm: <https://w3id.org/italia/onto/SM/>.
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@base <https://w3id.org/hacid/data/rml/> .
+
+
+# LOGICAL SOURCE #
+:LogicalSource a rml:BaseSource ;
+    rml:source [
+      a csvw:Table;
+      csvw:url "{{ CSV }}";
+
+      csvw:dialect [
+        a csvw:Dialect;
+        csvw:delimiter ","
+      ]
+    ];
+    rml:referenceFormulation ql:CSV .
+  
+# TRIPLE MAPPINGS #
+:InstitutionMapping a rr:TriplesMap ;
+	rml:logicalSource :LogicalSource ;
+	rr:subjectMap [
+	  rr:template "https://w3id.org/hacid/cs/data/organisation/{id}";
+	  rr:class top:Organization;
+	] ;
+	
+	rr:predicateObjectMap [
+	  rr:predicate rdfs:label;
+	  rr:objectMap [ 
+	  	rml:reference "label" ; 
+	  	rr:language "en" 
+	  ]
+	] .

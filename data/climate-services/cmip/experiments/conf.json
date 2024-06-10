@@ -1,0 +1,5 @@
+{
+	"jsonpath": "$.experiment_id.*",
+	"columns": ["experiment_id", "activity id", "experiment", "tier", "sub_experiment_id", "parent_experiment_id", "required_model_components",	"additional_allowed_model_components", "start_year", "end_year", "min_number_yrs_per_sim", "parent_activity_id", "description"],
+	"transpose": false
+}
