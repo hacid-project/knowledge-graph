@@ -1,0 +1,8 @@
+{
+	"jsonpath": "$.source_id.*",
+	"columns": ["source_id", "institution id", "release year", "activity participation", "cohort", "label", "label extended", "atmos", "natNomRes atmos", "ocean", "natNomRes ocean", "landIce", "natNomRes landIce", "aerosol", "atmosChem", "land", "ocnBgchem", "seaIce"],
+	"transpose": false,
+	"vars": {
+		"model_descrs": ["aerosol"]
+	}
+}

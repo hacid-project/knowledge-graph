@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/cs/Models/"
+     xml:base="https://w3id.org/hacid/onto/cs/Models/"
+     xmlns:mod="https://w3id.org/hacid/onto/cs/Models/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/Models">
+        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/cs/Models/1.0"/>
+        <rdfs:comment xml:lang="it">Il modulo Modello dell&apos;ontologia del Servizio Climatico descrive i modelli utilizzati nel dominio.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Model module of the Climate Service ontology describes the models employed in the domain.</rdfs:comment>
+        <rdfs:label xml:lang="it">Il modulo Modelli dell&apos;ontologia del Servizio Climatico.</rdfs:label>
+        <rdfs:label xml:lang="en">The Models module of the Climate Service ontology.</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/ClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/ClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Models/Model"/>
+        <rdfs:comment xml:lang="en">A model that represents climate dynamics in physical terms.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un modello che rappresenta le dinamiche climatiche in termini fisici.</rdfs:comment>
+        <rdfs:label xml:lang="en">climate model</rdfs:label>
+        <rdfs:label xml:lang="it">modello climatico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/ConvectionPermittingModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/ConvectionPermittingModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Models/LocalClimateModel"/>
+        <rdfs:comment xml:lang="en">A model with enough detail to explicitly represent convection.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un modello con dettagli sufficienti per rappresentare esplicitamente la convezione.</rdfs:comment>
+        <rdfs:label xml:lang="en">convection permitting model</rdfs:label>
+        <rdfs:label xml:lang="it">modello che consente la convezione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/GlobalClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/GlobalClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Models/ClimateModel"/>
+        <rdfs:comment xml:lang="en">A model that encompasses the whole earth surface, usually with
+coarse granularity (e.g., 60 Km).</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un modello che comprende l&apos;intera superficie terrestre, solitamente con granularità grossolana (ad esempio, 60 Km).</rdfs:comment>
+        <rdfs:label xml:lang="en">global climate model</rdfs:label>
+        <rdfs:label xml:lang="it">modello climatico globale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/IntegratedAssessmentModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/IntegratedAssessmentModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Models/Model"/>
+        <rdfs:comment xml:lang="en">A socioeconomic model.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un modello socioeconomico.</rdfs:comment>
+        <rdfs:label xml:lang="en">integrated assessment model</rdfs:label>
+        <rdfs:label xml:lang="it">modello di valutazione integrata</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/LocalClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/LocalClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Models/NonGlobalClimateModel"/>
+        <rdfs:comment xml:lang="en">A model that encompasses a smaller area (e.g., the United
+Kingdom), with still more detail (e.g., 2 Km).</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un modello che comprende un&apos;area più piccola (ad esempio, il Regno Unito), con ancora più dettagli (ad esempio, 2 Km).</rdfs:comment>
+        <rdfs:label xml:lang="en">local climate model</rdfs:label>
+        <rdfs:label xml:lang="it">modello climatico locale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/Model -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/Model">
+        <rdfs:comment xml:lang="en">An algorithm that represents the behaviour and evolution of a
+system in time.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un algoritmo che rappresenta il comportamento e l&apos;evoluzione di un sistema nel tempo.</rdfs:comment>
+        <rdfs:label xml:lang="en">model</rdfs:label>
+        <rdfs:label xml:lang="it">modello</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/NonGlobalClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/NonGlobalClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Models/ClimateModel"/>
+        <rdfs:comment xml:lang="en">A model that does not encompasses the whole earth surface.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un modello che non comprende tutta la superficie terrestre.</rdfs:comment>
+        <rdfs:label xml:lang="it">modello climatico non globale</rdfs:label>
+        <rdfs:label xml:lang="en">non-global climate model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Models/RegionalClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Models/RegionalClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Models/NonGlobalClimateModel"/>
+        <rdfs:comment xml:lang="en">A model that that encompasses only a part of the world (e.g., Europe) but is more fine grained (e.g., 12 Km).</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un modello che comprende solo una parte del mondo (ad esempio, l’Europa) ma è più dettagliato (ad esempio, 12 Km).</rdfs:comment>
+        <rdfs:label xml:lang="it">modello climatico regionale</rdfs:label>
+        <rdfs:label xml:lang="en">regional climate model</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

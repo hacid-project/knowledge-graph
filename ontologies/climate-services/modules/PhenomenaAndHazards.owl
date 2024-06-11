@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards#"
+     xml:base="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards"
+     xmlns:cph="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards">
+        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/1.0.0"/>
+        <rdfs:comment xml:lang="it">Il modulo Fenomeni e pericoli dell’ontologia del Servizio Climatico specifica i fenomeni e i pericoli climatici.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Phenomena and hazards module of the Climate Service domain specifies climate phenomena and hazards.</rdfs:comment>
+        <rdfs:label xml:lang="it">Modulo Fenomeni e pericoli dell&apos;ontologia del Servizio Climatico</rdfs:label>
+        <rdfs:label xml:lang="en">Phenomena and hazards module of the Climate Service ontology</rdfs:label>
+        <owl:versionInfo xml:lang="en">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/belongsToHazardType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/belongsToHazardType">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/Hazard"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/HazardType"/>
+        <rdfs:comment xml:lang="en">A property that relates the hazard to its type.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una proprietà che mette in relazione il pericolo con il suo tipo.</rdfs:comment>
+        <rdfs:label xml:lang="it">appartiene al tipo di pericolo</rdfs:label>
+        <rdfs:label xml:lang="en">belongs to hazard type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/belongsToPhenomenonType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/belongsToPhenomenonType">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenon"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenonType"/>
+        <rdfs:comment xml:lang="en">A property that relates the climate phenomena to its type.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una proprietà che mette in relazione i fenomeni climatici con la sua tipologia.</rdfs:comment>
+        <rdfs:label xml:lang="it">appartiene al tipo di fenomeno</rdfs:label>
+        <rdfs:label xml:lang="en">belongs to phenomenon type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/causedPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/causedPhenomenon">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/influencedPhenomenon"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment xml:lang="en">A property that relates a phenomenon with another that is considered a cause of the former one.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà che mette in relazione un fenomeno con un altro che è considerato causa del primo.</rdfs:comment>
+        <rdfs:label xml:lang="en">caused phenomenon</rdfs:label>
+        <rdfs:label xml:lang="it">fenomeno causato</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/causesPhenomenonOfType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/causesPhenomenonOfType">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenon"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenonType"/>
+        <rdfs:label xml:lang="en">causes phenomenon of type</rdfs:label>
+        <rdfs:label xml:lang="it">provoca fenomeni di tipo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/characterizedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/characterizedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenonType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/PhenomenonCharacterisation"/>
+        <rdfs:comment xml:lang="en">A property that relates the phenomenon type to the phenomenon characterisation.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una proprietà che mette in relazione il tipo di fenomeno con la caratterizzazione del fenomeno.</rdfs:comment>
+        <rdfs:label xml:lang="it">caratterizzato da</rdfs:label>
+        <rdfs:label xml:lang="en">characterized by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/characterizingIndex -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/characterizingIndex">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/isCharacterizingInxedOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/PhenomenonCharacterisation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/Index"/>
+        <rdfs:comment xml:lang="en">A property that relates the characterisation of a phenomenon to its index.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà che mette in relazione la caratterizzazione di un fenomeno con il suo indice.</rdfs:comment>
+        <rdfs:label xml:lang="en">characterizing index</rdfs:label>
+        <rdfs:label xml:lang="it">indice caratterizzante</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/featuresPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/featuresPhenomenon">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/relatedWithPhenomenon"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment xml:lang="en">A property that relates a complex phenomenon with phenomena that are part of it (e.g., the “El Niño–Southern Oscillation” features the “1997–1998 El Niño event”).</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una proprietà che mette in relazione un fenomeno complesso con fenomeni che ne fanno parte (ad esempio, “El Niño–Oscillazione del Sud” presenta “l’evento El Niño del 1997–1998”).</rdfs:comment>
+        <rdfs:label xml:lang="en">features phenomenon</rdfs:label>
+        <rdfs:label xml:lang="it">presenta il fenomeno</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/influencedPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/influencedPhenomenon">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/relatedWithPhenomenon"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:label xml:lang="it">fenomeno influenzato</rdfs:label>
+        <rdfs:label xml:lang="en">influenced phenomenon</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/influencesPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/influencesPhenomenon">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/influencedPhenomenon"/>
+        <rdfs:comment xml:lang="en">A property that relates a phenomenon with another that has been influenced by the former one during its time of existence.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una proprietà che mette in relazione un fenomeno con un altro che è stato influenzato dal primo durante la sua esistenza.</rdfs:comment>
+        <rdfs:label xml:lang="en">influences phenomenon</rdfs:label>
+        <rdfs:label xml:lang="it">influenza il fenomeno</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/isCharacterizingInxedOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/isCharacterizingInxedOf">
+        <rdfs:label xml:lang="en">is characterizing index of</rdfs:label>
+        <rdfs:label xml:lang="it">sta caratterizzando l&apos;indice di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/relatedWithPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/relatedWithPhenomenon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenon"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenon"/>
+        <rdfs:comment xml:lang="en">A symmetric transitive property that describes a generic
+relationship between two phenomena.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una proprietà transitiva simmetrica che descrive una relazione generica tra due fenomeni.</rdfs:comment>
+        <rdfs:label xml:lang="it">legati al fenomeno</rdfs:label>
+        <rdfs:label xml:lang="en">related with phenomenon</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenon -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenon">
+        <rdfs:comment xml:lang="en">Atmospheric events that drive weather patterns.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Eventi atmosferici che determinano i modelli meteorologici.</rdfs:comment>
+        <rdfs:label xml:lang="en">climate phenomenon</rdfs:label>
+        <rdfs:label xml:lang="it">fenomeno climatico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenonType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenonType">
+        <rdfs:comment xml:lang="en">A type of climate phenomenon.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un tipo di fenomeno climatico.</rdfs:comment>
+        <rdfs:label xml:lang="en">climate phenomenon type</rdfs:label>
+        <rdfs:label xml:lang="it">tipo di fenomeno climatico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/Hazard -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/Hazard">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenon"/>
+        <rdfs:comment xml:lang="en">A climate phenomenon that may potentially cause harm to people and property, directly or indirectly.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Fenomeno climatico che può potenzialmente causare danni a persone e cose, direttamente o indirettamente.</rdfs:comment>
+        <rdfs:label xml:lang="en">hazard</rdfs:label>
+        <rdfs:label xml:lang="it">pericolo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/HazardType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/HazardType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/ClimatePhenomenonType"/>
+        <rdfs:comment xml:lang="en">The type of the climate hazard.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un tipo di pericolo climatico.</rdfs:comment>
+        <rdfs:label xml:lang="en">hazard type</rdfs:label>
+        <rdfs:label xml:lang="it">tipo di pericolo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/Index -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/Index">
+        <rdfs:comment xml:lang="it">L&apos;indice utilizzato per caratterizzare il fenomeno climatico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The index used to characterize the climate phenomenon.</rdfs:comment>
+        <rdfs:label xml:lang="en">index</rdfs:label>
+        <rdfs:label xml:lang="it">indice</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/PhenomenonCharacterisation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/PhenomenaAndHazards/PhenomenonCharacterisation">
+        <rdfs:comment xml:lang="it">Caratterizzazione del fenomeno climatico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Characterization of the climate phenomenon.</rdfs:comment>
+        <rdfs:label xml:lang="it">caratterizzazione del fenomeno</rdfs:label>
+        <rdfs:label xml:lang="en">phenomenon characterisation</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
