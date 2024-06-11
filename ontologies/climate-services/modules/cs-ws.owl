@@ -10,7 +10,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/">
         <dc:description rdf:resource="https://raw.githubusercontent.com/hacid-project/knowledge-graph/main/ontologies/climate-services/visual/simpler_model_rev.png"/>
-        <rdfs:comment xml:lang="en">An ontology for representing climate models, simulations, datasets, variables and pathways with their associated characteristics.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An ontology for representing climate models, simulations, datasets, variables and scenarios with their associated characteristics.</rdfs:comment>
         <rdfs:label xml:lang="en">CSO - Climate Services Ontology</rdfs:label>
     </owl:Ontology>
     
@@ -44,6 +44,90 @@
     
 
 
+    <!-- https://w3id.org/hacid/onto/cs/generatesProjection -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/generatesProjection">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isGeneratedProjectionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Dataset"/>
+        <rdfs:label xml:lang="en">generates projection</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/hasSpatialCoverage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasSpatialCoverage">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isSpatialCoverageOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/SpatialRegion"/>
+        <rdfs:label xml:lang="en">has spatial coverage</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/hasSpatialResolution -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasSpatialResolution">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isSpatialResolutionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Distance"/>
+        <rdfs:label xml:lang="en">has spatial resolution</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/hasTemporalCoverage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasTemporalCoverage">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isTemporalCoverageOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/TimeInterval"/>
+        <rdfs:label xml:lang="en">has temporal coverage</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/hasTemporalResolution -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasTemporalResolution">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isTemporalResolutionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/TimeDuration"/>
+        <rdfs:label xml:lang="en">has temporal resolution</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/hasVariable -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasVariable">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isVariableOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Variable"/>
+        <rdfs:comment xml:lang="en">The property that allows one to link a dataset with the variables which have values (as dependent variables) in the dataset.</rdfs:comment>
+        <rdfs:label xml:lang="en">has variable</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isGeneratedProjectionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isGeneratedProjectionOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
+        <rdfs:label xml:lang="en">is generated projection of</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/cs/isMaintainedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isMaintainedBy">
@@ -51,7 +135,7 @@
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">The relation that allows to link an object to a maintainer.</rdfs:label>
+        <rdfs:comment xml:lang="en">The relation that allows to link an object to a maintainer.</rdfs:comment>
         <rdfs:label xml:lang="en">is maintained by</rdfs:label>
     </owl:ObjectProperty>
     
@@ -69,15 +153,70 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/cs/isPathwayReferredBy -->
+    <!-- https://w3id.org/hacid/onto/cs/isScenarioReferredBy -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isPathwayReferredBy">
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/refersToPathway"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isScenarioReferredBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/refersToScenario"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Scenario"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:isDefinedBy xml:lang="en">The object property that allows a pathway to be referred by a simulation.</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">is pathway referred by</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property that allows a scenario to be referred by a simulation.</rdfs:comment>
+        <rdfs:label xml:lang="en">is scenario referred by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isSpatialCoverageOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isSpatialCoverageOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/SpatialRegion"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">is spatial coverage of</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isSpatialResolutionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isSpatialResolutionOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Distance"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">is spatial resolution of</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isTemporalCoverageOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isTemporalCoverageOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/TimeInterval"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">is temporal coverage of</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isTemporalResolutionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isTemporalResolutionOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/TimeInterval"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">is temporal resolution of</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isVariableOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isVariableOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Variable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">is variable of</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
     </owl:ObjectProperty>
     
 
@@ -87,18 +226,19 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/maintains">
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/cs/refersToPathway -->
+    <!-- https://w3id.org/hacid/onto/cs/refersToScenario -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/refersToPathway">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/refersToScenario">
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
-        <rdfs:comment xml:lang="en">The object property that allows a simulation to refer a pathway.</rdfs:comment>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Scenario"/>
+        <rdfs:comment xml:lang="en">The object property that allows a simulation to refer a scenario.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">refers to pathway</rdfs:label>
+        <rdfs:label xml:lang="en">refers to scenario</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -142,9 +282,31 @@
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Dataset">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">A dataset is a collection of data that is organized in a structured format, making it easy to access, manage, analyze, and interpret. Datasets are fundamental in various fields, including scientific research, business analysis, and data science.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A dataset in this context is a collection of data organized in tabular format, where dimensions (independent variables) include at least space (on a geospatial grid) and time. It also includes at least one dependent variable (or simply variable), but there can be more than one.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Dataset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Distance -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Distance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A distance quantity: e.g., 3 meters.</rdfs:comment>
+        <rdfs:label xml:lang="en">Distance</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Scenario -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Scenario">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A projected trajectory of future greenhouse gas emissions, atmospheric concentrations, and corresponding impacts on the climate system. These scenarios are used in climate modeling to explore how different levels of emissions might influence global temperatures, weather patterns, sea level rise, and other climate-related phenomena.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Scenario</rdfs:label>
     </owl:Class>
     
 
@@ -152,7 +314,7 @@
     <!-- https://w3id.org/hacid/onto/cs/GreenhouseGasConcentrationPathway -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/GreenhouseGasConcentrationPathway">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Scenario"/>
         <rdfs:comment xml:lang="en">These pathways are used to model and predict the impacts of different levels of greenhouse gas emissions on the climate system. They are essential for understanding how different emissions scenarios might influence global temperatures, climate patterns, and related environmental changes.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Greenhouse gas concentration pathway</rdfs:label>
@@ -160,21 +322,10 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/cs/Pathway -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Pathway">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">A projected trajectory of future greenhouse gas emissions, atmospheric concentrations, and corresponding impacts on the climate system. These pathways are used in climate modeling to explore how different levels of emissions might influence global temperatures, weather patterns, sea level rise, and other climate-related phenomena.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Pathway</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/hacid/onto/cs/SharedSocioeconomicPathway -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/SharedSocioeconomicPathway">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Scenario"/>
         <rdfs:comment xml:lang="en">Shared socio-economic Pathways (SSPs) are scenarios developed to describe different trajectories of socioeconomic development, which can influence future greenhouse gas emissions and the ability of societies to mitigate and adapt to climate change. The SSPs are used in climate modeling to explore the interactions between socioeconomic factors, emissions pathways, and climate impacts.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Shared socio-economic pathway</rdfs:label>
@@ -199,17 +350,66 @@
     
 
 
+    <!-- https://w3id.org/hacid/onto/cs/SpatialRegion -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/SpatialRegion">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A (geo)spatial region</rdfs:comment>
+        <rdfs:label xml:lang="en">Spatial Region</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+   </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/TimeDuration -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/TimeDuration">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A time duration: e.g., 486 seconds; 3 years; 1 hour and 20 minutes; etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">Time Duration</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/TimeInterval -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/TimeInterval">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">An interval in time: e.g., from the 1st January 2020 to 31th December 2070.</rdfs:comment>
+        <rdfs:label xml:lang="en">Time Interval</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Variable -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Variable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A variable is a common conceptualisation across a set of quantity values, corresponding to the type of quantity being measured/computed. In the context of a dataset, given a combination of values for the independent variables (dimensions) a dependent variable can have at most one value.</rdfs:comment>
+        <rdfs:label xml:lang="en">Variable</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/Agent -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
+        <rdfs:label>Agent</rdfs:label>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
     </owl:Class>
     
 
 
     <!-- https://w3id.org/hacid/onto/top-level/Entity -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Entity"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Entity">
+        <rdfs:label>Entity</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+    </owl:Class>
     
 
 
