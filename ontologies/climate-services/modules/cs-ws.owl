@@ -7,7 +7,11 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/"/>
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/">
+        <rdfs:comment rdf:resource="https://raw.githubusercontent.com/hacid-project/knowledge-graph/main/ontologies/climate-services/visual/simpler_model_rev.png"/>
+        <rdfs:comment xml:lang="en">An ontology for representing climate models, simulations, datasets, variables and pathways with their associated characteristics.</rdfs:comment>
+        <rdfs:label xml:lang="en">CSO - Climate Services Ontology</rdfs:label>
+    </owl:Ontology>
     
 
 
