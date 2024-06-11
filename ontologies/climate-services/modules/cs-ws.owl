@@ -108,9 +108,9 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/usesModel">
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModel"/>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that a climate model is used by an experiment to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
         <rdfs:comment xml:lang="en">The property that allows one to assert that an experiment uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">The property that allows one to assert that a climate model is used by an experiment to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:label>
         <rdfs:label xml:lang="en">uses model</rdfs:label>
     </owl:ObjectProperty>
     
@@ -131,8 +131,8 @@
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/ClimateModel">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A representation of the Earth’s climate system. A model is used to simulate and understand the climate, including its variability and changes over time, by using a set of equations based on physical, chemical, and biological principles.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">A representation of the Earth’s climate system. A model is used to simulate and understand the climate, including its variability and changes over time, by using a set of equations based on physical, chemical, and biological principles.</rdfs:label>
         <rdfs:label xml:lang="en">Climate Model</rdfs:label>
     </owl:Class>
     
