@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/cs/"
+     xml:base="https://w3id.org/hacid/onto/cs/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:top="https://w3id.org/hacid/onto/top-level/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isMaintainedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isMaintainedBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/maintains"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">The relation that allows to link an object to a maintainer.</rdfs:label>
+        <rdfs:label xml:lang="en">is maintained by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isModelUsedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isModelUsedBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/usesModel"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModel"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">is model used by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isPathwayReferredBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isPathwayReferredBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/refersToPathway"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:isDefinedBy xml:lang="en">The object property that allows a pathway to be referred by a simulation.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">is pathway referred by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/maintains -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/maintains">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/refersToPathway -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/refersToPathway">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
+        <rdfs:comment xml:lang="en">The object property that allows a simulation to refer a pathway.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">refers to pathway</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/usesModel -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/usesModel">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Simulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModel"/>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that an experiment uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">The property that allows one to assert that a climate model is used by an experiment to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:label>
+        <rdfs:label xml:lang="en">uses model</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/ClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">A representation of the Earth’s climate system. A model is used to simulate and understand the climate, including its variability and changes over time, by using a set of equations based on physical, chemical, and biological principles.</rdfs:label>
+        <rdfs:label xml:lang="en">Climate Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Dataset -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Dataset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A dataset is a collection of data that is organized in a structured format, making it easy to access, manage, analyze, and interpret. Datasets are fundamental in various fields, including scientific research, business analysis, and data science.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Dataset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/GreenhouseGasConcentrationPathway -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/GreenhouseGasConcentrationPathway">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
+        <rdfs:comment xml:lang="en">These pathways are used to model and predict the impacts of different levels of greenhouse gas emissions on the climate system. They are essential for understanding how different emissions scenarios might influence global temperatures, climate patterns, and related environmental changes.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Greenhouse gas concentration pathway</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Pathway -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Pathway">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A projected trajectory of future greenhouse gas emissions, atmospheric concentrations, and corresponding impacts on the climate system. These pathways are used in climate modeling to explore how different levels of emissions might influence global temperatures, weather patterns, sea level rise, and other climate-related phenomena.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Pathway</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/SharedSocioeconomicPathway -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/SharedSocioeconomicPathway">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Pathway"/>
+        <rdfs:comment xml:lang="en">Shared socio-economic Pathways (SSPs) are scenarios developed to describe different trajectories of socioeconomic development, which can influence future greenhouse gas emissions and the ability of societies to mitigate and adapt to climate change. The SSPs are used in climate modeling to explore the interactions between socioeconomic factors, emissions pathways, and climate impacts.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Shared socio-economic pathway</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Simulation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Simulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/usesModel"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A computational experiment that uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period. These simulations are designed to understand how various components of the climate system interact and respond to different forcing factors, such as changes in greenhouse gas concentrations, solar radiation, volcanic activity, and land use.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Agent -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Entity"/>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Organisation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Organisation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="en">An organisation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label>Organisation</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
