@@ -312,12 +312,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/northDegrees -->
-
-    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/ccso/northDegrees"/>
-    
-
-
     <!-- https://w3id.org/hacid/onto/ccso/radiativeForcing -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/ccso/radiativeForcing"/>

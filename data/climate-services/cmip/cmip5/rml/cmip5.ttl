@@ -32,40 +32,230 @@
   
 # TRIPLE MAPPINGS #
 :DatasetMapping a rr:TriplesMap ;
-	rml:logicalSource :LogicalSource ;
-	rr:subjectMap [
-            rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
-            rr:class ccso:Dataset
-        ] ;
+    rml:logicalSource :LogicalSource ;
+    
+    rr:subjectMap [
+        rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
+        rr:class ccso:Dataset
+    ] ;
 	
-	rr:predicateObjectMap [
-	  rr:predicate rdfs:label;
-	  rr:objectMap [ 
-	  	rml:reference "id" ; 
-	  	rr:language "en" 
-	  ]
-	] ;
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ 
+            rml:reference "id" ; 
+            rr:language "en" 
+        ]
+    ] ;
 
-	rr:predicateObjectMap [
-	  rr:predicate ccso:hasVariable;
-	  rr:objectMap :VariableIRI
-	] .
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap :ModelDescription
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:hasVariable;
+        rr:objectMap :VariableIRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:usesModel ;
+        rr:objectMap :ModelIRI
+    ] ;
+ 
+    rr:predicateObjectMap [
+        rr:predicate ccso:hasSpatialCoverage ;
+        rr:objectMap [
+            rr:parentTriplesMap :SpatialCoverageMapping
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:hasTemporalCoverage ;
+        rr:objectMap [
+            rr:parentTriplesMap :TimeIntervalMapping
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:hasTemporalResolution ;
+        rr:objectMap [
+            rr:parentTriplesMap :TimeDurationMapping
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:refersToScenario ;
+        rr:objectMap [
+            rr:parentTriplesMap :ScenarioMapping
+        ]
+    ] .    
 
 :VariableMapping a rr:TriplesMap ;
-	rml:logicalSource :LogicalSource ;
-	rr:subjectMap :VariableIRI .
+    rml:logicalSource :LogicalSource ;
+    rr:subjectMap :VariableIRI .
 
 :SimulationMapping a rr:TriplesMap ;
-	rml:logicalSource :LogicalSource ;
-	rr:subjectMap :SimulationIRI ;
+    rml:logicalSource :LogicalSource ;
+    rr:subjectMap :SimulationIRI ;
 
-        rr:predicateObjectMap [
-	  rr:predicate ccso:generatesMapping;
-	  rr:objectMap [ 
-	  	rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
-	  	rr:termType rr:IRI 
-	  ]
-	] .
+    rr:predicateObjectMap [
+        rr:predicate ccso:generatesProjection ;
+        rr:objectMap [ 
+            rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
+            rr:termType rr:IRI 
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:usesModel ;
+        rr:objectMap :ModelIRI 
+    ] ;
+    
+    rr:predicateObjectMap [
+        rr:predicate ccso:hasSpatialCoverage ;
+        rr:objectMap [
+            rr:parentTriplesMap :SpatialCoverageMapping
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:hasTemporalCoverage ;
+        rr:objectMap [
+            rr:parentTriplesMap :TimeIntervalMapping
+        ]
+    ] .
+
+
+:SpatialCoverageMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    rr:subjectMap [
+        rr:template "https://w3id.org/hacid/data/spatialregion/{north_degrees}-{east_degrees}-{south_degrees}-{west_degrees}" ;
+        rr:class ccso:SpatialRegion 
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:template "{north_degrees}° north, {east_degrees}° east, {south_degrees}° south, and {west_degrees}° west." ;
+            rr:language "en"
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:template "The geometry that encompasses a spatial region with the following cardinalities: (i) {north_degrees}° north, (ii) {east_degrees}° east, (iii) {south_degrees}° south, and (iv) {west_degrees}° west." ;
+            rr:language "en"
+        ]
+    ] ;    
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:northDegrees ;
+        rr:objectMap [ 
+            rml:reference "north_degrees" ;
+            rr:datatype xsd:decimal
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:southDegrees ;
+        rr:objectMap [ 
+            rml:reference "south_degrees" ;
+            rr:datatype xsd:decimal
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:westDegrees ;
+        rr:objectMap [ 
+            rml:reference "west_degrees" ;
+            rr:datatype xsd:decimal
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:eastDegrees ;
+        rr:objectMap [ 
+            rml:reference "east_degrees" ;
+            rr:datatype xsd:decimal
+        ]
+    ] .
+
+
+:ModelMapping a rr:TriplesMap ;
+	rml:logicalSource :LogicalSource ;
+	rr:subjectMap :ModelIRI ;
+
+      rr:predicateObjectMap [
+	  rr:predicate rdfs:label ;
+	  rr:objectMap :ModelLabel
+      ] ;
+
+      rr:predicateObjectMap [
+	  rr:predicate ccso:isMaintainedBy ;
+	  rr:objectMap :InstituteIRI
+      ] .
+
+:InstituteMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+
+    rr:subjectMap :InstituteIRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap :InstituteLabel
+    ] .
+
+:ScenarioMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+
+    rr:subjectMap :ScenarioIRI .
+
+:TimeIntervalMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/hacid/data/timeinterval/{datetime_start}-{datetime_stop}" ;
+        rr:class top:TimeInterval
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate top:startTime ;
+        rr:objectMap [ 
+            rml:reference "datetime_start" ;
+            rr:datatype xsd:dateTime
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate top:endTime ;
+        rr:objectMap [ 
+            rml:reference "datetime_stop" ;
+            rr:datatype xsd:dateTime
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:template "Time interval {datetime_start} - {datetime_stop}" ;
+            rr:language "en"
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:template "Time interval starting at date time {datetime_start} and ending at date time {datetime_stop}." ;
+            rr:language "en"
+        ]
+    ] .
+
+:TimeDurationMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+
+    rr:subjectMap :TimeDurationIRI .
+
 
 # FUNCTIONS #
 
@@ -104,3 +294,129 @@
             rr:objectMap [ rr:constant "https://w3id.org/hacid/data/simulation/" ]
         ] 
     ].
+
+:ModelIRI
+    rr:termType rr:IRI ;
+    rr:class ccso:Model ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:fromList ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:arr ;
+            rr:objectMap [ rml:reference "model" ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/model/" ]
+        ] 
+    ].
+
+:InstituteIRI
+    rr:termType rr:IRI ;
+    rr:class top:Organisation ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:fromList ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:arr ;
+            rr:objectMap [ rml:reference "institute" ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/institute/" ]
+        ] 
+    ].
+
+
+:ModelLabel
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:eval ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:str ;
+            rr:objectMap [ rml:reference "model" ]
+        ] 
+    ].
+
+:ModelDescription
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:eval ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:str ;
+            rr:objectMap [ rml:reference "description" ]
+        ] 
+    ].
+
+:InstituteLabel
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:eval ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:str ;
+            rr:objectMap [ rml:reference "institute" ]
+        ] 
+    ].
+
+:ScenarioIRI
+    rr:termType rr:IRI ;
+    rr:class ccso:GreenhouseGasConcentrationPathway ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:getScenario ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:scenario ;
+            rr:objectMap [ 
+                fnml:functionValue [
+                    rr:predicateObjectMap [
+                        rr:predicate fno:executes ;
+                        rr:objectMap [ rr:constant hrf:eval ]
+                    ];
+                    rr:predicateObjectMap [
+                        rr:predicate hrf:str ;
+                        rr:objectMap [ 
+                            rml:reference "experiment"
+                        ]
+                    ]
+                ] 
+            ]
+        ]         
+    ] .
+   
+
+:TimeDurationIRI
+    rr:termType rr:IRI ;
+    rr:class ccso:TimeDuration ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:fromList ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate hrf:arr ;
+            rr:objectMap [ 
+                rml:reference "time_frequency"
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ 
+                rr:constant "https://w3id.org/hacid/data/timeduration/"
+            ]
+        ]
+    ] .

@@ -53,7 +53,11 @@
           <y:Geometry height="44.0" width="111.6171875" x="857.69140625" y="60.0"/>
           <y:Fill color="#FFFF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
+<<<<<<< Updated upstream
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="22.84375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="101.6171875" x="5.0" xml:space="preserve" y="10.578125">mdx:Finding</y:NodeLabel>
+=======
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="101.6171875" x="40.17551676432299" y="10.578125">mdx:Finding</y:NodeLabel>
+>>>>>>> Stashed changes
           <y:Shape type="roundrectangle"/>
         </y:ShapeNode>
       </data>

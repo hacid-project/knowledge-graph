@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://w3id.org/hacid/onto/cs/"
      xml:base="https://w3id.org/hacid/onto/cs/"
-     xmlns:top="https://w3id.org/hacid/onto/top-level/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:top="https://w3id.org/hacid/onto/top-level/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
@@ -24,6 +24,21 @@
     
 
 
+    <!-- https://w3id.org/hacid/onto/cs/hasComponentDefintion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasComponentDefintion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/DatastructureDefinition"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/ComponentSpecification"/>
+        <rdfs:comment xml:lang="it">Indica una specifica del componente inclusa nella struttura del set di dati.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Indicates a component specification which is included in the structure of the dataset.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="it">ha definizione di componente</rdfs:label>
+        <rdfs:label xml:lang="en">has component defintion</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/cs/hasDatastructureDefinition -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasDatastructureDefinition">
@@ -36,6 +51,27 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="it">ha definizione di struttura dati</rdfs:label>
         <rdfs:label xml:lang="en">has data structure defintion</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/hasDimensionProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasDimensionProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:comment xml:lang="it">La proprietà che rende esplicito che il componente è una dimensione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that makes explicit that the component is a dimension.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="it">ha proprietà di dimensione</rdfs:label>
+        <rdfs:label xml:lang="en">has dimension property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isComponentDefinitionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isComponentDefinitionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
     </owl:ObjectProperty>
     
 
@@ -63,6 +99,19 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ComponentSpecification -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/ComponentSpecification">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
+        <rdfs:comment xml:lang="en">Used to define properties of a component (attribute, dimension etc) which are specific to its usage in a Data Structure Definition.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Utilizzato per definire le proprietà di un componente (attributo, dimensione, ecc.) specifiche per il suo utilizzo in una definizione di struttura dati.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Compoenent specification</rdfs:label>
+        <rdfs:label xml:lang="it">Specifica di componente</rdfs:label>
+    </owl:Class>
     
 
 
@@ -95,9 +144,22 @@
         <rdfs:label xml:lang="en">Dimension property</rdfs:label>
         <rdfs:label xml:lang="it">Proprietà di dimensionamento</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/MeasureProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/MeasureProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
+        <rdfs:comment xml:lang="it">La classe di proprietà dei componenti che rappresentano il valore misurato del fenomeno osservato.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class of component properties which represent the measured value of the phenomenon being observed.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Measure property</rdfs:label>
+        <rdfs:label xml:lang="it">Proprietà di misurazione</rdfs:label>
+    </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
 

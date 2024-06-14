@@ -9,18 +9,31 @@ from typing import List
 from rdflib.term import URIRef, Literal
 from slugify import slugify
 
+scenario_map = {
+    'rcp45': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-4.5',
+    'rcp85': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-8.5',
+    'rcp26': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-2.6',
+    'rcp60': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-6'
+    }
+
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/fromList',
               arr='https://w3id.org/hacid/rml-functions/arr',
               ns='https://w3id.org/hacid/rml-functions/ns')
 
 def uri_from_list(arr: str, ns: str) -> List:
     arr = eval(arr)
-    for i in range(0, len(arr)):
-        v = arr[i]
-        arr[i] = URIRef(ns + TermUtils.irify(v))
+    i = 0
+    for s in arr:
+        arr[i] = URIRef(ns + TermUtils.irify(s))
+        i += 1
         
     
     return arr
+
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/eval',
+              _str='https://w3id.org/hacid/rml-functions/str')
+def _eval(_str: str) -> object:
+    return eval(_str)
 
 @rml_function(fun_id='http://users.ugent.be/~bjdmeest/function/grel.ttl#array_get',
               a='http://users.ugent.be/~bjdmeest/function/grel.ttl#p_array_a',
@@ -28,9 +41,26 @@ def uri_from_list(arr: str, ns: str) -> List:
               to='http://users.ugent.be/~bjdmeest/function/grel.ttl#param_int_i_opt_to'
               )
 def get(a: List, _from: int = 0, to: int = None) -> List:
+
     if not to:
         to = len(a)
     return a[_from:to]
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/geti',
+              a='https://w3id.org/hacid/rml-functions/array',
+              index='https://w3id.org/hacid/rml-functions/index')
+def get_i(a: List, index: int) -> object:
+
+    return a[index]
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/getScenario',
+              scenario='https://w3id.org/hacid/rml-functions/scenario')
+def get_scenario(scenario: str) -> str:
+    scenario = str(scenario)
+    if scenario in scenario_map:
+        return scenario_map[scenario]
+    else:
+        return None
 
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/simulationIri',
               _id='https://w3id.org/hacid/rml-functions/id',
