@@ -630,7 +630,6 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
         <rdfs:comment xml:lang="en">In RCP 6, emissions peak around 2080, then decline. The RCP 6.0 scenario uses a high greenhouse gas emission rate and is a stabilisation scenario where total radiative forcing is stabilised after 2100 by employment of a range of technologies and strategies for reducing greenhouse gas emissions. 6.0 W/m2 refers to the radiative forcing reached by 2100 Projections for temperature according to RCP 6.0 include continuous global warming through 2100 where CO2 levels rise to 670 ppm by 2100 making the global temperature rise by about 3–4 °C by 2100.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Representative Concentration Pathway 6</rdfs:label>
-        <rdfs:label xml:lang="en">Representative Concentration Pathway 7</rdfs:label>
     </owl:NamedIndividual>
     
 
