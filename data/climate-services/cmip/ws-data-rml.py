@@ -68,8 +68,16 @@ def get_scenario(scenario: str) -> str:
 def simulation_iri(_id: str, _ns: str) -> str:
     
     _id_parts = _id.split('.')
-    _id_parts = _id_parts[0:6]
+    _id_parts = _id_parts[0:6] 
     return _ns + '.'.join(_id_parts[0:6])
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/simulationIriInCordex',
+              _id='https://w3id.org/hacid/rml-functions/id',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def simulation_iri_in_cordex(_id: str, _ns: str) -> str:
+    
+    _id_parts = _id.split('.')
+    return _ns + '.'.join(_id_parts[0:9])
     
 
 
@@ -124,7 +132,7 @@ if __name__ == '__main__':
     cs_mapper = CSMapper()
     
     for subfolder in subfolders:
-        if subfolder.endswith('cmip5'):
+        if subfolder.endswith('cordex'):
             conf = f'{subfolder}/conf.json'
             json_conf = json.load(open(conf,mode='r',encoding='utf-8'))
             jsonpath = json_conf['jsonpath']
