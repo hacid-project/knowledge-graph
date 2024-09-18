@@ -34,17 +34,11 @@
 :DatasetMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
     
-    rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
-        rr:class ccso:Dataset
-    ] ;
+	rr:subjectMap :DatasetIRI ;
 	
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
-        rr:objectMap [ 
-            rml:reference "id" ; 
-            rr:language "en" 
-        ]
+        rr:objectMap :DatasetLabel
     ] ;
 
     rr:predicateObjectMap [
@@ -99,11 +93,13 @@
     rr:subjectMap :SimulationIRI ;
 
     rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap :SimulationLabel
+    ] ;
+
+    rr:predicateObjectMap [
         rr:predicate ccso:generatesProjection ;
-        rr:objectMap [ 
-            rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
-            rr:termType rr:IRI 
-        ]
+        rr:objectMap :DatasetIRI
     ] ;
 
     rr:predicateObjectMap [
@@ -277,13 +273,31 @@
         ] 
     ].
 
-:SimulationIRI
+:DatasetIRI
     rr:termType rr:IRI ;
-    rr:class ccso:Simulation ;
+    rr:class ccso:Dataset ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
-            rr:objectMap [ rr:constant hrf:simulationIri ]
+            rr:objectMap [ rr:constant hrf:cmip5DatasetIri ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/dataset/" ]
+        ] 
+    ].
+
+:SimulationIRI
+    rr:termType rr:IRI ;
+    rr:class ccso:Simulation, ccso:GlobalSimulation ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cmip5SimulationIri ]
         ] ;
         rr:predicateObjectMap [
             rr:predicate hrf:id ;
@@ -297,7 +311,7 @@
 
 :ModelIRI
     rr:termType rr:IRI ;
-    rr:class ccso:Model ;
+    rr:class ccso:GlobalClimateModel, ccso:Model ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
@@ -331,6 +345,32 @@
         ] 
     ].
 
+
+:DatasetLabel
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cmip5DatasetId ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] 
+    ].
+
+:SimulationLabel
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cmip5SimulationId ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] 
+    ].
 
 :ModelLabel
     rr:language "en" ;
