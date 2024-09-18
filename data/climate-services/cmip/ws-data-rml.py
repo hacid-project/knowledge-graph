@@ -62,22 +62,79 @@ def get_scenario(scenario: str) -> str:
     else:
         return None
 
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/simulationIri',
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cmip5DatasetId',
+              _id='https://w3id.org/hacid/rml-functions/id')
+def cmip5_dataset_id(_id: str) -> str:
+    _id_parts = _id.split('|')[0].split('.')
+    return '.'.join(_id_parts[:-1])
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cmip5DatasetIri',
               _id='https://w3id.org/hacid/rml-functions/id',
               _ns='https://w3id.org/hacid/rml-functions/ns')
-def simulation_iri(_id: str, _ns: str) -> str:
+def cmip5_dataset_iri(_id: str, _ns: str) -> str:
+    return _ns + cmip5_dataset_id(_id)
     
-    _id_parts = _id.split('.')
-    _id_parts = _id_parts[0:6] 
-    return _ns + '.'.join(_id_parts[0:6])
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cmip5SimulationId',
+              _id='https://w3id.org/hacid/rml-functions/id')
+def cmip5_simulation_id(_id: str) -> str:
+    #template "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    _id_parts = _id.split('|')[0].split('.')
+    _model= _id_parts[3]
+    _experiment = _id_parts[4]
+    return '.'.join(['cmip5', _model, _experiment])
     
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/simulationIriInCordex',
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cmip5SimulationIri',
               _id='https://w3id.org/hacid/rml-functions/id',
               _ns='https://w3id.org/hacid/rml-functions/ns')
-def simulation_iri_in_cordex(_id: str, _ns: str) -> str:
+def cmip5_simulation_iri(_id: str, _ns: str) -> str:
+    return _ns + cmip5_simulation_id(_id)
     
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDatasetId',
+              _id='https://w3id.org/hacid/rml-functions/id')
+def cmip5_cordex_dataset_id(_id: str) -> str:
+    _id_parts = _id.split('|')[0].split('.')
+    return '.'.join(_id_parts[:-1])
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDatasetIri',
+              _id='https://w3id.org/hacid/rml-functions/id',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def cmip5_cordex_dataset_iri(_id: str, _ns: str) -> str:
+    return _ns + cmip5_cordex_dataset_id(_id)
+
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexSimulationId',
+              _id='https://w3id.org/hacid/rml-functions/id')
+def cordex_simulation_id(_id: str) -> str:
+    # template "cordex.%(product)s.%(domain)s.%(institute)s.%(driving_model)s.%(experiment)s.%(ensemble)s.%(rcm_name)s.%(rcm_version)s.%(time_frequency)s.%(variable)s"
+    _id_parts = _id.split('|')[0].split('.')
+    _domain= _id_parts[2]
+    _driving_model= _id_parts[4]
+    _experiment= _id_parts[5]
+    _model = _id_parts[7]
+    _model_version = _id_parts[8]
+    return '.'.join([
+        'cordex',
+        _domain, _driving_model, _experiment,
+        _model, _model_version
+    ])
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexSimulationIri',
+              _id='https://w3id.org/hacid/rml-functions/id',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def cordex_simulation_iri(_id: str, _ns: str) -> str:
+    return _ns + cordex_simulation_id(_id)
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDrivingSimulationIri',
+              _id='https://w3id.org/hacid/rml-functions/id',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def cordex_driving_simulation_iri(_id: str, _ns: str) -> str:
+    # template "cordex.%(product)s.%(domain)s.%(institute)s.%(driving_model)s.%(experiment)s.%(ensemble)s.%(rcm_name)s.%(rcm_version)s.%(time_frequency)s.%(variable)s"
     _id_parts = _id.split('.')
-    return _ns + '.'.join(_id_parts[0:9])
+    _driving_model= _id_parts[4]
+    _experiment= _id_parts[5]
+    return _ns + '.'.join([
+        'cmip5',
+         _driving_model, _experiment
+    ])
     
 
 
@@ -85,45 +142,55 @@ class CSMapper(object):
 
     def map_to_rdf(self, homepath: str, jsonpath: str, columns: List, tranpose=True, tpl_vars: dict = None):
         
-        json_data = glob.glob(f'{homepath}/data/*.json')[0]
-        
-        json_data = json.load(open(json_data,mode='r',encoding='utf-8'))
-                                
-        #jsonpath_expr = parse('$.institution_id')
-        jsonpath_expr = parse(jsonpath)
-        matches = jsonpath_expr.find(json_data)
-        
-        data = [match.value for match in matches]
-        
-        df = pd.json_normalize(data)
-        
-        
-        if tranpose:
-            df = df.transpose()
-            df = df.reset_index()
-            df.columns = columns
-        
-        #print(df)
-        
-        
-        csv_path = f'{homepath}/data/data.csv'
-        df.to_csv(csv_path)
-        
-        
-        mapper = Framework.get_mapper()
-        
-        vars = {'CSV': csv_path}
-        
-        if tpl_vars:
-            vars.update(tpl_vars)
-        
-        rml_path = glob.glob(f'{homepath}/rml/*.ttl')[0]
-        
-        rdf_path = f'{homepath}/rdf/data.ttl'
-        out = mapper.convert(rml_path, False, vars)
-        out.serialize(rdf_path, format='text/turtle')
-        
-        mapper.reset()
+        def map_file_to_rdf(input_json_filename: str, file_count: int | None = None):
+            
+            filename_suffix = (
+                f'-{file_count}'
+                if file_count is not None
+                else ''
+            )
+            
+            json_data = json.load(open(input_json_filename,mode='r',encoding='utf-8'))
+                                    
+            #jsonpath_expr = parse('$.institution_id')
+            jsonpath_expr = parse(jsonpath)
+            matches = jsonpath_expr.find(json_data)
+            
+            data = [match.value for match in matches]
+            
+            df = pd.json_normalize(data)
+
+            if tranpose:
+                df = df.transpose()
+                df = df.reset_index()
+                df.columns = columns #.copy()
+
+            csv_path = f'{homepath}/data/data{filename_suffix}.csv'
+            df.to_csv(csv_path)
+            
+            
+            mapper = Framework.get_mapper()
+            
+            vars = {'CSV': csv_path}
+            
+            if tpl_vars:
+                vars.update(tpl_vars)
+            
+            rml_path = glob.glob(f'{homepath}/rml/*.ttl')[0]
+            
+            rdf_path = f'{homepath}/rdf/data{filename_suffix}.ttl'
+            out = mapper.convert(rml_path, False, vars)
+            out.serialize(rdf_path, format='text/turtle')
+            
+            mapper.reset()
+
+        filenames = glob.glob(f'{homepath}/data/*.json')
+        if len(filenames) > 1:
+            for file_index, filename in enumerate(glob.glob(f'{homepath}/data/*.json')):
+                print(f'{file_index}: {filename}')
+                map_file_to_rdf(input_json_filename=filename, file_count=file_index)
+        elif len(filenames) == 1:
+            map_file_to_rdf(input_json_filename=filenames[0])
 
 if __name__ == '__main__':
     homepath = '.'
@@ -132,7 +199,7 @@ if __name__ == '__main__':
     cs_mapper = CSMapper()
     
     for subfolder in subfolders:
-        if subfolder.endswith('cordex'):
+        if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
             conf = f'{subfolder}/conf.json'
             json_conf = json.load(open(conf,mode='r',encoding='utf-8'))
             jsonpath = json_conf['jsonpath']

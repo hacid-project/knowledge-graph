@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ccso: <https://w3id.org/hacid/onto/ccso/>
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+SELECT DISTINCT
+  #?global_simulation
+  ?model_name
+WHERE {
+  ?simulation a ccso:Simulation;
+  ccso:isDownScalingOf ?global_simulation.
+  FILTER NOT EXISTS {?global_simulation a ccso:Simulation}
+  BIND(STRBEFORE(SUBSTR(STR(?global_simulation),46),".") AS ?model_name)
+} 

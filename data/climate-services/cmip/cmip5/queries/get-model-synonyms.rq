@@ -1,0 +1,38 @@
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX to: <http://purl.obolibrary.org/obo/TO_>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ccso: <https://w3id.org/hacid/onto/ccso/>
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+SELECT
+    (CONCAT('{', GROUP_CONCAT(CONCAT('"', ?modelSynonym, '": "', ?modelLabel, '"'); separator=', '),'}') AS ?assign)
+WHERE {
+    {
+        {
+            ?model a ccso:GlobalClimateModel;
+                ccso:isMaintainedBy ?institution;
+                rdfs:label ?rawModelLabel.
+            BIND(REPLACE(?rawModelLabel, '[.]', '-') AS ?modelLabel).
+            BIND(?modelLabel AS ?simpleSynonym).
+        }
+    UNION
+        {
+            VALUES (?institution ?simpleSynonym ?modelLabel) {
+                (<https://w3id.org/hacid/data/institute/csiro_qccce> 'CSIRO-Mk3' 'CSIRO-Mk3-6-0')
+                (<https://w3id.org/hacid/data/institute/csiro_qccce> 'CSIRO-Mk3-6' 'CSIRO-Mk3-6-0')
+            }
+        }
+    }
+    {
+        {
+            VALUES ?institutionPrefix {''}
+        }
+        UNION
+        {
+            ?institution rdfs:label ?institutionLabel.
+            BIND(CONCAT(?institutionLabel, '-') AS ?institutionPrefix).
+        }
+    }
+  	BIND(CONCAT(?institutionPrefix,?simpleSynonym) AS ?modelSynonym).
+    FILTER(STR(?modelSynonym) != STR(?modelLabel)).
+}

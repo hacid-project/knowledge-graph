@@ -34,17 +34,11 @@
 :DatasetMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
     
-    rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
-        rr:class ccso:Dataset
-    ] ;
+	rr:subjectMap :DatasetIRI ;
 	
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
-        rr:objectMap [ 
-            rml:reference "id" ; 
-            rr:language "en" 
-        ]
+        rr:objectMap :DatasetLabel
     ] ;
 
     rr:predicateObjectMap [
@@ -94,32 +88,25 @@
     rr:subjectMap :SimulationIRI ;
 
     rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap :SimulationLabel
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:isDownScalingOf ;
+        rr:objectMap :DrivingSimulationIRI 
+    ] ;
+    
+    rr:predicateObjectMap [
         rr:predicate ccso:generatesProjection ;
-        rr:objectMap [ 
-            rr:template "https://w3id.org/hacid/data/dataset/{id}" ;
-            rr:termType rr:IRI 
-        ]
+        rr:objectMap :DatasetIRI
     ] ;
 
     rr:predicateObjectMap [
         rr:predicate ccso:usesModel ;
         rr:objectMap :ModelIRI 
-    ] ;
-    
-    rr:predicateObjectMap [
-        rr:predicate ccso:hasSpatialCoverage ;
-        rr:objectMap [
-            rr:parentTriplesMap :SpatialCoverageMapping
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:hasTemporalCoverage ;
-        rr:objectMap [
-            rr:parentTriplesMap :TimeIntervalMapping
-        ]
     ] .
-
+    
 
 :SpatialCoverageMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
@@ -272,13 +259,49 @@
         ] 
     ].
 
+:DatasetIRI
+    rr:termType rr:IRI ;
+    rr:class ccso:Dataset ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cordexDatasetIri ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/dataset/" ]
+        ] 
+    ].
+
 :SimulationIRI
+    rr:termType rr:IRI ;
+    rr:class ccso:Simulation, ccso:DynamicalDownscaling ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cordexSimulationIri ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/simulation/" ]
+        ] 
+    ].
+
+:DrivingSimulationIRI
     rr:termType rr:IRI ;
     rr:class ccso:Simulation ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
-            rr:objectMap [ rr:constant hrf:simulationIriInCordex ]
+            rr:objectMap [ rr:constant hrf:cordexDrivingSimulationIri ]
         ] ;
         rr:predicateObjectMap [
             rr:predicate hrf:id ;
@@ -292,7 +315,7 @@
 
 :ModelIRI
     rr:termType rr:IRI ;
-    rr:class ccso:Model ;
+    rr:class ccso:Model, ccso:RegionalClimateModel ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
@@ -326,6 +349,31 @@
         ] 
     ].
 
+:DatasetLabel
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cordexDatasetId ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] 
+    ].
+
+:SimulationLabel
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cordexSimulationId ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] 
+    ].
 
 :ModelLabel
     rr:language "en" ;
