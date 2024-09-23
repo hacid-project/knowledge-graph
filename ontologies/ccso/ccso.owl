@@ -301,6 +301,32 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/isDownscalingOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isDownscalingOf">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that a simulation downscaling has as source the output of climate simulation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">is downscaling of</rdfs:label>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/hasDownscaling"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasDownscaling -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasDownscaling">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that the output of a climate simulation has been used for a simulation downscaling.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">has downscaling</rdfs:label>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -342,6 +368,28 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:comment xml:lang="en">A representation of the Earth’s climate system. A model is used to simulate and understand the climate, including its variability and changes over time, by using a set of equations based on physical, chemical, and biological principles.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Climate Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/GlobalClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
+        <rdfs:comment xml:lang="en">A climate model meant to be used to simulate climate at global (Earth) scale.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Global Climate Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/RegionalClimateModel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/RegionalClimateModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/RegionalClimateModel"/>
+        <rdfs:comment xml:lang="en">A climate model meant to be used to simulate climate at regional scale.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Regional Climate Model</rdfs:label>
     </owl:Class>
     
 
@@ -474,6 +522,76 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:comment xml:lang="en">A computational experiment that uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period. These simulations are designed to understand how various components of the climate system interact and respond to different forcing factors, such as changes in greenhouse gas concentrations, solar radiation, volcanic activity, and land use.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/GlobalSimulation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalSimulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:comment xml:lang="en">A simulation run at global scale, i.e. for all the surface of Earth.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Global Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/Downscaling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Downscaling">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialCoverage"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/SpatialRegion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialResolution"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Distance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalCoverage"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalResolution"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeDuration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasVariable"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Variable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A process taking as input the output of a climate simulation and obtaining finer granularity, usually at the cost of reduced geographic coverage.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Downscaling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/DynamicalDownscaling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/DynamicalDownscaling">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
+        <rdfs:comment xml:lang="en">A simulation using as constraint the output of another simulation, run at a coarser granularity (with typically broader coverage): e.g., a regional simulation run using as constraint the output a global simulation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Dynamical Downscaling</rdfs:label>
     </owl:Class>
     
 
@@ -715,8 +833,4 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
         <rdfs:label xml:lang="en">Shared Socioeconomic Pathways 5</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
 
