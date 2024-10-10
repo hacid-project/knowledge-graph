@@ -1,1008 +1,81 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/cs/"
      xml:base="https://w3id.org/hacid/onto/cs/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="https://w3id.org/hacid/onto/cs/">
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <Literal xml:lang="en">This ontology describes the process of handling a request for climate information.</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <Literal xml:lang="en">Climate Science Process Workflow</Literal>
-    </Annotation>
-    <Declaration>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="https://w3id.org/arco/ontology/core/EventType"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="https://w3id.org/arco/ontology/core/Plan"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="https://w3id.org/arco/ontology/core/Role"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="https://w3id.org/arco/ontology/core/Situation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="https://w3id.org/arco/ontology/core/Workflow"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="https://w3id.org/arco/ontology/core/WorkflowExecution"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Action"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Agent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="ClimateProcessWorkflow"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Event"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Task"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/definesRole"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/definesTask"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasTask"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isPartOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isRoleDefinedIn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskDefinedIn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/satisfies"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="classifies"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="executesTask"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="hasParticipant"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="isClassifiedBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="isExecutedIn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="isParticipantIn"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="BaselineChoice"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="CaseCreation"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateInformationCommunication"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateInformationRequest"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateInformationRequestGoalDefinition"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateModelSelection"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ClimateRiskFramingSpecification"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="Creator"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="DataSelection"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ExternalExpertiseRequest"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="HazardIdentification"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="InformationOnExposureIdentification"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="MethodologicalRequirementApplication"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="MetricAndVariableIdentification"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="OrganisationInformationDescription"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="PlanningTimeScalesDefinition"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="SendClimateInformation"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="Solver"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="User"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="UserBackgroundInformationRequest"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="UserInformationExtraction"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <Class IRI="Task"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="https://w3id.org/arco/ontology/core/EventType"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="classifies"/>
-            <Class IRI="Event"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="https://w3id.org/arco/ontology/core/Workflow"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/Plan"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="https://w3id.org/arco/ontology/core/WorkflowExecution"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/Situation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Action"/>
-        <Class IRI="Event"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Action"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="hasParticipant"/>
-            <Class IRI="Agent"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Action"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="executesTask"/>
-            <Class IRI="Task"/>
-        </ObjectMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="ClimateProcessWorkflow"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/Workflow"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Task"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/EventType"/>
-    </SubClassOf>
-    <DisjointClasses>
-        <Class IRI="https://w3id.org/arco/ontology/core/EventType"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/Role"/>
-    </DisjointClasses>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="BaselineChoice"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="CaseCreation"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateInformationCommunication"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateInformationRequest"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateInformationRequestGoalDefinition"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateModelSelection"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ClimateRiskFramingSpecification"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/Role"/>
-        <NamedIndividual IRI="Creator"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="DataSelection"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ExternalExpertiseRequest"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="HazardIdentification"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="InformationOnExposureIdentification"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="MethodologicalRequirementApplication"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="MetricAndVariableIdentification"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="OrganisationInformationDescription"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="PlanningTimeScalesDefinition"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="SendClimateInformation"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/Role"/>
-        <NamedIndividual IRI="Solver"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/Role"/>
-        <NamedIndividual IRI="User"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="UserBackgroundInformationRequest"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-        <NamedIndividual IRI="UserInformationExtraction"/>
-    </ClassAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="BaselineChoice"/>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="BaselineChoice"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="CaseCreation"/>
-        <NamedIndividual IRI="UserInformationExtraction"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="CaseCreation"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="CaseCreation"/>
-        <NamedIndividual IRI="ExternalExpertiseRequest"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="CaseCreation"/>
-        <NamedIndividual IRI="Creator"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-        <NamedIndividual IRI="Creator"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="ExternalExpertiseRequest"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="SendClimateInformation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="BaselineChoice"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="MethodologicalRequirementApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ClimateInformationCommunication"/>
-        <NamedIndividual IRI="SendClimateInformation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateInformationCommunication"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="CaseCreation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="ClimateModelSelection"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="DataSelection"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="MetricAndVariableIdentification"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateInformationPreparation"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ClimateInformationRequest"/>
-        <NamedIndividual IRI="UserBackgroundInformationRequest"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateInformationRequest"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateInformationRequestGoalDefinition"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-        <NamedIndividual IRI="DataSelection"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-        <NamedIndividual IRI="ClimateModelSelection"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ClimateModelSelection"/>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateModelSelection"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ClimateRiskFramingSpecification"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="DataSelection"/>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="DataSelection"/>
-        <NamedIndividual IRI="ClimateModelEvaluation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="DataSelection"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-        <NamedIndividual IRI="MetricAndVariableIdentification"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-        <NamedIndividual IRI="DataSelection"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ExternalExpertiseRequest"/>
-        <NamedIndividual IRI="CaseCreation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ExternalExpertiseRequest"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ExternalExpertiseRequest"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-        <NamedIndividual IRI="BaselineChoice"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="FuturePeriodChoice"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="HazardIdentification"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="HazardIdentification"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="InformationOnExposureIdentification"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="MethodologicalRequirementApplication"/>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="MethodologicalRequirementApplication"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="MetricAndVariableIdentification"/>
-        <NamedIndividual IRI="EmissionScenarioDefinition"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="MetricAndVariableIdentification"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="OrganisationInformationDescription"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="PlanningTimeScalesDefinition"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-        <NamedIndividual IRI="UserBackgroundInformationRequest"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-        <NamedIndividual IRI="ClimateInformationRequestGoalDefinition"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-        <NamedIndividual IRI="OrganisationInformationDescription"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-        <NamedIndividual IRI="UserInformationExtraction"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-        <NamedIndividual IRI="ClimateRiskFramingSpecification"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-        <NamedIndividual IRI="HazardIdentification"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-        <NamedIndividual IRI="InformationOnExposureIdentification"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-        <NamedIndividual IRI="PlanningTimeScalesDefinition"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-        <NamedIndividual IRI="User"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="SendClimateInformation"/>
-        <NamedIndividual IRI="ClimateInformationAnalysis"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="SendClimateInformation"/>
-        <NamedIndividual IRI="ClimateInformationCommunication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="SendClimateInformation"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-        <NamedIndividual IRI="ClimateChangeQuantificationApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-        <NamedIndividual IRI="MethodologicalRequirementApplication"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="UncertaintyQuantificationApplication"/>
-        <NamedIndividual IRI="Solver"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="UserBackgroundInformationRequest"/>
-        <NamedIndividual IRI="ClimateInformationRequest"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="UserBackgroundInformationRequest"/>
-        <NamedIndividual IRI="ProvideBackgroundInformation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="UserBackgroundInformationRequest"/>
-        <NamedIndividual IRI="Creator"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <NamedIndividual IRI="UserInformationExtraction"/>
-        <NamedIndividual IRI="ProvideDecisionContextInformation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <NamedIndividual IRI="UserInformationExtraction"/>
-        <NamedIndividual IRI="CaseCreation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <NamedIndividual IRI="UserInformationExtraction"/>
-        <NamedIndividual IRI="Creator"/>
-    </ObjectPropertyAssertion>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="executesTask"/>
-        <ObjectProperty IRI="isClassifiedBy"/>
-    </SubObjectPropertyOf>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/definesRole"/>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isRoleDefinedIn"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/definesTask"/>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskDefinedIn"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isPartOf"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasTask"/>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="classifies"/>
-        <ObjectProperty IRI="isClassifiedBy"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="executesTask"/>
-        <ObjectProperty IRI="isExecutedIn"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="hasParticipant"/>
-        <ObjectProperty IRI="isParticipantIn"/>
-    </InverseObjectProperties>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isPartOf"/>
-    </TransitiveObjectProperty>
-    <ReflexiveObjectProperty>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-    </ReflexiveObjectProperty>
-    <ReflexiveObjectProperty>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isPartOf"/>
-    </ReflexiveObjectProperty>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/definesRole"/>
-        <Class IRI="ClimateProcessWorkflow"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/definesTask"/>
-        <Class IRI="ClimateProcessWorkflow"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <Class IRI="Task"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/isTaskOf"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/satisfies"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/Situation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="classifies"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="executesTask"/>
-        <Class IRI="Action"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="hasParticipant"/>
-        <Class IRI="Event"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="isExecutedIn"/>
-        <Class IRI="Task"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/definesTask"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/directlyFollows"/>
-        <Class IRI="Task"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/hasPart"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="https://w3id.org/arco/ontology/core/satisfies"/>
-        <Class IRI="https://w3id.org/arco/ontology/core/Plan"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="classifies"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="executesTask"/>
-        <Class IRI="Task"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="hasParticipant"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="isExecutedIn"/>
-        <Class IRI="Action"/>
-    </ObjectPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/ClimateProcessTask</IRI>
-        <Literal xml:lang="en">Tasks that are executed within the climate process workflow.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/ClimateProcessTask</IRI>
-        <Literal xml:lang="en">Climate process task</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/EventType</IRI>
-        <Literal xml:lang="en">A Concept that classifies an Event . An event type describes how an Event should be interpreted, executed, expected, seen, etc., according to the Description that the EventType isDefinedIn (or used in)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/EventType</IRI>
-        <Literal xml:lang="en">Event Type</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/Plan</IRI>
-        <Literal xml:lang="en">A Description having an explicit Goal, to be achieved by executing the plan</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/Plan</IRI>
-        <Literal xml:lang="en">Plan</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/Role</IRI>
-        <Literal xml:lang="en">A Concept that classifies an Object</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/Role</IRI>
-        <Literal xml:lang="en">Role</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/Situation</IRI>
-        <Literal xml:lang="en">A view, consistent with (&apos;satisfying&apos;) a Description, on a set of entities. 
-It can also be seen as a &apos;relational context&apos; created by an observer on the basis of a &apos;frame&apos; (i.e. a Description). 
-For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
-Situation is also able to represent reified n-ary relations, where isSettingFor is the top-level relation for all binary projections of the n-ary relation. 
-If used in a transformation pattern for n-ary relations, the designer should take care of adding (some or all) OWL2 keys, corresponding to binary projections of the n-ary, to a subclass of Situation. Otherwise the &apos;identification constraint&apos; (Calvanese et al., IJCAI 2001) might be violated.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/Situation</IRI>
-        <Literal xml:lang="en">Situation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/Workflow</IRI>
-        <Literal xml:lang="en">A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed, usually supporting the work of an Organization.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/Workflow</IRI>
-        <Literal xml:lang="en">Workflow</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/WorkflowExecution</IRI>
-        <Literal xml:lang="en">The execution of a workflow</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/WorkflowExecution</IRI>
-        <Literal xml:lang="en">Workflow Execution</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/definesRole</IRI>
-        <Literal xml:lang="en">A relation between a description and a role, e.g. the recipe for a cake defines the role &apos;ingredient&apos;</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/definesRole</IRI>
-        <Literal xml:lang="en">defines role</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/definesTask</IRI>
-        <Literal xml:lang="en">A relation between a description and a task, e.g. the recipe for a cake defines the task &apos;boil&apos;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/definesTask</IRI>
-        <Literal xml:lang="en">defines task</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/directlyFollows</IRI>
-        <Literal xml:lang="en">directly follows</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/directlyPrecedes</IRI>
-        <Literal xml:lang="en">directly precedes</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/hasPart</IRI>
-        <Literal xml:lang="en">A schematic relation between any entities, e.g. &apos;the human body has a brain as part&apos;, &apos;20th century contains year 1923&apos;, &apos;World War II includes the Pearl Harbour event&apos;.
+     xmlns:core="https://w3id.org/arco/ontology/core/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/cs/">
+        <rdfs:comment xml:lang="en">This ontology describes the process of handling a request for climate information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate Science Process Workflow</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/definesRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/definesRole">
+        <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/isRoleDefinedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow"/>
+        <rdfs:comment xml:lang="en">A relation between a description and a role, e.g. the recipe for a cake defines the role &apos;ingredient&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">defines role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/definesTask -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/definesTask">
+        <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/isTaskDefinedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow"/>
+        <rdfs:range rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <rdfs:comment xml:lang="en">A relation between a description and a task, e.g. the recipe for a cake defines the task &apos;boil&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en">defines task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/directlyFollows -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/directlyFollows">
+        <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:label xml:lang="en">directly follows</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/directlyPrecedes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/directlyPrecedes">
+        <rdfs:label xml:lang="en">directly precedes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/hasPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasPart">
+        <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <rdfs:comment xml:lang="en">A schematic relation between any entities, e.g. &apos;the human body has a brain as part&apos;, &apos;20th century contains year 1923&apos;, &apos;World War II includes the Pearl Harbour event&apos;.
 
 Parthood should assume the basic properties of mereology: transitivity, antisymmetry, and reflexivity (propert Parthood of course misses reflexivity). 
 However, antisymmetry is not supported in OWL2 explicitly, therefore DUL has to adopt one of two patterns:
@@ -1010,487 +83,681 @@ However, antisymmetry is not supported in OWL2 explicitly, therefore DUL has to 
 2) dropping the reflexivity axiom, and enforce asymmetry: in this case, we would prevent all symmetric usages, but we loose the possibility of enforcing reflexivity, which is commonsensical in parthood.
 In DUL, we adopt pattern #1 for partOf, and pattern #2 for properPartOf, which seems a good approximation: due to the lack of inheritance of property characteristics, each asymmetric hasPropertPart assertion would also be a reflexive hasPart assertion (reflexive reduction design pattern).
 
-Subproperties and restrictions can be used to specialize hasPart for objects, events, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/hasPart</IRI>
-        <Literal xml:lang="en">has part</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/hasTask</IRI>
-        <Literal xml:lang="en">A relation between roles and tasks, e.g. &apos;students have the duty of giving exams&apos; (i.e. the Role &apos;student&apos; hasTask the Task &apos;giving exams&apos;).</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/hasTask</IRI>
-        <Literal xml:lang="en">has task</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/isPartOf</IRI>
-        <Literal xml:lang="en">A relation between any entities, e.g. &apos;brain is a part of the human body&apos;. See dul:hasPart for additional documentation.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/isPartOf</IRI>
-        <Literal xml:lang="en">is part of</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/isRoleDefinedIn</IRI>
-        <Literal xml:lang="en">A relation between a description and a role, e.g. the role &apos;Ingredient&apos; is defined in the recipe for a cake.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/isRoleDefinedIn</IRI>
-        <Literal xml:lang="en">is role defined in</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/isTaskDefinedIn</IRI>
-        <Literal xml:lang="en">A relation between a description and a task, e.g. the task &apos;boil&apos; is defined in a recipe for a cake.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/isTaskDefinedIn</IRI>
-        <Literal xml:lang="en">is task defined in</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/isTaskOf</IRI>
-        <Literal xml:lang="en">A relation between roles and tasks, e.g. &apos;students have the duty of giving exams&apos; (i.e. the Role &apos;student&apos; hasTask the Task &apos;giving exams&apos;).</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/isTaskOf</IRI>
-        <Literal xml:lang="en">is task of</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/arco/ontology/core/satisfies</IRI>
-        <Literal xml:lang="en">A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://w3id.org/arco/ontology/core/satisfies</IRI>
-        <Literal xml:lang="en">satisfies</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Action</IRI>
-        <Literal xml:lang="en">An Event with at least one Agent that isParticipantIn it, and that executes a Task that typically isDefinedIn a Plan, Workflow, Project, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Action</IRI>
-        <Literal xml:lang="en">Action</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Agent</IRI>
-        <Literal xml:lang="en">Any agentive Object , either physical (e.g. a whale, a robot, an oak), or social (e.g. a corporation, an institution, a community)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Agent</IRI>
-        <Literal xml:lang="en">Agent</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>BaselineChoice</IRI>
-        <Literal xml:lang="en">The task of choosing the baseline.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>BaselineChoice</IRI>
-        <Literal xml:lang="en">Baseline choice</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>CaseCreation</IRI>
-        <Literal xml:lang="en">The task of creating a case.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>CaseCreation</IRI>
-        <Literal xml:lang="en">Case creation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateChangeQuantificationApplication</IRI>
-        <Literal xml:lang="en">The task of applying the climate change quantification method.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateChangeQuantificationApplication</IRI>
-        <Literal xml:lang="en">Climate change quantification application</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateInformationAnalysis</IRI>
-        <Literal xml:lang="en">The task of analysing the climate information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateInformationAnalysis</IRI>
-        <Literal xml:lang="en">Climate information analysis</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateInformationCommunication</IRI>
-        <Literal xml:lang="en">The task of communicating the climate information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateInformationCommunication</IRI>
-        <Literal xml:lang="en">Climate information communication</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateInformationPreparation</IRI>
-        <Literal xml:lang="en">The task of preparing the climate information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateInformationPreparation</IRI>
-        <Literal xml:lang="en">Climate information preparation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateInformationRequest</IRI>
-        <Literal xml:lang="en">The task of requesting the climate information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateInformationRequest</IRI>
-        <Literal xml:lang="en">Climate information request</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateInformationRequestGoalDefinition</IRI>
-        <Literal xml:lang="en">The task of defining the goal of the climate information request.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateInformationRequestGoalDefinition</IRI>
-        <Literal xml:lang="en">Climate information request goal definition</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateModelEvaluation</IRI>
-        <Literal xml:lang="en">The task of evaluating the climate model.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateModelEvaluation</IRI>
-        <Literal xml:lang="en">Climate model evaluation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateModelSelection</IRI>
-        <Literal xml:lang="en">The task of selecing the climate model.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateModelSelection</IRI>
-        <Literal xml:lang="en">Climate model selection</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateProcessWorkflow</IRI>
-        <Literal xml:lang="en">A workflow describing the handling of a request for climate information by instances such as MettOfice.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateProcessWorkflow</IRI>
-        <Literal xml:lang="en">Climate science case</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ClimateRiskFramingSpecification</IRI>
-        <Literal xml:lang="en">The task of specifying the climate risk framing.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ClimateRiskFramingSpecification</IRI>
-        <Literal xml:lang="en">Climate risk framing specification</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Creator</IRI>
-        <Literal xml:lang="en">The creator of the climate case.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Creator</IRI>
-        <Literal xml:lang="en">Creator</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>DataSelection</IRI>
-        <Literal xml:lang="en">The task of selecting the data.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>DataSelection</IRI>
-        <Literal xml:lang="en">Data selection</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>EmissionScenarioDefinition</IRI>
-        <Literal xml:lang="en">The task of defining the emission scenarios.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>EmissionScenarioDefinition</IRI>
-        <Literal xml:lang="en">Emission scenario definition</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Event</IRI>
-        <Literal xml:lang="en">Any physical, social, or mental process, event, or state.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Event</IRI>
-        <Literal xml:lang="en">Event</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ExternalExpertiseRequest</IRI>
-        <Literal xml:lang="en">The task of requesting external expertise such as an expert or literature review.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ExternalExpertiseRequest</IRI>
-        <Literal xml:lang="en">External expertise request</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>FuturePeriodChoice</IRI>
-        <Literal xml:lang="en">The task of choosig the future period.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>FuturePeriodChoice</IRI>
-        <Literal xml:lang="en">Future period choice</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>HazardIdentification</IRI>
-        <Literal xml:lang="en">The task of identifying hazards.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>HazardIdentification</IRI>
-        <Literal xml:lang="en">Hazard identification</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>InformationOnExposureIdentification</IRI>
-        <Literal xml:lang="en">The task of identifying information on exposure.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>InformationOnExposureIdentification</IRI>
-        <Literal xml:lang="en">Information on exposure identification</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>MethodologicalRequirementApplication</IRI>
-        <Literal xml:lang="en">The task of applying methodological requirements.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>MethodologicalRequirementApplication</IRI>
-        <Literal xml:lang="en">Methodological requirement application</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>MetricAndVariableIdentification</IRI>
-        <Literal xml:lang="en">The task of identifying metrics and variables.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>MetricAndVariableIdentification</IRI>
-        <Literal xml:lang="en">Metric and variable identification</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>OrganisationInformationDescription</IRI>
-        <Literal xml:lang="en">The task of describing organisation information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>OrganisationInformationDescription</IRI>
-        <Literal xml:lang="en">Organisation information description</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>PlanningTimeScalesDefinition</IRI>
-        <Literal xml:lang="en">The task of defining planning time scales.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>PlanningTimeScalesDefinition</IRI>
-        <Literal xml:lang="en">Planning time scales definition</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ProvideBackgroundInformation</IRI>
-        <Literal xml:lang="en">The task of providing background information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ProvideBackgroundInformation</IRI>
-        <Literal xml:lang="en">Provide background information</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ProvideDecisionContextInformation</IRI>
-        <Literal xml:lang="en">The task of providing decision context information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ProvideDecisionContextInformation</IRI>
-        <Literal xml:lang="en">Provide decision context information</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>SendClimateInformation</IRI>
-        <Literal xml:lang="en">The task of sending climate information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>SendClimateInformation</IRI>
-        <Literal xml:lang="en">Send climate information</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Solver</IRI>
-        <Literal xml:lang="en">The solver of the climate case.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Solver</IRI>
-        <Literal xml:lang="en">Solver</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Task</IRI>
-        <Literal xml:lang="en">An EventType that classifies an Action to be executed. 
+Subproperties and restrictions can be used to specialize hasPart for objects, events, etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/hasTask -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasTask">
+        <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/isTaskOf"/>
+        <rdfs:comment xml:lang="en">A relation between roles and tasks, e.g. &apos;students have the duty of giving exams&apos; (i.e. the Role &apos;student&apos; hasTask the Task &apos;giving exams&apos;).</rdfs:comment>
+        <rdfs:label xml:lang="en">has task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:comment xml:lang="en">A relation between any entities, e.g. &apos;brain is a part of the human body&apos;. See dul:hasPart for additional documentation.</rdfs:comment>
+        <rdfs:label xml:lang="en">is part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/isRoleDefinedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/isRoleDefinedIn">
+        <rdfs:comment xml:lang="en">A relation between a description and a role, e.g. the role &apos;Ingredient&apos; is defined in the recipe for a cake.</rdfs:comment>
+        <rdfs:label xml:lang="en">is role defined in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/isTaskDefinedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/isTaskDefinedIn">
+        <rdfs:comment xml:lang="en">A relation between a description and a task, e.g. the task &apos;boil&apos; is defined in a recipe for a cake.</rdfs:comment>
+        <rdfs:label xml:lang="en">is task defined in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/isTaskOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/isTaskOf">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <rdfs:comment xml:lang="en">A relation between roles and tasks, e.g. &apos;students have the duty of giving exams&apos; (i.e. the Role &apos;student&apos; hasTask the Task &apos;giving exams&apos;).</rdfs:comment>
+        <rdfs:label xml:lang="en">is task of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/satisfies -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/satisfies">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/ontology/core/Situation"/>
+        <rdfs:range rdf:resource="https://w3id.org/arco/ontology/core/Plan"/>
+        <rdfs:comment xml:lang="en">A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan.</rdfs:comment>
+        <rdfs:label xml:lang="en">satisfies</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/classifies -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/classifies">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isClassifiedBy"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A relation between a Concept and an Entity, e.g. the Role &apos;student&apos; classifies a Person &apos;John&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en">classifies</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/executesTask -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/executesTask">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/cs/isClassifiedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isExecutedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Action"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:comment xml:lang="en">A relation between an action and a task, e.g. &apos;putting some water in a pot and putting the pot on a fire until the water starts bubbling&apos; executes the task &apos;boiling&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en">executes task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasParticipant">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isParticipantIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A relation between an object and a process, e.g. &apos;John took part in the discussion&apos;, &apos;a large mass of snow fell during the avalanche&apos;, or &apos;a cook, some sugar, flour, etc. are all present in the cooking of a cake&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">has participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isClassifiedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isClassifiedBy">
+        <rdfs:comment xml:lang="en">A relation between a Concept and an Entity, e.g. &apos;John is considered a typical rude man&apos;; your last concert constitutes the achievement of a lifetime; &apos;20-year-old means she&apos;s mature enough&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en">is classified by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isExecutedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isExecutedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Action"/>
+        <rdfs:comment xml:lang="en">A relation between an action and a task, e.g. &apos;putting some water in a pot and putting the pot on a fire until the water starts bubbling&apos; executes the task &apos;boiling&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en">is executed in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isParticipantIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isParticipantIn">
+        <rdfs:comment xml:lang="en">A relation between an object and a process, e.g. &apos;John took part in the discussion&apos;, &apos;a large mass of snow fell during the avalanche&apos;, or &apos;a cook, some sugar, flour, etc. are all present in the cooking of a cake&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en">is participant in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/ClimateProcessTask -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/ClimateProcessTask">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:comment xml:lang="en">Tasks that are executed within the climate process workflow.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate process task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/EventType -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/EventType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/classifies"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/cs/Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
+        <rdfs:comment xml:lang="en">A Concept that classifies an Event . An event type describes how an Event should be interpreted, executed, expected, seen, etc., according to the Description that the EventType isDefinedIn (or used in)</rdfs:comment>
+        <rdfs:label xml:lang="en">Event Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/Plan -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Plan">
+        <rdfs:comment xml:lang="en">A Description having an explicit Goal, to be achieved by executing the plan</rdfs:comment>
+        <rdfs:label xml:lang="en">Plan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/Role -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Role">
+        <rdfs:comment xml:lang="en">A Concept that classifies an Object</rdfs:comment>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/Situation -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Situation">
+        <rdfs:comment xml:lang="en">A view, consistent with (&apos;satisfying&apos;) a Description, on a set of entities. 
+It can also be seen as a &apos;relational context&apos; created by an observer on the basis of a &apos;frame&apos; (i.e. a Description). 
+For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
+Situation is also able to represent reified n-ary relations, where isSettingFor is the top-level relation for all binary projections of the n-ary relation. 
+If used in a transformation pattern for n-ary relations, the designer should take care of adding (some or all) OWL2 keys, corresponding to binary projections of the n-ary, to a subclass of Situation. Otherwise the &apos;identification constraint&apos; (Calvanese et al., IJCAI 2001) might be violated.</rdfs:comment>
+        <rdfs:label xml:lang="en">Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/Workflow -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Workflow">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Plan"/>
+        <rdfs:comment xml:lang="en">A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed, usually supporting the work of an Organization.</rdfs:comment>
+        <rdfs:label xml:lang="en">Workflow</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/WorkflowExecution -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/WorkflowExecution">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Situation"/>
+        <rdfs:comment xml:lang="en">The execution of a workflow</rdfs:comment>
+        <rdfs:label xml:lang="en">Workflow Execution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Action -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Action">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/cs/Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/executesTask"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An Event with at least one Agent that isParticipantIn it, and that executes a Task that typically isDefinedIn a Plan, Workflow, Project, etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Agent -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Agent">
+        <rdfs:comment xml:lang="en">Any agentive Object , either physical (e.g. a whale, a robot, an oak), or social (e.g. a corporation, an institution, a community)</rdfs:comment>
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Workflow"/>
+        <rdfs:comment xml:lang="en">A workflow describing the handling of a request for climate information by instances such as MettOfice.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate science case</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Event -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Event">
+        <rdfs:comment xml:lang="en">Any physical, social, or mental process, event, or state.</rdfs:comment>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Task -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Task">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/EventType"/>
+        <rdfs:comment xml:lang="en">An EventType that classifies an Action to be executed. 
 For example, reaching a destination is a task that can be executed by performing certain actions, e.g. driving a car, buying a train ticket, etc. 
 The actions to execute a task can also be organized according to a Plan that is not the same as the one that defines the task (if any). 
-For example, reaching a destination could be defined by a plan to get on holidays, while the plan to execute the task can consist of putting some travels into a sequence.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Task</IRI>
-        <Literal xml:lang="en">Task</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>UncertaintyQuantificationApplication</IRI>
-        <Literal xml:lang="en">The task of applying uncertainty quantification</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>UncertaintyQuantificationApplication</IRI>
-        <Literal xml:lang="en">Uncertainty quantification application</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>User</IRI>
-        <Literal xml:lang="en">The user that requests and uses the climate information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>User</IRI>
-        <Literal xml:lang="en">User</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>UserBackgroundInformationRequest</IRI>
-        <Literal xml:lang="en">The task of requesting user background information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>UserBackgroundInformationRequest</IRI>
-        <Literal xml:lang="en">User background information request</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>UserInformationExtraction</IRI>
-        <Literal xml:lang="en">The task of extracting user information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>UserInformationExtraction</IRI>
-        <Literal xml:lang="en">User information request</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>classifies</IRI>
-        <Literal xml:lang="en">A relation between a Concept and an Entity, e.g. the Role &apos;student&apos; classifies a Person &apos;John&apos;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>classifies</IRI>
-        <Literal xml:lang="en">classifies</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>executesTask</IRI>
-        <Literal xml:lang="en">A relation between an action and a task, e.g. &apos;putting some water in a pot and putting the pot on a fire until the water starts bubbling&apos; executes the task &apos;boiling&apos;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>executesTask</IRI>
-        <Literal xml:lang="en">executes task</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>hasParticipant</IRI>
-        <Literal xml:lang="en">A relation between an object and a process, e.g. &apos;John took part in the discussion&apos;, &apos;a large mass of snow fell during the avalanche&apos;, or &apos;a cook, some sugar, flour, etc. are all present in the cooking of a cake&apos;</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>hasParticipant</IRI>
-        <Literal xml:lang="en">has participant</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>isClassifiedBy</IRI>
-        <Literal xml:lang="en">A relation between a Concept and an Entity, e.g. &apos;John is considered a typical rude man&apos;; your last concert constitutes the achievement of a lifetime; &apos;20-year-old means she&apos;s mature enough&apos;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>isClassifiedBy</IRI>
-        <Literal xml:lang="en">is classified by</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>isExecutedIn</IRI>
-        <Literal xml:lang="en">A relation between an action and a task, e.g. &apos;putting some water in a pot and putting the pot on a fire until the water starts bubbling&apos; executes the task &apos;boiling&apos;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>isExecutedIn</IRI>
-        <Literal xml:lang="en">is executed in</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>isParticipantIn</IRI>
-        <Literal xml:lang="en">A relation between an object and a process, e.g. &apos;John took part in the discussion&apos;, &apos;a large mass of snow fell during the avalanche&apos;, or &apos;a cook, some sugar, flour, etc. are all present in the cooking of a cake&apos;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>isParticipantIn</IRI>
-        <Literal xml:lang="en">is participant in</Literal>
-    </AnnotationAssertion>
-</Ontology>
+For example, reaching a destination could be defined by a plan to get on holidays, while the plan to execute the task can consist of putting some travels into a sequence.</rdfs:comment>
+        <rdfs:label xml:lang="en">Task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/BaselineChoice -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/BaselineChoice">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/FuturePeriodChoice"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of choosing the baseline.</rdfs:comment>
+        <rdfs:label xml:lang="en">Baseline choice</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/CaseCreation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/CaseCreation">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/UserInformationExtraction"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationPreparation"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ExternalExpertiseRequest"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Creator"/>
+        <rdfs:comment xml:lang="en">The task of creating a case.</rdfs:comment>
+        <rdfs:label xml:lang="en">Case creation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateChangeQuantificationApplication -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateChangeQuantificationApplication">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/FuturePeriodChoice"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/UncertaintyQuantificationApplication"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Creator"/>
+        <rdfs:comment xml:lang="en">The task of applying the climate change quantification method.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate change quantification application</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateInformationAnalysis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateInformationAnalysis">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationPreparation"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ExternalExpertiseRequest"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/SendClimateInformation"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/BaselineChoice"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/ClimateChangeQuantificationApplication"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/FuturePeriodChoice"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/MethodologicalRequirementApplication"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/UncertaintyQuantificationApplication"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of analysing the climate information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate information analysis</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateInformationCommunication -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateInformationCommunication">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/SendClimateInformation"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of communicating the climate information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate information communication</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateInformationPreparation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateInformationPreparation">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/CaseCreation"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationAnalysis"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModelEvaluation"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModelSelection"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/DataSelection"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/EmissionScenarioDefinition"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/MetricAndVariableIdentification"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of preparing the climate information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate information preparation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateInformationRequest -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateInformationRequest">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/UserBackgroundInformationRequest"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of requesting the climate information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate information request</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateInformationRequestGoalDefinition -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateInformationRequestGoalDefinition">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of defining the goal of the climate information request.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate information request goal definition</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateModelEvaluation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateModelEvaluation">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/DataSelection"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModelSelection"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of evaluating the climate model.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate model evaluation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateModelSelection -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateModelSelection">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModelEvaluation"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of selecing the climate model.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate model selection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ClimateRiskFramingSpecification -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ClimateRiskFramingSpecification">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of specifying the climate risk framing.</rdfs:comment>
+        <rdfs:label xml:lang="en">Climate risk framing specification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Creator -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/Creator">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
+        <rdfs:comment xml:lang="en">The creator of the climate case.</rdfs:comment>
+        <rdfs:label xml:lang="en">Creator</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/DataSelection -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/DataSelection">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/EmissionScenarioDefinition"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ClimateModelEvaluation"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of selecting the data.</rdfs:comment>
+        <rdfs:label xml:lang="en">Data selection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/EmissionScenarioDefinition -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/EmissionScenarioDefinition">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/MetricAndVariableIdentification"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/DataSelection"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of defining the emission scenarios.</rdfs:comment>
+        <rdfs:label xml:lang="en">Emission scenario definition</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ExternalExpertiseRequest -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ExternalExpertiseRequest">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/CaseCreation"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationAnalysis"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of requesting external expertise such as an expert or literature review.</rdfs:comment>
+        <rdfs:label xml:lang="en">External expertise request</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/FuturePeriodChoice -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/FuturePeriodChoice">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/BaselineChoice"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ClimateChangeQuantificationApplication"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of choosig the future period.</rdfs:comment>
+        <rdfs:label xml:lang="en">Future period choice</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/HazardIdentification -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/HazardIdentification">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of identifying hazards.</rdfs:comment>
+        <rdfs:label xml:lang="en">Hazard identification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/InformationOnExposureIdentification -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/InformationOnExposureIdentification">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of identifying information on exposure.</rdfs:comment>
+        <rdfs:label xml:lang="en">Information on exposure identification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/MethodologicalRequirementApplication -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/MethodologicalRequirementApplication">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/UncertaintyQuantificationApplication"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of applying methodological requirements.</rdfs:comment>
+        <rdfs:label xml:lang="en">Methodological requirement application</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/MetricAndVariableIdentification -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/MetricAndVariableIdentification">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/EmissionScenarioDefinition"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of identifying metrics and variables.</rdfs:comment>
+        <rdfs:label xml:lang="en">Metric and variable identification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/OrganisationInformationDescription -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/OrganisationInformationDescription">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of describing organisation information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Organisation information description</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/PlanningTimeScalesDefinition -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/PlanningTimeScalesDefinition">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of defining planning time scales.</rdfs:comment>
+        <rdfs:label xml:lang="en">Planning time scales definition</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ProvideBackgroundInformation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ProvideBackgroundInformation">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/UserBackgroundInformationRequest"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ProvideDecisionContextInformation"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationRequestGoalDefinition"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/OrganisationInformationDescription"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of providing background information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Provide background information</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/ProvideDecisionContextInformation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/ProvideDecisionContextInformation">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ProvideDecisionContextInformation"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/UserInformationExtraction"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/ClimateRiskFramingSpecification"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/HazardIdentification"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/InformationOnExposureIdentification"/>
+        <core:hasPart rdf:resource="https://w3id.org/hacid/onto/cs/PlanningTimeScalesDefinition"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/User"/>
+        <rdfs:comment xml:lang="en">The task of providing decision context information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Provide decision context information</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/SendClimateInformation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/SendClimateInformation">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationAnalysis"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationCommunication"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of sending climate information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Send climate information</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/Solver -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/Solver">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
+        <rdfs:comment xml:lang="en">The solver of the climate case.</rdfs:comment>
+        <rdfs:label xml:lang="en">Solver</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/UncertaintyQuantificationApplication -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/UncertaintyQuantificationApplication">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ClimateChangeQuantificationApplication"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/MethodologicalRequirementApplication"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Solver"/>
+        <rdfs:comment xml:lang="en">The task of applying uncertainty quantification</rdfs:comment>
+        <rdfs:label xml:lang="en">Uncertainty quantification application</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/User -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/User">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
+        <rdfs:comment xml:lang="en">The user that requests and uses the climate information.</rdfs:comment>
+        <rdfs:label xml:lang="en">User</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/UserBackgroundInformationRequest -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/UserBackgroundInformationRequest">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ClimateInformationRequest"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/ProvideBackgroundInformation"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Creator"/>
+        <rdfs:comment xml:lang="en">The task of requesting user background information.</rdfs:comment>
+        <rdfs:label xml:lang="en">User background information request</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/UserInformationExtraction -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/UserInformationExtraction">
+        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
+        <core:directlyFollows rdf:resource="https://w3id.org/hacid/onto/cs/ProvideDecisionContextInformation"/>
+        <core:directlyPrecedes rdf:resource="https://w3id.org/hacid/onto/cs/CaseCreation"/>
+        <core:isTaskOf rdf:resource="https://w3id.org/hacid/onto/cs/Creator"/>
+        <rdfs:comment xml:lang="en">The task of extracting user information.</rdfs:comment>
+        <rdfs:label xml:lang="en">User information request</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
 
 
 
