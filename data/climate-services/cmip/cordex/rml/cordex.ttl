@@ -53,9 +53,7 @@
  
     rr:predicateObjectMap [
         rr:predicate ccso:hasSpatialCoverage ;
-        rr:objectMap [
-            rr:parentTriplesMap :SpatialCoverageMapping
-        ]
+        rr:objectMap :DomainRegionIRI
     ] ;
 
     rr:predicateObjectMap [
@@ -103,66 +101,15 @@
     ] ;
 
     rr:predicateObjectMap [
+        rr:predicate ccso:hasSpatialCoverage ;
+        rr:objectMap :DomainRegionIRI
+    ] ;
+
+    rr:predicateObjectMap [
         rr:predicate ccso:usesModel ;
         rr:objectMap :ModelIRI 
     ] .
     
-
-:SpatialCoverageMapping a rr:TriplesMap ;
-    rml:logicalSource :LogicalSource ;
-    rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/spatialregion/{north_degrees}-{east_degrees}-{south_degrees}-{west_degrees}" ;
-        rr:class ccso:SpatialRegion 
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [ 
-            rr:template "{north_degrees}° north, {east_degrees}° east, {south_degrees}° south, and {west_degrees}° west." ;
-            rr:language "en"
-        ]
-    ] ;  
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
-        rr:objectMap [ 
-            rr:template "The geometry that encompasses a spatial region with the following cardinalities: (i) {north_degrees}° north, (ii) {east_degrees}° east, (iii) {south_degrees}° south, and (iv) {west_degrees}° west." ;
-            rr:language "en"
-        ]
-    ] ;    
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:northDegrees ;
-        rr:objectMap [ 
-            rml:reference "north_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:southDegrees ;
-        rr:objectMap [ 
-            rml:reference "south_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:westDegrees ;
-        rr:objectMap [ 
-            rml:reference "west_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:eastDegrees ;
-        rr:objectMap [ 
-            rml:reference "east_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] .
-
 
 :ModelMapping a rr:TriplesMap ;
 	rml:logicalSource :LogicalSource ;
@@ -315,7 +262,7 @@
 
 :ModelIRI
     rr:termType rr:IRI ;
-    rr:class ccso:Model, ccso:RegionalClimateModel ;
+    rr:class ccso:ClimateModel, ccso:RegionalClimateModel ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
@@ -346,6 +293,24 @@
         rr:predicateObjectMap [
             rr:predicate hrf:ns ;
             rr:objectMap [ rr:constant "https://w3id.org/hacid/data/institute/" ]
+        ] 
+    ].
+
+:DomainRegionIRI
+    rr:termType rr:IRI ;
+    rr:class ccso:Simulation ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cordexDomainRegionIri ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:domain ;
+            rr:objectMap [ rml:reference "domain" ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/" ]
         ] 
     ].
 

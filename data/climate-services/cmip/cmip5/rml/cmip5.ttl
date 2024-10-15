@@ -58,9 +58,7 @@
  
     rr:predicateObjectMap [
         rr:predicate ccso:hasSpatialCoverage ;
-        rr:objectMap [
-            rr:parentTriplesMap :SpatialCoverageMapping
-        ]
+        rr:object <https://w3id.org/hacid/data/world/region>
     ] ;
 
     rr:predicateObjectMap [
@@ -75,14 +73,7 @@
         rr:objectMap [
             rr:parentTriplesMap :TimeDurationMapping
         ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:refersToScenario ;
-        rr:objectMap [
-            rr:parentTriplesMap :ScenarioMapping
-        ]
-    ] .    
+    ] .
 
 :VariableMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
@@ -109,73 +100,15 @@
     
     rr:predicateObjectMap [
         rr:predicate ccso:hasSpatialCoverage ;
+        rr:object <https://w3id.org/hacid/data/world/region>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ccso:refersToScenario ;
         rr:objectMap [
-            rr:parentTriplesMap :SpatialCoverageMapping
+            rr:parentTriplesMap :ScenarioMapping
         ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:hasTemporalCoverage ;
-        rr:objectMap [
-            rr:parentTriplesMap :TimeIntervalMapping
-        ]
-    ] .
-
-
-:SpatialCoverageMapping a rr:TriplesMap ;
-    rml:logicalSource :LogicalSource ;
-    rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/spatialregion/{north_degrees}-{east_degrees}-{south_degrees}-{west_degrees}" ;
-        rr:class ccso:SpatialRegion 
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [ 
-            rr:template "{north_degrees}° north, {east_degrees}° east, {south_degrees}° south, and {west_degrees}° west." ;
-            rr:language "en"
-        ]
-    ] ;  
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
-        rr:objectMap [ 
-            rr:template "The geometry that encompasses a spatial region with the following cardinalities: (i) {north_degrees}° north, (ii) {east_degrees}° east, (iii) {south_degrees}° south, and (iv) {west_degrees}° west." ;
-            rr:language "en"
-        ]
-    ] ;    
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:northDegrees ;
-        rr:objectMap [ 
-            rml:reference "north_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:southDegrees ;
-        rr:objectMap [ 
-            rml:reference "south_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:westDegrees ;
-        rr:objectMap [ 
-            rml:reference "west_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:eastDegrees ;
-        rr:objectMap [ 
-            rml:reference "east_degrees" ;
-            rr:datatype xsd:decimal
-        ]
-    ] .
+    ] .    
 
 
 :ModelMapping a rr:TriplesMap ;
@@ -211,45 +144,70 @@
     rml:logicalSource :LogicalSource ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/timeinterval/{datetime_start}-{datetime_stop}" ;
-        rr:class top:TimeInterval
+        rr:termType rr:IRI ;
+        rr:class top:TimeInterval ;
+        fnml:functionValue [
+            rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicate hrf:template ;
+                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/timeinterval/{start_datetime}-{end_datetime}" ]
+            ] 
+        ]
     ] ;
 
     rr:predicateObjectMap [
         rr:predicate top:startTime ;
         rr:objectMap [ 
-            rml:reference "datetime_start" ;
-            rr:datatype xsd:dateTime
+            rr:datatype xsd:dateTime ;
+            fnml:functionValue [
+                rr:predicateObjectMap :ParamDatetimeStart, :ParamGranularity, [
+                    rr:predicate fno:executes ;
+                    rr:objectMap [ rr:constant hrf:roundStartDatetime ]
+                ]
+            ]
         ]
     ] ;
 
     rr:predicateObjectMap [
         rr:predicate top:endTime ;
         rr:objectMap [ 
-            rml:reference "datetime_stop" ;
-            rr:datatype xsd:dateTime
+            rr:datatype xsd:dateTime ;
+            fnml:functionValue [
+                rr:predicateObjectMap :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate fno:executes ;
+                    rr:objectMap [ rr:constant hrf:roundEndDatetime ]
+                ]
+            ]
         ]
     ] ;
 
     rr:predicateObjectMap [
         rr:predicate rdfs:label ;
         rr:objectMap [ 
-            rr:template "Time interval {datetime_start} - {datetime_stop}" ;
-            rr:language "en"
+            rr:language "en" ;
+            fnml:functionValue [
+                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "Time interval {start_datetime} - {end_datetime}" ]
+                ] 
+            ]
         ]
     ] ;
 
     rr:predicateObjectMap [
         rr:predicate rdfs:comment ;
         rr:objectMap [ 
-            rr:template "Time interval starting at date time {datetime_start} and ending at date time {datetime_stop}." ;
-            rr:language "en"
+            rr:language "en" ;
+            fnml:functionValue [
+                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "Time interval starting at date time {start_datetime} and ending at date time {end_datetime}." ]
+                ] 
+            ]
         ]
     ] .
 
 :TimeDurationMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
-
     rr:subjectMap :TimeDurationIRI .
 
 
@@ -309,9 +267,25 @@
         ] 
     ].
 
+:RoundDatetimeIntervalCall
+    rr:predicate fno:executes ;
+    rr:objectMap [ rr:constant hrf:roundDatetimeInterval ] .
+
+:ParamDatetimeStart
+    rr:predicate hrf:startDatetime ;
+    rr:objectMap [ rml:reference "datetime_start" ] .
+
+:ParamDatetimeStop
+    rr:predicate hrf:endDatetime ;
+    rr:objectMap [ rml:reference "datetime_stop" ] .
+
+:ParamGranularity
+    rr:predicate hrf:granularity ;
+    rr:objectMap [ rml:reference "time_frequency" ] .
+
 :ModelIRI
     rr:termType rr:IRI ;
-    rr:class ccso:GlobalClimateModel, ccso:Model ;
+    rr:class ccso:GlobalClimateModel, ccso:ClimateModel ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;

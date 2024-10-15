@@ -1,0 +1,10 @@
+path,graph-name
+../../../ontologies/ccso/ccso.owl,https://w3id.org/hacid/ccso/onto
+activities/rdf/data.ttl,https://w3id.org/hacid/ccso/data/cmip6/cvs
+experiments/rdf/data.ttl,https://w3id.org/hacid/ccso/data/cmip6/cvs
+istitutions/rdf/data.ttl,https://w3id.org/hacid/ccso/data/cmip6/cvs
+sources/rdf/data.ttl,https://w3id.org/hacid/ccso/data/cmip6/cvs
+cmor-tables/rdf/*.ttl,https://w3id.org/hacid/ccso/data/cmip6/cmor-tables
+cmip5/rdf/*.ttl,https://w3id.org/hacid/ccso/data/cmip5/datasets
+cordex-domains/rdf/data.ttl,https://w3id.org/hacid/ccso/data/cordex/cvs
+cordex/rdf/*.ttl,https://w3id.org/hacid/ccso/data/cordex/datasets

@@ -1,0 +1,19 @@
+@prefix : <https://w3id.org/hacid/data/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@base <https://w3id.org/hacid/data/> .
+
+<world/region> a geo:Feature, ccso:SpatialRegion ;
+    rdfs:label "World"@en ;
+    geo:hasDefaultGeometry <world/geometry> ;
+    geo:hasBoundingBox <world/geometry> ;
+    rdfs:comment "Geographic region covering the whole Earth surface, as reference for global simulations."@en .
+
+<world/geometry> a geo:Geometry, gml:Rectangle ;
+    geo:asWKT "POLYGON((-180 -90,-180 90,180 90,180 -90))"^^<geo:wktLiteral> .
+
+

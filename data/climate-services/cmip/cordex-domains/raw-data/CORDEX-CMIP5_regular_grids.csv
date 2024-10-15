@@ -1,0 +1,17 @@
+region,domain_id,domain,CORDEX_domain,nlon,nlat,ll_lon,ur_lon,ll_lat,ur_lat,dlon,dlat
+1,SAM-50i,South America,SAM-44i,181,155,-106.25,-16.25,-58.25,18.75,0.5,0.5
+2,CAM-50i,Central America,CAM-44i,207,111,-124.75,-21.75,-19.75,35.25,0.5,0.5
+3,NAM-50i,North America,NAM-44i,300,129,-171.75,-22.25,12.25,76.25,0.5,0.5
+4,EUR-50i,Europe,EUR-44i,221,103,-44.75,65.25,21.75,72.75,0.5,0.5
+5,AFR-50i,Africa,AFR-44i,173,179,-25.25,60.75,-46.25,42.75,0.5,0.5
+6,WAS-50i,South Asia,WAS-44i,195,124,19.25,116.25,-15.75,45.75,0.5,0.5
+7,EAS-50i,East Asia,EAS-44i,227,157,62.75,175.75,-18.75,59.25,0.5,0.5
+8,CAS-50i,Central Asia,CAS-44i,260,133,10.75,140.25,17.75,69.75,0.5,0.5
+9,AUS-50i,Australasia,AUS-44i,238,133,88.75,207.25,-53.25,12.75,0.5,0.5
+10,ANT-50i,Antarctica,ANT-44i,720,70,-179.75,179.75,-89.75,-55.25,0.5,0.5
+11,ARC-50i,Arctic,ARC-44i,720,83,-179.75,179.75,48.75,89.75,0.5,0.5
+12,MED-50i,Mediterranean,MED-44i,144,65,-20.75,51.75,25.25,57.25,0.5,0.5
+13,MNA-50i,Middle East and North Africa,MNA-44i,206,106,-26.75,75.75,-7.25,45.25,0.5,0.5
+13,MNA-25i,Middle East and North Africa  high res.,MNA-22i,410,209,-26.625,75.625,-6.875,45.125,0.25,0.25
+4,EUR-12i,Europe high res.,EUR-11i,881,408,-44.8125,65.1875,21.8125,72.6875,0.125,0.125
+14,SEA-25i,South East Asia,SEA-22i,233,172,89.125,147.125,-15.375,27.375,0.25,0.25

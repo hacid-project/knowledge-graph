@@ -1,0 +1,84 @@
+@prefix : <https://w3id.org/hacid/data/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix idlab: <http://example.com/idlab/function/> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@prefix hrf: <https://w3id.org/hacid/rml-functions/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@base <https://w3id.org/hacid/data/rml/> .
+
+
+# LOGICAL SOURCE #
+:LogicalSource a rml:BaseSource ;
+    rml:source [
+      a csvw:Table;
+      csvw:url "{{ CSV }}";
+
+      csvw:dialect [
+        a csvw:Dialect;
+        csvw:delimiter ","
+      ]
+    ];
+    rml:referenceFormulation ql:CSV .
+  
+# TRIPLE MAPPINGS #
+:CordexDomainMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:class ccso:SpatialRegion ;
+        rr:class geo:Feature ;
+        rr:template "https://w3id.org/hacid/data/cordex-domain/{domain_id}/region"
+    ] ;
+	
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:template "{domain} ({domain_id})" ;
+            rr:language "en"
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate geo:hasBoundingBox ;
+        rr:objectMap [ 
+            rr:template "https://w3id.org/hacid/data/cordex-domain/{domain_id}/bounding-box";
+            rr:termType rr:IRI
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:template "CORDEX geographic domain encompassing {domain}." ;
+            rr:language "en"
+        ]
+    ] .
+
+# TRIPLE MAPPINGS #
+:CordexDomainBBMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:class geo:Geometry, gml:Rectangle ;
+        rr:template "https://w3id.org/hacid/data/cordex-domain/{domain_id}/bounding-box"
+    ] ;
+    
+    rr:predicateObjectMap [
+        rr:predicate geo:asWKT ;
+        rr:objectMap [ 
+            rr:template "POLYGON(({ll_lon} {ll_lat},{ll_lon} {ur_lat},{ur_lon} {ur_lat},{ur_lon} {ll_lat}))" ;
+            rr:datatype "geo:wktLiteral"
+        ]
+    ] .
