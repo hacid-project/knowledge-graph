@@ -31,6 +31,7 @@
         <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/isRoleDefinedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow"/>
         <rdfs:comment xml:lang="en">A relation between a description and a role, e.g. the recipe for a cake defines the role &apos;ingredient&apos;</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">defines role</rdfs:label>
     </owl:ObjectProperty>
     
@@ -43,6 +44,7 @@
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow"/>
         <rdfs:range rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
         <rdfs:comment xml:lang="en">A relation between a description and a task, e.g. the recipe for a cake defines the task &apos;boil&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">defines task</rdfs:label>
     </owl:ObjectProperty>
     
@@ -51,9 +53,11 @@
     <!-- https://w3id.org/arco/ontology/core/directlyFollows -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/directlyFollows">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/follows"/>
         <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/directlyPrecedes"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">directly follows</rdfs:label>
     </owl:ObjectProperty>
     
@@ -62,6 +66,8 @@
     <!-- https://w3id.org/arco/ontology/core/directlyPrecedes -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/directlyPrecedes">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/precedes"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">directly precedes</rdfs:label>
     </owl:ObjectProperty>
     
@@ -84,6 +90,7 @@ However, antisymmetry is not supported in OWL2 explicitly, therefore DUL has to 
 In DUL, we adopt pattern #1 for partOf, and pattern #2 for properPartOf, which seems a good approximation: due to the lack of inheritance of property characteristics, each asymmetric hasPropertPart assertion would also be a reflexive hasPart assertion (reflexive reduction design pattern).
 
 Subproperties and restrictions can be used to specialize hasPart for objects, events, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">has part</rdfs:label>
     </owl:ObjectProperty>
     
@@ -94,6 +101,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/hasTask">
         <owl:inverseOf rdf:resource="https://w3id.org/arco/ontology/core/isTaskOf"/>
         <rdfs:comment xml:lang="en">A relation between roles and tasks, e.g. &apos;students have the duty of giving exams&apos; (i.e. the Role &apos;student&apos; hasTask the Task &apos;giving exams&apos;).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">has task</rdfs:label>
     </owl:ObjectProperty>
     
@@ -105,6 +113,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:comment xml:lang="en">A relation between any entities, e.g. &apos;brain is a part of the human body&apos;. See dul:hasPart for additional documentation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">is part of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -114,6 +123,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/isRoleDefinedIn">
         <rdfs:comment xml:lang="en">A relation between a description and a role, e.g. the role &apos;Ingredient&apos; is defined in the recipe for a cake.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">is role defined in</rdfs:label>
     </owl:ObjectProperty>
     
@@ -123,6 +133,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/isTaskDefinedIn">
         <rdfs:comment xml:lang="en">A relation between a description and a task, e.g. the task &apos;boil&apos; is defined in a recipe for a cake.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">is task defined in</rdfs:label>
     </owl:ObjectProperty>
     
@@ -133,6 +144,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/isTaskOf">
         <rdfs:domain rdf:resource="https://w3id.org/arco/ontology/core/ClimateProcessTask"/>
         <rdfs:comment xml:lang="en">A relation between roles and tasks, e.g. &apos;students have the duty of giving exams&apos; (i.e. the Role &apos;student&apos; hasTask the Task &apos;giving exams&apos;).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">is task of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -141,9 +153,10 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/arco/ontology/core/satisfies -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/core/satisfies">
-        <rdfs:domain rdf:resource="https://w3id.org/arco/ontology/core/Situation"/>
-        <rdfs:range rdf:resource="https://w3id.org/arco/ontology/core/Plan"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Plan"/>
         <rdfs:comment xml:lang="en">A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">satisfies</rdfs:label>
     </owl:ObjectProperty>
     
@@ -156,6 +169,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
         <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:comment xml:lang="en">A relation between a Concept and an Entity, e.g. the Role &apos;student&apos; classifies a Person &apos;John&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">classifies</rdfs:label>
     </owl:ObjectProperty>
     
@@ -167,8 +181,9 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/cs/isClassifiedBy"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isExecutedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Action"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
         <rdfs:comment xml:lang="en">A relation between an action and a task, e.g. &apos;putting some water in a pot and putting the pot on a fire until the water starts bubbling&apos; executes the task &apos;boiling&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">executes task</rdfs:label>
     </owl:ObjectProperty>
     
@@ -178,10 +193,23 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/hasParticipant">
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isParticipantIn"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Event"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:comment xml:lang="en">A relation between an object and a process, e.g. &apos;John took part in the discussion&apos;, &apos;a large mass of snow fell during the avalanche&apos;, or &apos;a cook, some sugar, flour, etc. are all present in the cooking of a cake&apos;</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">has participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/involves -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/involves">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/cs/isInvolvedIn"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">The property that allows to assert that a task involves a certain concept.</rdfs:comment>
+        <rdfs:label xml:lang="en">involves</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -190,6 +218,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isClassifiedBy">
         <rdfs:comment xml:lang="en">A relation between a Concept and an Entity, e.g. &apos;John is considered a typical rude man&apos;; your last concert constitutes the achievement of a lifetime; &apos;20-year-old means she&apos;s mature enough&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">is classified by</rdfs:label>
     </owl:ObjectProperty>
     
@@ -198,10 +227,19 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/cs/isExecutedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isExecutedIn">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/cs/Action"/>
         <rdfs:comment xml:lang="en">A relation between an action and a task, e.g. &apos;putting some water in a pot and putting the pot on a fire until the water starts bubbling&apos; executes the task &apos;boiling&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">is executed in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/cs/isInvolvedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isInvolvedIn">
+        <rdfs:comment xml:lang="en">The peroperty that allows one to assert that a concept is involved in a task.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -210,7 +248,28 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/cs/isParticipantIn">
         <rdfs:comment xml:lang="en">A relation between an object and a process, e.g. &apos;John took part in the discussion&apos;, &apos;a large mass of snow fell during the avalanche&apos;, or &apos;a cook, some sugar, flour, etc. are all present in the cooking of a cake&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
         <rdfs:label xml:lang="en">is participant in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/follows -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/follows">
+        <rdfs:comment xml:lang="en">The intransitive follows relation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
+        <rdfs:label xml:lang="en">follows</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/precedes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/precedes">
+        <rdfs:comment xml:lang="en">A relation between entities, expressing a sequence&apos;s schema.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
+        <rdfs:label xml:lang="en">precedes</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -229,76 +288,69 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/arco/ontology/core/ClimateProcessTask -->
 
     <owl:Class rdf:about="https://w3id.org/arco/ontology/core/ClimateProcessTask">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/involves"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/involves"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/involves"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Scenario"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/involves"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Variable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Tasks that are executed within the climate process workflow.</rdfs:comment>
         <rdfs:label xml:lang="en">Climate process task</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/arco/ontology/core/EventType -->
+    <!-- https://w3id.org/hacid/onto/ccso/ClimateModel -->
 
-    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/EventType">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/classifies"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/cs/Event"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
-        <rdfs:comment xml:lang="en">A Concept that classifies an Event . An event type describes how an Event should be interpreted, executed, expected, seen, etc., according to the Description that the EventType isDefinedIn (or used in)</rdfs:comment>
-        <rdfs:label xml:lang="en">Event Type</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimateModel">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Cimate Model</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/arco/ontology/core/Plan -->
+    <!-- https://w3id.org/hacid/onto/ccso/Dataset -->
 
-    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Plan">
-        <rdfs:comment xml:lang="en">A Description having an explicit Goal, to be achieved by executing the plan</rdfs:comment>
-        <rdfs:label xml:lang="en">Plan</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Dataset">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/csso"/>
+        <rdfs:label xml:lang="en">Dataset</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/arco/ontology/core/Role -->
+    <!-- https://w3id.org/hacid/onto/ccso/Scenario -->
 
-    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Role">
-        <rdfs:comment xml:lang="en">A Concept that classifies an Object</rdfs:comment>
-        <rdfs:label xml:lang="en">Role</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Scenario">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/csso"/>
+        <rdfs:label xml:lang="en">Scenario</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/arco/ontology/core/Situation -->
+    <!-- https://w3id.org/hacid/onto/ccso/Variable -->
 
-    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Situation">
-        <rdfs:comment xml:lang="en">A view, consistent with (&apos;satisfying&apos;) a Description, on a set of entities. 
-It can also be seen as a &apos;relational context&apos; created by an observer on the basis of a &apos;frame&apos; (i.e. a Description). 
-For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
-Situation is also able to represent reified n-ary relations, where isSettingFor is the top-level relation for all binary projections of the n-ary relation. 
-If used in a transformation pattern for n-ary relations, the designer should take care of adding (some or all) OWL2 keys, corresponding to binary projections of the n-ary, to a subclass of Situation. Otherwise the &apos;identification constraint&apos; (Calvanese et al., IJCAI 2001) might be violated.</rdfs:comment>
-        <rdfs:label xml:lang="en">Situation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/arco/ontology/core/Workflow -->
-
-    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/Workflow">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Plan"/>
-        <rdfs:comment xml:lang="en">A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed, usually supporting the work of an Organization.</rdfs:comment>
-        <rdfs:label xml:lang="en">Workflow</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/arco/ontology/core/WorkflowExecution -->
-
-    <owl:Class rdf:about="https://w3id.org/arco/ontology/core/WorkflowExecution">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Situation"/>
-        <rdfs:comment xml:lang="en">The execution of a workflow</rdfs:comment>
-        <rdfs:label xml:lang="en">Workflow Execution</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Variable">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/csso"/>
+        <rdfs:label xml:lang="en">Variable</rdfs:label>
     </owl:Class>
     
 
@@ -306,31 +358,23 @@ If used in a transformation pattern for n-ary relations, the designer should tak
     <!-- https://w3id.org/hacid/onto/cs/Action -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Action">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/cs/Event"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/hasParticipant"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/cs/Agent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/executesTask"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/hacid/onto/cs/Task"/>
+                <owl:onClass rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An Event with at least one Agent that isParticipantIn it, and that executes a Task that typically isDefinedIn a Plan, Workflow, Project, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Action</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/cs/Agent -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Agent">
-        <rdfs:comment xml:lang="en">Any agentive Object , either physical (e.g. a whale, a robot, an oak), or social (e.g. a corporation, an institution, a community)</rdfs:comment>
-        <rdfs:label xml:lang="en">Agent</rdfs:label>
     </owl:Class>
     
 
@@ -338,31 +382,127 @@ If used in a transformation pattern for n-ary relations, the designer should tak
     <!-- https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/ClimateProcessWorkflow">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Workflow"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Workflow"/>
         <rdfs:comment xml:lang="en">A workflow describing the handling of a request for climate information by instances such as MettOfice.</rdfs:comment>
         <rdfs:label xml:lang="en">Climate science case</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/cs/Event -->
+    <!-- https://w3id.org/hacid/onto/top-level/Agent -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Event">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
+        <rdfs:comment xml:lang="en">Any agentive Object , either physical (e.g. a whale, a robot, an oak), or social (e.g. a corporation, an institution, a community)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Event -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Event">
         <rdfs:comment xml:lang="en">Any physical, social, or mental process, event, or state.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/cs/Task -->
+    <!-- https://w3id.org/hacid/onto/top-level/EventType -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/cs/Task">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/EventType"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/EventType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/cs/classifies"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:comment xml:lang="en">A Concept that classifies an Event . An event type describes how an Event should be interpreted, executed, expected, seen, etc., according to the Description that the EventType isDefinedIn (or used in)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Event Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Organisation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Organisation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:comment xml:lang="en">An organisation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Organisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Plan -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Plan">
+        <rdfs:comment xml:lang="en">A Description having an explicit Goal, to be achieved by executing the plan</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Plan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Role -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Role">
+        <rdfs:comment xml:lang="en">A Concept that classifies an Object</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Situation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Situation">
+        <rdfs:comment xml:lang="en">A view, consistent with (&apos;satisfying&apos;) a Description, on a set of entities. 
+It can also be seen as a &apos;relational context&apos; created by an observer on the basis of a &apos;frame&apos; (i.e. a Description). 
+For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
+Situation is also able to represent reified n-ary relations, where isSettingFor is the top-level relation for all binary projections of the n-ary relation. 
+If used in a transformation pattern for n-ary relations, the designer should take care of adding (some or all) OWL2 keys, corresponding to binary projections of the n-ary, to a subclass of Situation. Otherwise the &apos;identification constraint&apos; (Calvanese et al., IJCAI 2001) might be violated.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
+        <rdfs:label xml:lang="en">Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Task -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Task">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/EventType"/>
         <rdfs:comment xml:lang="en">An EventType that classifies an Action to be executed. 
 For example, reaching a destination is a task that can be executed by performing certain actions, e.g. driving a car, buying a train ticket, etc. 
 The actions to execute a task can also be organized according to a Plan that is not the same as the one that defines the task (if any). 
 For example, reaching a destination could be defined by a plan to get on holidays, while the plan to execute the task can consist of putting some travels into a sequence.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Workflow -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Workflow">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Plan"/>
+        <rdfs:comment xml:lang="en">A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed, usually supporting the work of an Organization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
+        <rdfs:label xml:lang="en">Workflow</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/WorkflowExecution -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/WorkflowExecution">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:comment xml:lang="en">The execution of a workflow</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level/"/>
+        <rdfs:label xml:lang="en">Workflow Execution</rdfs:label>
     </owl:Class>
     
 
@@ -528,7 +668,7 @@ For example, reaching a destination could be defined by a plan to get on holiday
     <!-- https://w3id.org/hacid/onto/cs/Creator -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/Creator">
-        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
         <rdfs:comment xml:lang="en">The creator of the climate case.</rdfs:comment>
         <rdfs:label xml:lang="en">Creator</rdfs:label>
     </owl:NamedIndividual>
@@ -704,7 +844,7 @@ For example, reaching a destination could be defined by a plan to get on holiday
     <!-- https://w3id.org/hacid/onto/cs/Solver -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/Solver">
-        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
         <rdfs:comment xml:lang="en">The solver of the climate case.</rdfs:comment>
         <rdfs:label xml:lang="en">Solver</rdfs:label>
     </owl:NamedIndividual>
@@ -727,7 +867,7 @@ For example, reaching a destination could be defined by a plan to get on holiday
     <!-- https://w3id.org/hacid/onto/cs/User -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/cs/User">
-        <rdf:type rdf:resource="https://w3id.org/arco/ontology/core/Role"/>
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
         <rdfs:comment xml:lang="en">The user that requests and uses the climate information.</rdfs:comment>
         <rdfs:label xml:lang="en">User</rdfs:label>
     </owl:NamedIndividual>
