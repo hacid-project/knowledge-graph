@@ -18,6 +18,63 @@ scenario_map = {
     'rcp26': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-2.6',
     'rcp60': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-6'
     }
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/dictKeys',
+              arr='https://w3id.org/hacid/rml-functions/str')
+def dict_keys(_str: str):
+  d = str_to_dict(_str)
+  return list(d.keys())
+  
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/dictValues',
+              arr='https://w3id.org/hacid/rml-functions/str')
+def dict_values(_str: str):
+  d = str_to_dict(_str)
+  return list(d.values())
+  
+  
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/dictUUID',
+              arr='https://w3id.org/hacid/rml-functions/str')
+def dict_uuid(_str: str):
+  d = str_to_dict(_str)
+  return dict_to_uuid(d)
+
+def str_to_dict(_str: str):
+  matches = re.finditer("([a-z]+:)", _str)
+
+  map = dict()
+  prev_key = None
+  prev_span = None
+  for _match in matches:
+    span = _match.span()
+    key = _str[span[0]:span[1]-1]
+    
+    if prev_span and prev_key:
+      value = _str[prev_span[1]:span[0]].strip()
+      map[prev_key] = value
+
+    prev_span = span
+    prev_key = key
+
+  if prev_span and prev_key:
+      value = _str[prev_span[1]:].strip()
+      map[prev_key] = value
+
+  return map
+
+def dict_to_uuid(d: dict):
+
+  alphabet = string.ascii_lowercase + string.digits
+  shortuuid.set_alphabet(alphabet)
+  _str = ''
+  for k,v in d.items():
+    if _str:
+      _str += ' '
+
+    _str += f'{k}:{v}'
+
+  _str = shortuuid.uuid(_str)[:8]
+  
+  return _str
 
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/fromList',
               arr='https://w3id.org/hacid/rml-functions/arr',
