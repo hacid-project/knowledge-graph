@@ -1,0 +1,5 @@
+{
+	"jsonpath": "$.variable_entry.*",
+	"columns": ["id", "label"],
+	"transpose": false
+}
