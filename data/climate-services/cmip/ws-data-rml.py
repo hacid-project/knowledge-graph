@@ -11,6 +11,7 @@ from slugify import slugify
 from typing import Literal
 from datetime import datetime, timedelta, timezone
 from dateutil.relativedelta import relativedelta
+from urllib.parse import quote
 
 scenario_map = {
     'rcp45': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-4.5',
@@ -207,7 +208,10 @@ def cordex_domain_region_iri(_domains: list[str], _ns: str) -> str:
 def round_datetime(
     _datetime: datetime, _granularity: str, _up: bool
 ) -> datetime:
+    if _granularity is None:
+        return _datetime
     _date_granularity_map = {
+        '1hr': 'day',
         '3hr': 'day',
         '6hr': 'day',
         'monClim': 'mon'
@@ -247,6 +251,19 @@ def round_datetime(
             tzinfo=timezone.utc
         )
 
+    _semester_first = _orig_date.replace(month=min(_orig_date.month,6), day=1)
+    _semester = (
+        _semester_first + relativedelta(months=6)
+        if _up and _semester_first < _orig_date
+        else _semester_first
+    )
+    if _date_granularity == 'sem':
+        return datetime.combine(
+            date=_semester,
+            time=datetime.min.time(),
+            tzinfo=timezone.utc
+        )
+
     _year_first = _orig_date.replace(month=1, day=1)
     _year = (
         _year_first + relativedelta(years=1)
@@ -274,18 +291,28 @@ def round_datetime_iso(
         _up=_up
     ).isoformat()
     
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/roundStartDatetime',
-              _start_datetime='https://w3id.org/hacid/rml-functions/startDatetime',
-              _granularity='https://w3id.org/hacid/rml-functions/granularity')
-def round_start_datetime(_start_datetime: str, _granularity: str) -> str:
-    return round_datetime_iso(_start_datetime, eval(_granularity)[0], _up=False)
-    
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/roundEndDatetime',
-              _end_datetime='https://w3id.org/hacid/rml-functions/endDatetime',
-              _granularity='https://w3id.org/hacid/rml-functions/granularity')
-def round_end_datetime(_end_datetime: str, _granularity: str) -> str:
-    return round_datetime_iso(_end_datetime, eval(_granularity)[0], _up=True)
-    
+def get_start_time(
+    _asserted_start_time: str,
+    _asserted_end_time: str,
+    _granularity: str
+) -> str:
+    return round_datetime_iso(
+        _iso_datetime=min(_asserted_start_time, _asserted_end_time),
+        _granularity=_granularity,
+        _up=False
+    )
+
+def get_end_time(
+    _asserted_start_time: str,
+    _asserted_end_time: str,
+    _granularity: str
+) -> str:
+    return round_datetime_iso(
+        _iso_datetime=max(_asserted_start_time, _asserted_end_time),
+        _granularity=_granularity,
+        _up=True
+    )
+        
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/roundDatetimeInterval',
               _start_datetime='https://w3id.org/hacid/rml-functions/startDatetime',
               _end_datetime='https://w3id.org/hacid/rml-functions/endDatetime',
@@ -297,9 +324,38 @@ def round_datetime_interval(
     _granularity: str,
     _template: str
 ) -> str:
+    _granularity = eval(_granularity)[0]
+    if _start_datetime is None or _end_datetime is None:
+        return None
     return _template.format(
-        start_datetime=round_datetime_iso(_start_datetime, eval(_granularity)[0], _up=False),
-        end_datetime=round_datetime_iso(_end_datetime, eval(_granularity)[0], _up=True)
+        start_datetime=get_start_time(_start_datetime,_end_datetime,_granularity),
+        end_datetime=get_end_time(_start_datetime,_end_datetime,_granularity)
+    )
+
+_time_frequency_descr_and_value = {
+    '3hr': ['three hours', 'PT3H'],
+    '6hr': ['six hours', 'PT6H'],
+    'day': ['day', 'P1D'],
+    'mon': ['month', 'P1M'],
+    'monClim': ['all time aggregated month of the year', 'PT'],
+    'yr': ['year', 'P1Y'],
+    'fx': ['all time', 'PT']
+}
+
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatDuration',
+              _time_frequency_array='https://w3id.org/hacid/rml-functions/timeFrequencyArray',
+              _template='https://w3id.org/hacid/rml-functions/template')
+def format_duration(
+    _time_frequency_array: str,
+    _template: str
+) -> str:
+    _time_frequency = eval(_time_frequency_array)[0]
+    [_duration_description, _duration_value] = _time_frequency_descr_and_value[_time_frequency]
+    return _template.format(
+        duration_id = _time_frequency,
+        duration_id_iri_escaped = quote(_time_frequency),
+        duration_description = _duration_description,
+        duration_value = _duration_value
     )
 
 class CSMapper(object):

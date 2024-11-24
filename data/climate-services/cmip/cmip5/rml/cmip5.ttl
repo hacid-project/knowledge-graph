@@ -140,6 +140,22 @@
 
     rr:subjectMap :ScenarioIRI .
 
+:RoundDatetimeIntervalCall
+    rr:predicate fno:executes ;
+    rr:objectMap [ rr:constant hrf:roundDatetimeInterval ] .
+
+:ParamDatetimeStart
+    rr:predicate hrf:startDatetime ;
+    rr:objectMap [ rml:reference "datetime_start" ] .
+
+:ParamDatetimeStop
+    rr:predicate hrf:endDatetime ;
+    rr:objectMap [ rml:reference "datetime_stop" ] .
+
+:ParamGranularity
+    rr:predicate hrf:granularity ;
+    rr:objectMap [ rml:reference "time_frequency" ] .
+
 :TimeIntervalMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
 
@@ -159,9 +175,9 @@
         rr:objectMap [ 
             rr:datatype xsd:dateTime ;
             fnml:functionValue [
-                rr:predicateObjectMap :ParamDatetimeStart, :ParamGranularity, [
-                    rr:predicate fno:executes ;
-                    rr:objectMap [ rr:constant hrf:roundStartDatetime ]
+                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{start_datetime}" ]
                 ]
             ]
         ]
@@ -172,9 +188,9 @@
         rr:objectMap [ 
             rr:datatype xsd:dateTime ;
             fnml:functionValue [
-                rr:predicateObjectMap :ParamDatetimeStop, :ParamGranularity, [
-                    rr:predicate fno:executes ;
-                    rr:objectMap [ rr:constant hrf:roundEndDatetime ]
+                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{end_datetime}" ]
                 ]
             ]
         ]
@@ -206,10 +222,52 @@
         ]
     ] .
 
+:FormatDurationCall
+    rr:predicate fno:executes ;
+    rr:objectMap [ rr:constant hrf:formatDuration ] .
+
+:ParamTimeFrequency
+    rr:predicate hrf:timeFrequencyArray ;
+    rr:objectMap [ rml:reference "time_frequency" ] .
+
 :TimeDurationMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
-    rr:subjectMap :TimeDurationIRI .
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:class ccso:TimeDuration ;
+        fnml:functionValue [
+            rr:predicateObjectMap :FormatDurationCall, :ParamTimeFrequency, [
+                rr:predicate hrf:template ;
+                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/timeduration/{duration_id_iri_escaped}" ]
+            ] 
+        ]
+    ] ;
 
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rr:language "en" ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatDurationCall, :ParamTimeFrequency, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{duration_description} ({duration_id})" ]
+                ] 
+            ]
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:value ;
+        rr:objectMap [
+            rr:datatype xsd:duration ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatDurationCall, :ParamTimeFrequency, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{duration_value}" ]
+                ] 
+            ]
+        ]
+    ] .
 
 # FUNCTIONS #
 
@@ -266,22 +324,6 @@
             rr:objectMap [ rr:constant "https://w3id.org/hacid/data/simulation/" ]
         ] 
     ].
-
-:RoundDatetimeIntervalCall
-    rr:predicate fno:executes ;
-    rr:objectMap [ rr:constant hrf:roundDatetimeInterval ] .
-
-:ParamDatetimeStart
-    rr:predicate hrf:startDatetime ;
-    rr:objectMap [ rml:reference "datetime_start" ] .
-
-:ParamDatetimeStop
-    rr:predicate hrf:endDatetime ;
-    rr:objectMap [ rml:reference "datetime_stop" ] .
-
-:ParamGranularity
-    rr:predicate hrf:granularity ;
-    rr:objectMap [ rml:reference "time_frequency" ] .
 
 :ModelIRI
     rr:termType rr:IRI ;
@@ -410,27 +452,4 @@
                 ] 
             ]
         ]         
-    ] .
-   
-
-:TimeDurationIRI
-    rr:termType rr:IRI ;
-    rr:class ccso:TimeDuration ;
-    fnml:functionValue [
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ rr:constant hrf:fromList ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate hrf:arr ;
-            rr:objectMap [ 
-                rml:reference "time_frequency"
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate hrf:ns ;
-            rr:objectMap [ 
-                rr:constant "https://w3id.org/hacid/data/timeduration/"
-            ]
-        ]
     ] .
