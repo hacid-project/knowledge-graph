@@ -1,0 +1,648 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "top": "https://w3id.org/hacid/onto/top-level/",
+    "climdex": "https://w3id.org/hacid/data/climdex/",
+    "sectors": "https://w3id.org/hacid/data/climdex/sectors/",
+    "label": "rdfs:label",
+    "comment": "rdfs:comment",
+    "acronym": "top:acronym",
+    "definition": "top:definition",
+    "isClassifiedBy": {
+      "@reverse": {
+        "@id": "top:classifies"
+      }
+    },
+    "isDefinedIn": {
+      "@reverse": {
+        "@id": "top:defines"
+      }
+    }
+  },
+  "@graph": [
+    {
+      "@id": "climdex:FD",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:TNlt2",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Cryosphere",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TNltm2",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Cryosphere",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TNltm20",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:ID",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:SU",
+      "isClassifiedBy": [
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:TR",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:GSL",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TXx",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Cryosphere",
+        "sector:Energy",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TNn",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Cryosphere",
+        "sector:Energy",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:WSDI",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:WSDId",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:CSDI",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:CSDId",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:TXgt50p",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:TX95t",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:TMge5",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TMlt5",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TMge10",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TMlt10",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TXge30",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:TXge35",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Forestry%2FGHGs",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:TXdTNd",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:HDDheatn",
+      "isClassifiedBy": [
+        "sector:Energy",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:CDDcoldn",
+      "isClassifiedBy": [
+        "sector:Energy",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:GDDgrown",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Health"
+      ]
+    },
+    {
+      "@id": "climdex:CDD",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:R20mm",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:PRCPTOT",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:R95pTOT",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:R99pTOT",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:RXdday",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:SPI",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:SPEI",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:TXbdTNbd",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:DTR",
+      "isClassifiedBy": [
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:TNx",
+      "isClassifiedBy": [
+        "sector:Cryosphere"
+      ]
+    },
+    {
+      "@id": "climdex:TXn",
+      "isClassifiedBy": [
+        "sector:Cryosphere"
+      ]
+    },
+    {
+      "@id": "climdex:TMm",
+      "isClassifiedBy": [
+        "sector:Cryosphere",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:TXm",
+      "isClassifiedBy": [
+        "sector:Cryosphere",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:TNm",
+      "isClassifiedBy": [
+        "sector:Cryosphere"
+      ]
+    },
+    {
+      "@id": "climdex:TX10p",
+      "isClassifiedBy": [
+        "sector:Energy"
+      ]
+    },
+    {
+      "@id": "climdex:TX90p",
+      "isClassifiedBy": [
+        "sector:Energy"
+      ]
+    },
+    {
+      "@id": "climdex:TN10p",
+      "isClassifiedBy": [
+        "sector:Energy"
+      ]
+    },
+    {
+      "@id": "climdex:TN90p",
+      "isClassifiedBy": [
+        "sector:Energy"
+      ]
+    },
+    {
+      "@id": "climdex:CWD",
+      "isClassifiedBy": [
+        "sector:Coasts"
+      ]
+    },
+    {
+      "@id": "climdex:R10mm",
+      "isClassifiedBy": [
+        "sector:Coasts"
+      ]
+    },
+    {
+      "@id": "climdex:Rnnmm",
+      "isClassifiedBy": [
+        "sector:Coasts"
+      ]
+    },
+    {
+      "@id": "climdex:SDII",
+      "isClassifiedBy": [
+        "sector:Forestry%2FGHGs",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:R95p",
+      "isClassifiedBy": [
+        "sector:Coasts"
+      ]
+    },
+    {
+      "@id": "climdex:R99p",
+      "isClassifiedBy": [
+        "sector:Coasts"
+      ]
+    },
+    {
+      "@id": "climdex:Rx1day",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:Rx5day",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Forestry%2FGHGs"
+      ]
+    },
+    {
+      "@id": "climdex:HWN%20%28EHF%2FTX90%2FTN90%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:HWF%20%28EHF%2FTX90%2FTN90%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:HWD%20%28EHF%2FTX90%2FTN90%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:HWM%20%28EHF%2FTX90%2FTN90%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:HWA%20%28EHF%2FTX90%2FTN90%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Disaster%20Risk%20Reduction",
+        "sector:Energy",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:CWN%20%28ECF%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:CWF%20%28ECF%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:CWD%20%28ECF%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:CWM%20%28ECF%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "climdex:CWA%20%28ECF%29",
+      "isClassifiedBy": [
+        "sector:Agriculture%20and%20food%20security",
+        "sector:Coasts",
+        "sector:Cryosphere",
+        "sector:Fisheries",
+        "sector:Forestry%2FGHGs",
+        "sector:Health",
+        "sector:Water%20resources%20and%20food%20security"
+      ]
+    },
+    {
+      "@id": "sectors:Agriculture%20and%20food%20security",
+      "@type": "top:Concept",
+      "label": "Agriculture and food security",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Coasts",
+      "@type": "top:Concept",
+      "label": "Coasts",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Cryosphere",
+      "@type": "top:Concept",
+      "label": "Cryosphere",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Disaster%20Risk%20Reduction",
+      "@type": "top:Concept",
+      "label": "Disaster Risk Reduction",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Energy",
+      "@type": "top:Concept",
+      "label": "Energy",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Fisheries",
+      "@type": "top:Concept",
+      "label": "Fisheries",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Forestry%2FGHGs",
+      "@type": "top:Concept",
+      "label": "Forestry/GHGs",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Health",
+      "@type": "top:Concept",
+      "label": "Health",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "sectors:Water%20resources%20and%20food%20security",
+      "@type": "top:Concept",
+      "label": "Water resources and food security",
+      "isDefinedIn": "https://w3id.org/hacid/data/climdex/sectors"
+    },
+    {
+      "@id": "https://w3id.org/hacid/data/climdex/sectors",
+      "@type": "top:Description",
+      "label": "Sectors according to climdex.org",
+      "comment": "Economic sectors defined to classify climate indices according to climdex.org"
+    }
+  ]
+}

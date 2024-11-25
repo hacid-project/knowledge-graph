@@ -1,0 +1,2877 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "top": "https://w3id.org/hacid/onto/top-level/",
+    "ccso": "https://w3id.org/hacid/onto/ccso/",
+    "index": "https://w3id.org/hacid/data/climdex/index",
+    "sector": "https://w3id.org/hacid/data/climdex/sector/",
+    "variable": "https://w3id.org/hacid/data/dreq/mip-variable/",
+    "unit": "https://w3id.org/hacid/data/unitofmeasure/",
+    "label": "rdfs:label",
+    "comment": "rdfs:comment",
+    "acronym": "top:acronym",
+    "definition": "top:definition",
+    "hasUnitOfMeasure": {
+      "@id": "top:hasUnitOfMeasure",
+      "@type": "top:UnitOfMeasure"
+    },
+    "permitsTemporalResolution": {
+      "@id": "ccso:permitsTemporalResolution",
+      "@type": "top:TimeDuration"
+    },
+    "isClassifiedBy": {
+      "@reverse": {
+        "@id": "top:classifies"
+      }
+    },
+    "basedOnVariable": {
+      "@id": "ccso:basedOnVariable",
+      "@type": "ccso:Variable"
+    },
+    "generated": "ccso:generated"
+  },
+  "@graph": [
+    {
+      "@id": "index:FD",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "FD",
+      "label": "Frost Days (FD)",
+      "definition": "Number of days when TN < 0 °C",
+      "comment": "Days when minimum temperature is below 0°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "FD",
+        "longName": "Frost Days",
+        "definition": "Number of days when TN < 0 °C",
+        "description": "Days when minimum temperature is below 0°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:TNlt2",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TNlt2",
+      "label": "TN below 2°C (TNlt2)",
+      "definition": "Number of days when TN < 2 °C",
+      "comment": "Days when minimum temperature is below 2°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TNlt2",
+        "longName": "TN below 2°C",
+        "definition": "Number of days when TN < 2 °C",
+        "description": "Days when minimum temperature is below 2°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:TNltm2",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TNltm2",
+      "label": "TN below -2°C (TNltm2)",
+      "definition": "Number of days when TN < -2 °C",
+      "comment": "Days when minimum temperature is below -2°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TNltm2",
+        "longName": "TN below -2°C",
+        "definition": "Number of days when TN < -2 °C",
+        "description": "Days when minimum temperature is below -2°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:TNltm20",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TNltm20",
+      "label": "TN below -20°C (TNltm20)",
+      "definition": "Number of days when TN < -20 °C",
+      "comment": "Days when minimum temperature is below -20°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TNltm20",
+        "longName": "TN below -20°C",
+        "definition": "Number of days when TN < -20 °C",
+        "description": "Days when minimum temperature is below -20°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:ID",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "ID",
+      "label": "Ice Days (ID)",
+      "definition": "Number of days when TX < 0 °C",
+      "comment": "Days when maximum temperature is below 0°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "ID",
+        "longName": "Ice Days",
+        "definition": "Number of days when TX < 0 °C",
+        "description": "Days when maximum temperature is below 0°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:SU",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "SU",
+      "label": "Summer days (SU)",
+      "definition": "Number of days when TX > 25 °C",
+      "comment": "Days when maximum temperature exceeds 25°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "SU",
+        "longName": "Summer days",
+        "definition": "Number of days when TX > 25 °C",
+        "description": "Days when maximum temperature exceeds 25°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TR",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TR",
+      "label": "Tropical nights (TR)",
+      "definition": "Number of days when TN > 20 °C",
+      "comment": "Days when minimum temperature exceeds 20°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TR",
+        "longName": "Tropical nights",
+        "definition": "Number of days when TN > 20 °C",
+        "description": "Days when minimum temperature exceeds 20°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:GSL",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "GSL",
+      "label": "Growing Season Length (GSL)",
+      "definition": "Annual number of days between the first occurrence of 6 consecutive days with TM > 5 °C and the first occurrence of 6 consecutive days with TM < 5 °C",
+      "comment": "Length of time in which plants can grow",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "GSL",
+        "longName": "Growing Season Length",
+        "definition": "Annual number of days between the first occurrence of 6 consecutive days with TM > 5 °C and the first occurrence of 6 consecutive days with TM < 5 °C",
+        "description": "Length of time in which plants can grow",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:TXx",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXx",
+      "label": "Max TX (TXx)",
+      "definition": "Warmest daily TX",
+      "comment": "Hottest day",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXx",
+        "longName": "Max TX",
+        "definition": "Warmest daily TX",
+        "description": "Hottest day",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TNn",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TNn",
+      "label": "Min TN (TNn)",
+      "definition": "Coldest daily TN",
+      "comment": "Coldest night",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TNn",
+        "longName": "Min TN",
+        "definition": "Coldest daily TN",
+        "description": "Coldest night",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:WSDI",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "WSDI",
+      "label": "Warm spell duration indicator (WSDI)",
+      "definition": "Annual number of days contributing to events where 6 or more consecutive days experience TX > 90th percentile",
+      "comment": "Number of days contributing to a warm period (where the period has to be at least 6 days long)",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "WSDI",
+        "longName": "Warm spell duration indicator",
+        "definition": "Annual number of days contributing to events where 6 or more consecutive days experience TX > 90th percentile",
+        "description": "Number of days contributing to a warm period (where the period has to be at least 6 days long)",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:WSDId",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "WSDId",
+      "label": "User-defined WSDI (WSDId)",
+      "definition": "Annual number of days contributing to events where d or more consecutive days experience TX > 90th percentile",
+      "comment": "Number of days contributing to a warm period (where the minimum length is user-specified)",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "WSDId",
+        "longName": "User-defined WSDI",
+        "definition": "Annual number of days contributing to events where d or more consecutive days experience TX > 90th percentile",
+        "description": "Number of days contributing to a warm period (where the minimum length is user-specified)",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TX"
+        ],
+        "parameters": [
+          {
+            "propertyId": "minimumLength",
+            "shortName": "minimum length",
+            "varLabel": "d"
+          }
+        ],
+        "generated": []
+      }
+    },
+    {
+      "@id": "index:CSDI",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CSDI",
+      "label": "Cold spell duration indicator (CSDI)",
+      "definition": "Annual number of days contributing to events where 6 or more consecutive days experience TN < 10th percentile",
+      "comment": "Number of days contributing to a cold period (where the period has to be at least 6 days long)",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "CSDI",
+        "longName": "Cold spell duration indicator",
+        "definition": "Annual number of days contributing to events where 6 or more consecutive days experience TN < 10th percentile",
+        "description": "Number of days contributing to a cold period (where the period has to be at least 6 days long)",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:CSDId",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CSDId",
+      "label": "User-defined CSDI (CSDId)",
+      "definition": "Annual number of days contributing to events where d or more consecutive days experience TN < 10th percentile",
+      "comment": "Number of days contributing to a cold period (where the minimum length is user-specified)",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "CSDId",
+        "longName": "User-defined CSDI",
+        "definition": "Annual number of days contributing to events where d or more consecutive days experience TN < 10th percentile",
+        "description": "Number of days contributing to a cold period (where the minimum length is user-specified)",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TN"
+        ],
+        "parameters": [
+          {
+            "propertyId": "minimumLength",
+            "shortName": "minimum length",
+            "varLabel": "d"
+          }
+        ],
+        "generated": []
+      }
+    },
+    {
+      "@id": "index:TXgt50p",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXgt50p",
+      "label": "Fraction of days with temperatures above the median (TXgt50p)",
+      "definition": "Percentage of days where TX > 50th percentile",
+      "comment": "Fraction of days with above-median temperature",
+      "hasUnitOfMeasure": "unit:%25",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXgt50p",
+        "longName": "Fraction of days with temperatures above the median",
+        "definition": "Percentage of days where TX > 50th percentile",
+        "description": "Fraction of days with above-median temperature",
+        "units": "%",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TX95t",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TX95t",
+      "label": "Very warm day threshold (TX95t)",
+      "definition": "Value of 95th percentile of TX",
+      "comment": "A threshold where days above this temperature would be classified as very warm",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TX95t",
+        "longName": "Very warm day threshold",
+        "definition": "Value of 95th percentile of TX",
+        "description": "A threshold where days above this temperature would be classified as very warm",
+        "units": "°C",
+        "timeScales": [
+          "Daily"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TMge5",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TMge5",
+      "label": "TM of at least 5°C (TMge5)",
+      "definition": "Number of days when TM >= 5 °C",
+      "comment": "Days when average temperature is at least 5°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "TMge5",
+        "longName": "TM of at least 5°C",
+        "definition": "Number of days when TM >= 5 °C",
+        "description": "Days when average temperature is at least 5°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:TMlt5",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TMlt5",
+      "label": "TM below 5°C (TMlt5)",
+      "definition": "Number of days when TM < 5 °C",
+      "comment": "Days when average temperature is below 5°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "TMlt5",
+        "longName": "TM below 5°C",
+        "definition": "Number of days when TM < 5 °C",
+        "description": "Days when average temperature is below 5°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:TMge10",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TMge10",
+      "label": "TM of at least 10°C (TMge10)",
+      "definition": "Number of days when TM >= 10 °C",
+      "comment": "Days when average temperature is at least 10°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "TMge10",
+        "longName": "TM of at least 10°C",
+        "definition": "Number of days when TM >= 10 °C",
+        "description": "Days when average temperature is at least 10°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:TMlt10",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TMlt10",
+      "label": "TM below 10°C (TMlt10)",
+      "definition": "Number of days when TM < 10 °C",
+      "comment": "Days when average temperature is below 10°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "TMlt10",
+        "longName": "TM below 10°C",
+        "definition": "Number of days when TM < 10 °C",
+        "description": "Days when average temperature is below 10°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:TXge30",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXge30",
+      "label": "TX of at least 30°C (TXge30)",
+      "definition": "Number of days when TX >= 30 °C",
+      "comment": "Days when maximum temperature is at least 30°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXge30",
+        "longName": "TX of at least 30°C",
+        "definition": "Number of days when TX >= 30 °C",
+        "description": "Days when maximum temperature is at least 30°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TXge35",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXge35",
+      "label": "TX of at least 35°C (TXge35)",
+      "definition": "Number of days when TX >= 35 °C",
+      "comment": "Days when maximum temperature is at least 35°C",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXge35",
+        "longName": "TX of at least 35°C",
+        "definition": "Number of days when TX >= 35 °C",
+        "description": "Days when maximum temperature is at least 35°C",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TXdTNd",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXdTNd",
+      "label": "User-defined consecutive number of hot days and nights (TXdTNd)",
+      "definition": "Annual count of d consecutive days where both TX > 95th percentile and TN > 95th percentile, where 10 >= d >= 2",
+      "comment": "Total consecutive hot days and hot nights (where consecutive periods are user-specified)",
+      "hasUnitOfMeasure": "unit:events",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin",
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXdTNd",
+        "longName": "User-defined consecutive number of hot days and nights",
+        "definition": "Annual count of d consecutive days where both TX > 95th percentile and TN > 95th percentile, where 10 >= d >= 2",
+        "description": "Total consecutive hot days and hot nights (where consecutive periods are user-specified)",
+        "units": "events",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TN",
+          "TX"
+        ],
+        "parameters": [
+          {
+            "propertyId": "minimumLength",
+            "shortName": "minimum length",
+            "varLabel": "d"
+          }
+        ],
+        "generated": []
+      }
+    },
+    {
+      "@id": "index:HDDheatn",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HDDheatn",
+      "label": "Heating Degree Days (HDDheatn)",
+      "definition": "Annual sum of n - TM (where n is a user-defined location-specific base temperature and TM < n)",
+      "comment": "A measure of the energy demand needed to heat a building",
+      "hasUnitOfMeasure": "unit:degree-days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "HDDheatn",
+        "longName": "Heating Degree Days",
+        "definition": "Annual sum of n - TM (where n is a user-defined location-specific base temperature and TM < n)",
+        "description": "A measure of the energy demand needed to heat a building",
+        "units": "degree-days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM"
+        ],
+        "parameters": [
+          {
+            "propertyId": "baseTemperature",
+            "shortName": "base temperature",
+            "varLabel": "n"
+          }
+        ],
+        "generated": []
+      }
+    },
+    {
+      "@id": "index:CDDcoldn",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CDDcoldn",
+      "label": "Cooling Degree Days (CDDcoldn)",
+      "definition": "Annual sum of TM - n (where n is a user-defined location-specific base temperature and TM > n)",
+      "comment": "A measure of the energy demand needed to cool a building",
+      "hasUnitOfMeasure": "unit:degree-days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "CDDcoldn",
+        "longName": "Cooling Degree Days",
+        "definition": "Annual sum of TM - n (where n is a user-defined location-specific base temperature and TM > n)",
+        "description": "A measure of the energy demand needed to cool a building",
+        "units": "degree-days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM"
+        ],
+        "parameters": [
+          {
+            "propertyId": "baseTemperature",
+            "shortName": "base temperature",
+            "varLabel": "n"
+          }
+        ],
+        "generated": []
+      }
+    },
+    {
+      "@id": "index:GDDgrown",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "GDDgrown",
+      "label": "Growing Degree Days (GDDgrown)",
+      "definition": "Annual sum of TM - n (where n is a user-defined location-specific base temperature and TM > n)",
+      "comment": "A measure of heat accumulation to predict plant and animal developmental rates",
+      "hasUnitOfMeasure": "unit:degree-days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "GDDgrown",
+        "longName": "Growing Degree Days",
+        "definition": "Annual sum of TM - n (where n is a user-defined location-specific base temperature and TM > n)",
+        "description": "A measure of heat accumulation to predict plant and animal developmental rates",
+        "units": "degree-days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM"
+        ],
+        "parameters": [
+          {
+            "propertyId": "baseTemperature",
+            "shortName": "base temperature",
+            "varLabel": "n"
+          }
+        ],
+        "generated": []
+      }
+    },
+    {
+      "@id": "index:CDD",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CDD",
+      "label": "Consecutive Dry Days (CDD)",
+      "definition": "Maximum number of consecutive dry days (when PR < 1.0 mm)",
+      "comment": "Longest dry spell",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "CDD",
+        "longName": "Consecutive Dry Days",
+        "definition": "Maximum number of consecutive dry days (when PR < 1.0 mm)",
+        "description": "Longest dry spell",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:R20mm",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "R20mm",
+      "label": "Number of very heavy rain days (R20mm)",
+      "definition": "Number of days when PR >= 20 mm",
+      "comment": "Days when rainfall is at least 20mm",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "R20mm",
+        "longName": "Number of very heavy rain days",
+        "definition": "Number of days when PR >= 20 mm",
+        "description": "Days when rainfall is at least 20mm",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:PRCPTOT",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "PRCPTOT",
+      "label": "Annual total wet-day PR (PRCPTOT)",
+      "definition": "Sum of daily PR >= 1.0 mm",
+      "comment": "Total wet-day rainfall",
+      "hasUnitOfMeasure": "unit:mm",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "PRCPTOT",
+        "longName": "Annual total wet-day PR",
+        "definition": "Sum of daily PR >= 1.0 mm",
+        "description": "Total wet-day rainfall",
+        "units": "mm",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:R95pTOT",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "R95pTOT",
+      "label": "Contribution from very wet days (R95pTOT)",
+      "definition": "100*r95p / PRCPTOT",
+      "comment": "Fraction of total wet-day rainfall that comes from very wet days",
+      "hasUnitOfMeasure": "unit:%25",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "R95pTOT",
+        "longName": "Contribution from very wet days",
+        "definition": "100*r95p / PRCPTOT",
+        "description": "Fraction of total wet-day rainfall that comes from very wet days",
+        "units": "%",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:R99pTOT",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "R99pTOT",
+      "label": "Contribution from extremely wet days (R99pTOT)",
+      "definition": "100*r99p / PRCPTOT",
+      "comment": "Fraction of total wet-day rainfall that comes from extremely wet days",
+      "hasUnitOfMeasure": "unit:%25",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "R99pTOT",
+        "longName": "Contribution from extremely wet days",
+        "definition": "100*r99p / PRCPTOT",
+        "description": "Fraction of total wet-day rainfall that comes from extremely wet days",
+        "units": "%",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:RXdday",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "RXdday",
+      "label": "User-defined consecutive days PR amount (RXdday)",
+      "definition": "Maximum d-day PR total",
+      "comment": "Maximum amount of rain that falls in a user-specified period",
+      "hasUnitOfMeasure": "unit:mm",
+      "generated": [
+        "index:Rx1day",
+        "index:Rx5day"
+      ],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "RXdday",
+        "longName": "User-defined consecutive days PR amount",
+        "definition": "Maximum d-day PR total",
+        "description": "Maximum amount of rain that falls in a user-specified period",
+        "units": "mm",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "PR"
+        ],
+        "parameters": [
+          {
+            "propertyId": "minimumLength",
+            "shortName": "minimum length",
+            "varLabel": "d"
+          }
+        ],
+        "generated": [
+          "Rx1day",
+          "Rx5day"
+        ]
+      }
+    },
+    {
+      "@id": "index:SPI",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "SPI",
+      "label": "Standardised Precipitation Index (SPI)",
+      "definition": "Measure of “drought” using the Standardised Precipitation Index on time scales of 3, 6 and 12 months. See [McKee et al. (1993)](#appendixa_refs) and the [WMO SPI User guide (World Meteorological Organization, 2012)](#appendixa_refs) for details.<br>Calculated using the [SPEI R package](https://cran.r-project.org/web/packages/SPEI/index.html).",
+      "comment": "A drought measure specified as a precipitation deficit",
+      "hasUnitOfMeasure": "unit:unitless",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "SPI",
+        "longName": "Standardised Precipitation Index",
+        "definition": "Measure of “drought” using the Standardised Precipitation Index on time scales of 3, 6 and 12 months. See [McKee et al. (1993)](#appendixa_refs) and the [WMO SPI User guide (World Meteorological Organization, 2012)](#appendixa_refs) for details.<br>Calculated using the [SPEI R package](https://cran.r-project.org/web/packages/SPEI/index.html).",
+        "description": "A drought measure specified as a precipitation deficit",
+        "units": "unitless",
+        "timeScales": [
+          "Custom"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:SPEI",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "SPEI",
+      "label": "Standardised Precipitation Evapotranspiration Index (SPEI)",
+      "definition": "Measure of “drought” using the Standardised Precipitation Evapotranspiration Index on time scales of 3, 6 and 12 months. See [Vicente-Serrano et al. (2010)](#appendixa_refs) for details.<br>Calculated using the [SPEI R package](https://cran.r-project.org/web/packages/SPEI/index.html).",
+      "comment": "A drought measure specified using precipitation and evaporation",
+      "hasUnitOfMeasure": "unit:unitless",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr",
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "SPEI",
+        "longName": "Standardised Precipitation Evapotranspiration Index",
+        "definition": "Measure of “drought” using the Standardised Precipitation Evapotranspiration Index on time scales of 3, 6 and 12 months. See [Vicente-Serrano et al. (2010)](#appendixa_refs) for details.<br>Calculated using the [SPEI R package](https://cran.r-project.org/web/packages/SPEI/index.html).",
+        "description": "A drought measure specified using precipitation and evaporation",
+        "units": "unitless",
+        "timeScales": [
+          "Custom"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "PR",
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:TXbdTNbd",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXbdTNbd",
+      "label": "User-defined consecutive number of cold days and nights (TXbdTNbd)",
+      "definition": "Annual number of d consecutive days where both TX < 5th percentile and TN < 5th percentile, where 10 >= d >=2",
+      "comment": "Total consecutive cold days and cold nights (where consecutive periods are user-specified)",
+      "hasUnitOfMeasure": "unit:events",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin",
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXbdTNbd",
+        "longName": "User-defined consecutive number of cold days and nights",
+        "definition": "Annual number of d consecutive days where both TX < 5th percentile and TN < 5th percentile, where 10 >= d >=2",
+        "description": "Total consecutive cold days and cold nights (where consecutive periods are user-specified)",
+        "units": "events",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TN",
+          "TX"
+        ],
+        "parameters": [
+          {
+            "propertyId": "minimumLength",
+            "shortName": "minimum length",
+            "varLabel": "d"
+          }
+        ],
+        "generated": []
+      }
+    },
+    {
+      "@id": "index:DTR",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "DTR",
+      "label": "Daily Temperature Range (DTR)",
+      "definition": "Mean difference between daily TX and daily TN",
+      "comment": "Average range of maximum and minimum temperature",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin",
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "DTR",
+        "longName": "Daily Temperature Range",
+        "definition": "Mean difference between daily TX and daily TN",
+        "description": "Average range of maximum and minimum temperature",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TN",
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TNx",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TNx",
+      "label": "Max TN (TNx)",
+      "definition": "Warmest daily TN",
+      "comment": "Hottest night",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TNx",
+        "longName": "Max TN",
+        "definition": "Warmest daily TN",
+        "description": "Hottest night",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:TXn",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXn",
+      "label": "Min TX (TXn)",
+      "definition": "Coldest daily TX",
+      "comment": "Coldest day",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXn",
+        "longName": "Min TX",
+        "definition": "Coldest daily TX",
+        "description": "Coldest day",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TMm",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TMm",
+      "label": "Mean TM (TMm)",
+      "definition": "Mean daily mean temperature",
+      "comment": "Average daily temperature",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "TMm",
+        "longName": "Mean TM",
+        "definition": "Mean daily mean temperature",
+        "description": "Average daily temperature",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:TXm",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TXm",
+      "label": "Mean TX (TXm)",
+      "definition": "Mean daily maximum temperature",
+      "comment": "Average daily maximum temperature",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TXm",
+        "longName": "Mean TX",
+        "definition": "Mean daily maximum temperature",
+        "description": "Average daily maximum temperature",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TNm",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TNm",
+      "label": "Mean TN (TNm)",
+      "definition": "Mean daily minimum temperature",
+      "comment": "Average daily minimum temperature",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TNm",
+        "longName": "Mean TN",
+        "definition": "Mean daily minimum temperature",
+        "description": "Average daily minimum temperature",
+        "units": "°C",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:TX10p",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TX10p",
+      "label": "Amount of cool days (TX10p)",
+      "definition": "Percentage of days when TX < 10th percentile",
+      "comment": "Fraction of days with cool day time temperatures",
+      "hasUnitOfMeasure": "unit:%25",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TX10p",
+        "longName": "Amount of cool days",
+        "definition": "Percentage of days when TX < 10th percentile",
+        "description": "Fraction of days with cool day time temperatures",
+        "units": "%",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TX90p",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TX90p",
+      "label": "Amount of hot days (TX90p)",
+      "definition": "Percentage of days when TX > 90th percentile",
+      "comment": "Fraction of days with hot day time temperatures",
+      "hasUnitOfMeasure": "unit:%25",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "TX90p",
+        "longName": "Amount of hot days",
+        "definition": "Percentage of days when TX > 90th percentile",
+        "description": "Fraction of days with hot day time temperatures",
+        "units": "%",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ]
+      }
+    },
+    {
+      "@id": "index:TN10p",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TN10p",
+      "label": "Amount of cold nights (TN10p)",
+      "definition": "Percentage of days when TN < 10th percentile",
+      "comment": "Fraction of days with cold night time temperatures",
+      "hasUnitOfMeasure": "unit:%25",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TN10p",
+        "longName": "Amount of cold nights",
+        "definition": "Percentage of days when TN < 10th percentile",
+        "description": "Fraction of days with cold night time temperatures",
+        "units": "%",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:TN90p",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "TN90p",
+      "label": "Amount of warm nights (TN90p)",
+      "definition": "Percentage of days when TN > 90th percentile",
+      "comment": "Fraction of days with warm night time temperatures",
+      "hasUnitOfMeasure": "unit:%25",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "TN90p",
+        "longName": "Amount of warm nights",
+        "definition": "Percentage of days when TN > 90th percentile",
+        "description": "Fraction of days with warm night time temperatures",
+        "units": "%",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ]
+      }
+    },
+    {
+      "@id": "index:CWD",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CWD",
+      "label": "Consecutive Wet Days (CWD)",
+      "definition": "Maximum annual number of consecutive wet days (when PR >= 1.0 mm)",
+      "comment": "The longest wet spell",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "CWD",
+        "longName": "Consecutive Wet Days",
+        "definition": "Maximum annual number of consecutive wet days (when PR >= 1.0 mm)",
+        "description": "The longest wet spell",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:R10mm",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "R10mm",
+      "label": "Number of heavy rain days (R10mm)",
+      "definition": "Number of days when PR >= 10 mm",
+      "comment": "Days when rainfall is at least 10mm",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "R10mm",
+        "longName": "Number of heavy rain days",
+        "definition": "Number of days when PR >= 10 mm",
+        "description": "Days when rainfall is at least 10mm",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:Rnnmm",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "Rnnmm",
+      "label": "Number of customised rain days (Rnnmm)",
+      "definition": "Number of days when PR >= nn",
+      "comment": "Days when rainfall is at least a user-specified number of mm",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [
+        "index:R10mm",
+        "index:R20mm"
+      ],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "Rnnmm",
+        "longName": "Number of customised rain days",
+        "definition": "Number of days when PR >= nn",
+        "description": "Days when rainfall is at least a user-specified number of mm",
+        "units": "days",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": true,
+        "baseVars": [
+          "PR"
+        ],
+        "parameters": [
+          {
+            "propertyId": "minimumPrecipitation",
+            "shortName": "minimum precipitation",
+            "varLabel": "nn"
+          }
+        ],
+        "generated": [
+          "R10mm",
+          "R20mm"
+        ]
+      }
+    },
+    {
+      "@id": "index:SDII",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "SDII",
+      "label": "Daily PR intensity (SDII)",
+      "definition": "Annual total PR divided by the number of wet days (when total PR >= 1.0 mm)",
+      "comment": "Average daily wet-day rainfall intensity",
+      "hasUnitOfMeasure": "unit:mm%2Fday",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "SDII",
+        "longName": "Daily PR intensity",
+        "definition": "Annual total PR divided by the number of wet days (when total PR >= 1.0 mm)",
+        "description": "Average daily wet-day rainfall intensity",
+        "units": "mm/day",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:R95p",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "R95p",
+      "label": "Total annual PR from heavy rain days (R95p)",
+      "definition": "Annual sum of daily PR > 95th percentile",
+      "comment": "Amount of rainfall from very wet days",
+      "hasUnitOfMeasure": "unit:mm",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "R95p",
+        "longName": "Total annual PR from heavy rain days",
+        "definition": "Annual sum of daily PR > 95th percentile",
+        "description": "Amount of rainfall from very wet days",
+        "units": "mm",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:R99p",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "R99p",
+      "label": "Total annual PR from very heavy rain days (R99p)",
+      "definition": "Annual sum of daily PR > 99th percentile",
+      "comment": "Amount of rainfall from extremely wet days",
+      "hasUnitOfMeasure": "unit:mm",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "R99p",
+        "longName": "Total annual PR from very heavy rain days",
+        "definition": "Annual sum of daily PR > 99th percentile",
+        "description": "Amount of rainfall from extremely wet days",
+        "units": "mm",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:Rx1day",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "Rx1day",
+      "label": "Max 1-day PR (Rx1day)",
+      "definition": "Maximum 1-day PR total",
+      "comment": "Maximum amount of rain that falls in one day",
+      "hasUnitOfMeasure": "unit:mm",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "Rx1day",
+        "longName": "Max 1-day PR",
+        "definition": "Maximum 1-day PR total",
+        "description": "Maximum amount of rain that falls in one day",
+        "units": "mm",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:Rx5day",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "Rx5day",
+      "label": "Max 5-day PR (Rx5day)",
+      "definition": "Maximum 5-day PR total",
+      "comment": "Maximum amount of rain that falls in five consecutive days",
+      "hasUnitOfMeasure": "unit:mm",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:pr"
+      ],
+      "rest": {
+        "shortName": "Rx5day",
+        "longName": "Max 5-day PR",
+        "definition": "Maximum 5-day PR total",
+        "description": "Maximum amount of rain that falls in five consecutive days",
+        "units": "mm",
+        "timeScales": [
+          "Mon",
+          "Ann"
+        ],
+        "sectors": [],
+        "parametric": false,
+        "baseVars": [
+          "PR"
+        ]
+      }
+    },
+    {
+      "@id": "index:HWN%28EHF%2FTx90%2FTn90%29",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWN(EHF/Tx90/Tn90)",
+      "label": "Heatwave number (HWN) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN (HWN(EHF/Tx90/Tn90))",
+      "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where either the EHF is positive, TX > 90th percentile of TX or where TN > 90th percentile of TN. Where percentiles are calculated from base period specified by user.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:Number%20of%20individual%20heatwaves%20events",
+      "generated": [
+        "index:HWN_EHF",
+        "index:HWN_Tx90",
+        "index:HWN_Tn90"
+      ],
+      "basedOnVariable": [
+        "variable:tas",
+        "variable:tasmax",
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWN(EHF/Tx90/Tn90)",
+        "longName": "Heatwave number (HWN) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN",
+        "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where either the EHF is positive, TX > 90th percentile of TX or where TN > 90th percentile of TN. Where percentiles are calculated from base period specified by user.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "Number of individual heatwaves events",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM",
+          "TX",
+          "TN"
+        ],
+        "parameters": [
+          {
+            "propertyId": "heatwaveMethod",
+            "shortName": "heatwave identification method",
+            "varLabel": "m"
+          }
+        ],
+        "generated": [
+          "HWN_EHF",
+          "HWN_Tx90",
+          "HWN_Tn90"
+        ]
+      }
+    },
+    {
+      "@id": "index:HWN_EHF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWN_EHF",
+      "label": "Heatwave number (HWN) as defined by the Excess Heat Factor (EHF) (HWN_EHF)",
+      "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where the EHF is positive. Where percentiles are calculated from base period specified by user.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:Number%20of%20individual%20heatwaves%20events",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "HWN_EHF",
+        "longName": "Heatwave number (HWN) as defined by the Excess Heat Factor (EHF)",
+        "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where the EHF is positive. Where percentiles are calculated from base period specified by user.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "Number of individual heatwaves events",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ],
+        "heatwaveMethod": "EHF"
+      }
+    },
+    {
+      "@id": "index:HWN_Tx90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWN_Tx90",
+      "label": "Heatwave number (HWN) as defined by the 90th percentile of TX (HWN_Tx90)",
+      "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where TX > 90th percentile of TX. Where percentiles are calculated from base period specified by user.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:Number%20of%20individual%20heatwaves%20events",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "HWN_Tx90",
+        "longName": "Heatwave number (HWN) as defined by the 90th percentile of TX",
+        "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where TX > 90th percentile of TX. Where percentiles are calculated from base period specified by user.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "Number of individual heatwaves events",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ],
+        "heatwaveMethod": "Tx90"
+      }
+    },
+    {
+      "@id": "index:HWN_Tn90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWN_Tn90",
+      "label": "Heatwave number (HWN) as defined by the 90th percentile of TN (HWN_Tn90)",
+      "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where TN > 90th percentile of TN. Where percentiles are calculated from base period specified by user.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:Number%20of%20individual%20heatwaves%20events",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWN_Tn90",
+        "longName": "Heatwave number (HWN) as defined by the 90th percentile of TN",
+        "definition": "The number of individual heatwaves that occur each summer (Nov – Mar in southern hemisphere and May – Sep in northern hemisphere). A heatwave is defined as 3 or more days where TN > 90th percentile of TN. Where percentiles are calculated from base period specified by user.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "Number of individual heatwaves events",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ],
+        "heatwaveMethod": "Tn90"
+      }
+    },
+    {
+      "@id": "index:HWF%28EHF%2FTx90%2FTn90%29",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWF(EHF/Tx90/Tn90)",
+      "label": "Heatwave frequency (HWF) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN (HWF(EHF/Tx90/Tn90))",
+      "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [
+        "index:HWF_EHF",
+        "index:HWF_Tx90",
+        "index:HWF_Tn90"
+      ],
+      "basedOnVariable": [
+        "variable:tas",
+        "variable:tasmax",
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWF(EHF/Tx90/Tn90)",
+        "longName": "Heatwave frequency (HWF) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN",
+        "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM",
+          "TX",
+          "TN"
+        ],
+        "parameters": [
+          {
+            "propertyId": "heatwaveMethod",
+            "shortName": "heatwave identification method",
+            "varLabel": "m"
+          }
+        ],
+        "generated": [
+          "HWF_EHF",
+          "HWF_Tx90",
+          "HWF_Tn90"
+        ]
+      }
+    },
+    {
+      "@id": "index:HWF_EHF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWF_EHF",
+      "label": "Heatwave frequency (HWF) as defined by the Excess Heat Factor (EHF) (HWF_EHF)",
+      "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "HWF_EHF",
+        "longName": "Heatwave frequency (HWF) as defined by the Excess Heat Factor (EHF)",
+        "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ],
+        "heatwaveMethod": "EHF"
+      }
+    },
+    {
+      "@id": "index:HWF_Tx90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWF_Tx90",
+      "label": "Heatwave frequency (HWF) as defined by the 90th percentile of TX (HWF_Tx90)",
+      "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "HWF_Tx90",
+        "longName": "Heatwave frequency (HWF) as defined by the 90th percentile of TX",
+        "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ],
+        "heatwaveMethod": "Tx90"
+      }
+    },
+    {
+      "@id": "index:HWF_Tn90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWF_Tn90",
+      "label": "Heatwave frequency (HWF) as defined by the 90th percentile of TN (HWF_Tn90)",
+      "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWF_Tn90",
+        "longName": "Heatwave frequency (HWF) as defined by the 90th percentile of TN",
+        "definition": "The number of days that contribute to heatwaves as identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ],
+        "heatwaveMethod": "Tn90"
+      }
+    },
+    {
+      "@id": "index:HWD%28EHF%2FTx90%2FTn90%29",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWD(EHF/Tx90/Tn90)",
+      "label": "Heatwave duration (HWD) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN (HWD(EHF/Tx90/Tn90))",
+      "definition": "The length of the longest heatwave identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [
+        "index:HWD_EHF",
+        "index:HWD_Tx90",
+        "index:HWD_Tn90"
+      ],
+      "basedOnVariable": [
+        "variable:tas",
+        "variable:tasmax",
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWD(EHF/Tx90/Tn90)",
+        "longName": "Heatwave duration (HWD) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN",
+        "definition": "The length of the longest heatwave identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM",
+          "TX",
+          "TN"
+        ],
+        "parameters": [
+          {
+            "propertyId": "heatwaveMethod",
+            "shortName": "heatwave identification method",
+            "varLabel": "m"
+          }
+        ],
+        "generated": [
+          "HWD_EHF",
+          "HWD_Tx90",
+          "HWD_Tn90"
+        ]
+      }
+    },
+    {
+      "@id": "index:HWD_EHF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWD_EHF",
+      "label": "Heatwave duration (HWD) as defined by the Excess Heat Factor (EHF) (HWD_EHF)",
+      "definition": "The length of the longest heatwave identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "HWD_EHF",
+        "longName": "Heatwave duration (HWD) as defined by the Excess Heat Factor (EHF)",
+        "definition": "The length of the longest heatwave identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ],
+        "heatwaveMethod": "EHF"
+      }
+    },
+    {
+      "@id": "index:HWD_Tx90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWD_Tx90",
+      "label": "Heatwave duration (HWD) as defined by the 90th percentile of TX (HWD_Tx90)",
+      "definition": "The length of the longest heatwave identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "HWD_Tx90",
+        "longName": "Heatwave duration (HWD) as defined by the 90th percentile of TX",
+        "definition": "The length of the longest heatwave identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ],
+        "heatwaveMethod": "Tx90"
+      }
+    },
+    {
+      "@id": "index:HWD_Tn90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWD_Tn90",
+      "label": "Heatwave duration (HWD) as defined by the 90th percentile of TN (HWD_Tn90)",
+      "definition": "The length of the longest heatwave identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWD_Tn90",
+        "longName": "Heatwave duration (HWD) as defined by the 90th percentile of TN",
+        "definition": "The length of the longest heatwave identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ],
+        "heatwaveMethod": "Tn90"
+      }
+    },
+    {
+      "@id": "index:HWM%28EHF%2FTx90%2FTn90%29",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWM(EHF/Tx90/Tn90)",
+      "label": "Heatwave magnitude (HWM) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN (HWM(EHF/Tx90/Tn90))",
+      "definition": "The mean temperature of all heatwaves identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": [],
+      "generated": [
+        "index:HWM_EHF",
+        "index:HWM_Tx90",
+        "index:HWM_Tn90"
+      ],
+      "basedOnVariable": [
+        "variable:tas",
+        "variable:tasmax",
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWM(EHF/Tx90/Tn90)",
+        "longName": "Heatwave magnitude (HWM) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN",
+        "definition": "The mean temperature of all heatwaves identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM",
+          "TX",
+          "TN"
+        ],
+        "parameters": [
+          {
+            "propertyId": "heatwaveMethod",
+            "shortName": "heatwave identification method",
+            "varLabel": "m"
+          }
+        ],
+        "generated": [
+          "HWM_EHF",
+          "HWM_Tx90",
+          "HWM_Tn90"
+        ]
+      }
+    },
+    {
+      "@id": "index:HWM_EHF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWM_EHF",
+      "label": "Heatwave magnitude (HWM) as defined by the Excess Heat Factor (EHF) (HWM_EHF)",
+      "definition": "The mean temperature of all heatwaves identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:%C2%B0C%5E2",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "HWM_EHF",
+        "longName": "Heatwave magnitude (HWM) as defined by the Excess Heat Factor (EHF)",
+        "definition": "The mean temperature of all heatwaves identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "°C^2",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ],
+        "heatwaveMethod": "EHF"
+      }
+    },
+    {
+      "@id": "index:HWM_Tx90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWM_Tx90",
+      "label": "Heatwave magnitude (HWM) as defined by the 90th percentile of TX (HWM_Tx90)",
+      "definition": "The mean temperature of all heatwaves identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "HWM_Tx90",
+        "longName": "Heatwave magnitude (HWM) as defined by the 90th percentile of TX",
+        "definition": "The mean temperature of all heatwaves identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "°C",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ],
+        "heatwaveMethod": "Tx90"
+      }
+    },
+    {
+      "@id": "index:HWM_Tn90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWM_Tn90",
+      "label": "Heatwave magnitude (HWM) as defined by the 90th percentile of TN (HWM_Tn90)",
+      "definition": "The mean temperature of all heatwaves identified by HWN.",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWM_Tn90",
+        "longName": "Heatwave magnitude (HWM) as defined by the 90th percentile of TN",
+        "definition": "The mean temperature of all heatwaves identified by HWN.",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "°C",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ],
+        "heatwaveMethod": "Tn90"
+      }
+    },
+    {
+      "@id": "index:HWA%28EHF%2FTx90%2FTn90%29",
+      "@type": [
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWA(EHF/Tx90/Tn90)",
+      "label": "Heatwave amplitude (HWA) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN (HWA(EHF/Tx90/Tn90))",
+      "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": [],
+      "generated": [
+        "index:HWA_EHF",
+        "index:HWA_Tx90",
+        "index:HWA_Tn90"
+      ],
+      "basedOnVariable": [
+        "variable:tas",
+        "variable:tasmax",
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWA(EHF/Tx90/Tn90)",
+        "longName": "Heatwave amplitude (HWA) as defined by either the Excess Heat Factor (EHF), 90th percentile of TX or the 90th percentile of TN",
+        "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": true,
+        "baseVars": [
+          "TM",
+          "TX",
+          "TN"
+        ],
+        "parameters": [
+          {
+            "propertyId": "heatwaveMethod",
+            "shortName": "heatwave identification method",
+            "varLabel": "m"
+          }
+        ],
+        "generated": [
+          "HWA_EHF",
+          "HWA_Tx90",
+          "HWA_Tn90"
+        ]
+      }
+    },
+    {
+      "@id": "index:HWA_EHF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWA_EHF",
+      "label": "Heatwave amplitude (HWA) as defined by the Excess Heat Factor (EHF) (HWA_EHF)",
+      "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:%C2%B0C%5E2",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "HWA_EHF",
+        "longName": "Heatwave amplitude (HWA) as defined by the Excess Heat Factor (EHF)",
+        "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "°C^2",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ],
+        "heatwaveMethod": "EHF"
+      }
+    },
+    {
+      "@id": "index:HWA_Tx90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWA_Tx90",
+      "label": "Heatwave amplitude (HWA) as defined by the 90th percentile of TX (HWA_Tx90)",
+      "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmax"
+      ],
+      "rest": {
+        "shortName": "HWA_Tx90",
+        "longName": "Heatwave amplitude (HWA) as defined by the 90th percentile of TX",
+        "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "°C",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TX"
+        ],
+        "heatwaveMethod": "Tx90"
+      }
+    },
+    {
+      "@id": "index:HWA_Tn90",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "HWA_Tn90",
+      "label": "Heatwave amplitude (HWA) as defined by the 90th percentile of TN (HWA_Tn90)",
+      "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+      "comment": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+      "hasUnitOfMeasure": "unit:%C2%B0C",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tasmin"
+      ],
+      "rest": {
+        "shortName": "HWA_Tn90",
+        "longName": "Heatwave amplitude (HWA) as defined by the 90th percentile of TN",
+        "definition": "The peak daily value in the hottest heatwave (defined as the heatwave with highest HWM).",
+        "description": "See Appendix D and [Perkins and Alexander (2013)](#appendixa_refs) for more details.",
+        "units": "°C",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TN"
+        ],
+        "heatwaveMethod": "Tn90"
+      }
+    },
+    {
+      "@id": "index:CWN_ECF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CWN_ECF",
+      "label": "Coldwave number (CWN) as defined by the Excess Cold Factor (ECF). (CWN_ECF)",
+      "definition": "The number of individual ‘coldwaves’ that occur each year.",
+      "comment": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+      "hasUnitOfMeasure": "unit:events",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "CWN_ECF",
+        "longName": "Coldwave number (CWN) as defined by the Excess Cold Factor (ECF).",
+        "definition": "The number of individual ‘coldwaves’ that occur each year.",
+        "description": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+        "units": "events",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:CWF_ECF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CWF_ECF",
+      "label": "Coldwave frequency (CWF) as defined by the Excess Cold Factor (ECF). (CWF_ECF)",
+      "definition": "The number of days that contribute to ‘coldwaves’ as identified by ECF_HWN.",
+      "comment": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "CWF_ECF",
+        "longName": "Coldwave frequency (CWF) as defined by the Excess Cold Factor (ECF).",
+        "definition": "The number of days that contribute to ‘coldwaves’ as identified by ECF_HWN.",
+        "description": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:CWD_ECF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CWD_ECF",
+      "label": "Coldwave duration (CWD) as defined by the Excess Cold Factor (ECF). (CWD_ECF)",
+      "definition": "The length of the longest ‘coldwave’ identified by ECF_HWN.",
+      "comment": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+      "hasUnitOfMeasure": "unit:days",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "CWD_ECF",
+        "longName": "Coldwave duration (CWD) as defined by the Excess Cold Factor (ECF).",
+        "definition": "The length of the longest ‘coldwave’ identified by ECF_HWN.",
+        "description": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+        "units": "days",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:CWM_ECF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CWM_ECF",
+      "label": "Coldwave magnitude (CWM) as defined by the Excess Cold Factor (ECF). (CWM_ECF)",
+      "definition": "The mean temperature of all ‘coldwaves’ identified by ECF_HWN.",
+      "comment": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+      "hasUnitOfMeasure": "unit:%C2%B0C%5E2",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "CWM_ECF",
+        "longName": "Coldwave magnitude (CWM) as defined by the Excess Cold Factor (ECF).",
+        "definition": "The mean temperature of all ‘coldwaves’ identified by ECF_HWN.",
+        "description": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+        "units": "°C^2",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    },
+    {
+      "@id": "index:CWA_ECF",
+      "@type": [
+        "ccso:Index",
+        "ccso:ParametricIndex"
+      ],
+      "acronym": "CWA_ECF",
+      "label": "Coldwave amplitude (CWA) as defined by the Excess Cold Factor (ECF). (CWA_ECF)",
+      "definition": "The minimum daily value in the coldest ‘coldwave’ (defined as the coldwave with lowest ECF_HWM).",
+      "comment": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+      "hasUnitOfMeasure": "unit:%C2%B0C%5E2",
+      "generated": [],
+      "basedOnVariable": [
+        "variable:tas"
+      ],
+      "rest": {
+        "shortName": "CWA_ECF",
+        "longName": "Coldwave amplitude (CWA) as defined by the Excess Cold Factor (ECF).",
+        "definition": "The minimum daily value in the coldest ‘coldwave’ (defined as the coldwave with lowest ECF_HWM).",
+        "description": "See Appendix D and [Nairn and Fawcett (2013)](#appendixa_refs) for more information.",
+        "units": "°C^2",
+        "timeScales": [
+          "Ann"
+        ],
+        "sectors": [
+          "H",
+          "AFS",
+          "WRH"
+        ],
+        "parametric": false,
+        "baseVars": [
+          "TM"
+        ]
+      }
+    }
+  ]
+}
