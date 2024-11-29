@@ -116,7 +116,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasSpatialResolution">
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isSpatialResolutionOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Scenario"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Distance"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
@@ -386,7 +385,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/RegionalClimateModel -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/RegionalClimateModel">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/RegionalClimateModel"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
         <rdfs:comment xml:lang="en">A climate model meant to be used to simulate climate at regional scale.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Regional Climate Model</rdfs:label>
