@@ -1,5 +1,5 @@
 .DS_Store
-data/climate-services/cmip/cordex/data
-data/climate-services/cmip/cordex/raw-data/chunks
-data/climate-services/cmip/cordex/rdf
-data/climate-services/cmip/cmor-tables/rdf
+data/climate-services/cordex/data
+data/climate-services/cordex/raw-data/chunks
+data/climate-services/cordex/rdf
+data/climate-services/cmor-tables/rdf
