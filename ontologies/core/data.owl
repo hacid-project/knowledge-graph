@@ -386,6 +386,12 @@
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data#FiniteVariable">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data#Variable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/data#FiniteVariable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Finite Variable</rdfs:label>
     </owl:Class>
     
@@ -458,6 +464,12 @@
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data#Variable">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/data#Variable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A variable is an abstraction that has meaning in the context of some relation between different variables and can be associated to different values in a set that is usually well defined. The set of possible values is represented by a data:DimensionalSpace; the two are linked via the data:hasValuesOn property.</rdfs:comment>
         <rdfs:label xml:lang="en">Variable</rdfs:label>
     </owl:Class>
