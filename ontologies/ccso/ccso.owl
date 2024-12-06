@@ -14,7 +14,9 @@
      xmlns:agent="https://w3id.org/hacid/data/agent/"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/hacid/onto/ccso/">
-        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/ccso/0.1/"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/ccso/2.0/"/>
+        <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <owl:imports rdf:resource="https://w3id.org/hacid/onto/core/data"/>
         <dc:description rdf:resource="https://raw.githubusercontent.com/hacid-project/knowledge-graph/main/ontologies/climate-services/visual/simpler_model_rev.png"/>
         <terms:creator rdf:resource="https://w3id.org/hacid/data/person/andrea-giovanni-nuzzolese"/>
         <terms:creator rdf:resource="https://w3id.org/hacid/data/person/miguel-ceriani"/>
@@ -88,14 +90,110 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/generatesProjection -->
+    <!-- https://w3id.org/hacid/onto/ccso/assertsVulnerabilityToImpactType -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/generatesProjection">
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isGeneratedProjectionOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Dataset"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/assertsVulnerabilityToImpactType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isImpactTypeOfAssertedVulnerability"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/VulnerabilityType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:label xml:lang="en">asserts vulnerability to impact type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/causesPhenomenaOfType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/causesPhenomenaOfType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isCausedByPhenomenaOfType"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType"/>
+        <rdfs:label xml:lang="en">causes phenomena of type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasDownscaling -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasDownscaling">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that the output of a climate simulation has been used for a simulation downscaling.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">generates projection</rdfs:label>
+        <rdfs:label xml:lang="en">has downscaling</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasImpact -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasImpact">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Impact"/>
+        <rdfs:label xml:lang="en">has impact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasMemberSimulation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasMemberSimulation">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isMemberSimulationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/EnsembleSimulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:label xml:lang="en">has member simulation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasOutput -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasOutput">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/DataGeneratingProcess"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data#Dataset"/>
+        <rdfs:label xml:lang="en">has output</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasPotentialImpactType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasPotentialImpactType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isPotentialImpactTypeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/HazardType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:label xml:lang="en">has potential impact type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasPotentialVulnerabilityType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasPotentialVulnerabilityType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isPotentialVulnerabilityTypeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Asset_Type"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/VulnerabilityType"/>
+        <rdfs:label xml:lang="en">has potential vulnerability type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/hasPotentiallyImpactedVulnerability -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasPotentiallyImpactedVulnerability">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isVulnerabilityToImpactType"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Vulnerability"/>
+        <rdfs:label xml:lang="en">has potentially impacted vulnerability</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -103,9 +201,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasSpatialCoverage -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasSpatialCoverage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isSpatialCoverageOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/SpatialRegion"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">has spatial coverage</rdfs:label>
     </owl:ObjectProperty>
@@ -115,9 +213,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasSpatialResolution -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasSpatialResolution">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isSpatialResolutionOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Distance"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">has spatial resolution</rdfs:label>
     </owl:ObjectProperty>
@@ -127,6 +225,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasTemporalCoverage -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasTemporalCoverage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isTemporalCoverageOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
@@ -139,6 +238,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasTemporalResolution -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasTemporalResolution">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isTemporalResolutionOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/TimeDuration"/>
@@ -151,9 +251,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasVariable -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasVariable">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isVariableOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Variable"/>
         <rdfs:comment xml:lang="en">The property that allows one to link a dataset with the variables which have values (as dependent variables) in the dataset.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">has variable</rdfs:label>
@@ -161,13 +261,49 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/isGeneratedProjectionOf -->
+    <!-- https://w3id.org/hacid/onto/ccso/hasVulnerability -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isGeneratedProjectionOf">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Dataset"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasVulnerability">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isVulnerabilityOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Asset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Vulnerability"/>
+        <rdfs:label xml:lang="en">has vulnerability</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isCausedByPhenomenaOfType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isCausedByPhenomenaOfType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType"/>
+        <rdfs:label xml:lang="en">is caused by phenomena of type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isDownscalingOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isDownscalingOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that a simulation downscaling has as source the output of climate simulation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">is generated projection of</rdfs:label>
+        <rdfs:label xml:lang="en">is downscaling of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isImpactTypeOfAssertedVulnerability -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isImpactTypeOfAssertedVulnerability">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/VulnerabilityType"/>
+        <rdfs:label xml:lang="en">is impact type of asserted vulnerability</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -175,9 +311,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isMaintainedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isMaintainedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/maintains"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <rdfs:comment xml:lang="en">The relation that allows to link an object to a maintainer.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">is maintained by</rdfs:label>
@@ -185,14 +321,71 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/isMemberSimulationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isMemberSimulationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/EnsembleSimulation"/>
+        <rdfs:label xml:lang="en">is member simulation of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/isModelUsedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isModelUsedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/usesModel"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">is model used by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isOutputOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isOutputOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data#Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/DataGeneratingProcess"/>
+        <rdfs:label xml:lang="en">is output of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isPotentialImpactTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isPotentialImpactTypeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/HazardType"/>
+        <rdfs:label xml:lang="en">is potential impact of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isPotentialVulnerabilityTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isPotentialVulnerabilityTypeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/VulnerabilityType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Asset_Type"/>
+        <rdfs:label xml:lang="en">is potential vulnerability type of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isPotentiallySufferedImpactTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isPotentiallySufferedImpactTypeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/potentiallySuffersImpactType"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Asset_Type"/>
+        <rdfs:label xml:lang="en">is potentially suffered impact type of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -200,9 +393,10 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isScenarioReferredBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isScenarioReferredBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/refersToScenario"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Scenario"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
         <rdfs:comment xml:lang="en">The object property that allows a scenario to be referred by a simulation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">is scenario referred by</rdfs:label>
@@ -213,7 +407,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isSpatialCoverageOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isSpatialCoverageOf">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/SpatialRegion"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">is spatial coverage of</rdfs:label>
@@ -224,7 +418,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isSpatialResolutionOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isSpatialResolutionOf">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Distance"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">is spatial resolution of</rdfs:label>
@@ -232,9 +426,34 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/isSufferedImpactOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isSufferedImpactOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/sufferedImpact"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Impact"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Asset"/>
+        <rdfs:label xml:lang="en">is suffered impact of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isSufferedImpactTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isSufferedImpactTypeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/suffersImpactType"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Asset"/>
+        <rdfs:label xml:lang="en">is suffered impact type of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/isTemporalCoverageOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isTemporalCoverageOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
@@ -246,6 +465,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isTemporalResolutionOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isTemporalResolutionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
@@ -257,7 +477,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isVariableOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isVariableOf">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Variable"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">is variable of</rdfs:label>
@@ -265,12 +485,45 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/isVulnerabilityOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isVulnerabilityOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Vulnerability"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Asset"/>
+        <rdfs:label xml:lang="en">is vulnerability of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isVulnerabilityToImpactType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isVulnerabilityToImpactType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Vulnerability"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:label xml:lang="en">is vulnerability to impact type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/maintains -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/maintains">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/potentiallySuffersImpactType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/potentiallySuffersImpactType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Asset_Type"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:label xml:lang="en">potentially suffers impact type</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -278,8 +531,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/refersToScenario -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/refersToScenario">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Scenario"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
         <rdfs:comment xml:lang="en">The object property that allows a simulation to refer a scenario.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">refers to scenario</rdfs:label>
@@ -287,41 +541,49 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label xml:lang="en">related with phenomenon</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/sufferedImpact -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/sufferedImpact">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Asset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Impact"/>
+        <rdfs:label xml:lang="en">suffered impact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/suffersImpactType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/suffersImpactType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Asset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
+        <rdfs:label xml:lang="en">suffers impact type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/usesModel -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/usesModel">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
         <rdfs:comment xml:lang="en">The property that allows one to assert that a climate model is used by an experiment to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
         <rdfs:comment xml:lang="en">The property that allows one to assert that an experiment uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">uses model</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/isDownscalingOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isDownscalingOf">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
-        <rdfs:comment xml:lang="en">The property that allows one to assert that a simulation downscaling has as source the output of climate simulation.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">is downscaling of</rdfs:label>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/hasDownscaling"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/hasDownscaling -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasDownscaling">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
-        <rdfs:comment xml:lang="en">The property that allows one to assert that the output of a climate simulation has been used for a simulation downscaling.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">has downscaling</rdfs:label>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
     </owl:ObjectProperty>
     
 
@@ -343,12 +605,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/acronym -->
-
-    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/acronym"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -360,6 +616,23 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/Asset -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Asset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/Asset_Type -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Asset_Type">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">Asset Type</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/ClimateModel -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimateModel">
@@ -367,6 +640,123 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:comment xml:lang="en">A representation of the Earth’s climate system. A model is used to simulate and understand the climate, including its variability and changes over time, by using a set of equations based on physical, chemical, and biological principles.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Climate Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ClimatePhenomenon -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimatePhenomenon">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:label xml:lang="en">Climate Phenomenon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">Climate Phenomenon Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ClimateSimulation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimateSimulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalCoverage"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalResolution"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeDuration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/usesModel"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A computational experiment that uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period. These simulations are designed to understand how various components of the climate system interact and respond to different forcing factors, such as changes in greenhouse gas concentrations, solar radiation, volcanic activity, and land use.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Climate Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/DataGeneratingProcess -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/DataGeneratingProcess">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">Data Generating Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/Downscaling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Downscaling">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/DataGeneratingProcess"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalCoverage"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalResolution"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeDuration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A process taking as input the output of a climate simulation and obtaining finer granularity, usually at the cost of reduced geographic coverage.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Downscaling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/DynamicalDownscaling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/DynamicalDownscaling">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
+        <rdfs:comment xml:lang="en">A simulation using as constraint the output of another simulation, run at a coarser granularity (with typically broader coverage): e.g., a regional simulation run using as constraint the output a global simulation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Dynamical Downscaling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/EmissionScenario -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/EmissionScenario">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A projected trajectory of future greenhouse gas emissions, atmospheric concentrations, and corresponding impacts on the climate system. These scenarios are used in climate modeling to explore how different levels of emissions might influence global temperatures, weather patterns, sea level rise, and other climate-related phenomena.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Emission Scenario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/EnsembleSimulation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/EnsembleSimulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:label>Ensemble Simulation</rdfs:label>
     </owl:Class>
     
 
@@ -382,6 +772,54 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+        <rdfs:comment xml:lang="en">A climate simulation run at global scale, i.e. for all the surface of Earth.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Global Climate Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
+        <rdfs:comment xml:lang="en">These pathways are used to model and predict the impacts of different levels of greenhouse gas emissions on the climate system. They are essential for understanding how different emissions scenarios might influence global temperatures, climate patterns, and related environmental changes.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:label xml:lang="en">Greenhouse gas concentration pathway</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/HazardType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/HazardType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ClimatePhenomenonType"/>
+        <rdfs:label xml:lang="en">Hazard Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/Impact -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Impact">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ImpactType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ImpactType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">Impact Type</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/RegionalClimateModel -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/RegionalClimateModel">
@@ -393,84 +831,10 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/Dataset -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Dataset">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialCoverage"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/SpatialRegion"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialResolution"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Distance"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalCoverage"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalResolution"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeDuration"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasVariable"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Variable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A dataset in this context is a collection of data organized in tabular format, where dimensions (independent variables) include at least space (on a geospatial grid) and time. It also includes at least one dependent variable (or simply variable), but there can be more than one.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Dataset</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/Distance -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Distance">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">A distance quantity: e.g., 3 meters.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Distance</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Scenario"/>
-        <rdfs:comment xml:lang="en">These pathways are used to model and predict the impacts of different levels of greenhouse gas emissions on the climate system. They are essential for understanding how different emissions scenarios might influence global temperatures, climate patterns, and related environmental changes.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Greenhouse gas concentration pathway</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/Scenario -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Scenario">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">A projected trajectory of future greenhouse gas emissions, atmospheric concentrations, and corresponding impacts on the climate system. These scenarios are used in climate modeling to explore how different levels of emissions might influence global temperatures, weather patterns, sea level rise, and other climate-related phenomena.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Scenario</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Scenario"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
         <rdfs:comment xml:lang="en">Shared socio-economic Pathways (SSPs) are scenarios developed to describe different trajectories of socioeconomic development, which can influence future greenhouse gas emissions and the ability of societies to mitigate and adapt to climate change. The SSPs are used in climate modeling to explore the interactions between socioeconomic factors, emissions pathways, and climate impacts.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
         <rdfs:label xml:lang="en">Shared socio-economic pathway</rdfs:label>
@@ -481,127 +845,17 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/Simulation -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Simulation">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialCoverage"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/SpatialRegion"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialResolution"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Distance"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalCoverage"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalResolution"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeDuration"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasVariable"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Variable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/usesModel"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A computational experiment that uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period. These simulations are designed to understand how various components of the climate system interact and respond to different forcing factors, such as changes in greenhouse gas concentrations, solar radiation, volcanic activity, and land use.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/DataGeneratingProcess"/>
         <rdfs:label xml:lang="en">Simulation</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/GlobalSimulation -->
+    <!-- https://w3id.org/hacid/onto/ccso/StatisticalDownscaling -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalSimulation">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
-        <rdfs:comment xml:lang="en">A simulation run at global scale, i.e. for all the surface of Earth.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Global Simulation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/Downscaling -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Downscaling">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialCoverage"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/SpatialRegion"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasSpatialResolution"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Distance"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalCoverage"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeInterval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasTemporalResolution"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/TimeDuration"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/hasVariable"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Variable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A process taking as input the output of a climate simulation and obtaining finer granularity, usually at the cost of reduced geographic coverage.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Downscaling</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/DynamicalDownscaling -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/DynamicalDownscaling">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/StatisticalDownscaling">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
-        <rdfs:comment xml:lang="en">A simulation using as constraint the output of another simulation, run at a coarser granularity (with typically broader coverage): e.g., a regional simulation run using as constraint the output a global simulation.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Dynamical Downscaling</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/ccso/SpatialRegion -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SpatialRegion">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">A (geo)spatial region</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Spatial Region</rdfs:label>
+        <rdfs:label xml:lang="en">Statistical Downscaling</rdfs:label>
     </owl:Class>
     
 
@@ -628,52 +882,26 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/Variable -->
+    <!-- https://w3id.org/hacid/onto/ccso/Vulnerability -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Variable">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">A variable is a common conceptualisation across a set of quantity values, corresponding to the type of quantity being measured/computed. In the context of a dataset, given a combination of values for the independent variables (dimensions) a dependent variable can have at most one value.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
-        <rdfs:label xml:lang="en">Variable</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Vulnerability">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/Agent -->
+    <!-- https://w3id.org/hacid/onto/ccso/VulnerabilityType -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label>Agent</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Entity -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Entity">
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label>Entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Organisation -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Organisation">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
-        <rdfs:comment xml:lang="en">An organisation.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label>Organisation</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/VulnerabilityType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">Vulnerability Type</rdfs:label>
     </owl:Class>
     
 
 
     <!-- https://w3id.org/hacid/onto/top-level/TimeEntity -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/TimeEntity">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-    </owl:Class>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/TimeEntity"/>
     
 
 
@@ -832,4 +1060,8 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
         <rdfs:label xml:lang="en">Shared Socioeconomic Pathways 5</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
 
