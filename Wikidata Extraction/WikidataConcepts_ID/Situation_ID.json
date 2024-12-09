@@ -1,0 +1,5038 @@
+{
+    "head": {
+        "vars": [
+            "item",
+            "itemLabel",
+            "idProperty",
+            "idPropertyLabel",
+            "idValue",
+            "idValueLabel"
+        ]
+    },
+    "results": {
+        "bindings": [
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1247867"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0020056"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "housing"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0020056"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q581152"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0028166"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "nitrogen narcosis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0028166"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q16186972"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0032087"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "plant poisoning"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0032087"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q16186972"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0554775"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "plant poisoning"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0554775"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q43059"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0013140"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "drought"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0013140"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1747437"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0425449"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "agonal respiration"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0425449"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q43059"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0013140"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "drought"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0013140"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q996200"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "T56.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Niigata Minamata disease"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "T56.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1565962"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "W46"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "needlestick injury"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "W46"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12174"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0028754"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "obesity"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0028754"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q183140"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C3494381"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "ozone depletion"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C3494381"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q370098"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C2242663"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "pathological lying"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C2242663"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1637543"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0596263"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "carcinogenesis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0596263"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7559033"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0480885"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "solvent exposure"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0480885"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7559033"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "Y16"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "solvent exposure"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "Y16"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q996200"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "985.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Niigata Minamata disease"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "985.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7942"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0206217"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "global warming"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0206217"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1565962"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "E920.5"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "needlestick injury"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "E920.5"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7942"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0206217"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "global warming"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0206217"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q183140"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C3494381"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "ozone depletion"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C3494381"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q185252"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0034552"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "radioactive waste"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0034552"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q486"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449773"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Chernobyl disaster"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449773"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q178275"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C3658260"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "1918-1920 flu pandemic"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C3658260"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q100732653"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C5433293"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "long covid"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C5433293"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P5806"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q100732653"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "1119303003"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "long covid"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P5806"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "1119303003"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q18354027"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0870816"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "limited English proficiency"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0870816"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12199"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0001175"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "AIDS"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0001175"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q178275"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C3658260"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "1918-1920 flu pandemic"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C3658260"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12199"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "B2424."
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "AIDS"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "B2424."
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12199"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "043"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "AIDS"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "043"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12199"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "042"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "AIDS"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "042"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12199"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "044"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "AIDS"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "044"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12713020"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "B05"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "2013 Swansea measles epidemic"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "B05"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q100732653"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "U09.9"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "long covid"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "U09.9"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q11409"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0680431"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "apartheid"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0680431"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q8676"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449762"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "American Civil War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449762"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q361"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449759"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "World War I"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449759"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q362"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0681710"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "World War II"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0681710"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q8740"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449760"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Vietnam War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449760"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q10806"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449772"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "September 11 attacks"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449772"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q2389066"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C4277540"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "vaccine controversies"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C4277540"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q30314962"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "Y40.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Side effects of penicillin"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "Y40.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q188504"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1148475"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "alternative medicine"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1148475"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q2616437"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "F13"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "long-term effects of benzodiazepines"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "F13"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12713020"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "055"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "2013 Swansea measles epidemic"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "055"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q878402"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A04.3"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Escherichia coli O157:H7"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A04.3"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q332874"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0040333"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "tobacco mosaic virus"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0040333"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q82069695"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C5203676"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "SARS-CoV-2"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C5203676"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q131656"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0031253"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "pesticide"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0031253"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q241594"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0085324"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Plasmodium knowlesi"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0085324"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q311383"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0032150"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Plasmodium falciparum"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0032150"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1074210"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0009022"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Clonorchis sinensis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0009022"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5026968"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1029944"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Gorgoderidae"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1029944"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q15837337"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C4099810"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Oculotrema hippopotami"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C4099810"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P5806"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q82069695"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "840533007"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "SARS-CoV-2"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P5806"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "840533007"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5484553"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "CL473156"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "vascular access steal syndrome"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "CL473156"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q19597605"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0271178"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Irvine\u2013Gass syndrome"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0271178"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q55604101"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0151505"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Application site reaction"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0151505"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q186412"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0870398"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "time preference"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0870398"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q608353"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0033363"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "psychological projection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0033363"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1343202"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0011317"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "denial"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0011317"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1592347"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0018766"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "healthy user bias"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0018766"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41397"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0017426"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "genocide"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0017426"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q10806"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449772"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "September 11 attacks"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449772"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4162371"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0349245"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "psychogenic non-epileptic seizures"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0349245"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q10806"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449772"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "September 11 attacks"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449772"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1988917"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0010992"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "data analysis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0010992"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4162371"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "F44.5"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "psychogenic non-epileptic seizures"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "F44.5"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4162371"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "300.11"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "psychogenic non-epileptic seizures"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "300.11"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4162371"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "780.39"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "psychogenic non-epileptic seizures"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "780.39"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q403356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0752221"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Kampo"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0752221"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q937737"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0026652"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "moxibustion"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0026652"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q486"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449773"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Chernobyl disaster"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449773"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q171178"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C3494312"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Fukushima Daiichi nuclear disaster"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C3494312"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q178275"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C3658260"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "1918-1920 flu pandemic"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C3658260"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q338857"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "T56.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Minamata disease"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "T56.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q338857"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0265376"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Minamata disease"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0265376"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q338857"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "985.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Minamata disease"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "985.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q98807662"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0133930"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "oncogene protein v-akt"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0133930"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q47092"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0034668"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "rape"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0034668"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q182865"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C2350585"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "War in Afghanistan"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C2350585"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q2251268"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0024500"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "mainstreaming"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0024500"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q47092"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "E960.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "rape"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "E960.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4663139"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C2278555"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "abaca bunchy top virus"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C2278555"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q2763"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0206236"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "The Holocaust"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0206236"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q181754"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "I50"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "heart failure"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "I50"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q181754"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1961112"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "heart failure"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1961112"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q181754"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0023212"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "heart failure"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0023212"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1277281"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "J01.8"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "oroantral fistula"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "J01.8"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1277281"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0029293"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "oroantral fistula"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0029293"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q3702211"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0042582"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "vesicovaginal fistula"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0042582"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4198677"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0342257"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "complications of diabetes mellitus"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0342257"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q17120701"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0341566"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "stump blow-out"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0341566"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q42293527"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0027645"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "neoplasm seeding"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0027645"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q69351641"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0999807"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "human papillomavirus 18"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0999807"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q69461345"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0999806"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "human papillomavirus 16"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0999806"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q6033622"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0524800"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "inhalation exposure"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0524800"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q10806"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449772"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "September 11 attacks"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449772"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q181754"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "428.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "heart failure"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "428.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1277281"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "461.8"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "oroantral fistula"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "461.8"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q3702211"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "619.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "vesicovaginal fistula"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "619.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q3702211"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "N82.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "vesicovaginal fistula"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "N82.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4198677"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "250.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "complications of diabetes mellitus"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "250.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4198677"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "250.9"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "complications of diabetes mellitus"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "250.9"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4198677"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "E10"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "complications of diabetes mellitus"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "E10"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4198677"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "E14"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "complications of diabetes mellitus"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "E14"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0007939"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0007939"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0039128"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0039128"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q153356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0008149"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chlamydia infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0008149"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q379054"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0023493"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "adult T-cell leukemia/lymphoma"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0023493"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q694552"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0024286"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "lymphogranuloma venereum"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0024286"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1779250"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0042465"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "canine transmissible venereal tumor"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0042465"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q3624451"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0153216"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Gonococcal arthritis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0153216"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5248726"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1720795"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "acute prostatitis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1720795"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5248740"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1720797"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chronic bacterial prostatitis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1720797"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7888578"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0205858"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "neurosyphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0205858"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7900355"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0085395"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Ureaplasma infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0085395"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q153356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A70"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chlamydia infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A70"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q153356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A55"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chlamydia infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A55"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q153356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A56.8"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chlamydia infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A56.8"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q153356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A74.9"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chlamydia infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A74.9"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q694552"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A55"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "lymphogranuloma venereum"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A55"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q3624451"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A54.4"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Gonococcal arthritis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A54.4"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q3624451"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "M01.3"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Gonococcal arthritis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "M01.3"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5248726"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "N41.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "acute prostatitis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "N41.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5248740"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "N41.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chronic bacterial prostatitis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "N41.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5635621"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C01"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "HPV-positive oropharyngeal cancer"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C01"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5635621"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C14.2"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "HPV-positive oropharyngeal cancer"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C14.2"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5635621"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C02.4"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "HPV-positive oropharyngeal cancer"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C02.4"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5635621"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C10.9"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "HPV-positive oropharyngeal cancer"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C10.9"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5635621"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C09.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "HPV-positive oropharyngeal cancer"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C09.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7888578"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "A52.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "neurosyphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "A52.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "091"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "091"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "090"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "090"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "095"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "095"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "093"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "093"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "096"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "096"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "094"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "094"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "097"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "097"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q41083"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "091.2"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "syphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "091.2"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q153356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "483.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chlamydia infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "483.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q153356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "099.41"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chlamydia infection"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "099.41"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q379054"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "204.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "adult T-cell leukemia/lymphoma"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "204.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q379054"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "208.9"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "adult T-cell leukemia/lymphoma"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "208.9"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q666481"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "093.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Syphilitic aortitis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "093.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q3624451"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "098.50"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Gonococcal arthritis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "098.50"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5248726"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "601.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "acute prostatitis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "601.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5248740"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "601.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chronic bacterial prostatitis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "601.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7888578"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "090.40"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "neurosyphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "090.40"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q7888578"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "094.1"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "neurosyphilis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "094.1"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q27731330"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0672468"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "goreisan"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0672468"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q403356"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0752221"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Kampo"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0752221"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1520176"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0376557"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "unani"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0376557"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1567507"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1136246"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "traditional Tibetan medicine"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1136246"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q11658248"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0085257"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "yin deficiency"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0085257"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q11658819"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0085258"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "yang deficiency"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0085258"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q4880710"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1136355"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Behavioral Risk Factor Surveillance System"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1136355"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q28693"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "634634"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "miscarriage"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "634634"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1068134"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "643.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "morning sickness"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "643.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P5806"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1418513"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "9293002"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "uterine atony"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P5806"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "9293002"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q28693"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "O03"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "miscarriage"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "O03"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q28693"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0000786"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "miscarriage"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0000786"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q28693"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0000822"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "miscarriage"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0000822"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1068134"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "O21.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "morning sickness"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "O21.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1068134"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0312416"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "morning sickness"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0312416"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1418513"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "O62.2"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "uterine atony"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "O62.2"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1418513"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0042135"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "uterine atony"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0042135"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5105007"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "G25.5"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chorea gravidarum"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "G25.5"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5105007"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "O99.3"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chorea gravidarum"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "O99.3"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q5105007"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0264746"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "chorea gravidarum"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0264746"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1679678"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "773.3"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "hydrops fetalis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "773.3"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1679678"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "778.0"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "hydrops fetalis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P493"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "778.0"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1679678"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "P56"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "hydrops fetalis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "P56"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1679678"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "P83.2"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "hydrops fetalis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P494"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "P83.2"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q1679678"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0020305"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "hydrops fetalis"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0020305"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q970646"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1335344"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Denny-Brown Syndrome"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1335344"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q8663"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449776"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Korean War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449776"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q12583"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449763"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Spanish\u2013American War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449763"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q37643"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449761"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Gulf War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449761"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q159950"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449764"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Russo-Japanese War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449764"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q170314"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C5197777"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Second Sino-Japanese War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C5197777"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q182865"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C2350585"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "War in Afghanistan"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C2350585"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q254106"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1449766"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Crimean War"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1449766"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q2741122"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0376487"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "mind\u2013body problem"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0376487"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q179057"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C0015329"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "explosion"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C0015329"
+                }
+            },
+            {
+                "idProperty": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "item": {
+                    "type": "uri",
+                    "value": "http://www.wikidata.org/entity/Q2165315"
+                },
+                "idValue": {
+                    "type": "literal",
+                    "value": "C1080959"
+                },
+                "itemLabel": {
+                    "xml:lang": "en",
+                    "type": "literal",
+                    "value": "Sclerotinia sclerotiorum"
+                },
+                "idPropertyLabel": {
+                    "type": "literal",
+                    "value": "http://www.wikidata.org/prop/direct/P2892"
+                },
+                "idValueLabel": {
+                    "type": "literal",
+                    "value": "C1080959"
+                }
+            }
+        ]
+    }
+}
