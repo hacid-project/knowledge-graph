@@ -16,7 +16,7 @@ def map_to_snomed(json_file_path, umls_mapping_path, icd9_mapping_path, icd10_ma
         reader = csv.DictReader(icd9_file, delimiter='\t')
         for row in reader:
             if row["IS_CURRENT_ICD"] == "1":  # Only map active ICD-9 codes
-                icd9_to_snomed_mapping[row["ICD_CODE"]] = row["SNOMED_CID"]
+                icd9_to_snomed_mapping[row["\ufeffICD_CODE"]] = row["SNOMED_CID"]
 
     # Load ICD-10-to-SNOMED mapping file
     icd10_to_snomed_mapping = {}
@@ -31,8 +31,8 @@ def map_to_snomed(json_file_path, umls_mapping_path, icd9_mapping_path, icd10_ma
     bindings = data.get("results", {}).get("bindings", [])
     for record in bindings:
         item_value = record.get("item", {}).get("value")
-        id_property = record.get("idProperty", {}).get("value")
-        id_value = record.get("idValue", {}).get("value")  # UMLS, ICD-9, or ICD-10 ID
+        id_property = record.get("property", {}).get("value")
+        id_value = record.get("value", {}).get("value")  # UMLS, ICD-9, or ICD-10 ID
 
         # Initialize the result for the current item
         if item_value not in combined_results:
@@ -81,18 +81,19 @@ def map_to_snomed(json_file_path, umls_mapping_path, icd9_mapping_path, icd10_ma
     # Print summary
     total_items = len(combined_results)
     total_mappings = sum(len(item["Mapped_SNOMED_IDs"]) for item in combined_results.values())
+    no_mapping_items = sum(1 for item in combined_results.values() if not item["Mapped_SNOMED_IDs"])
+
     print(f"Mapping completed. Combined results saved to {output_file_path}")
     print(f"Total items processed: {total_items}")
     print(f"Total mappings completed: {total_mappings}")
+    print(f"Total items without SNOMED ID mapping: {no_mapping_items}")
 
     return combined_results
 
-json_file_path = '/path/to/Disease_ID.json'         # Path to input JSON file
-umls_mapping_path = '/path/to/snomed_to_umls.json'  # Path to UMLS-to-SNOMED mapping file
-icd9_mapping_path = '/path/to/icd9_to_snomed.txt'   # Path to ICD-9-to-SNOMED mapping file
-icd10_mapping_path = '/path/to/icd10_to_snomed.txt' # Path to ICD-10-to-SNOMED mapping file
-output_file_path = '/path/to/output.json'           # Path to output file
+json_file_path = '/content/Disease_ID.json'      # Path to input JSON file
+umls_mapping_path = '/content/UMLS-SNOMED.json'  # Path to UMLS-to-SNOMED mapping file
+icd9_mapping_path = '/content/ICD9-SNOMED.txt'   # Path to ICD-9-to-SNOMED mapping file
+icd10_mapping_path = '/content/ICD10-SNOMED.txt' # Path to ICD-10-to-SNOMED mapping file
+output_file_path = 'Disease_ID_Mapping.json'   # Path to output file
 
-combined_results = map_to_snomed(
-    json_file_path, umls_mapping_path, icd9_mapping_path, icd10_mapping_path, output_file_path
-)
+combined_results = map_to_snomed(json_file_path, umls_mapping_path, icd9_mapping_path, icd10_mapping_path, output_file_path)
