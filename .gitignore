@@ -3,3 +3,5 @@ data/climate-services/cordex/data
 data/climate-services/cordex/raw-data/chunks
 data/climate-services/cordex/rdf
 data/climate-services/cmor-tables/rdf
+data/climate-services/cmor-tables/data
+env/
