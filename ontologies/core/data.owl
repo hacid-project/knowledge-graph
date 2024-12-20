@@ -122,21 +122,38 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data#hasMaximalRegion -->
+    <!-- https://w3id.org/hacid/onto/core/data#hasBoundingRegion -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data#hasMaximalRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data#hasRegion"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data#hasBoundingRegion">
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data#DimensionalSpace"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data#Region"/>
-        <rdfs:label xml:lang="en">has maximal region</rdfs:label>
+        <rdfs:label xml:lang="en">has bounding region</rdfs:label>
     </owl:ObjectProperty>
     
+    <!-- https://w3id.org/hacid/onto/core/data#hasExactBoundingRegion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data#hasExactBoundingRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data#hasBoundingRegion"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data#DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data#Region"/>
+        <rdfs:label xml:lang="en">has exact bounding region</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- https://w3id.org/hacid/onto/core/data#hasMinimalBoundingRegion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data#hasMinimalBoundingRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data#hasBoundingRegion"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data#DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data#Region"/>
+        <rdfs:label xml:lang="en">has minimal bounding region</rdfs:label>
+    </owl:ObjectProperty>
+
 
 
     <!-- https://w3id.org/hacid/onto/core/data#hasOnlyRegion -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data#hasOnlyRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data#hasMaximalRegion"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data#hasExactBoundingRegion"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data#ConstantDimensionalSpace"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data#Region"/>
         <rdfs:label xml:lang="en">has only region</rdfs:label>
