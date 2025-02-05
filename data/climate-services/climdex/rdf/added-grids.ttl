@@ -1,0 +1,19 @@
+@prefix data: <https://w3id.org/hacid/onto/data/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/hacid/data/cs/temporalgrid/3mon> a data:DimensionalSpace,
+        data:IndependentVariable,
+        data:RollingRegularGrid,
+        data:Variable ;
+    data:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/dimension/time>,
+        <https://w3id.org/hacid/data/cs/metric-space/time/gregorian> ;
+    data:hasGridStep "P3M"^^xsd:duration .
+
+<https://w3id.org/hacid/data/cs/temporalgrid/6mon> a data:DimensionalSpace,
+        data:IndependentVariable,
+        data:RollingRegularGrid,
+        data:Variable ;
+    data:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/dimension/time>,
+        <https://w3id.org/hacid/data/cs/metric-space/time/gregorian> ;
+    data:hasGridStep "P6M"^^xsd:duration .

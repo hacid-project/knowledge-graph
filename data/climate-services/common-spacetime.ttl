@@ -1,0 +1,70 @@
+@prefix : <https://w3id.org/hacid/data/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@prefix data: <https://w3id.org/hacid/onto/data/> .
+@prefix dimension: <https://w3id.org/hacid/data/cs/dimension/> .
+@prefix time: <https://w3id.org/hacid/data/cs/metric-space/time/> .
+@prefix geodetic: <https://w3id.org/hacid/data/cs/metric-space/geodetic/> .
+@prefix georegion: <https://w3id.org/hacid/data/cs/geodetic-regions/> .
+@base <https://w3id.org/hacid/data/cs/> .
+
+dimension:spacetime a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Spacetime"@en ;
+    rdfs:comment "The abstract dimensional space corresponding to the physical understanding of the spacetime continuum. It includes every spatiotemporal region, no matter how it is defined."@en ;
+    data:hasSubdimensionalSpace dimension:space, dimension:time.
+
+dimension:space a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Space"@en ;
+    rdfs:comment "The abstract dimensional space corresponding to the physical understanding of space (which is a subdimension of spacetime). It includes every spatial region, no matter how it is defined."@en ;
+    data:hasSubdimensionalSpace dimension:geodetic, dimension:elevation.
+
+dimension:geodetic a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Geodetic"@en ;
+    rdfs:comment "The abstract dimensional space corresponding to the geodetic subdimension of space, i.e. the position in space projected to the surface of the Earth. Usually used to locate points and regions placed on the Earth surface or relatively close to it. It includes every geodetic region, no matter how it is defined."@en ;
+    data:hasSubdimensionalSpace dimension:geodetic_long, dimension:geodetic_lat.
+
+dimension:geodetic_long a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Longitude"@en ;
+    rdfs:comment "The abstract dimensional space corresponding to one of the two angular coordinates of some geodetic system: the longitude."@en.
+
+dimension:geodetic_lat a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Latititude"@en ;
+    rdfs:comment "The abstract dimensional space corresponding to one of the two angular coordinates of some geodetic system: the latitude."@en.
+
+dimension:elevation a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Elevation"@en ;
+    rdfs:comment "The abstract dimensional space corresponding to the elevation subdimension of space, i.e. the relative distance from the surface of the Earth (considered here with a broad meaning, e.g., sea-level, atmospheric pressure, or spheroid based). Usually used to compare points and regions placed on the Earth surface or relatively close to it. It includes every elevation region, no matter how it is defined."@en.
+
+dimension:time a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Time"@en ;
+    rdfs:comment "The abstract dimensional space corresponding to the physical understanding of time (which is a subdimension of spacetime). It includes every temporal region (interval), no matter how it is defined."@en .
+
+geodetic:WGS84 a data:DimensionalSpace, data:Continuum;
+    rdfs:label "World Geodetic System (WGS) 84"@en;
+    rdfs:comment "A standard dimensional space for geodetic coordinates. It defines a reference ellipsoid for the Earth surface and represent positions as angular coordinates latitude/longitude."@en;
+    data:basedOnDimensionalSpace dimension:geodetic;
+    data:hasSubdimensionalSpace geodetic:WGS84_long, geodetic:WGS84_lat.
+
+geodetic:WGS84_long a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Longitude according to World Geodetic System (WGS) 84"@en;
+    rdfs:comment "The longitude component of geodetic coordinates defined according to World Geodetic System (WGS) 84."@en.
+
+geodetic:WGS84_lat a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Latitude according to World Geodetic System (WGS) 84"@en;
+    rdfs:comment "The latitude component of geodetic coordinates defined according to World Geodetic System (WGS) 84."@en.
+
+time:gregorian a data:DimensionalSpace, data:Continuum;
+    rdfs:label "Gregorian Calendar"@en;
+    rdfs:comment "Calendar used in most parts of the world. Represents time intervals using as unit of measure the second (with arbitrary decimal precision) along with some time-dependent multiples (hours, days, months, years). It has as reference (epoch) the traditionally reckoned year of the conception or birth of Jesus. Multiples of seconds (hours, days, months, years) have variable length in terms of corresponding seconds, due to the need to align those multiples to different natural phenomena (specifically Earth's rotation and revolution cycles)."@en;
+    data:basedOnDimensionalSpace dimension:time.
+
+georegion:World a geo:Geometry, data:GeodeticRegion ;
+    rdfs:label "World"@en ;
+    geo:asWKT "POLYGON((-180 -90,-180 90,180 90,180 -90))"^^<geo:wktLiteral> ;
+    rdfs:comment "Geographic region covering the whole Earth surface, as reference for global simulations."@en .
+
+

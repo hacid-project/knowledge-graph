@@ -1,74 +1,74 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://w3id.org/hacid/cs/data/activity/aerchemmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/AerChemMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Aerosols and Chemistry Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/c4mip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/C4MIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Coupled Climate Carbon Cycle Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/cdrmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/CDRMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Carbon Dioxide Removal Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/cfmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/CFMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Cloud Feedback Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/cmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/CMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "CMIP DECK: 1pctCO2, abrupt4xCO2, amip, esm-piControl, esm-historical, historical, and piControl experiments"@en .
 
-<https://w3id.org/hacid/cs/data/activity/cordex> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/CORDEX> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Coordinated Regional Climate Downscaling Experiment"@en .
 
-<https://w3id.org/hacid/cs/data/activity/damip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/DAMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Detection and Attribution Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/dcpp> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/DCPP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Decadal Climate Prediction Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/dynvarmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/DynVarMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Dynamics and Variability Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/fafmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/FAFMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Flux-Anomaly-Forced Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/geomip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
-    rdfs:label "Geoengineering Model Intercomparison Project"@en .
-
-<https://w3id.org/hacid/cs/data/activity/gmmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/GMMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Global Monsoons Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/highresmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/GeoMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+    rdfs:label "Geoengineering Model Intercomparison Project"@en .
+
+<https://w3id.org/hacid/cs/data/activity/HighResMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "High-Resolution Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/ismip6> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/ISMIP6> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Ice Sheet Model Intercomparison Project for CMIP6"@en .
 
-<https://w3id.org/hacid/cs/data/activity/ls3mip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/LS3MIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Land Surface, Snow and Soil Moisture"@en .
 
-<https://w3id.org/hacid/cs/data/activity/lumip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/LUMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Land-Use Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/omip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/OMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Ocean Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/pamip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/PAMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Polar Amplification Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/pmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/PMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Palaeoclimate Modelling Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/rfmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/RFMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Radiative Forcing Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/scenariomip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
-    rdfs:label "Scenario Model Intercomparison Project"@en .
-
-<https://w3id.org/hacid/cs/data/activity/simip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/SIMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Sea Ice Model Intercomparison Project"@en .
 
-<https://w3id.org/hacid/cs/data/activity/viacsab> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/ScenarioMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+    rdfs:label "Scenario Model Intercomparison Project"@en .
+
+<https://w3id.org/hacid/cs/data/activity/VIACSAB> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Vulnerability, Impacts, Adaptation and Climate Services Advisory Board"@en .
 
-<https://w3id.org/hacid/cs/data/activity/volmip> a <https://w3id.org/hacid/onto/top-level/Activity> ;
+<https://w3id.org/hacid/cs/data/activity/VolMIP> a <https://w3id.org/hacid/onto/top-level/Activity> ;
     rdfs:label "Volcanic Forcings Model Intercomparison Project"@en .
 

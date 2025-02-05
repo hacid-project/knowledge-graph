@@ -11,6 +11,7 @@ from slugify import slugify
 from typing import Literal
 from datetime import datetime, timedelta, timezone
 from dateutil.relativedelta import relativedelta
+from dateutil.parser import isoparse
 from urllib.parse import quote
 
 scenario_map = {
@@ -142,7 +143,8 @@ def cmip5_simulation_id(_id: str) -> str:
     _id_parts = _id.split('|')[0].split('.')
     _model= _id_parts[3]
     _experiment = _id_parts[4]
-    return '.'.join(['cmip5', _model, _experiment])
+    _ensemble = _id_parts[-2]
+    return '.'.join(['cmip5', _model, _experiment, _ensemble])
     
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/cmip5SimulationIri',
               _id='https://w3id.org/hacid/rml-functions/id',
@@ -150,18 +152,59 @@ def cmip5_simulation_id(_id: str) -> str:
 def cmip5_simulation_iri(_id: str, _ns: str) -> str:
     return _ns + cmip5_simulation_id(_id)
     
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cmip5OutputId',
+              _id='https://w3id.org/hacid/rml-functions/id')
+def cmip5_output_id(_id: str) -> str:
+    #template "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    _id_parts = _id.split('|')[0].split('.')
+    _model = _id_parts[3]
+    _experiment = _id_parts[4]
+    _ensemble = _id_parts[-2]
+    _product = _id_parts[1]
+    return '.'.join(['cmip5', _model, _experiment, _ensemble, _product])
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cmip5OutputIri',
+              _id='https://w3id.org/hacid/rml-functions/id',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def cmip5_output_iri(_id: str, _ns: str) -> str:
+    return _ns + cmip5_output_id(_id)
+    
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDatasetId',
               _id='https://w3id.org/hacid/rml-functions/id')
-def cmip5_cordex_dataset_id(_id: str) -> str:
+def cordex_dataset_id(_id: str) -> str:
     _id_parts = _id.split('|')[0].split('.')
     return '.'.join(_id_parts[:-1])
     
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDatasetIri',
               _id='https://w3id.org/hacid/rml-functions/id',
               _ns='https://w3id.org/hacid/rml-functions/ns')
-def cmip5_cordex_dataset_iri(_id: str, _ns: str) -> str:
-    return _ns + cmip5_cordex_dataset_id(_id)
+def cordex_dataset_iri(_id: str, _ns: str) -> str:
+    return _ns + cordex_dataset_id(_id)
 
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexOutputId',
+              _id='https://w3id.org/hacid/rml-functions/id')
+def cordex_output_id(_id: str) -> str:
+    # template "cordex.%(product)s.%(domain)s.%(institute)s.%(driving_model)s.%(experiment)s.%(ensemble)s.%(rcm_name)s.%(rcm_version)s.%(time_frequency)s.%(variable)s"
+    _id_parts = _id.split('|')[0].split('.')
+    _product = _id_parts[1]
+    _domain= _id_parts[2]
+    _driving_model= _id_parts[4]
+    _experiment= _id_parts[5]
+    _ensemble = _id_parts[6]
+    _model = _id_parts[7]
+    _model_version = _id_parts[8]
+    return '.'.join([
+        'cordex', _product,
+        _domain, _driving_model, _experiment,
+        _model, _model_version, _ensemble
+    ])
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexOutputIri',
+              _id='https://w3id.org/hacid/rml-functions/id',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def cordex_output_iri(_id: str, _ns: str) -> str:
+    return _ns + cordex_output_id(_id)
+    
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexSimulationId',
               _id='https://w3id.org/hacid/rml-functions/id')
 def cordex_simulation_id(_id: str) -> str:
@@ -170,12 +213,13 @@ def cordex_simulation_id(_id: str) -> str:
     _domain= _id_parts[2]
     _driving_model= _id_parts[4]
     _experiment= _id_parts[5]
+    _ensemble = _id_parts[6]
     _model = _id_parts[7]
     _model_version = _id_parts[8]
     return '.'.join([
         'cordex',
         _domain, _driving_model, _experiment,
-        _model, _model_version
+        _model, _model_version, _ensemble
     ])
     
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexSimulationIri',
@@ -204,6 +248,18 @@ def cordex_domain_region_iri(_domains: list[str], _ns: str) -> str:
     _domain_parts = eval(_domains)[0].split('-')
     _domain_region = _domain_parts[0].lower()
     return _ns + _domain_region + '/region'
+
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDomainIri',
+              _domains='https://w3id.org/hacid/rml-functions/domain',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def cordex_domain_iri(_domains: list[str], _ns: str) -> str:
+    return _ns + eval(_domains)[0]
+ 
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatCordexDomain',
+              _domains='https://w3id.org/hacid/rml-functions/domain',
+              _template='https://w3id.org/hacid/rml-functions/template')
+def format_cordex_domain(_domains: list[str], _template: str) -> str:
+    return _template.format(domain = eval(_domains)[0])
     
 def round_datetime(
     _datetime: datetime, _granularity: str, _up: bool
@@ -225,7 +281,8 @@ def round_datetime(
     _orig_date_midnight = datetime.combine(
         date=_orig_date,
         time=datetime.min.time(),
-        tzinfo=timezone.utc)
+        tzinfo=timezone.utc
+    )
     _date = (
         _orig_date + timedelta(days=1)
         if _up and _orig_date_midnight < _datetime
@@ -285,11 +342,17 @@ def round_datetime_iso(
     _granularity: str,
     _up: bool
 ) -> str:
+    # if _iso_datetime.endswith('Z'):
+    #     _iso_datetime = _iso_datetime[:-1]
+    #     _datetime = datetime.fromisoformat(_iso_datetime)
+    #     _datetime = _datetime.replace(tzinfo=timezone.utc)
+    # else:
+    #     _datetime = datetime.fromisoformat(_iso_datetime)
     return round_datetime(
-        _datetime=datetime.fromisoformat(_iso_datetime),
+        _datetime=isoparse(_iso_datetime),
         _granularity=_granularity,
         _up=_up
-    ).isoformat()
+    ).isoformat().replace('+00:00', 'Z')
     
 def get_start_time(
     _asserted_start_time: str,
@@ -333,30 +396,95 @@ def round_datetime_interval(
     )
 
 _time_frequency_descr_and_value = {
-    '3hr': ['three hours', 'PT3H'],
-    '6hr': ['six hours', 'PT6H'],
-    'day': ['day', 'P1D'],
-    'mon': ['month', 'P1M'],
-    'monClim': ['all time aggregated month of the year', 'PT'],
-    'yr': ['year', 'P1Y'],
-    'fx': ['all time', 'PT']
+    '3hr': ['three hours', 'rolling', 'PT3H', None],
+    '6hr': ['six hours', 'rolling', 'PT6H', None],
+    'day': ['day', 'rolling', 'P1D', None],
+    'mon': ['month', 'rolling', 'P1M', None],
+    'monClim': ['all time aggregated month of the year', 'periodic', 'P1M', 'P1Y'],
+    'yr': ['year', 'rolling', 'P1Y', None],
+    'fx': ['all time', 'constant', None, None]
 }
 
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatDuration',
-              _time_frequency_array='https://w3id.org/hacid/rml-functions/timeFrequencyArray',
+_dimensional_space_type = {
+    'rolling': 'RollingRegularGrid',
+    'periodic': 'PeriodicRegularGrid',
+    'constant': 'ConstantDimensionalSpace'
+}
+
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatTemporalGrid',
+              _start_datetime='https://w3id.org/hacid/rml-functions/startDatetime',
+              _end_datetime='https://w3id.org/hacid/rml-functions/endDatetime',
+              _granularity='https://w3id.org/hacid/rml-functions/granularity',
               _template='https://w3id.org/hacid/rml-functions/template')
-def format_duration(
-    _time_frequency_array: str,
+def format_temporal_grid(
+    _start_datetime: str,
+    _end_datetime: str,
+    _granularity: str,
     _template: str
 ) -> str:
-    _time_frequency = eval(_time_frequency_array)[0]
-    [_duration_description, _duration_value] = _time_frequency_descr_and_value[_time_frequency]
-    return _template.format(
-        duration_id = _time_frequency,
-        duration_id_iri_escaped = quote(_time_frequency),
-        duration_description = _duration_description,
-        duration_value = _duration_value
-    )
+    _granularity = eval(_granularity)[0]
+    if _start_datetime is None or _end_datetime is None:
+        return None
+    
+    [
+        _grid_type_description,
+        _dimensional_space_id,
+        _grid_step,
+        _grid_period
+    ] = _time_frequency_descr_and_value[_granularity]
+    
+    def _path(_strs: list[str]) -> str:
+        return "/".join([_str for _str in _strs if _str is not None])
+        
+    _grid_type_id = _path([_dimensional_space_id, _grid_step, _grid_period])
+    
+    _temporal_info_dict = {
+        'start_datetime': get_start_time(_start_datetime,_end_datetime,_granularity),
+        'end_datetime': get_end_time(_start_datetime,_end_datetime,_granularity),
+        'grid_type_id': _grid_type_id,
+        'grid_type_description': _grid_type_description,
+        'dimensional_space_type': _dimensional_space_type[_dimensional_space_id]
+    }
+    if _grid_step is not None:
+        _temporal_info_dict['grid_step'] = _grid_step
+    if _grid_period is not None:
+        _temporal_info_dict['grid_period'] = _grid_period
+    try:
+        return _template.format_map(_temporal_info_dict)
+    except Exception:
+        return None
+    
+_dim_var_mapping = {
+    'longitude': ['dimension/geodetic'],
+    'xant': ['dimension/geodetic'],
+    'xgre': ['dimension/geodetic'],
+    'time': ['dimension/time'],
+    'time1': ['dimension/time'],
+    'time2': ['dimension/time'],
+    'time3': ['dimension/time'],
+    'gridlatitude': ['dimension/geodetic_lat'],
+    'alevel': ['dimension/elevation'],
+    'alevhalf': ['dimension/elevation'],
+    'olevel': ['dimension/elevation']
+}
+
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/MIPVariableDependsFrom',
+              _dimensions_str='https://w3id.org/hacid/rml-functions/dimensions',
+              _ns='https://w3id.org/hacid/rml-functions/ns')
+def MIP_variable_depends_from(
+    _dimensions_str: str,
+    _ns: str
+) -> list[str]:
+    _dimensions = _dimensions_str.split()
+    return [
+        _ns + _var
+        for _dimension in _dimensions
+        for _var in (
+            _dim_var_mapping[_dimension]
+            if _dimension in _dim_var_mapping
+            else []
+        )
+    ]
 
 class CSMapper(object):
 
@@ -390,7 +518,6 @@ class CSMapper(object):
             
             json_data = json.load(open(input_json_filename,mode='r',encoding='utf-8'))
                                     
-            #jsonpath_expr = parse('$.institution_id')
             jsonpath_expr = parse(jsonpath)
             matches = jsonpath_expr.find(json_data)
             
@@ -433,6 +560,8 @@ if __name__ == '__main__':
         # if subfolder.endswith('cmip5'):
         # if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
         # if subfolder.endswith('cordex-domains'):
+        # if subfolder.endswith('cmor-tables'):
+        # if subfolder.endswith('cf-standard-names'):
             print(f'Loading data from subfolder {subfolder} ...')
             conf = f'{subfolder}/conf.json'
             try:

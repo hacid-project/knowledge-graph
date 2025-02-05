@@ -13,11 +13,13 @@
 @prefix csvw: <http://www.w3.org/ns/csvw#> .
 @prefix top: <https://w3id.org/hacid/onto/top-level/> .
 @prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@prefix data: <https://w3id.org/hacid/onto/data/> .
+@prefix dimension: <https://w3id.org/hacid/data/cs/dimension/> .
+@prefix geodetic: <https://w3id.org/hacid/data/cs/metric-space/geodetic/> .
 @prefix hrf: <https://w3id.org/hacid/rml-functions/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @base <https://w3id.org/hacid/data/rml/> .
-
 
 # LOGICAL SOURCE #
 :LogicalSource a rml:BaseSource ;
@@ -33,48 +35,37 @@
     rml:referenceFormulation ql:CSV .
   
 # TRIPLE MAPPINGS #
+
 :CordexDomainMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
     
 	rr:subjectMap [ 
-        rr:class ccso:SpatialRegion ;
-        rr:class geo:Feature ;
+        rr:class data:SpatialRegion ;
+        rr:class geo:Geometry ;
         rr:template "https://w3id.org/hacid/data/cordex-domain/{domain_id}/region"
     ] ;
 	
     rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [ 
-            rr:template "{domain} ({domain_id})" ;
-            rr:language "en"
-        ]
+        rr:predicate data:isRegionOf ;
+        rr:object dimension:geodetic, geodetic:WGS84
     ] ;  
 
     rr:predicateObjectMap [
-        rr:predicate geo:hasBoundingBox ;
+        rr:predicate rdfs:label ;
         rr:objectMap [ 
-            rr:template "https://w3id.org/hacid/data/cordex-domain/{domain_id}/bounding-box";
-            rr:termType rr:IRI
+            rr:template "Boundaries of {domain} ({domain_id})" ;
+            rr:language "en"
         ]
     ] ;  
 
     rr:predicateObjectMap [
         rr:predicate rdfs:comment ;
         rr:objectMap [ 
-            rr:template "CORDEX geographic domain encompassing {domain}." ;
+            rr:template "WGS 84 bounding box of CORDEX geographic domain encompassing {domain}." ;
             rr:language "en"
         ]
-    ] .
-
-# TRIPLE MAPPINGS #
-:CordexDomainBBMapping a rr:TriplesMap ;
-    rml:logicalSource :LogicalSource ;
-    
-	rr:subjectMap [ 
-        rr:class geo:Geometry, gml:Rectangle ;
-        rr:template "https://w3id.org/hacid/data/cordex-domain/{domain_id}/bounding-box"
     ] ;
-    
+
     rr:predicateObjectMap [
         rr:predicate geo:asWKT ;
         rr:objectMap [ 
