@@ -3,7 +3,7 @@
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "top": "https://w3id.org/hacid/onto/top-level/",
     "ccso": "https://w3id.org/hacid/onto/ccso/",
-    "data": "https://w3id.org/hacid/onto/core/data/",
+    "data": "https://w3id.org/hacid/onto/data/",
     "wf": "https://w3id.org/hacid/data/cs/wf/",
     "tasks": {
       "@id": "top:definesTask",

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://w3id.org/hacid/onto/core/data/"
-     xml:base="https://w3id.org/hacid/onto/core/data/"
+<rdf:RDF xmlns="https://w3id.org/hacid/onto/data/"
+     xml:base="https://w3id.org/hacid/onto/data/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:top="https://w3id.org/hacid/onto/top-level/"
@@ -24,218 +24,218 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/aggregatesVariable -->
+    <!-- https://w3id.org/hacid/onto/data/aggregatesVariable -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/aggregatesVariable">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/aggregatesVariable">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/Aggregation"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:label xml:lang="en">aggregates variable</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/basedOnDimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/basedOnDimensionalSpace -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/basedOnDimensionalSpace">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/basedOnDimensionalSpace">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:label xml:lang="en">based on dimensional space</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/containsDimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/containsDimensionalSpace -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/containsDimensionalSpace">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/containsDimensionalSpace">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:label xml:lang="en">contains dimensional space</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/definesAggregation -->
+    <!-- https://w3id.org/hacid/onto/data/definesAggregation -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/definesAggregation">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/definesAggregation">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DependentVariable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Aggregation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
         <rdfs:label xml:lang="en">defines aggregation</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/dependsOnVariable -->
+    <!-- https://w3id.org/hacid/onto/data/dependsOnVariable -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/dependsOnVariable">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/dependsOnVariable">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DependentVariable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:label xml:lang="en">depends on variable</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/derivedFromVariable -->
+    <!-- https://w3id.org/hacid/onto/data/derivedFromVariable -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/derivedFromVariable">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/derivedFromVariable">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DerivedVariable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DerivedVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:label xml:lang="en">derived from variable</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasAvailableDataFormat -->
+    <!-- https://w3id.org/hacid/onto/data/hasAvailableDataFormat -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasAvailableDataFormat">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasAvailableDataFormat">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DataSource"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/DataFormat"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataSource"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataFormat"/>
         <rdfs:label xml:lang="en">has available data format</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasBoundingRegion -->
+    <!-- https://w3id.org/hacid/onto/data/hasBoundingRegion -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasBoundingRegion">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Region"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasBoundingRegion">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:label xml:lang="en">has bounding region</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasDataSerialization -->
+    <!-- https://w3id.org/hacid/onto/data/hasDataSerialization -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasDataSerialization">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasDataSerialization">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/FiniteVariable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/DataSource"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataSource"/>
         <rdfs:label xml:lang="en">has data serialization</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasExactBoundingRegion -->
+    <!-- https://w3id.org/hacid/onto/data/hasExactBoundingRegion -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasExactBoundingRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data/hasBoundingRegion"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Region"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasExactBoundingRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasBoundingRegion"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:label xml:lang="en">has exact bounding region</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasGridStep -->
+    <!-- https://w3id.org/hacid/onto/data/hasGridStep -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasGridStep">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasGridStep">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/RegularGrid"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/RegularGrid"/>
         <rdfs:label xml:lang="en">has grid step</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasMinimalBoundingRegion -->
+    <!-- https://w3id.org/hacid/onto/data/hasMinimalBoundingRegion -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasMinimalBoundingRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data/hasBoundingRegion"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Region"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasMinimalBoundingRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasBoundingRegion"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:label xml:lang="en">has minimal bounding region</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasOnlyRegion -->
+    <!-- https://w3id.org/hacid/onto/data/hasOnlyRegion -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasOnlyRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data/hasExactBoundingRegion"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/ConstantDimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Region"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOnlyRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasExactBoundingRegion"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/ConstantDimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:label xml:lang="en">has only region</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasPeriod -->
+    <!-- https://w3id.org/hacid/onto/data/hasPeriod -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasPeriod">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasPeriod">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/PeriodicRegularGrid"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/PeriodicRegularGrid"/>
         <rdfs:label xml:lang="en">has period</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasRegion -->
+    <!-- https://w3id.org/hacid/onto/data/hasRegion -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasRegion">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasRegion">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Region"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:label xml:lang="en">has region</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasSubDimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/hasSubDimensionalSpace -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasSubDimensionalSpace">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasSubDimensionalSpace">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:label xml:lang="en">has sub dimensional space</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasValuesOn -->
+    <!-- https://w3id.org/hacid/onto/data/hasValuesOn -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasValuesOn">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasValuesOn">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:label xml:lang="en">has values on</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/holdsSpecializationOfVariable -->
+    <!-- https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/holdsSpecializationOfVariable">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/core/data/derivedFromVariable"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DerivedVariable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/derivedFromVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DerivedVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:label xml:lang="en">holds specialization of variable</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/quantifies -->
+    <!-- https://w3id.org/hacid/onto/data/quantifies -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/quantifies">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/quantifies">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:label xml:lang="en">quantifies</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/suggestedAggregationGrid -->
+    <!-- https://w3id.org/hacid/onto/data/suggestedAggregationGrid -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/data/suggestedAggregationGrid">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/suggestedAggregationGrid">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/Aggregation"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data/Grid"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Grid"/>
         <rdfs:label xml:lang="en">suggested aggregation grid</rdfs:label>
     </owl:ObjectProperty>
     
@@ -252,29 +252,29 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasGridStepValue -->
+    <!-- https://w3id.org/hacid/onto/data/hasGridStepValue -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasGridStepValue">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/RegularGrid"/>
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasGridStepValue">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/RegularGrid"/>
         <rdfs:label xml:lang="en">has grid step value</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasPeriodValue -->
+    <!-- https://w3id.org/hacid/onto/data/hasPeriodValue -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasPeriodValue">
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasPeriodValue">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/PeriodicRegularGrid"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/PeriodicRegularGrid"/>
         <rdfs:label xml:lang="en">has period value</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/hasURL -->
+    <!-- https://w3id.org/hacid/onto/data/hasURL -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/core/data/hasURL">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data/DataSource"/>
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasURL">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataSource"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:label xml:lang="en">has URL</rdfs:label>
     </owl:DatatypeProperty>
@@ -298,125 +298,125 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/Aggregation -->
+    <!-- https://w3id.org/hacid/onto/data/Aggregation -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/Aggregation">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Aggregation">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
         <rdfs:label xml:lang="en">Aggregation</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/ConstantDimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/ConstantDimensionalSpace -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/ConstantDimensionalSpace">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/FiniteDimensionalSpace"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/ConstantDimensionalSpace">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/FiniteDimensionalSpace"/>
         <rdfs:label xml:lang="en">Constant Dimensional Space</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/Continuum -->
+    <!-- https://w3id.org/hacid/onto/data/Continuum -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/Continuum">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
-        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/core/data/DiscreteDimensionalSpace"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Continuum">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
         <rdfs:label xml:lang="en">Continuum</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/DataFormat -->
+    <!-- https://w3id.org/hacid/onto/data/DataFormat -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/DataFormat">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataFormat">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
         <rdfs:label xml:lang="en">Data Format</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/DataSource -->
+    <!-- https://w3id.org/hacid/onto/data/DataSource -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/DataSource">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataSource">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/InformationEntity"/>
         <rdfs:label xml:lang="en">Data Source</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/Dataset -->
+    <!-- https://w3id.org/hacid/onto/data/Dataset -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/Dataset">
-        <owl:equivalentClass rdf:resource="https://w3id.org/hacid/onto/core/data/FiniteVariable"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Dataset">
+        <owl:equivalentClass rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:label xml:lang="en">Dataset</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/DependentVariable -->
+    <!-- https://w3id.org/hacid/onto/data/DependentVariable -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/DependentVariable">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
-        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/core/data/IndependentVariable"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DependentVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/data/IndependentVariable"/>
         <rdfs:label xml:lang="en">Dependent Variable</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/DerivedVariable -->
+    <!-- https://w3id.org/hacid/onto/data/DerivedVariable -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/DerivedVariable">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DerivedVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:label xml:lang="en">Derived Variable</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/DimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/DimensionalSpace -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/DimensionalSpace">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/IndependentVariable"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DimensionalSpace">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/IndependentVariable"/>
         <rdfs:label xml:lang="en">Dimensional Space</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/DiscreteDimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/DiscreteDimensionalSpace">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:label xml:lang="en">Discrete Dimensional Space</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/FiniteDimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/FiniteDimensionalSpace -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/FiniteDimensionalSpace">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/FiniteDimensionalSpace">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/core/data/DiscreteDimensionalSpace"/>
-                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/core/data/LimitedDimensionalSpace"/>
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/LimitedDimensionalSpace"/>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/DiscreteDimensionalSpace"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/LimitedDimensionalSpace"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/LimitedDimensionalSpace"/>
         <rdfs:label xml:lang="en">Finite Dimensional Space</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/FiniteVariable -->
+    <!-- https://w3id.org/hacid/onto/data/FiniteVariable -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/FiniteVariable">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/FiniteVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/data/FiniteVariable"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Finite Variable</rdfs:label>
@@ -424,94 +424,94 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/GeodeticRegion -->
+    <!-- https://w3id.org/hacid/onto/data/GeodeticRegion -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/GeodeticRegion">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/GeodeticRegion">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Region"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/Grid -->
+    <!-- https://w3id.org/hacid/onto/data/Grid -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/Grid">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/DiscreteDimensionalSpace"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Grid">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
         <rdfs:label xml:lang="en">Grid</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/IndependentVariable -->
+    <!-- https://w3id.org/hacid/onto/data/IndependentVariable -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/IndependentVariable">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/IndependentVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:label xml:lang="en">Independent Variable</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/LimitedDimensionalSpace -->
+    <!-- https://w3id.org/hacid/onto/data/LimitedDimensionalSpace -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/LimitedDimensionalSpace">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/DimensionalSpace"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/LimitedDimensionalSpace">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:label xml:lang="en">Limited Dimensional Space</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/PeriodicRegularGrid -->
+    <!-- https://w3id.org/hacid/onto/data/PeriodicRegularGrid -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/PeriodicRegularGrid">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/RegularGrid"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/PeriodicRegularGrid">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/RegularGrid"/>
         <rdfs:label xml:lang="en">Periodic Regular Grid</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/Region -->
+    <!-- https://w3id.org/hacid/onto/data/Region -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/Region">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Region">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
         <rdfs:label xml:lang="en">Region</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/RegularGrid -->
+    <!-- https://w3id.org/hacid/onto/data/RegularGrid -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/RegularGrid">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Grid"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/RegularGrid">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Grid"/>
         <rdfs:label xml:lang="en">Regular Grid</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/RollingRegularGrid -->
+    <!-- https://w3id.org/hacid/onto/data/RollingRegularGrid -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/RollingRegularGrid">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/RegularGrid"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/RollingRegularGrid">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/RegularGrid"/>
         <rdfs:label xml:lang="en">Rolling Regular Grid</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/TemporalRegion -->
+    <!-- https://w3id.org/hacid/onto/data/TemporalRegion -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/TemporalRegion">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/data/Region"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/TemporalRegion">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data/Variable -->
+    <!-- https://w3id.org/hacid/onto/data/Variable -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data/Variable">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Variable">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/data/Variable"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A variable is an abstraction that has meaning in the context of some relation between different variables and can be associated to different values in a set that is usually well defined. The set of possible values is represented by a data:DimensionalSpace; the two are linked via the data:hasValuesOn property.</rdfs:comment>
