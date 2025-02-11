@@ -5,15 +5,15 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@prefix data: <https://w3id.org/hacid/onto/data/> .
+@prefix dimension: <https://w3id.org/hacid/data/dimension/> .
+@prefix time: <https://w3id.org/hacid/data/metric-space/time/> .
+@prefix geodetic: <https://w3id.org/hacid/data/metric-space/geodetic/> .
 @base <https://w3id.org/hacid/data/> .
 
-<world/region> a geo:Feature, ccso:SpatialRegion ;
+<world/region> a geo:Geometry, data:SpatialRegion ;
     rdfs:label "World"@en ;
-    geo:hasDefaultGeometry <world/geometry> ;
-    geo:hasBoundingBox <world/geometry> ;
-    rdfs:comment "Geographic region covering the whole Earth surface, as reference for global simulations."@en .
-
-<world/geometry> a geo:Geometry, gml:Rectangle ;
     geo:asWKT "POLYGON((-180 -90,-180 90,180 90,180 -90))"^^<geo:wktLiteral> .
+    rdfs:comment "Geographic region covering the whole Earth surface, as reference for global simulations."@en .
 
 

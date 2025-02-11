@@ -119,6 +119,41 @@ def trim:
     "PR": "pr"
 } as $base_vars_to_cmor |
 
+# Conversion to unit standard names
+{
+    "days": "day",
+    "unitless": "1",
+    "Number%20of%20individual%20heatwaves%20events": "event",
+    "events": "event"
+} as $units_to_cmor_units |
+
+def convert_unit:
+    if in($units_to_cmor_units) then $units_to_cmor_units[.] else . end;
+
+# Conversion to temporalgrids standard names
+{
+    "Daily": ["day"],
+    "Mon": ["mon"],
+    "Ann": ["yr"],
+    "Custom": ["3mon", "6mon", "yr"]
+} as $timescales_to_temporalgrids |
+
+def convert_timescales:
+    [
+        .[] |
+        if in($timescales_to_temporalgrids)
+            then $timescales_to_temporalgrids[.]
+            else [.]
+        end
+    ] | flatten;
+
+def convert_parameter:
+    {
+        "@id": @uri "parameter:\(.propertyId)",
+        "label": .shortName,
+        "acronym": .varLabel
+    };
+
 (
     [
         ($base_vars_synonyms | to_entries | .[] | (.value |= [.])),
@@ -204,14 +239,22 @@ def trim:
     $input_as_json_extended.[] |
     {
         "@id": @uri "index:\(.shortName)",
-        "@type": [(if (.parametric | not) then ["ccso:Index"] else [] end).[] , "ccso:ParametricIndex" ],
+#        "@type": [(if (.parametric | not) then ["ccso:Index"] else [] end).[] , "ccso:ParametricIndex" ],
+        "@type": ["data:Variable", "data:DependentVariable"],
         acronym: .shortName,
         label: (.longName + " (" + .shortName + ")"),
         definition: .definition,
         comment: .description,
-        hasUnitOfMeasure: (.units | if . then @uri "unit:\(.)" else [] end),
-        generated: [if .generated then .generated else [] end | .[] | @uri "index:\(.)"],
+        hasUnitOfMeasure: (.units | if . then @uri "unit:\(convert_unit)" else [] end),
+        hasValuesOn: (.units | if . then @uri "unit:\(convert_unit)" else [] end),
+        generated: [if .generated then .generated else [] end | .[] | {"@id": @uri "index:\(.)"}],
         basedOnVariable: [.baseVars.[] | @uri "variable:\($base_vars_to_cmor[.])"],
+        dependsOnVariable: ["dimension:geodetic", "dimension:time", if .parameters then (.parameters | .[] | convert_parameter) else empty end],
+        definesAggregation: {
+            "@id": @uri "aggregation:\(.shortName)",
+            aggregatesVariable: "dimension:time",
+            suggestedAggregationGrid: [ .timeScales | convert_timescales | .[] | @uri "temporalgrid:\(.)" ]
+        },
 #        isClassifiedBy: [.sectors | ("sector:" + .)],
         rest: .
     }
@@ -223,10 +266,15 @@ def trim:
         rdfs: "http://www.w3.org/2000/01/rdf-schema#",
         top: "https://w3id.org/hacid/onto/top-level/",
         ccso: "https://w3id.org/hacid/onto/ccso/",
-        index: "https://w3id.org/hacid/data/climdex/index",
-        sector: "https://w3id.org/hacid/data/climdex/sector/",
-        variable: "https://w3id.org/hacid/data/dreq/mip-variable/",
-        unit: "https://w3id.org/hacid/data/unitofmeasure/",
+        data: "https://w3id.org/hacid/onto/data/",
+        index: "https://w3id.org/hacid/data/cs/climdex/index",
+        sector: "https://w3id.org/hacid/data/cs/climdex/sector/",
+        parameter: "https://w3id.org/hacid/data/cs/climdex/parameter/",
+        variable: "https://w3id.org/hacid/data/cs/variable/mip/",
+        unit: "https://w3id.org/hacid/data/cs/unitofmeasure/",
+        dimension: "https://w3id.org/hacid/data/cs/dimension/",
+        aggregation: "https://w3id.org/hacid/data/cs/climdex/index-time-aggregation/",
+        temporalgrid: "https://w3id.org/hacid/data/cs/temporalgrid/",
         label: "rdfs:label",
         comment: "rdfs:comment",
         acronym: "top:acronym",
@@ -235,18 +283,36 @@ def trim:
             "@id": "top:hasUnitOfMeasure",
             "@type": "top:UnitOfMeasure"
         },
+        hasValuesOn: {
+            "@id": "data:hasValuesOn",
+            "@type": "data:DimensionalSpace"
+        },
+        dependsOnVariable: {
+            "@id": "data:dependsOnVariable",
+            "@type": "data:Variable"
+        },
+        definesAggregation: {
+            "@id": "data:definesAggregation",
+            "@type": "data:Aggregation"
+        },
+        aggregatesVariable: {
+            "@id": "data:aggregatesVariable"
+        },
+        suggestedAggregationGrid: {
+            "@id": "data:suggestedAggregationGrid",
+            "@type": "data:Grid"
+        },
         permitsTemporalResolution: {
             "@id": "ccso:permitsTemporalResolution",
             "@type": "top:TimeDuration"
         },
-        isClassifiedBy: {
-            "@reverse": {"@id": "top:classifies"}
-        },
         basedOnVariable: {
-            "@id": "ccso:basedOnVariable",
-            "@type": "ccso:Variable"
+            "@id": "data:derivedFromVariable",
+            "@type": "data:Variable"
         },
-        generated: "ccso:generated"
+        generated: {
+            "@reverse": "data:holdsSpecializationOfVariable"
+        }
     },
     "@graph": [
         $indices.[]

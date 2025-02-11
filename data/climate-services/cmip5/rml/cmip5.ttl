@@ -13,6 +13,11 @@
 @prefix csvw: <http://www.w3.org/ns/csvw#> .
 @prefix top: <https://w3id.org/hacid/onto/top-level/> .
 @prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@prefix data: <https://w3id.org/hacid/onto/data/> .
+@prefix dimension: <https://w3id.org/hacid/data/cs/dimension/> .
+@prefix time: <https://w3id.org/hacid/data/cs/metric-space/time/> .
+@prefix geodetic: <https://w3id.org/hacid/data/cs/metric-space/geodetic/> .
+@prefix georegion: <https://w3id.org/hacid/data/cs/geodetic-regions/> .
 @prefix hrf: <https://w3id.org/hacid/rml-functions/> .
 @base <https://w3id.org/hacid/data/rml/> .
 
@@ -42,12 +47,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
-        rr:objectMap :ModelDescription
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:hasVariable;
+        rr:predicate data:holdsSpecializationOfVariable;
         rr:objectMap :VariableIRI
     ] ;
 
@@ -57,23 +57,53 @@
     ] ;
  
     rr:predicateObjectMap [
-        rr:predicate ccso:hasSpatialCoverage ;
-        rr:object <https://w3id.org/hacid/data/world/region>
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate ccso:hasTemporalCoverage ;
+        rr:predicate data:dependsOnVariable ;
         rr:objectMap [
-            rr:parentTriplesMap :TimeIntervalMapping
+            rr:parentTriplesMap :SpatialGridMapping
         ]
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate ccso:hasTemporalResolution ;
+        rr:predicate data:dependsOnVariable ;
         rr:objectMap [
-            rr:parentTriplesMap :TimeDurationMapping
+            rr:parentTriplesMap :TemporalGridMapping
         ]
     ] .
+
+:OutputMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap :OutputIRI ;
+	
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap :OutputLabel
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap :OutputDescription
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:holdsSpecializationOfVariable;
+        rr:objectMap :VariableIRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:dependsOnVariable ;
+        rr:objectMap [
+            rr:parentTriplesMap :SpatialGridMapping
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate top:hasPart ;
+        rr:objectMap [
+            rr:parentTriplesMap :DatasetMapping
+        ]
+    ] .
+
 
 :VariableMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
@@ -89,8 +119,8 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate ccso:generatesProjection ;
-        rr:objectMap :DatasetIRI
+        rr:predicate ccso:hasOutput ;
+        rr:objectMap :OutputIRI
     ] ;
 
     rr:predicateObjectMap [
@@ -98,11 +128,6 @@
         rr:objectMap :ModelIRI 
     ] ;
     
-    rr:predicateObjectMap [
-        rr:predicate ccso:hasSpatialCoverage ;
-        rr:object <https://w3id.org/hacid/data/world/region>
-    ] ;
-
     rr:predicateObjectMap [
         rr:predicate ccso:refersToScenario ;
         rr:objectMap [
@@ -137,12 +162,11 @@
 
 :ScenarioMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
-
     rr:subjectMap :ScenarioIRI .
 
-:RoundDatetimeIntervalCall
+:FormatTemporalGridCall
     rr:predicate fno:executes ;
-    rr:objectMap [ rr:constant hrf:roundDatetimeInterval ] .
+    rr:objectMap [ rr:constant hrf:formatTemporalGrid ] .
 
 :ParamDatetimeStart
     rr:predicate hrf:startDatetime ;
@@ -156,26 +180,158 @@
     rr:predicate hrf:granularity ;
     rr:objectMap [ rml:reference "time_frequency" ] .
 
-:TimeIntervalMapping a rr:TriplesMap ;
+:TemporalGridMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
 
     rr:subjectMap [
         rr:termType rr:IRI ;
-        rr:class top:TimeInterval ;
+        rr:class data:Variable, data:IndependentVariable, data:DimensionalSpace ;
         fnml:functionValue [
-            rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+            rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
                 rr:predicate hrf:template ;
-                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/timeinterval/{start_datetime}-{end_datetime}" ]
+                rr:objectMap [
+                    rr:constant "https://w3id.org/hacid/data/cs/temporalgrid/{start_datetime}-{end_datetime}/{grid_type_id}"
+                ]
             ] 
         ]
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate top:startTime ;
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:object dimension:time, time:gregorian
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:objectMap [ 
+            rr:parentTriplesMap :GenericTemporalGridMapping
+        ]
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasExactBoundingRegion ;
+        rr:objectMap [ 
+            rr:parentTriplesMap :TemporalRegionMapping
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type ;
+        rr:objectMap [ 
+            rr:termType rr:IRI ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "https://w3id.org/hacid/onto/data/{dimensional_space_type}" ]
+                ]
+            ]
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasGridStep ;
+        rr:objectMap [ 
+            rr:datatype xsd:duration ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{grid_step}" ]
+                ]
+            ]
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasPeriod ;
+        rr:objectMap [ 
+            rr:datatype xsd:duration ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{grid_period}" ]
+                ]
+            ]
+        ]
+    ] .
+
+:GenericTemporalGridMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:class data:Variable, data:IndependentVariable, data:DimensionalSpace ;
+        fnml:functionValue [
+            rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicate hrf:template ;
+                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cs/temporalgrid/{grid_type_id}" ]
+            ] 
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:object dimension:time, time:gregorian
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type ;
+        rr:objectMap [ 
+            rr:termType rr:IRI ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "https://w3id.org/hacid/onto/data/{dimensional_space_type}" ]
+                ]
+            ]
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasGridStep ;
+        rr:objectMap [ 
+            rr:datatype xsd:duration ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{grid_step}" ]
+                ]
+            ]
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasPeriod ;
+        rr:objectMap [ 
+            rr:datatype xsd:duration ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "{grid_period}" ]
+                ]
+            ]
+        ]
+    ] .
+
+:TemporalRegionMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:class data:TemporalRegion ;
+        fnml:functionValue [
+            rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicate hrf:template ;
+                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cs/temporalregion/{start_datetime}-{end_datetime}" ]
+            ] 
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasStartDateTime ;
         rr:objectMap [ 
             rr:datatype xsd:dateTime ;
             fnml:functionValue [
-                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
                     rr:predicate hrf:template ;
                     rr:objectMap [ rr:constant "{start_datetime}" ]
                 ]
@@ -184,11 +340,11 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate top:endTime ;
+        rr:predicate data:hasEndDateTime ;
         rr:objectMap [ 
             rr:datatype xsd:dateTime ;
             fnml:functionValue [
-                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
                     rr:predicate hrf:template ;
                     rr:objectMap [ rr:constant "{end_datetime}" ]
                 ]
@@ -201,7 +357,7 @@
         rr:objectMap [ 
             rr:language "en" ;
             fnml:functionValue [
-                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
                     rr:predicate hrf:template ;
                     rr:objectMap [ rr:constant "Time interval {start_datetime} - {end_datetime}" ]
                 ] 
@@ -214,7 +370,7 @@
         rr:objectMap [ 
             rr:language "en" ;
             fnml:functionValue [
-                rr:predicateObjectMap :RoundDatetimeIntervalCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
                     rr:predicate hrf:template ;
                     rr:objectMap [ rr:constant "Time interval starting at date time {start_datetime} and ending at date time {end_datetime}." ]
                 ] 
@@ -222,58 +378,44 @@
         ]
     ] .
 
-:FormatDurationCall
-    rr:predicate fno:executes ;
-    rr:objectMap [ rr:constant hrf:formatDuration ] .
-
-:ParamTimeFrequency
-    rr:predicate hrf:timeFrequencyArray ;
-    rr:objectMap [ rml:reference "time_frequency" ] .
-
-:TimeDurationMapping a rr:TriplesMap ;
+:SpatialGridMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
+
     rr:subjectMap [
         rr:termType rr:IRI ;
-        rr:class ccso:TimeDuration ;
+        rr:class data:Variable, data:IndependentVariable, data:DimensionalSpace, data:RollingRegularGrid ;
         fnml:functionValue [
-            rr:predicateObjectMap :FormatDurationCall, :ParamTimeFrequency, [
-                rr:predicate hrf:template ;
-                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/timeduration/{duration_id_iri_escaped}" ]
+            rr:predicateObjectMap [
+                rr:predicate fno:executes ;
+                rr:objectMap [ rr:constant hrf:cmip5SimulationIri ]
+            ] ;
+            rr:predicateObjectMap [
+                rr:predicate hrf:id ;
+                rr:objectMap [ rml:reference "id" ]
+            ] ;
+            rr:predicateObjectMap [
+                rr:predicate hrf:ns ;
+                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cs/simulation-spatialgrid/" ]
             ] 
         ]
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [
-            rr:language "en" ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatDurationCall, :ParamTimeFrequency, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "{duration_description} ({duration_id})" ]
-                ] 
-            ]
-        ]
-    ] ;
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:object dimension:geodetic, geodetic:WGS84
+    ] ; 
 
     rr:predicateObjectMap [
-        rr:predicate rdf:value ;
-        rr:objectMap [
-            rr:datatype xsd:duration ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatDurationCall, :ParamTimeFrequency, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "{duration_value}" ]
-                ] 
-            ]
-        ]
+        rr:predicate data:hasExactBoundingRegion ;
+        rr:object georegion:World
     ] .
+
 
 # FUNCTIONS #
 
 :VariableIRI
     rr:termType rr:IRI ;
-    rr:class ccso:Variable ;
+    rr:class data:Variable, data:DependentVariable ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
@@ -291,7 +433,7 @@
 
 :DatasetIRI
     rr:termType rr:IRI ;
-    rr:class ccso:Dataset ;
+    rr:class data:Variable, data:Dataset ;
     fnml:functionValue [
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
@@ -303,7 +445,25 @@
         ] ;
         rr:predicateObjectMap [
             rr:predicate hrf:ns ;
-            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/dataset/" ]
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/ds/dataset/" ]
+        ] 
+    ].
+
+:OutputIRI
+    rr:termType rr:IRI ;
+    rr:class data:Dataset ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cmip5OutputIri ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:ns ;
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/ds/dataset/" ]
         ] 
     ].
 
@@ -321,7 +481,7 @@
         ] ;
         rr:predicateObjectMap [
             rr:predicate hrf:ns ;
-            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/simulation/" ]
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/ds/simulation/" ]
         ] 
     ].
 
@@ -339,7 +499,7 @@
         ] ;
         rr:predicateObjectMap [
             rr:predicate hrf:ns ;
-            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/model/" ]
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/ds/model/" ]
         ] 
     ].
 
@@ -375,6 +535,19 @@
         ] 
     ].
 
+:OutputLabel
+    rr:language "en" ;
+    fnml:functionValue [
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ rr:constant hrf:cmip5OutputId ]
+        ] ;
+        rr:predicateObjectMap [
+            rr:predicate hrf:id ;
+            rr:objectMap [ rml:reference "id" ]
+        ] 
+    ].
+
 :SimulationLabel
     rr:language "en" ;
     fnml:functionValue [
@@ -401,7 +574,7 @@
         ] 
     ].
 
-:ModelDescription
+:OutputDescription
     rr:language "en" ;
     fnml:functionValue [
         rr:predicateObjectMap [

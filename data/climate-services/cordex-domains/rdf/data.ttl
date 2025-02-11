@@ -1,143 +1,116 @@
-@prefix ns1: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <https://w3id.org/hacid/onto/data/> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://w3id.org/hacid/data/cordex-domain/afr/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Africa (AFR)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/afr/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Africa."@en .
+<https://w3id.org/hacid/data/cordex-domain/AFR/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Africa (AFR)"@en ;
+    ns2:asWKT "POLYGON((-25.25 -46.25,-25.25 42.75,60.75 42.75,60.75 -46.25))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Africa."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/ant/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Antarctica (ANT)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/ant/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Antarctica."@en .
+<https://w3id.org/hacid/data/cordex-domain/ANT/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Antarctica (ANT)"@en ;
+    ns2:asWKT "POLYGON((-179.75 -89.75,-179.75 -55.25,179.75 -55.25,179.75 -89.75))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Antarctica."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/arc/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Arctic (ARC)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/arc/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Arctic."@en .
+<https://w3id.org/hacid/data/cordex-domain/ARC/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Arctic (ARC)"@en ;
+    ns2:asWKT "POLYGON((-179.75 48.75,-179.75 89.75,179.75 89.75,179.75 48.75))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Arctic."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/aus/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Australasia (AUS)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/aus/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Australasia."@en .
+<https://w3id.org/hacid/data/cordex-domain/AUS/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Australasia (AUS)"@en ;
+    ns2:asWKT "POLYGON((88.75 -53.25,88.75 12.75,207.25 12.75,207.25 -53.25))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Australasia."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/cam/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Central America (CAM)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/cam/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Central America."@en .
+<https://w3id.org/hacid/data/cordex-domain/CAM/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Central America (CAM)"@en ;
+    ns2:asWKT "POLYGON((-124.75 -19.75,-124.75 35.25,-21.75 35.25,-21.75 -19.75))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Central America."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/cas/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Central Asia (CAS)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/cas/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Central Asia."@en .
+<https://w3id.org/hacid/data/cordex-domain/CAS/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Central Asia (CAS)"@en ;
+    ns2:asWKT "POLYGON((10.75 17.75,10.75 69.75,140.25 69.75,140.25 17.75))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Central Asia."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/eas/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "East Asia (EAS)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/eas/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing East Asia."@en .
+<https://w3id.org/hacid/data/cordex-domain/EAS/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of East Asia (EAS)"@en ;
+    ns2:asWKT "POLYGON((62.75 -18.75,62.75 59.25,175.75 59.25,175.75 -18.75))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing East Asia."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/eur/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Europe (EUR)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/eur/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Europe."@en .
+<https://w3id.org/hacid/data/cordex-domain/EUR/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Europe (EUR)"@en ;
+    ns2:asWKT "POLYGON((-44.75 21.75,-44.75 72.75,65.25 72.75,65.25 21.75))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Europe."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/med/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Mediterranean (MED)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/med/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Mediterranean."@en .
+<https://w3id.org/hacid/data/cordex-domain/MED/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Mediterranean (MED)"@en ;
+    ns2:asWKT "POLYGON((-20.75 25.25,-20.75 57.25,51.75 57.25,51.75 25.25))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Mediterranean."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/mna/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "Middle East and North Africa (MNA)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/mna/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing Middle East and North Africa."@en .
+<https://w3id.org/hacid/data/cordex-domain/MNA/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of Middle East and North Africa (MNA)"@en ;
+    ns2:asWKT "POLYGON((-26.75 -7.25,-26.75 45.25,75.75 45.25,75.75 -7.25))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing Middle East and North Africa."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/nam/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "North America (NAM)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/nam/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing North America."@en .
+<https://w3id.org/hacid/data/cordex-domain/NAM/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of North America (NAM)"@en ;
+    ns2:asWKT "POLYGON((-171.75 12.25,-171.75 76.25,-22.25 76.25,-22.25 12.25))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing North America."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/sam/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "South America (SAM)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/sam/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing South America."@en .
+<https://w3id.org/hacid/data/cordex-domain/SAM/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of South America (SAM)"@en ;
+    ns2:asWKT "POLYGON((-106.25 -58.25,-106.25 18.75,-16.25 18.75,-16.25 -58.25))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing South America."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/sea/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "South East Asia (SEA)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/sea/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing South East Asia."@en .
+<https://w3id.org/hacid/data/cordex-domain/SEA/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of South East Asia (SEA)"@en ;
+    ns2:asWKT "POLYGON((89.125 -15.375,89.125 27.375,147.125 27.375,147.125 -15.375))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing South East Asia."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 
-<https://w3id.org/hacid/data/cordex-domain/was/region> a ns1:Feature,
-        <https://w3id.org/hacid/onto/ccso/SpatialRegion> ;
-    rdfs:label "South Asia (WAS)"@en ;
-    ns1:hasBoundingBox <https://w3id.org/hacid/data/cordex-domain/was/bounding-box> ;
-    rdfs:comment "CORDEX geographic domain encompassing South Asia."@en .
-
-<https://w3id.org/hacid/data/cordex-domain/afr/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-25.25 -46.25,-25.25 42.75,60.75 42.75,60.75 -46.25))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/ant/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-179.75 -89.75,-179.75 -55.25,179.75 -55.25,179.75 -89.75))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/arc/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-179.75 48.75,-179.75 89.75,179.75 89.75,179.75 48.75))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/aus/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((88.75 -53.25,88.75 12.75,207.25 12.75,207.25 -53.25))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/cam/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-124.75 -19.75,-124.75 35.25,-21.75 35.25,-21.75 -19.75))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/cas/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((10.75 17.75,10.75 69.75,140.25 69.75,140.25 17.75))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/eas/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((62.75 -18.75,62.75 59.25,175.75 59.25,175.75 -18.75))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/eur/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-44.75 21.75,-44.75 72.75,65.25 72.75,65.25 21.75))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/med/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-20.75 25.25,-20.75 57.25,51.75 57.25,51.75 25.25))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/mna/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-26.75 -7.25,-26.75 45.25,75.75 45.25,75.75 -7.25))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/nam/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-171.75 12.25,-171.75 76.25,-22.25 76.25,-22.25 12.25))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/sam/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((-106.25 -58.25,-106.25 18.75,-16.25 18.75,-16.25 -58.25))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/sea/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((89.125 -15.375,89.125 27.375,147.125 27.375,147.125 -15.375))"^^<geo:wktLiteral> .
-
-<https://w3id.org/hacid/data/cordex-domain/was/bounding-box> a ns1:Geometry,
-        <http://www.opengis.net/ont/gml#Rectangle> ;
-    ns1:asWKT "POLYGON((19.25 -15.75,19.25 45.75,116.25 45.75,116.25 -15.75))"^^<geo:wktLiteral> .
+<https://w3id.org/hacid/data/cordex-domain/WAS/region> a ns2:Geometry,
+        ns1:SpatialRegion ;
+    rdfs:label "Boundaries of South Asia (WAS)"@en ;
+    ns2:asWKT "POLYGON((19.25 -15.75,19.25 45.75,116.25 45.75,116.25 -15.75))"^^<geo:wktLiteral> ;
+    rdfs:comment "WGS 84 bounding box of CORDEX geographic domain encompassing South Asia."@en ;
+    ns1:isRegionOf <https://w3id.org/hacid/data/cs/dimension/geodetic>,
+        <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> .
 

@@ -13,6 +13,10 @@
 @prefix csvw: <http://www.w3.org/ns/csvw#> .
 @prefix top: <https://w3id.org/hacid/onto/top-level/> .
 @prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@prefix data: <https://w3id.org/hacid/onto/data/> .
+@prefix dimension: <https://w3id.org/hacid/data/cs/dimension/> .
+@prefix time: <https://w3id.org/hacid/data/cs/metric-space/time/> .
+@prefix geodetic: <https://w3id.org/hacid/data/cs/metric-space/geodetic/> .
 @prefix hrf: <https://w3id.org/hacid/rml-functions/> .
 @base <https://w3id.org/hacid/data/rml/> .
 
@@ -35,8 +39,8 @@
     rml:logicalSource :LogicalSource ;
     
     rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/variable/{out_name}" ;
-        rr:class ccso:Variable
+        rr:template "https://w3id.org/hacid/data/cs/variable/mip/{out_name}" ;
+        rr:class data:Variable
     ] ;
 	
     rr:predicateObjectMap [
@@ -48,10 +52,35 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate top:preferredName;
+        rr:predicate data:holdsSpecializationOfVariable;
         rr:objectMap [ 
-            rml:reference "standard_name" ; 
-            rr:language "en" 
+            rr:termType rr:IRI;
+            rr:template "https://w3id.org/hacid/data/cs/variable/cf/{standard_name}";
+            rr:class data:Variable
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:dependsOnVariable;
+        rr:objectMap [ 
+            rr:termType rr:IRI;
+            rr:class data:Variable, data:IndependentVariable;
+            fnml:functionValue [
+                rr:predicateObjectMap [
+                    rr:predicate fno:executes ;
+                    rr:objectMap [ rr:constant hrf:MIPVariableDependsFrom ]
+                ], [
+                    rr:predicate hrf:dimensions ;
+                    rr:objectMap [ 
+                        rml:reference "dimensions"
+                    ]
+                ], [
+                    rr:predicate hrf:ns ;
+                    rr:objectMap [
+                        rr:constant "https://w3id.org/hacid/data/cs/"
+                    ]
+                ]
+            ]
         ]
     ] ;
 
@@ -79,7 +108,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate top:hasUnitOfMeasure;
+        rr:predicate top:hasUnitOfMeasure, data:hasValuesOn;
         rr:objectMap [ 
             rr:parentTriplesMap :UnitMapping
         ]
@@ -90,7 +119,7 @@
     rml:logicalSource :LogicalSource ;
     
     rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/realm/{modeling_realm}" ;
+        rr:template "https://w3id.org/hacid/data/cs/realm/{modeling_realm}" ;
         rr:class ccso:Realm
     ] .
 
@@ -98,8 +127,8 @@
     rml:logicalSource :LogicalSource ;
     
     rr:subjectMap [
-        rr:template "https://w3id.org/hacid/data/unitofmeasure/{units}" ;
-        rr:class top:UnitOfMeasure
+        rr:template "https://w3id.org/hacid/data/cs/unitofmeasure/{units}" ;
+        rr:class top:UnitOfMeasure, data:DimensionalSpace
     ] ;
 
     rr:predicateObjectMap [
@@ -110,34 +139,34 @@
         ]
     ] .
 
-:CellMethodMapping a rr:TriplesMap ;
-    rml:logicalSource :LogicalSource ;
+# :CellMethodMapping a rr:TriplesMap ;
+#     rml:logicalSource :LogicalSource ;
     
-    rr:subjectMap :CellMethoIRI ;
+#     rr:subjectMap :CellMethodIRI ;
 
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label;
-        rr:objectMap [ 
-            rml:reference "cell_methods" ; 
-            rr:language "en" 
-        ]
-    ] .
+#     rr:predicateObjectMap [
+#         rr:predicate rdfs:label;
+#         rr:objectMap [ 
+#             rml:reference "cell_methods" ; 
+#             rr:language "en" 
+#         ]
+#     ] .
 
 
 
-#Functions
-:CellMethoIRI
-    rr:termType rr:IRI ;
-    rr:class ccso:CellMethod ;
-    fnml:functionValue [
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ rr:constant hrf:dictUUID ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate hrf:str ;
-            rr:objectMap [ 
-                rml:reference "cell_methods"
-            ]
-        ]
-    ] .
+# #Functions
+# :CellMethodIRI
+#     rr:termType rr:IRI ;
+#     rr:class ccso:CellMethod ;
+#     fnml:functionValue [
+#         rr:predicateObjectMap [
+#             rr:predicate fno:executes ;
+#             rr:objectMap [ rr:constant hrf:dictUUID ]
+#         ];
+#         rr:predicateObjectMap [
+#             rr:predicate hrf:str ;
+#             rr:objectMap [ 
+#                 rml:reference "cell_methods"
+#             ]
+#         ]
+#     ] .

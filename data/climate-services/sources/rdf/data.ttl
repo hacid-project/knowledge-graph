@@ -1,622 +1,622 @@
 @prefix ns1: <https://w3id.org/hacid/onto/cs/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://w3id.org/hacid/cs/data/model/4aop_v1_5> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/4AOP-v1-5> a ns1:Model ;
     rdfs:label "4AOP-v1-5"@en ;
     rdfs:comment "Line-By-Line Radiative Transfer Model v1.5, Laboratoire Meteorologie Dynamique, GEISA spectroscopic database"@en .
 
-<https://w3id.org/hacid/cs/data/model/access_cm2> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ACCESS-CM2> a ns1:Model ;
     rdfs:label "ACCESS-CM2"@en ;
     rdfs:comment "Australian Community Climate and Earth System Simulator Climate Model Version 2"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/access_esm1_5> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ACCESS-ESM1-5> a ns1:Model ;
     rdfs:label "ACCESS-ESM1.5"@en ;
     rdfs:comment "Australian Community Climate and Earth System Simulator Earth System Model Version 1.5"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/classic_v1.0> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/CLASSIC%20%28v1.0%29> .
 
-<https://w3id.org/hacid/cs/data/model/access_om2> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ACCESS-OM2> a ns1:Model ;
     rdfs:label "ACCESS-OM2"@en ;
     rdfs:comment "Australian Community Climate and Earth System Simulator Ocean Model Version 2"@en .
 
-<https://w3id.org/hacid/cs/data/model/access_om2_025> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ACCESS-OM2-025> a ns1:Model ;
     rdfs:label "ACCESS-OM2-025"@en ;
     rdfs:comment "Australian Community Climate and Earth System Simulator Ocean Model Version 2 quarter degree"@en .
 
-<https://w3id.org/hacid/cs/data/model/arts_2_3> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ARTS-2-3> a ns1:Model ;
     rdfs:label "ARTS 2.3"@en ;
     rdfs:comment "ARTS 2.3 (Current development version of the Atmospheric Radiative Transfer Simulator)"@en .
 
-<https://w3id.org/hacid/cs/data/model/awi_cm_1_1_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/AWI-CM-1-1-HR> a ns1:Model ;
     rdfs:label "AWI-CM 1.1 HR"@en ;
     rdfs:comment "AWI-CM 1.1 HR"@en .
 
-<https://w3id.org/hacid/cs/data/model/awi_cm_1_1_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/AWI-CM-1-1-LR> a ns1:Model ;
     rdfs:label "AWI-CM 1.1 LR"@en ;
     rdfs:comment "AWI-CM 1.1 LR"@en .
 
-<https://w3id.org/hacid/cs/data/model/awi_cm_1_1_mr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/AWI-CM-1-1-MR> a ns1:Model ;
     rdfs:label "AWI-CM 1.1 MR"@en ;
     rdfs:comment "AWI-CM 1.1 MR"@en .
 
-<https://w3id.org/hacid/cs/data/model/awi_esm_1_1_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/AWI-ESM-1-1-LR> a ns1:Model ;
     rdfs:label "AWI-ESM 1.1 LR"@en ;
     rdfs:comment "AWI-ESM 1.1 LR"@en .
 
-<https://w3id.org/hacid/cs/data/model/awi_esm_1_recom> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/AWI-ESM-1-REcoM> a ns1:Model ;
     rdfs:label "AWI-ESM 1 REcoM"@en ;
     rdfs:comment "AWI-ESM 1 REcoM"@en .
 
-<https://w3id.org/hacid/cs/data/model/awi_esm_2_1_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/AWI-ESM-2-1-LR> a ns1:Model ;
     rdfs:label "AWI-ESM 2.1 LR"@en ;
     rdfs:comment "AWI-ESM 2.1 LR"@en .
 
-<https://w3id.org/hacid/cs/data/model/bcc_csm2_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/BCC-CSM2-HR> a ns1:Model ;
     rdfs:label "BCC-CSM 2 HR"@en ;
     rdfs:comment "BCC-CSM 2 HR"@en .
 
-<https://w3id.org/hacid/cs/data/model/bcc_csm2_mr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/BCC-CSM2-MR> a ns1:Model ;
     rdfs:label "BCC-CSM 2 MR"@en ;
     rdfs:comment "BCC-CSM 2 MR"@en .
 
-<https://w3id.org/hacid/cs/data/model/bcc_esm1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/BCC-ESM1> a ns1:Model ;
     rdfs:label "BCC-ESM 1"@en ;
     rdfs:comment "BCC-ESM 1"@en .
 
-<https://w3id.org/hacid/cs/data/model/cam_mpas_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/CAM-MPAS-HR> a ns1:Model ;
     rdfs:label "CAM-MPAS-HR"@en ;
     rdfs:comment "CAM MPAS (Community Atmosphere Model - Model for Prediction Across Scales)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none_prescribed_macv2_sp> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none%2C%20prescribed%20MACv2-SP> .
 
-<https://w3id.org/hacid/cs/data/model/cam_mpas_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/CAM-MPAS-LR> a ns1:Model ;
     rdfs:label "CAM-MPAS-LR"@en ;
     rdfs:comment "CAM MPAS (Community Atmosphere Model - Model for Prediction Across Scales)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none_prescribed_macv2_sp> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none%2C%20prescribed%20MACv2-SP> .
 
-<https://w3id.org/hacid/cs/data/model/cams_csm1_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/CAMS-CSM1-0> a ns1:Model ;
     rdfs:label "CAMS-CSM 1.0"@en ;
     rdfs:comment "CAMS-CSM 1.0"@en .
 
-<https://w3id.org/hacid/cs/data/model/canesm5> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/CAS-ESM2-0> a ns1:Model ;
+    rdfs:label "CAS-ESM 2.0"@en ;
+    rdfs:comment "CAS-ESM 2.0 (Chinese Academy of Sciences Earth System Model version 2.0)"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/IAP%20AACM> .
+
+<https://w3id.org/hacid/cs/data/model/CESM1-1-CAM5-CMIP5> a ns1:Model ;
+    rdfs:label "CESM1-1-CAM5-CMIP5"@en ;
+    rdfs:comment "CESM1-1-CAM5-CMIP5"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM3%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CESM1-CAM5-SE-HR> a ns1:Model ;
+    rdfs:label "CESM1-CAM5-SE-HR"@en ;
+    rdfs:comment "CESM 1.3 CAM5 spectral element configuration with CMIP5 forcings, hi res"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM3%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CESM1-CAM5-SE-LR> a ns1:Model ;
+    rdfs:label "CESM1-CAM5-SE-LR"@en ;
+    rdfs:comment "CESM 1.3 CAM5 spectral element configuration with CMIP5 forcings, lo res"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM3%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CESM1-WACCM-SC> a ns1:Model ;
+    rdfs:label "CESM1-WACCM-SC"@en ;
+    rdfs:comment "Community Earth System Model 1, with the Whole Atmosphere Community Climate Model and Specified Chemistry"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MOZART-specified%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CESM2> a ns1:Model ;
+    rdfs:label "CESM2"@en ;
+    rdfs:comment "CESM2"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CESM2-FV2> a ns1:Model ;
+    rdfs:label "CESM2-FV2"@en ;
+    rdfs:comment "CESM2-FV2"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CESM2-WACCM> a ns1:Model ;
+    rdfs:label "CESM2-WACCM"@en ;
+    rdfs:comment "CESM2-WACCM"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CESM2-WACCM-FV2> a ns1:Model ;
+    rdfs:label "CESM2-WACCM-FV2"@en ;
+    rdfs:comment "CESM2-WACCM-FV2"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20%28same%20grid%20as%20atmos%29> .
+
+<https://w3id.org/hacid/cs/data/model/CIESM> a ns1:Model ;
+    rdfs:label "CIESM"@en ;
+    rdfs:comment "Community Integrated Earth System Model"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4> .
+
+<https://w3id.org/hacid/cs/data/model/CMCC-CM2-HR4> a ns1:Model ;
+    rdfs:label "CMCC-CM2-HR4"@en ;
+    rdfs:comment "CMCC-CM2-HR4"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed%20MACv2-SP> .
+
+<https://w3id.org/hacid/cs/data/model/CMCC-CM2-SR5> a ns1:Model ;
+    rdfs:label "CMCC-CM2-SR5"@en ;
+    rdfs:comment "CMCC-CM2-SR5"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM3> .
+
+<https://w3id.org/hacid/cs/data/model/CMCC-CM2-VHR4> a ns1:Model ;
+    rdfs:label "CMCC-CM2-VHR4"@en ;
+    rdfs:comment "CMCC-CM2-VHR4"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed%20MACv2-SP> .
+
+<https://w3id.org/hacid/cs/data/model/CMCC-ESM2> a ns1:Model ;
+    rdfs:label "CMCC-ESM2"@en ;
+    rdfs:comment "CMCC-ESM2"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM3> .
+
+<https://w3id.org/hacid/cs/data/model/CNRM-CM6-1> a ns1:Model ;
+    rdfs:label "CNRM-CM6-1"@en ;
+    rdfs:comment "CNRM-CM6-1"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed%20monthly%20fields%20computed%20by%20TACTIC_v2%20scheme> .
+
+<https://w3id.org/hacid/cs/data/model/CNRM-CM6-1-HR> a ns1:Model ;
+    rdfs:label "CNRM-CM6-1-HR"@en ;
+    rdfs:comment "CNRM-CM6-1-HR"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed%20monthly%20fields%20computed%20by%20TACTIC_v2%20scheme> .
+
+<https://w3id.org/hacid/cs/data/model/CNRM-ESM2-1> a ns1:Model ;
+    rdfs:label "CNRM-ESM2-1"@en ;
+    rdfs:comment "CNRM-ESM2-1"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/TACTIC_v2> .
+
+<https://w3id.org/hacid/cs/data/model/CanESM5> a ns1:Model ;
     rdfs:label "CanESM5"@en ;
     rdfs:comment "CanESM5"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/interactive> .
 
-<https://w3id.org/hacid/cs/data/model/canesm5_1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/CanESM5-1> a ns1:Model ;
     rdfs:label "CanESM5.1"@en ;
     rdfs:comment "CanESM5.1"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/interactive> .
 
-<https://w3id.org/hacid/cs/data/model/canesm5_canoe> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/CanESM5-CanOE> a ns1:Model ;
     rdfs:label "CanESM5-CanOE"@en ;
     rdfs:comment "CanESM5-CanOE"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/interactive> .
 
-<https://w3id.org/hacid/cs/data/model/cas_esm2_0> a ns1:Model ;
-    rdfs:label "CAS-ESM 2.0"@en ;
-    rdfs:comment "CAS-ESM 2.0 (Chinese Academy of Sciences Earth System Model version 2.0)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/iap_aacm> .
-
-<https://w3id.org/hacid/cs/data/model/cesm1_1_cam5_cmip5> a ns1:Model ;
-    rdfs:label "CESM1-1-CAM5-CMIP5"@en ;
-    rdfs:comment "CESM1-1-CAM5-CMIP5"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam3_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/cesm1_cam5_se_hr> a ns1:Model ;
-    rdfs:label "CESM1-CAM5-SE-HR"@en ;
-    rdfs:comment "CESM 1.3 CAM5 spectral element configuration with CMIP5 forcings, hi res"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam3_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/cesm1_cam5_se_lr> a ns1:Model ;
-    rdfs:label "CESM1-CAM5-SE-LR"@en ;
-    rdfs:comment "CESM 1.3 CAM5 spectral element configuration with CMIP5 forcings, lo res"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam3_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/cesm1_waccm_sc> a ns1:Model ;
-    rdfs:label "CESM1-WACCM-SC"@en ;
-    rdfs:comment "Community Earth System Model 1, with the Whole Atmosphere Community Climate Model and Specified Chemistry"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mozart_specified_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/cesm2> a ns1:Model ;
-    rdfs:label "CESM2"@en ;
-    rdfs:comment "CESM2"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/cesm2_fv2> a ns1:Model ;
-    rdfs:label "CESM2-FV2"@en ;
-    rdfs:comment "CESM2-FV2"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/cesm2_waccm> a ns1:Model ;
-    rdfs:label "CESM2-WACCM"@en ;
-    rdfs:comment "CESM2-WACCM"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/cesm2_waccm_fv2> a ns1:Model ;
-    rdfs:label "CESM2-WACCM-FV2"@en ;
-    rdfs:comment "CESM2-WACCM-FV2"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_same_grid_as_atmos> .
-
-<https://w3id.org/hacid/cs/data/model/ciesm> a ns1:Model ;
-    rdfs:label "CIESM"@en ;
-    rdfs:comment "Community Integrated Earth System Model"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4> .
-
-<https://w3id.org/hacid/cs/data/model/cmcc_cm2_hr4> a ns1:Model ;
-    rdfs:label "CMCC-CM2-HR4"@en ;
-    rdfs:comment "CMCC-CM2-HR4"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_macv2_sp> .
-
-<https://w3id.org/hacid/cs/data/model/cmcc_cm2_sr5> a ns1:Model ;
-    rdfs:label "CMCC-CM2-SR5"@en ;
-    rdfs:comment "CMCC-CM2-SR5"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam3> .
-
-<https://w3id.org/hacid/cs/data/model/cmcc_cm2_vhr4> a ns1:Model ;
-    rdfs:label "CMCC-CM2-VHR4"@en ;
-    rdfs:comment "CMCC-CM2-VHR4"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_macv2_sp> .
-
-<https://w3id.org/hacid/cs/data/model/cmcc_esm2> a ns1:Model ;
-    rdfs:label "CMCC-ESM2"@en ;
-    rdfs:comment "CMCC-ESM2"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam3> .
-
-<https://w3id.org/hacid/cs/data/model/cnrm_cm6_1> a ns1:Model ;
-    rdfs:label "CNRM-CM6-1"@en ;
-    rdfs:comment "CNRM-CM6-1"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_monthly_fields_computed_by_tactic_v2_scheme> .
-
-<https://w3id.org/hacid/cs/data/model/cnrm_cm6_1_hr> a ns1:Model ;
-    rdfs:label "CNRM-CM6-1-HR"@en ;
-    rdfs:comment "CNRM-CM6-1-HR"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_monthly_fields_computed_by_tactic_v2_scheme> .
-
-<https://w3id.org/hacid/cs/data/model/cnrm_esm2_1> a ns1:Model ;
-    rdfs:label "CNRM-ESM2-1"@en ;
-    rdfs:comment "CNRM-ESM2-1"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/tactic_v2> .
-
-<https://w3id.org/hacid/cs/data/model/e3sm_1_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/E3SM-1-0> a ns1:Model ;
     rdfs:label "E3SM 1.0"@en ;
     rdfs:comment "E3SM 1.0 (Energy Exascale Earth System Model)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_with_resuspension_marine_organics_and_secondary_organics_same_grid_as_atmos> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20with%20resuspension%2C%20marine%20organics%2C%20and%20secondary%20organics%20%28same%20grid%20as%20atmos%29> .
 
-<https://w3id.org/hacid/cs/data/model/e3sm_1_1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/E3SM-1-1> a ns1:Model ;
     rdfs:label "E3SM 1.1"@en ;
     rdfs:comment "E3SM 1.1 (Energy Exascale Earth System Model)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_with_resuspension_marine_organics_and_secondary_organics_same_grid_as_atmos> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20with%20resuspension%2C%20marine%20organics%2C%20and%20secondary%20organics%20%28same%20grid%20as%20atmos%29> .
 
-<https://w3id.org/hacid/cs/data/model/e3sm_1_1_eca> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/E3SM-1-1-ECA> a ns1:Model ;
     rdfs:label "E3SM 1.1 ECA"@en ;
     rdfs:comment "E3SM 1.1 (Energy Exascale Earth System Model) with an experimental land BGC ECA configuration"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_with_resuspension_marine_organics_and_secondary_organics_same_grid_as_atmos> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20with%20resuspension%2C%20marine%20organics%2C%20and%20secondary%20organics%20%28same%20grid%20as%20atmos%29> .
 
-<https://w3id.org/hacid/cs/data/model/e3sm_2_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/E3SM-2-0> a ns1:Model ;
     rdfs:label "E3SM 2.0"@en ;
     rdfs:comment "E3SM 2.0 (Energy Exascale Earth System Model)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_with_new_resuspension_marine_organics_secondary_organics_and_dust_atmos_grid> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20with%20new%20resuspension%2C%20marine%20organics%2C%20secondary%20organics%2C%20and%20dust%20%28atmos%20grid%29> .
 
-<https://w3id.org/hacid/cs/data/model/e3sm_2_0_narrm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/E3SM-2-0-NARRM> a ns1:Model ;
     rdfs:label "E3SM 2.0 NARRM"@en ;
     rdfs:comment "E3SM 2.0 NARRM (Energy Exascale Earth System Model version 2.0 North American Regionally Refined Model)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_w_new_resuspension_marine_organics_secondary_organics_and_dust_atmos_grid> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20w/%20new%20resuspension%2C%20marine%20organics%2C%20secondary%20organics%2C%20and%20dust%20%28atmos%20grid%29> .
 
-<https://w3id.org/hacid/cs/data/model/e3sm_2_1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/E3SM-2-1> a ns1:Model ;
     rdfs:label "E3SM 2.1"@en ;
     rdfs:comment "E3SM 2.1 (Energy Exascale Earth System Model)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam4_w_new_resuspension_marine_organics_secondary_organics_and_dust_atmos_physics_grid> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM4%20w/%20new%20resuspension%2C%20marine%20organics%2C%20secondary%20organics%2C%20and%20dust%20%28atmos%20physics%20grid%29> .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3> a ns1:Model ;
     rdfs:label "EC-Earth3"@en ;
     rdfs:comment "EC Earth 3.3"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_aerchem> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-AerChem> a ns1:Model ;
     rdfs:label "EC-Earth3-AerChem"@en ;
     rdfs:comment "EC-Earth3-AerChem"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/tm5_3_x_2_degrees_120_x_90_longitude_latitude_34_levels_top_level:_0.1_hpa> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/TM5%20%283%20x%202%20degrees%3B%20120%20x%2090%20longitude/latitude%3B%2034%20levels%3B%20top%20level%3A%200.1%20hPa%29> .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_cc> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-CC> a ns1:Model ;
     rdfs:label "EC-Earth3-CC"@en ;
     rdfs:comment "EC-Earth3-CC"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_esm_1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-ESM-1> a ns1:Model ;
     rdfs:label "EC-Earth3-ESM-1"@en ;
     rdfs:comment "EC-Earth3-ESM-1"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_gris> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-GrIS> a ns1:Model ;
     rdfs:label "EC-Earth3-GrIS"@en ;
     rdfs:comment "EC-Earth3-GrIS"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-HR> a ns1:Model ;
     rdfs:label "EC-Earth3-HR"@en ;
     rdfs:comment "EC-Earth3-HR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-LR> a ns1:Model ;
     rdfs:label "EC-Earth3-LR"@en ;
     rdfs:comment "EC-Earth3-LR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_veg> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-Veg> a ns1:Model ;
     rdfs:label "EC-Earth3-Veg"@en ;
     rdfs:comment "EC-Earth3-Veg"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3_veg_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3-Veg-LR> a ns1:Model ;
     rdfs:label "EC-Earth3-Veg-LR"@en ;
     rdfs:comment "EC-Earth3-Veg-LR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3p> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3P> a ns1:Model ;
     rdfs:label "EC-Earth3P"@en ;
     rdfs:comment "EC-Earth 3.2 in PRIMAVERA"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3p_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3P-HR> a ns1:Model ;
     rdfs:label "EC-Earth3P-HR"@en ;
     rdfs:comment "EC-Earth3P-HR in PRIMAVERA"@en .
 
-<https://w3id.org/hacid/cs/data/model/ec_earth3p_vhr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/EC-Earth3P-VHR> a ns1:Model ;
     rdfs:label "EC-Earth3P-VHR"@en ;
     rdfs:comment "EC-Earth3P-VHR in PRIMAVERA"@en .
 
-<https://w3id.org/hacid/cs/data/model/ecmwf_ifs_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ECMWF-IFS-HR> a ns1:Model ;
     rdfs:label "ECMWF-IFS-HR"@en ;
     rdfs:comment "ECMWF-IFS-HR (25 km atmosphere and 25 km ocean)"@en .
 
-<https://w3id.org/hacid/cs/data/model/ecmwf_ifs_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ECMWF-IFS-LR> a ns1:Model ;
     rdfs:label "ECMWF-IFS-LR"@en ;
     rdfs:comment "ECMWF-IFS-LR (50 km atmosphere and 100 km ocean)"@en .
 
-<https://w3id.org/hacid/cs/data/model/ecmwf_ifs_mr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ECMWF-IFS-MR> a ns1:Model ;
     rdfs:label "ECMWF-IFS-MR"@en ;
     rdfs:comment "ECMWF-IFS-MR (50 km atmosphere and 25 km ocean)"@en .
 
-<https://w3id.org/hacid/cs/data/model/fgoals_f3_h> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/FGOALS-f3-H> a ns1:Model ;
     rdfs:label "FGOALS-f3-H"@en ;
     rdfs:comment "FGOALS-f3-H"@en .
 
-<https://w3id.org/hacid/cs/data/model/fgoals_f3_l> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/FGOALS-f3-L> a ns1:Model ;
     rdfs:label "FGOALS-f3-L"@en ;
     rdfs:comment "FGOALS-f3-L"@en .
 
-<https://w3id.org/hacid/cs/data/model/fgoals_g3> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/FGOALS-g3> a ns1:Model ;
     rdfs:label "FGOALS-g3"@en ;
     rdfs:comment "FGOALS-g3"@en .
 
-<https://w3id.org/hacid/cs/data/model/fio_esm_2_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/FIO-ESM-2-0> a ns1:Model ;
     rdfs:label "FIO-ESM 2.0"@en ;
     rdfs:comment "FIO-ESM 2.0"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_monthly_fields> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Prescribed%20monthly%20fields> .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_am4> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-AM4> a ns1:Model ;
     rdfs:label "GFDL-AM4"@en ;
     rdfs:comment "GFDL-AM4"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/interactive> .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_cm4> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-CM4> a ns1:Model ;
     rdfs:label "GFDL-CM4"@en ;
     rdfs:comment "GFDL-CM4"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/interactive> .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_cm4c192> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-CM4C192> a ns1:Model ;
     rdfs:label "GFDL-CM4C192"@en ;
     rdfs:comment "GFDL-CM4C192"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/interactive> .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_esm2m> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-ESM2M> a ns1:Model ;
     rdfs:label "GFDL-ESM2M"@en ;
     rdfs:comment "GFDL-ESM2M"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed> .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_esm4> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-ESM4> a ns1:Model ;
     rdfs:label "GFDL-ESM4"@en ;
     rdfs:comment "GFDL-ESM4"@en ;
     ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/interactive> .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_grtcode> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-GRTCODE> a ns1:Model ;
     rdfs:label "GFDL-GRTCODE"@en ;
     rdfs:comment "GFDL GPU radiative transfer code with two stream solver (March 2019)"@en .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_om4p5b> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-OM4p5B> a ns1:Model ;
     rdfs:label "GFDL-OM4p5B"@en ;
     rdfs:comment "GFDL-OM4p5B"@en .
 
-<https://w3id.org/hacid/cs/data/model/gfdl_rfm_disort> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GFDL-RFM-DISORT> a ns1:Model ;
     rdfs:label "GFDL-RFM-DISORT"@en ;
     rdfs:comment "GFDL Reference Forward Model Line-by-Line with DISORT solver (March 2019)"@en .
 
-<https://w3id.org/hacid/cs/data/model/giss_e2_1_g> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GISS-E2-1-G> a ns1:Model ;
     rdfs:label "GISS-E2.1G"@en ;
     rdfs:comment "GISS-E2.1G"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies_with_physics_version_p==1_none_p==3_oma_p==4_tomas_p==5_matrix> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Varies%20with%20physics-version%20%28p%3D%3D1%20none%2C%20p%3D%3D3%20OMA%2C%20p%3D%3D4%20TOMAS%2C%20p%3D%3D5%20MATRIX%29> .
 
-<https://w3id.org/hacid/cs/data/model/giss_e2_1_g_cc> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GISS-E2-1-G-CC> a ns1:Model ;
     rdfs:label "GISS-E2-1-G-CC"@en ;
     rdfs:comment "GISS-E2-1-G-CC"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies_with_physics_version_p==1_none_p==3_oma_p==4_tomas_p==5_matrix> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies%20with%20physics-version%20%28p%3D%3D1%20none%2C%20p%3D%3D3%20OMA%2C%20p%3D%3D4%20TOMAS%2C%20p%3D%3D5%20MATRIX%29> .
 
-<https://w3id.org/hacid/cs/data/model/giss_e2_1_h> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GISS-E2-1-H> a ns1:Model ;
     rdfs:label "GISS-E2.1H"@en ;
     rdfs:comment "GISS-E2.1H"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies_with_physics_version_p==1_none_p==3_oma_p==4_tomas_p==5_matrix> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Varies%20with%20physics-version%20%28p%3D%3D1%20none%2C%20p%3D%3D3%20OMA%2C%20p%3D%3D4%20TOMAS%2C%20p%3D%3D5%20MATRIX%29> .
 
-<https://w3id.org/hacid/cs/data/model/giss_e2_2_g> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GISS-E2-2-G> a ns1:Model ;
     rdfs:label "GISS-E2-2-G"@en ;
     rdfs:comment "GISS-E2-2-G"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies_with_physics_version_p==1_none_p==3_oma_p==4_tomas_p==5_matrix> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies%20with%20physics-version%20%28p%3D%3D1%20none%2C%20p%3D%3D3%20OMA%2C%20p%3D%3D4%20TOMAS%2C%20p%3D%3D5%20MATRIX%29> .
 
-<https://w3id.org/hacid/cs/data/model/giss_e2_2_h> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GISS-E2-2-H> a ns1:Model ;
     rdfs:label "GISS-E2.2H"@en ;
     rdfs:comment "GISS-E2.2H"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies_with_physics_version_p==1_none_p==3_oma_p==4_tomas_p==5_matrix> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Varies%20with%20physics-version%20%28p%3D%3D1%20none%2C%20p%3D%3D3%20OMA%2C%20p%3D%3D4%20TOMAS%2C%20p%3D%3D5%20MATRIX%29> .
 
-<https://w3id.org/hacid/cs/data/model/giss_e3_g> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/GISS-E3-G> a ns1:Model ;
     rdfs:label "GISS-E3-G"@en ;
     rdfs:comment "GISS-E3-G"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/varies_with_physics_version_p==1_none_p==3_oma_p==4_tomas_p==5_matrix> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Varies%20with%20physics-version%20%28p%3D%3D1%20none%2C%20p%3D%3D3%20OMA%2C%20p%3D%3D4%20TOMAS%2C%20p%3D%3D5%20MATRIX%29> .
 
-<https://w3id.org/hacid/cs/data/model/hadgem3_gc31_hh> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HadGEM3-GC31-HH> a ns1:Model ;
     rdfs:label "HadGEM3-GC31-HH"@en ;
     rdfs:comment "HadGEM3-GC3.1-N512ORCA12"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/hadgem3_gc31_hm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HadGEM3-GC31-HM> a ns1:Model ;
     rdfs:label "HadGEM3-GC31-HM"@en ;
     rdfs:comment "HadGEM3-GC3.1-N512ORCA025"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/hadgem3_gc31_ll> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HadGEM3-GC31-LL> a ns1:Model ;
     rdfs:label "HadGEM3-GC31-LL"@en ;
     rdfs:comment "HadGEM3-GC3.1-N96ORCA1"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/hadgem3_gc31_lm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HadGEM3-GC31-LM> a ns1:Model ;
     rdfs:label "HadGEM3-GC31-LM"@en ;
     rdfs:comment "HadGEM3-GC3.1-N96ORCA025"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/hadgem3_gc31_mh> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HadGEM3-GC31-MH> a ns1:Model ;
     rdfs:label "HadGEM3-GC31-MH"@en ;
     rdfs:comment "HadGEM3-GC3.1-N216ORCA12"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/hadgem3_gc31_mm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HadGEM3-GC31-MM> a ns1:Model ;
     rdfs:label "HadGEM3-GC31-MM"@en ;
     rdfs:comment "HadGEM3-GC3.1-N216ORCA025"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/hiram_sit_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HiRAM-SIT-HR> a ns1:Model ;
     rdfs:label "HiRAM-SIT-HR"@en ;
     rdfs:comment "HiRAM Coupling 1-D SIT (25 km atmosphere and 25 km ocean)"@en .
 
-<https://w3id.org/hacid/cs/data/model/hiram_sit_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/HiRAM-SIT-LR> a ns1:Model ;
     rdfs:label "HiRAM-SIT-LR"@en ;
     rdfs:comment "HiRAM Coupling 1-D SIT (50 km atmosphere and 25 km ocean)"@en .
 
-<https://w3id.org/hacid/cs/data/model/icon_esm_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/ICON-ESM-LR> a ns1:Model ;
     rdfs:label "ICON-ESM-LR"@en ;
     rdfs:comment "ICON-ESM-LR"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none_prescribed_macv2_sp> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none%2C%20prescribed%20MACv2-SP> .
 
-<https://w3id.org/hacid/cs/data/model/iitm_esm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IITM-ESM> a ns1:Model ;
     rdfs:label "IITM-ESM"@en ;
     rdfs:comment "IITM-ESM"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_mac_v2> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed%20MAC-v2> .
 
-<https://w3id.org/hacid/cs/data/model/inm_cm4_8> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/INM-CM4-8> a ns1:Model ;
     rdfs:label "INM-CM4-8"@en ;
     rdfs:comment "INM-CM4-8"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/inm_aer1> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/INM-AER1> .
 
-<https://w3id.org/hacid/cs/data/model/inm_cm5_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/INM-CM5-0> a ns1:Model ;
     rdfs:label "INM-CM5-0"@en ;
     rdfs:comment "INM-CM5-0"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/inm_aer1> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/INM-AER1> .
 
-<https://w3id.org/hacid/cs/data/model/inm_cm5_h> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/INM-CM5-H> a ns1:Model ;
     rdfs:label "INM-CM5-H"@en ;
     rdfs:comment "INM-CM5-H"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/inm_aer1> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/INM-AER1> .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm5a2_inca> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM5A2-INCA> a ns1:Model ;
     rdfs:label "IPSL-CM5A2-INCA"@en ;
     rdfs:comment "IPSL-CM5A2-INCA"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/inca_v6_nmhc_aer_s> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/INCA%20v6%20NMHC-AER-S> .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_atm_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-ATM-HR> a ns1:Model ;
     rdfs:label "IPSL-CM6A-ATM-HR"@en ;
     rdfs:comment "IPSL-CM6A-ATM-HR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_atm_ico_hr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-ATM-ICO-HR> a ns1:Model ;
     rdfs:label "IPSL-CM6A-ATM-ICO-HR"@en ;
     rdfs:comment "IPSL-CM6A-ATM-ICO-HR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_atm_ico_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-ATM-ICO-LR> a ns1:Model ;
     rdfs:label "IPSL-CM6A-ATM-ICO-LR"@en ;
     rdfs:comment "IPSL-CM6A-ATM-ICO-LR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_atm_ico_mr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-ATM-ICO-MR> a ns1:Model ;
     rdfs:label "IPSL-CM6A-ATM-ICO-MR"@en ;
     rdfs:comment "IPSL-CM6A-ATM-ICO-MR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_atm_ico_vhr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-ATM-ICO-VHR> a ns1:Model ;
     rdfs:label "IPSL-CM6A-ATM-ICO-VHR"@en ;
     rdfs:comment "IPSL-CM6A-ATM-ICO-VHR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_atm_lr_reprobus> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-ATM-LR-REPROBUS> a ns1:Model ;
     rdfs:label "IPSL-CM6A-ATM-LR-REPROBUS"@en ;
     rdfs:comment "IPSL-CM6A-ATM-LR-REPROBUS"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/lmdz_npv6_144_x_143_longitude_latitude_79_levels_top_level_80000_m> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/LMDZ%20%28NPv6%20%3B%20144%20x%20143%20longitude/latitude%3B%2079%20levels%3B%20top%20level%2080000%20m%29> .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_lr> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-LR> a ns1:Model ;
     rdfs:label "IPSL-CM6A-LR"@en ;
     rdfs:comment "IPSL-CM6A-LR"@en .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_lr_inca> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-LR-INCA> a ns1:Model ;
     rdfs:label "IPSL-CM6A-LR-INCA"@en ;
     rdfs:comment "IPSL-CM6A-LR-INCA"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/inca_v6_aer> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/INCA%20v6%20AER> .
 
-<https://w3id.org/hacid/cs/data/model/ipsl_cm6a_mr1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/IPSL-CM6A-MR1> a ns1:Model ;
     rdfs:label "IPSL-CM6A-MR1"@en ;
     rdfs:comment "IPSL-CM6A-MR1"@en .
 
-<https://w3id.org/hacid/cs/data/model/kace_1_0_g> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/KACE-1-0-G> a ns1:Model ;
     rdfs:label "KACE1.0-G"@en ;
     rdfs:comment "KACE1.0-GLOMAP"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/kiost_esm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/KIOST-ESM> a ns1:Model ;
     rdfs:label "KIOST-ESM"@en ;
     rdfs:comment "KIOST Earth System Model v2"@en .
 
-<https://w3id.org/hacid/cs/data/model/lblrtm_12_8> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/LBLRTM-12-8> a ns1:Model ;
     rdfs:label "LBLRTM 12.8"@en ;
     rdfs:comment "Line-By-Line Radiative Transfer Model v12.8, aer_v_3.6, MT_CKD_3.2"@en .
 
-<https://w3id.org/hacid/cs/data/model/mcm_ua_1_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MCM-UA-1-0> a ns1:Model ;
     rdfs:label "MCM-UA-1-0"@en ;
     rdfs:comment "Manabe Climate Model v1.0 - University of Arizona"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/modifies_surface_albedoes_haywood_et_al._1997_doi:_10.1175_1520_04421997010lt1562:gcmcotgt2.0.co2> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Modifies%20surface%20albedoes%20%28Haywood%20et%20al.%201997%2C%20doi%3A%2010.1175/1520-0442%281997%29010%26lt%3B1562%3AGCMCOT%26gt%3B2.0.CO%3B2%29> .
 
-<https://w3id.org/hacid/cs/data/model/miroc6> a ns1:Model ;
-    rdfs:label "MIROC6"@en ;
-    rdfs:comment "MIROC6"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/sprintars6.0> .
-
-<https://w3id.org/hacid/cs/data/model/miroc_es2h> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MIROC-ES2H> a ns1:Model ;
     rdfs:label "MIROC-ES2H"@en ;
     rdfs:comment "MIROC-ES2H"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/sprintars6.0> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/SPRINTARS6.0> .
 
-<https://w3id.org/hacid/cs/data/model/miroc_es2h_nb> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MIROC-ES2H-NB> a ns1:Model ;
     rdfs:label "MIROC-ES2H-NB"@en ;
     rdfs:comment "MIROC-ES2H with No BiogenicCycle"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/sprintars6.0> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/SPRINTARS6.0> .
 
-<https://w3id.org/hacid/cs/data/model/miroc_es2l> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MIROC-ES2L> a ns1:Model ;
     rdfs:label "MIROC-ES2L"@en ;
     rdfs:comment "MIROC-ES2L"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/sprintars6.0> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/SPRINTARS6.0> .
 
-<https://w3id.org/hacid/cs/data/model/mpi_esm1_2_hr> a ns1:Model ;
-    rdfs:label "MPI-ESM1.2-HR"@en ;
-    rdfs:comment "MPI-ESM1.2-HR"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none_prescribed_macv2_sp> .
+<https://w3id.org/hacid/cs/data/model/MIROC6> a ns1:Model ;
+    rdfs:label "MIROC6"@en ;
+    rdfs:comment "MIROC6"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/SPRINTARS6.0> .
 
-<https://w3id.org/hacid/cs/data/model/mpi_esm1_2_lr> a ns1:Model ;
-    rdfs:label "MPI-ESM1.2-LR"@en ;
-    rdfs:comment "MPI-ESM1.2-LR"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none_prescribed_macv2_sp> .
-
-<https://w3id.org/hacid/cs/data/model/mpi_esm1_2_xr> a ns1:Model ;
-    rdfs:label "MPI-ESM1.2-XR"@en ;
-    rdfs:comment "MPI-ESM1.2-XR"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none_prescribed_macv2_sp> .
-
-<https://w3id.org/hacid/cs/data/model/mpi_esm_1_2_ham> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MPI-ESM-1-2-HAM> a ns1:Model ;
     rdfs:label "MPI-ESM1.2-HAM"@en ;
     rdfs:comment "MPI-ESM1.2-HAM"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ham2.3> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/HAM2.3> .
 
-<https://w3id.org/hacid/cs/data/model/mri_agcm3_2_h> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MPI-ESM1-2-HR> a ns1:Model ;
+    rdfs:label "MPI-ESM1.2-HR"@en ;
+    rdfs:comment "MPI-ESM1.2-HR"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none%2C%20prescribed%20MACv2-SP> .
+
+<https://w3id.org/hacid/cs/data/model/MPI-ESM1-2-LR> a ns1:Model ;
+    rdfs:label "MPI-ESM1.2-LR"@en ;
+    rdfs:comment "MPI-ESM1.2-LR"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none%2C%20prescribed%20MACv2-SP> .
+
+<https://w3id.org/hacid/cs/data/model/MPI-ESM1-2-XR> a ns1:Model ;
+    rdfs:label "MPI-ESM1.2-XR"@en ;
+    rdfs:comment "MPI-ESM1.2-XR"@en ;
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/none%2C%20prescribed%20MACv2-SP> .
+
+<https://w3id.org/hacid/cs/data/model/MRI-AGCM3-2-H> a ns1:Model ;
     rdfs:label "MRI-AGCM3-2-H"@en ;
     rdfs:comment "MRI-AGCM3-2-H"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_from_mri_esm2.0> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Prescribed%20from%20MRI-ESM2.0> .
 
-<https://w3id.org/hacid/cs/data/model/mri_agcm3_2_s> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MRI-AGCM3-2-S> a ns1:Model ;
     rdfs:label "MRI-AGCM3-2-S"@en ;
     rdfs:comment "MRI-AGCM3-2-S"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_from_mri_esm2.0> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Prescribed%20from%20MRI-ESM2.0> .
 
-<https://w3id.org/hacid/cs/data/model/mri_esm2_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/MRI-ESM2-0> a ns1:Model ;
     rdfs:label "MRI-ESM2.0"@en ;
     rdfs:comment "MRI-ESM2.0"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/masingar_mk2r4_tl95_192_x_96_longitude_latitude_80_levels_top_level_0.01_hpa> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MASINGAR%20mk2r4%20%28TL95%3B%20192%20x%2096%20longitude/latitude%3B%2080%20levels%3B%20top%20level%200.01%20hPa%29> .
 
-<https://w3id.org/hacid/cs/data/model/nesm3> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NESM3> a ns1:Model ;
     rdfs:label "NESM v3"@en ;
     rdfs:comment "NUIST ESM v3"@en .
 
-<https://w3id.org/hacid/cs/data/model/nicam16_7s> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NICAM16-7S> a ns1:Model ;
     rdfs:label "NICAM16-7S"@en ;
     rdfs:comment "NICAM.16 gl07-L38 with NSW6"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_macv2_sp> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Prescribed%20MACv2-SP> .
 
-<https://w3id.org/hacid/cs/data/model/nicam16_8s> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NICAM16-8S> a ns1:Model ;
     rdfs:label "NICAM16-8S"@en ;
     rdfs:comment "NICAM.16 gl08-L38 with NSW6"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_macv2_sp> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Prescribed%20MACv2-SP> .
 
-<https://w3id.org/hacid/cs/data/model/nicam16_9s> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NICAM16-9S> a ns1:Model ;
     rdfs:label "NICAM16-9S"@en ;
     rdfs:comment "NICAM.16 gl09-L38 with NSW6"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/prescribed_macv2_sp> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/Prescribed%20MACv2-SP> .
 
-<https://w3id.org/hacid/cs/data/model/norcpm1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NorCPM1> a ns1:Model ;
     rdfs:label "NorCPM1"@en ;
     rdfs:comment "Norwegian Climate Prediction Model version 1"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/osloaero4.1_same_grid_as_atmos> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/OsloAero4.1%20%28same%20grid%20as%20atmos%29> .
 
-<https://w3id.org/hacid/cs/data/model/noresm1_f> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NorESM1-F> a ns1:Model ;
     rdfs:label "NorESM1-F"@en ;
     rdfs:comment "NorESM1-F (a fast version of NorESM that is designed for paleo and multi-ensemble simulations)"@en .
 
-<https://w3id.org/hacid/cs/data/model/noresm2_lm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NorESM2-LM> a ns1:Model ;
     rdfs:label "NorESM2-LM"@en ;
     rdfs:comment "NorESM2-LM (low atmosphere-medium ocean resolution, GHG concentration driven)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/osloaero> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/OsloAero> .
 
-<https://w3id.org/hacid/cs/data/model/noresm2_mm> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/NorESM2-MM> a ns1:Model ;
     rdfs:label "NorESM2-MM"@en ;
     rdfs:comment "NorESM2-MM (medium atmosphere-medium ocean resolution, GHG concentration driven)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/osloaero> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/OsloAero> .
 
-<https://w3id.org/hacid/cs/data/model/pcmdi_test_1_0> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/PCMDI-test-1-0> a ns1:Model ;
     rdfs:label "PCMDI-test 1.0"@en ;
     rdfs:comment "PCMDI-test 1.0 (This entry is free text for users to contribute verbose information)"@en .
 
-<https://w3id.org/hacid/cs/data/model/rrtmg_lw_4_91> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/RRTMG-LW-4-91> a ns1:Model ;
     rdfs:label "RRTMG-LW 4.91"@en ;
     rdfs:comment "RRTM for GCMs v4.91, longwave"@en .
 
-<https://w3id.org/hacid/cs/data/model/rrtmg_sw_4_02> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/RRTMG-SW-4-02> a ns1:Model ;
     rdfs:label "RRTMG-SW 4.02"@en ;
     rdfs:comment "RRTM for GCMs v4.02, shortwave"@en .
 
-<https://w3id.org/hacid/cs/data/model/rte_rrtmgp_181204> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/RTE-RRTMGP-181204> a ns1:Model ;
     rdfs:label "RTE+RRTMGP (2018-12-04 full-resolution)"@en ;
     rdfs:comment "Radiative Transfer for Energetics using RRTM for GCM applications - Parallel (2018-12-04 full-resolution)"@en .
 
-<https://w3id.org/hacid/cs/data/model/sam0_unicon> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/SAM0-UNICON> a ns1:Model ;
     rdfs:label "SAM0-UNICON"@en ;
     rdfs:comment "SAM0-UNICON (SNU Atmosphere Model version 0 with Unified Convection Scheme)"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/mam3> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/MAM3> .
 
-<https://w3id.org/hacid/cs/data/model/taiesm1> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/TaiESM1> a ns1:Model ;
     rdfs:label "TaiESM 1.0"@en ;
     rdfs:comment "Taiwan Earth System Model 1.0"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/snap_same_grid_as_atmos> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/SNAP%20%28same%20grid%20as%20atmos%29> .
 
-<https://w3id.org/hacid/cs/data/model/taiesm1_timcom> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/TaiESM1-TIMCOM> a ns1:Model ;
     rdfs:label "TaiESM1-TIMCOM"@en ;
     rdfs:comment "Taiwan Earth System Model 1.0 using TIMCOM ocean model"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/snap_same_grid_as_atmos> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/SNAP%20%28same%20grid%20as%20atmos%29> .
 
-<https://w3id.org/hacid/cs/data/model/taiesm1_timcom2> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/TaiESM1-TIMCOM2> a ns1:Model ;
     rdfs:label "TaiESM1-TIMCOM2"@en ;
     rdfs:comment "Taiwan Earth System Model 1.0 using TIMCOM ocean model 2.0"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/snap_same_grid_as_atmos> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/SNAP%20%28same%20grid%20as%20atmos%29> .
 
-<https://w3id.org/hacid/cs/data/model/ukesm1_0_ll> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/UKESM1-0-LL> a ns1:Model ;
     rdfs:label "UKESM1.0-LL"@en ;
     rdfs:comment "UKESM1.0-N96ORCA1"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/ukesm1_1_ll> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/UKESM1-1-LL> a ns1:Model ;
     rdfs:label "UKESM1.1-LL"@en ;
     rdfs:comment "UKESM1.1-N96ORCA1"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 
-<https://w3id.org/hacid/cs/data/model/ukesm1_ice_ll> a ns1:Model ;
+<https://w3id.org/hacid/cs/data/model/UKESM1-ice-LL> a ns1:Model ;
     rdfs:label "UKESM1.ice-LL"@en ;
     rdfs:comment "UKESM1.ice-N96ORCA1"@en ;
-    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/ukca_glomap_mode> .
+    ns1:hasModelComponent <https://w3id.org/hacid/cs/data/model/UKCA-GLOMAP-mode> .
 

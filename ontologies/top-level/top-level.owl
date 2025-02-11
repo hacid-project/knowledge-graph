@@ -50,6 +50,293 @@
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/defines -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/defines">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/usesConcept"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDefinedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">defines</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/definesRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/definesRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/defines"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRoleDefinedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:label xml:lang="en">defines role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/definesTask -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/definesTask">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/defines"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isTaskDefinedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:label xml:lang="en">defines task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/executesTask -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/executesTask">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isExecutedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Action"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:label xml:lang="en">executes task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasAssignedRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasAssignedRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isAssignedRoleIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:label xml:lang="en">has assigned role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasAssigneeObject -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasAssigneeObject">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isAssigneeObjectIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+        <rdfs:label xml:lang="en">has assignee object</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasInputRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasInputRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isInputRoleOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:label xml:lang="en">has input role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasOutputRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasOutputRole">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isOutputRoleOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:label xml:lang="en">has output role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasParticipant">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isParticipantIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+        <rdfs:label xml:lang="en">has participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasSetting -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasSetting">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSettingFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:label xml:lang="en">has setting</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasTask -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasTask">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRelatedToConcept"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isTaskOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:label xml:lang="en">has task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isAssignedRoleIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isAssignedRoleIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment"/>
+        <rdfs:label xml:lang="en">is assigned role in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isAssigneeObjectIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isAssigneeObjectIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment"/>
+        <rdfs:label xml:lang="en">is assignee object in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isConceptUsedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isConceptUsedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/usesConcept"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:label xml:lang="en">is concept used in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isDefinedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isDefinedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isConceptUsedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:label xml:lang="en">is defined in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isExecutedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isExecutedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Action"/>
+        <rdfs:label xml:lang="en">is executed in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isInputRoleOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isInputRoleOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:label xml:lang="en">is input role of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isOutputRoleOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isOutputRoleOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:label xml:lang="en">is output role of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isParticipantIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isParticipantIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+        <rdfs:label xml:lang="en">is participant in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isRelatedToConcept -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRelatedToConcept">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">is related to concept</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isRoleDefinedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleDefinedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDefinedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:label xml:lang="en">is role defined in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isSettingFor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSettingFor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">is setting for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isTaskDefinedIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isTaskDefinedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDefinedIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:label xml:lang="en">is task defined in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isTaskOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isTaskOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRelatedToConcept"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:label xml:lang="en">is task of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/usesConcept -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/usesConcept">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">uses concept</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/associatedWith -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/associatedWith">
@@ -213,7 +500,6 @@
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCreatorOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <rdfs:comment xml:lang="it">Relazione per associare ad un&apos;entità un agente creatore.</rdfs:comment>
         <rdfs:comment xml:lang="en">The relation for associating an entity to an agent being the creator.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -605,7 +891,6 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isCreatorOf">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:comment xml:lang="it">La relazione per associare un agente creatore ad un&apos;entità creata.</rdfs:comment>
         <rdfs:comment xml:lang="en">The relation for asserting that a certain agent is the creator of an entity.</rdfs:comment>
@@ -668,7 +953,7 @@
         <rdfs:comment xml:lang="it">Il rapporto esistente tra un&apos;eventualità e qualsiasi entità possibile.</rdfs:comment>
         <rdfs:comment xml:lang="en">The relationship existing between an eventuality and any possible entity.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">is eventuality of</rdfs:label>
+        <rdfs:label xml:lang="en">is eventuality of</rdfs:label>
         <rdfs:label xml:lang="it">è eventualità di</rdfs:label>
     </owl:ObjectProperty>
     
@@ -709,7 +994,6 @@
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/issues"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <rdfs:comment xml:lang="it">La relazione che consente di affermare che un&apos;entità è creata da un determinato agente.</rdfs:comment>
         <rdfs:comment xml:lang="en">The relation that allows one to state that an entity is created by a given agent.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -1013,7 +1297,6 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/issues">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:comment xml:lang="it">La relazione che consente di affermare che un determinato agente è il creatore di una certa entità.</rdfs:comment>
         <rdfs:comment xml:lang="en">The property that allows us to state that a certain agent is the creator of a certain entity.</rdfs:comment>
@@ -1263,16 +1546,11 @@
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/AbstractEntity -->
+    <!-- https://w3id.org/hacid/onto/top-level/Action -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/AbstractEntity">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">Entities that are formally defined and are considered independent from the social context in which they are used. They cannot be localized in space or time. Also called &apos;Platonic entities&apos;.
-Mathematical and logical entities are included in this class: sets, categories, tuples, costants, variables, etc.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Entità formalmente definite e considerate indipendenti dal contesto sociale in cui vengono utilizzate. Non possono essere localizzati nello spazio o nel tempo. Chiamate anche &quot;entità platoniche&quot;.
-In questa classe sono incluse le entità matematiche e logiche: insiemi, categorie, tuple, costanti, variabili, ecc.</rdfs:comment>
-        <rdfs:label xml:lang="it">Entità formale astratta</rdfs:label>
-        <rdfs:label xml:lang="en">Formal entity</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Action">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+        <rdfs:label xml:lang="en">Action</rdfs:label>
     </owl:Class>
     
 
@@ -1280,12 +1558,75 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
     <!-- https://w3id.org/hacid/onto/top-level/Agent -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="it">Il concetto astratto di agente. Esempi di agente sono le persone e le organizzazioni.</rdfs:comment>
-        <rdfs:comment xml:lang="it">The abstract concept of agent. Examples of agents are people and organisations.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:label xml:lang="en">Agent</rdfs:label>
-        <rdfs:label xml:lang="it">Agente</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Object -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Object">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:label xml:lang="en">Object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:label xml:lang="en">Object role assignement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/SocialObject -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/SocialObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+        <rdfs:label xml:lang="en">Social object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Task -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Task">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:label xml:lang="en">Task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/WorkflowExecution -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/WorkflowExecution">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/satisfies"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Workflow"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
+        <rdfs:label xml:lang="en">Workflow execution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/WorkflowRole -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/WorkflowRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Property"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/WorkflowExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Workflow role</rdfs:label>
     </owl:Class>
     
 
@@ -1306,7 +1647,7 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
     <!-- https://w3id.org/hacid/onto/top-level/Collection -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Collection">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasMember"/>
@@ -1331,7 +1672,7 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
     <!-- https://w3id.org/hacid/onto/top-level/Concept -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Concept">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
         <rdfs:comment xml:lang="en">It is an object that is defined in some description. Once defined it can be used in other descriptions</rdfs:comment>
         <rdfs:comment xml:lang="it">È un oggetto che è definito in qualche descrizione. Una volta definito può essere utilizzato in altre descrizioni</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -1389,7 +1730,7 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
     <!-- https://w3id.org/hacid/onto/top-level/Description -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Description">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:comment xml:lang="it">La classe degli oggetti costruiti socialmente (testi, valori, categorie, relazioni, contesti) usati per descrivere qualcos&apos;altro in modo structuratto. Gli esempi includono i piani (come descrizioni strutturate di azioni da eseguire ex. in un processo industriale), le diagnosi (come descrizioni strutturate di situazioni osservate ex. clinicamente), le spiegazioni (come testi strutturati per chiarire ex. un concetto in un sistema normativo), osservazioni oggettive (come insiemi di valori strutturati che identificano una situazione rilevante ex. da un sistema di sensori).</rdfs:comment>
         <rdfs:comment xml:lang="en">The class of socially-created objects (texts, values, categories, relations, contexts) used to describe something else in a structured way. Examples include plans (as structured descriptions of actions to be executed), diagnoses (as structured descriptions of observed situations, explanations (as structured texts clarifying e.g. a concept), objective observations (as structured sets of values that identify a relevant situation).</rdfs:comment>
@@ -1410,15 +1751,7 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
         <rdfs:label xml:lang="it">Entità</rdfs:label>
     </owl:Class>
     
-    <!-- https://w3id.org/hacid/onto/top-level/FormalEntity -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/FormalEntity">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">Entities that are formally defined and are considered independent from the social context in which they are used. They cannot be localized in space or time. Also called &apos;Platonic entities&apos;.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Entità formalmente definite e considerate indipendenti dal contesto sociale in cui vengono utilizzate. Non possono essere localizzati nello spazio o nel tempo. Chiamate anche &quot;entità platoniche&quot;.</rdfs:comment>
-        <rdfs:label xml:lang="it">Entità formale astratta</rdfs:label>
-        <rdfs:label xml:lang="en">Formal entity</rdfs:label>
-    </owl:Class>
 
     <!-- https://w3id.org/hacid/onto/top-level/Event -->
 
@@ -1432,8 +1765,22 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Any physical, social, or mental process, event, or state.</rdfs:comment>
         <rdfs:comment xml:lang="it">Qualsiasi processo, evento o stato fisico, sociale o mentale.</rdfs:comment>
-        <rdfs:label xml:lang="en">event</rdfs:label>
-        <rdfs:label xml:lang="it">evento</rdfs:label>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+        <rdfs:label xml:lang="it">Evento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/FormalEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/FormalEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">Entities that are formally defined and are considered independent from the social context in which they are used. They cannot be localized in space or time. Also called &apos;Platonic entities&apos;.
+Mathematical and logical entities are included in this class: sets, categories, tuples, costants, variables, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Entità formalmente definite e considerate indipendenti dal contesto sociale in cui vengono utilizzate. Non possono essere localizzati nello spazio o nel tempo. Chiamate anche &quot;entità platoniche&quot;.
+In questa classe sono incluse le entità matematiche e logiche: insiemi, categorie, tuple, costanti, variabili, ecc.</rdfs:comment>
+        <rdfs:label xml:lang="it">Entità formale astratta</rdfs:label>
+        <rdfs:label xml:lang="en">Formal entity</rdfs:label>
     </owl:Class>
     
 
@@ -1481,7 +1828,7 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
     <!-- https://w3id.org/hacid/onto/top-level/Location -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Location">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
         <rdfs:comment xml:lang="it">Il concetto più generico per rappresentare ad alto livello qualsiasi tipo di oggetto che possa essere identificato come luogo.</rdfs:comment>
         <rdfs:comment xml:lang="en">The most generic concept for any kind of location.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -1588,7 +1935,7 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
     <!-- https://w3id.org/hacid/onto/top-level/PhysicalObject -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/PhysicalObject">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:comment xml:lang="en">Any Object that has a proper space region. The prototypical physical object has also an associated mass, but the nature of its mass can greatly vary based on the epistemological status of the object (scientifically measured, subjectively possible, imaginary).</rdfs:comment>
         <rdfs:comment xml:lang="it">Qualsiasi oggetto che abbia una propria regione spaziale. L&apos;oggetto fisico prototipico ha anche una massa associata, ma la natura della sua massa può variare notevolmente in base allo status epistemologico dell&apos;oggetto (scientificamente misurato, soggettivamente possibile, immaginario).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -1601,7 +1948,7 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
     <!-- https://w3id.org/hacid/onto/top-level/Region -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Region">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/FormalEntity"/>
         <rdfs:comment xml:lang="en">Any region in a dimensional space (a dimensional space is a maximal Region), which can be used as a value for a quality of an Entity . For example, TimeInterval, SpaceRegion, PhysicalAttribute, Amount, SocialAttribute are all subclasses of Region.</rdfs:comment>
         <rdfs:comment xml:lang="it">Qualsiasi regione in uno spazio dimensionale (uno spazio dimensionale è una regione massimale), che può essere utilizzata come valore per una qualità di un&apos;entità. Ad esempio, TimeInterval, SpaceRegion, PhysicalAttribute, Amount, SocialAttribute sono tutte sottoclassi di Region.</rdfs:comment>
         <rdfs:label xml:lang="it">Regione</rdfs:label>
@@ -1827,5 +2174,5 @@ Questo è lo stesso concetto definito in http://www.ontologydesignpatterns.org/o
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
 
