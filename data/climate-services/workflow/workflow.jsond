@@ -93,7 +93,7 @@
       "label": "Climate change quantification application",
       "directlyFollows": "wf:FuturePeriodChoice",
       "directlyPrecedes": "wf:UncertaintyQuantificationApplication",
-      "isTaskOf": "wf:CaseCreator",
+      "isTaskOf": "wf:CaseSolver",
       "isPartOf": "wf:ClimateInformationAnalysis",
       "toBeAssociatedWithARole": true
     },
@@ -197,10 +197,10 @@
       "isPartOf": "wf:ProvideBackgroundInformation"
     },
     {
-      "@id": "wf:DataPreproccesingApplication",
+      "@id": "wf:DataPreprocessingApplication",
       "@type": "top:Task",
-      "comment": "The task of applying data preproccesing methods for the analysis of the climate information.",
-      "label": "Data preproccesing application",
+      "comment": "The task of applying data preprocessing methods for the analysis of the climate information.",
+      "label": "Data preprocessing application",
       "isTaskOf": "wf:CaseSolver",
       "isPartOf": "wf:ClimateInformationAnalysis",
       "toBeAssociatedWithARole": true
