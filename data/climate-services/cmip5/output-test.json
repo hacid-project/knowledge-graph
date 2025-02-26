@@ -1,0 +1,2459 @@
+[
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ta_day_HadCM3_historical_r10i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "ff4ced81a6fc4f750db2236019e83106dd8cdc2d57c5943c2a89bc73fded5b5e"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ta_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.ta_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T15:52:27Z",
+    "title": "ta_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "621c60ec-99d9-4c41-8e4b-03f335a0aa8f"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ta/ta_day_HadCM3_historical_r10i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ta/ta_day_HadCM3_historical_r10i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:03.912Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185119162368
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ta_day_HadCM3_historical_r10i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "e9fb0f3ea7041cd4a4d6936c7626d95533473238349c3f555198e8b94e182226"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ta_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.ta_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532904,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T16:02:41Z",
+    "title": "ta_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "36056e82-8ab6-4931-82c1-2798f49813d2"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ta/ta_day_HadCM3_historical_r10i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ta/ta_day_HadCM3_historical_r10i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:03.876Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185119162369
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ta_day_HadCM3_historical_r10i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "07ff8677fa70dfad5da073757af54365388b40a4507edf303641307b7f2a2870"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ta_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.ta_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532960,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T16:13:41Z",
+    "title": "ta_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "2706a3b0-c8e3-4700-8702-28975b25f4ac"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ta/ta_day_HadCM3_historical_r10i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ta/ta_day_HadCM3_historical_r10i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:03.858Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185120210944
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ua_day_HadCM3_historical_r10i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "628bbec3675afe12463e452310e8aa7b3e2943f43cb34b149ab5f647cae1e4a8"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ua_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.ua_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884728,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T18:38:31Z",
+    "title": "ua_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "49bd8bca-a82e-4e0d-b721-b95e2bd9ed99"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ua/ua_day_HadCM3_historical_r10i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ua/ua_day_HadCM3_historical_r10i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:04.069Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185121259520
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ua_day_HadCM3_historical_r10i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "bcfe2b3b3fb5e39716e0538687fc37eef40c9b5a9361bc31638fa22c8939ab3a"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ua_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.ua_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884788,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T18:48:07Z",
+    "title": "ua_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "349695d6-ff03-49b3-91a7-4822ea3b9903"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ua/ua_day_HadCM3_historical_r10i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ua/ua_day_HadCM3_historical_r10i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:04.040Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185122308096
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ua_day_HadCM3_historical_r10i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "c04da26818d57f4c3129ca63ae0845e84285c80ff1f766ca929c7c94974e9019"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.ua_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.ua_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T18:58:01Z",
+    "title": "ua_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "10adb2d4-bccf-4a04-bf9f-4759c5a58efa"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ua/ua_day_HadCM3_historical_r10i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/ua/ua_day_HadCM3_historical_r10i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:04.017Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185123356672
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.va_day_HadCM3_historical_r10i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "7bd926606b1d00b44efeff2f25b914ee26fc79943ae1d5bb405366621baa50d5"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.va_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.va_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884728,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T20:16:11Z",
+    "title": "va_day_HadCM3_historical_r10i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "1a5d9c70-a53d-4c54-beda-480e03d62453"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/va/va_day_HadCM3_historical_r10i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/va/va_day_HadCM3_historical_r10i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:04.235Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185123356673
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.va_day_HadCM3_historical_r10i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "27306b34825c9a2947a03c49df66dd60a7348820fb4b4bdfa07ecbe414d7db88"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.va_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.va_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884788,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T20:27:52Z",
+    "title": "va_day_HadCM3_historical_r10i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "7a0908d0-2f2b-4d28-a0bb-0cf81467d6d8"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/va/va_day_HadCM3_historical_r10i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/va/va_day_HadCM3_historical_r10i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:04.207Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185124405248
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.va_day_HadCM3_historical_r10i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "0a1d9990af8cbcc242cece57eaacc1d02abd1557fdcb21c1bebba2aac551f894"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1"
+    ],
+    "ensemble": [
+      "r10i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.v20110728.va_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r10i1p1.va_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-25T20:37:31Z",
+    "title": "va_day_HadCM3_historical_r10i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "2079b6ce-ce06-4af5-8548-d3c49abcb40f"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/va/va_day_HadCM3_historical_r10i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r10i1p1/v20110728/va/va_day_HadCM3_historical_r10i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:04.190Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185125453824
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ta_day_HadCM3_historical_r1i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "8647dc8943f57ec65bcc6a52f654c67b7666b4c5e7bae4c460e7a4bd4d7afb58"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ta_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.ta_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T00:04:24Z",
+    "title": "ta_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "77b3a746-94b8-426e-9e79-b99d711e0762"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ta/ta_day_HadCM3_historical_r1i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ta/ta_day_HadCM3_historical_r1i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.479Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185125453825
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ta_day_HadCM3_historical_r1i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "47677bf1c775b4eec00ce0d2331d7b1062a05692d13dbaa234a210ce6f9b2153"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ta_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.ta_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532904,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T00:22:52Z",
+    "title": "ta_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "4db1159d-09a3-4570-9f3e-8b08fa9162de"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ta/ta_day_HadCM3_historical_r1i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ta/ta_day_HadCM3_historical_r1i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.458Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185126502400
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ta_day_HadCM3_historical_r1i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "6b6cb2d14f96564980302fbe145b630a2c203e75423c6e0a7155139ad0a64469"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ta_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.ta_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532960,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T00:36:42Z",
+    "title": "ta_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "3322c8b5-5683-4b22-a539-5f55ea562f8a"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ta/ta_day_HadCM3_historical_r1i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ta/ta_day_HadCM3_historical_r1i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.408Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185127550976
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ua_day_HadCM3_historical_r1i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "ebc3d7f70efcd5fdcdcedcef593b54d2230f71886481f4efa69a16cdf786f5cd"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ua_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.ua_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884728,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T03:24:33Z",
+    "title": "ua_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "972b0506-d4ba-402d-9251-b31fc0c2ddfc"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ua/ua_day_HadCM3_historical_r1i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ua/ua_day_HadCM3_historical_r1i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.689Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185128599552
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ua_day_HadCM3_historical_r1i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "8d81f3179a047eebd33f5a52828601c167159803fc621b762f6067084b38ccd1"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ua_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.ua_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884788,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T03:32:16Z",
+    "title": "ua_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "b431e852-2283-435b-9766-ac4079d9dc67"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ua/ua_day_HadCM3_historical_r1i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ua/ua_day_HadCM3_historical_r1i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.659Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185128599553
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ua_day_HadCM3_historical_r1i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "e0cd897e3309c13ab30a5e645bf13dbddd06de9749a56c927c78fdaf4a772947"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.ua_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.ua_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T03:36:40Z",
+    "title": "ua_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "6a00c8e0-95b7-4e77-a123-eb93e42b95c2"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ua/ua_day_HadCM3_historical_r1i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/ua/ua_day_HadCM3_historical_r1i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.627Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185129648128
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.va_day_HadCM3_historical_r1i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "51e50b564b359beefe03166979921a7a2fb847c7635cc2fb565ddee580b8f890"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.va_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.va_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884728,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T04:24:15Z",
+    "title": "va_day_HadCM3_historical_r1i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "3a50e62e-89bd-4d6a-8730-8794e48732b5"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/va/va_day_HadCM3_historical_r1i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/va/va_day_HadCM3_historical_r1i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.831Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185130696704
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.va_day_HadCM3_historical_r1i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "7221e0089c0471f7488ad8b5eea1a7c8bbac6106f0f6f65779b4f42204ac069b"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.va_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.va_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884788,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T04:31:17Z",
+    "title": "va_day_HadCM3_historical_r1i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "0d6c67ef-0dbe-4586-a38e-6fa58eba081e"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/va/va_day_HadCM3_historical_r1i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/va/va_day_HadCM3_historical_r1i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.794Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185130696705
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.va_day_HadCM3_historical_r1i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "ec6711592c38b601e8302b894ad250b58233ef6e504c28e251d7014bb8972232"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1"
+    ],
+    "ensemble": [
+      "r1i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.v20110728.va_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r1i1p1.va_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T04:36:06Z",
+    "title": "va_day_HadCM3_historical_r1i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "451a7607-f7d5-40e4-b981-6e8a69a48a51"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/va/va_day_HadCM3_historical_r1i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r1i1p1/v20110728/va/va_day_HadCM3_historical_r1i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:05.763Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185131745280
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ta_day_HadCM3_historical_r2i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "6b38a57b0443d0c306f3e1f558bc1ea2d3e4e6b60f9f9927745f030e82006e53"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ta_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.ta_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T00:45:27Z",
+    "title": "ta_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "d3265a9e-fefb-43e2-9ecc-e94783d2b5a7"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ta/ta_day_HadCM3_historical_r2i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ta/ta_day_HadCM3_historical_r2i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.108Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185132793856
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ta_day_HadCM3_historical_r2i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "0165ee67ffdb6d62cb686a216ead6e922900daa35e5ce1a79c8019c79b7b3d8e"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ta_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.ta_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532904,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T00:59:38Z",
+    "title": "ta_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "34ce91b3-4c81-4b19-9a8a-3448d00c5507"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ta/ta_day_HadCM3_historical_r2i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ta/ta_day_HadCM3_historical_r2i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.060Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185132793857
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ta_day_HadCM3_historical_r2i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "air_temperature"
+    ],
+    "checksum": [
+      "9798c3acb9fd4827743ec8500b4c9ccecaaaa91f3ac28daf3245b7631f52e8fb"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ta_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.ta_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 2018532960,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T01:10:20Z",
+    "title": "ta_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "877a67e9-93dd-421b-b707-e0accbf3804e"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ta/ta_day_HadCM3_historical_r2i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ta/ta_day_HadCM3_historical_r2i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ta"
+    ],
+    "variable_long_name": [
+      "Air Temperature"
+    ],
+    "variable_units": [
+      "K"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.030Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185133842432
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ua_day_HadCM3_historical_r2i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "5b4fac9ab2fe13e5770e307c9e648ed92d012d5886315d93de7ea0ddcc550b5a"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ua_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.ua_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884728,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T03:39:22Z",
+    "title": "ua_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "d5eb066a-24c8-4d7d-a97e-cd1c47cadd1b"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ua/ua_day_HadCM3_historical_r2i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ua/ua_day_HadCM3_historical_r2i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.245Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185134891008
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ua_day_HadCM3_historical_r2i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "1800fa875e67f777c4100023fa883762caf373426c99202e2278f8c1bf843a4e"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ua_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.ua_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884788,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T03:44:45Z",
+    "title": "ua_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "c8b4688f-ba39-461d-9809-a219b5621115"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ua/ua_day_HadCM3_historical_r2i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ua/ua_day_HadCM3_historical_r2i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.226Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185134891009
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ua_day_HadCM3_historical_r2i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "eastward_wind"
+    ],
+    "checksum": [
+      "00111ff9cccdfd0277196fd8a5c721f8425c883b999ca5122654760fd8964c71"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.ua_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.ua_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T03:48:52Z",
+    "title": "ua_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "5d896b6a-1f2d-458c-a172-9f8e86a2bad6"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ua/ua_day_HadCM3_historical_r2i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/ua/ua_day_HadCM3_historical_r2i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "ua"
+    ],
+    "variable_long_name": [
+      "Eastward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.197Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185135939584
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.va_day_HadCM3_historical_r2i1p1_18591201-18841130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "fcfb0e71913e5bbbcb3b3ecfea12ae044e101b647d65083d65159fd2c2f6a59d"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.va_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.va_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884728,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T04:39:36Z",
+    "title": "va_day_HadCM3_historical_r2i1p1_18591201-18841130.nc",
+    "tracking_id": [
+      "2f0cba2e-a2e1-4c9d-9e84-937768943b16"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/va/va_day_HadCM3_historical_r2i1p1_18591201-18841130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/va/va_day_HadCM3_historical_r2i1p1_18591201-18841130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.405Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185136988160
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.va_day_HadCM3_historical_r2i1p1_18841201-19091130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "25564ea40ec1bccc14900547495500d4ca8a5cc73b8eb4b3af01d1ec77825aed"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.va_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.va_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884788,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T04:46:51Z",
+    "title": "va_day_HadCM3_historical_r2i1p1_18841201-19091130.nc",
+    "tracking_id": [
+      "b3f0415f-ce05-4920-ae89-d8ff45e4fe49"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/va/va_day_HadCM3_historical_r2i1p1_18841201-19091130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/va/va_day_HadCM3_historical_r2i1p1_18841201-19091130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.368Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185138036736
+  },
+  {
+    "id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.va_day_HadCM3_historical_r2i1p1_19091201-19341130.nc|esgf.ceda.ac.uk",
+    "version": "1",
+    "cf_standard_name": [
+      "northward_wind"
+    ],
+    "checksum": [
+      "36660018f0819b29a19d64c95d77323ed3720f116e12e00cab42f24713ce05cc"
+    ],
+    "checksum_type": [
+      "SHA256"
+    ],
+    "cmor_table": [
+      "day"
+    ],
+    "data_node": "esgf.ceda.ac.uk",
+    "dataset_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728|esgf.ceda.ac.uk",
+    "dataset_id_template_": [
+      "cmip5.%(product)s.%(institute)s.%(model)s.%(experiment)s.%(time_frequency)s.%(realm)s.%(cmor_table)s.%(ensemble)s"
+    ],
+    "description": [
+      "HadCM3 model output prepared for CMIP5 historical"
+    ],
+    "drs_id": [
+      "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1"
+    ],
+    "ensemble": [
+      "r2i1p1"
+    ],
+    "experiment": [
+      "historical"
+    ],
+    "experiment_family": [
+      "All",
+      "Historical"
+    ],
+    "forcing": [
+      "GHG, Oz, SA, Sl, Vl, (GHG = CO2, N2O, CH4, CFCs)"
+    ],
+    "format": [
+      "netCDF, CF-1.4"
+    ],
+    "index_node": "esgf.ceda.ac.uk",
+    "instance_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.v20110728.va_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "institute": [
+      "MOHC"
+    ],
+    "latest": true,
+    "master_id": "cmip5.output2.MOHC.HadCM3.historical.day.atmos.day.r2i1p1.va_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "metadata_format": "THREDDS",
+    "model": [
+      "HadCM3"
+    ],
+    "product": [
+      "output2"
+    ],
+    "project": [
+      "CMIP5"
+    ],
+    "realm": [
+      "atmos"
+    ],
+    "replica": false,
+    "size": 1990884844,
+    "time_frequency": [
+      "day"
+    ],
+    "timestamp": "2011-07-26T04:56:10Z",
+    "title": "va_day_HadCM3_historical_r2i1p1_19091201-19341130.nc",
+    "tracking_id": [
+      "c71f10d9-55cd-4159-9ef5-21f53589e7a3"
+    ],
+    "type": "File",
+    "url": [
+      "https://esgf.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/va/va_day_HadCM3_historical_r2i1p1_19091201-19341130.nc|application/netcdf|HTTPServer",
+      "https://esgf.ceda.ac.uk/thredds/dodsC/esg_dataroot/cmip5/output2/MOHC/HadCM3/historical/day/atmos/day/r2i1p1/v20110728/va/va_day_HadCM3_historical_r2i1p1_19091201-19341130.nc.html|application/opendap-html|OPENDAP"
+    ],
+    "variable": [
+      "va"
+    ],
+    "variable_long_name": [
+      "Northward Wind"
+    ],
+    "variable_units": [
+      "m s-1"
+    ],
+    "_timestamp": "2015-11-03T01:16:07.352Z",
+    "retracted": false,
+    "score": 1.0,
+    "_version_": 1803484185138036737
+  }
+]
