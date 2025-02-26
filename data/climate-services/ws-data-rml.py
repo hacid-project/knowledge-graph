@@ -396,19 +396,20 @@ def round_datetime_interval(
     )
 
 _time_frequency_descr_and_value = {
-    '3hr': ['three hours', 'rolling', 'PT3H', None],
+    '3hr': ['three hours', 'points', 'PT3H', None],
     '6hr': ['six hours', 'rolling', 'PT6H', None],
     'day': ['day', 'rolling', 'P1D', None],
     'mon': ['month', 'rolling', 'P1M', None],
     'monClim': ['all time aggregated month of the year', 'periodic', 'P1M', 'P1Y'],
     'yr': ['year', 'rolling', 'P1Y', None],
-    'fx': ['all time', 'constant', None, None]
+    'fx': ['all time', None, None, None]
 }
 
 _dimensional_space_type = {
+    'points': 'IntervalSampling',
     'rolling': 'RollingRegularGrid',
     'periodic': 'PeriodicRegularGrid',
-    'constant': 'ConstantDimensionalSpace'
+    'constant': 'SingleRegionPartitioning'
 }
 
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatTemporalGrid',
@@ -436,19 +437,22 @@ def format_temporal_grid(
     def _path(_strs: list[str]) -> str:
         return "/".join([_str for _str in _strs if _str is not None])
         
-    _grid_type_id = _path([_dimensional_space_id, _grid_step, _grid_period])
+    _grid_type_id = _dimensional_space_id and _path([_dimensional_space_id, _grid_step, _grid_period])
     
     _temporal_info_dict = {
         'start_datetime': get_start_time(_start_datetime,_end_datetime,_granularity),
         'end_datetime': get_end_time(_start_datetime,_end_datetime,_granularity),
         'grid_type_id': _grid_type_id,
         'grid_type_description': _grid_type_description,
-        'dimensional_space_type': _dimensional_space_type[_dimensional_space_id]
+        'dimensional_space_type': _dimensional_space_id and _dimensional_space_type[_dimensional_space_id],
+        'grid_step': _grid_step,
+        'grid_period': _grid_period
     }
-    if _grid_step is not None:
-        _temporal_info_dict['grid_step'] = _grid_step
-    if _grid_period is not None:
-        _temporal_info_dict['grid_period'] = _grid_period
+    _temporal_info_dict = {
+        k: v
+        for k, v in _temporal_info_dict.items()
+        if v is not None
+    }
     try:
         return _template.format_map(_temporal_info_dict)
     except Exception:
@@ -557,7 +561,7 @@ if __name__ == '__main__':
     cs_mapper = CSMapper()
     
     for subfolder in subfolders:
-        # if subfolder.endswith('cmip5'):
+        if subfolder.endswith('cmip5'):
         # if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
         # if subfolder.endswith('cordex-domains'):
         # if subfolder.endswith('cmor-tables'):

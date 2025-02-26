@@ -202,7 +202,7 @@
     ] ; 
 
     rr:predicateObjectMap [
-        rr:predicate data:basedOnDimensionalSpace ;
+        rr:predicate data:basedOnDimensionalSpace, data:hasDiscretization ;
         rr:objectMap [ 
             rr:parentTriplesMap :GenericTemporalGridMapping
         ]
@@ -213,46 +213,46 @@
         rr:objectMap [ 
             rr:parentTriplesMap :TemporalRegionMapping
         ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type ;
-        rr:objectMap [ 
-            rr:termType rr:IRI ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "https://w3id.org/hacid/onto/data/{dimensional_space_type}" ]
-                ]
-            ]
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate data:hasGridStep ;
-        rr:objectMap [ 
-            rr:datatype xsd:duration ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "{grid_step}" ]
-                ]
-            ]
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate data:hasPeriod ;
-        rr:objectMap [ 
-            rr:datatype xsd:duration ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "{grid_period}" ]
-                ]
-            ]
-        ]
     ] .
+
+    # rr:predicateObjectMap [
+    #     rr:predicate rdf:type ;
+    #     rr:objectMap [ 
+    #         rr:termType rr:IRI ;
+    #         fnml:functionValue [
+    #             rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+    #                 rr:predicate hrf:template ;
+    #                 rr:objectMap [ rr:constant "https://w3id.org/hacid/onto/data/{dimensional_space_type}" ]
+    #             ]
+    #         ]
+    #     ]
+    # ] ;
+
+    # rr:predicateObjectMap [
+    #     rr:predicate data:hasGridStep ;
+    #     rr:objectMap [ 
+    #         rr:datatype xsd:duration ;
+    #         fnml:functionValue [
+    #             rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+    #                 rr:predicate hrf:template ;
+    #                 rr:objectMap [ rr:constant "{grid_step}" ]
+    #             ]
+    #         ]
+    #     ]
+    # ] ;
+
+    # rr:predicateObjectMap [
+    #     rr:predicate data:hasPeriod ;
+    #     rr:objectMap [ 
+    #         rr:datatype xsd:duration ;
+    #         fnml:functionValue [
+    #             rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+    #                 rr:predicate hrf:template ;
+    #                 rr:objectMap [ rr:constant "{grid_period}" ]
+    #             ]
+    #         ]
+    #     ]
+    # ] .
 
 :GenericTemporalGridMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;

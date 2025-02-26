@@ -10,6 +10,7 @@
 @prefix time: <https://w3id.org/hacid/data/cs/metric-space/time/> .
 @prefix geodetic: <https://w3id.org/hacid/data/cs/metric-space/geodetic/> .
 @prefix georegion: <https://w3id.org/hacid/data/cs/geodetic-regions/> .
+@prefix geospecialization: <https://w3id.org/hacid/data/cs/geodetic-specs/> .
 @base <https://w3id.org/hacid/data/cs/> .
 
 dimension:spacetime a data:DimensionalSpace, data:Continuum;
@@ -62,9 +63,13 @@ time:gregorian a data:DimensionalSpace, data:Continuum;
     rdfs:comment "Calendar used in most parts of the world. Represents time intervals using as unit of measure the second (with arbitrary decimal precision) along with some time-dependent multiples (hours, days, months, years). It has as reference (epoch) the traditionally reckoned year of the conception or birth of Jesus. Multiples of seconds (hours, days, months, years) have variable length in terms of corresponding seconds, due to the need to align those multiples to different natural phenomena (specifically Earth's rotation and revolution cycles)."@en;
     data:basedOnDimensionalSpace dimension:time.
 
-georegion:World a geo:Geometry, data:GeodeticRegion ;
-    rdfs:label "World"@en ;
-    geo:asWKT "POLYGON((-180 -90,-180 90,180 90,180 -90))"^^<geo:wktLiteral> ;
-    rdfs:comment "Geographic region covering the whole Earth surface, as reference for global simulations."@en .
+georegion:World a geo:Geometry, data:GeodeticRegion;
+    rdfs:label "World"@en;
+    geo:asWKT "POLYGON((-180 -90,-180 90,180 90,180 -90))"^^<geo:wktLiteral>;
+    rdfs:comment "Geographic region covering the whole Earth surface, as reference for global simulations."@en.
 
-
+geospecialization:World a data:VariableSpecialization;
+    rdfs:label "Geodetically global (the whole world)"@en;
+    data:isSpecializationOn dimension:geodetic;
+    data:hasSelectedRegion georegion:World;
+    rdfs:comment "Specialization of the default geodetic variable to the whole Earth surface, as reference for global simulations (defined for uniformity, albeit it does not correspond to an actual specialization of the geodetic range)."@en .
