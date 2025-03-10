@@ -1,0 +1,1311 @@
+@prefix : <https://w3id.org/hacid/onto/csw/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix core: <https://w3id.org/arco/ontology/core/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/hacid/onto/csw/> .
+
+<https://w3id.org/hacid/onto/csw/> rdf:type owl:Ontology ;
+                                    rdfs:comment "The Climate Science Workflow ontology module of the HACID ontology network represents concepts and relationships that describe the workflow of tasks that is executed when handling a climate information request from an organisation or person."@en ;
+                                    rdfs:label "Climate Science Process Workflow"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/hacid/onto/core/naming/hasNaming
+<https://w3id.org/hacid/onto/core/naming/hasNaming> rdf:type owl:ObjectProperty ;
+                                                    rdfs:subPropertyOf <https://w3id.org/hacid/onto/top-level/isInvolvedIn> ;
+                                                    owl:inverseOf <https://w3id.org/hacid/onto/core/naming/isNamingOf> ;
+                                                    rdfs:comment "The property to link an entity to its naming."@en ;
+                                                    rdfs:isDefinedBy <https://w3id.org/hacid/onto/core/naming> ;
+                                                    rdfs:label "has naming"@en .
+
+
+###  https://w3id.org/hacid/onto/core/naming/isNamingOf
+<https://w3id.org/hacid/onto/core/naming/isNamingOf> rdf:type owl:ObjectProperty ;
+                                                     rdfs:subPropertyOf <https://w3id.org/hacid/onto/top-level/involves> ;
+                                                     rdfs:comment "The involves relation which is narrowed to naming situation only."@en ;
+                                                     rdfs:isDefinedBy <https://w3id.org/hacid/onto/core/naming> ;
+                                                     rdfs:label "is naming of"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/classifies
+<https://w3id.org/hacid/onto/top-level/classifies> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <https://w3id.org/hacid/onto/top-level/isClassifiedBy> ;
+                                                   rdfs:domain owl:Thing ;
+                                                   rdfs:range owl:Thing ;
+                                                   rdfs:comment "A relation between a Concept and an Entity, e.g. the Role 'student' classifies a Person 'John'."@en ;
+                                                   rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                   rdfs:label "classifies"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/definesRole
+<https://w3id.org/hacid/onto/top-level/definesRole> rdf:type owl:ObjectProperty ;
+                                                    owl:inverseOf <https://w3id.org/hacid/onto/top-level/isRoleDefinedIn> ;
+                                                    rdfs:domain :ClimateProcessWorkflow ;
+                                                    rdfs:comment "A relation between a description and a role, e.g. the recipe for a cake defines the role 'ingredient'"@en ;
+                                                    rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                    rdfs:label "defines role"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/definesTask
+<https://w3id.org/hacid/onto/top-level/definesTask> rdf:type owl:ObjectProperty ;
+                                                    owl:inverseOf <https://w3id.org/hacid/onto/top-level/isTaskDefinedIn> ;
+                                                    rdfs:domain :ClimateProcessWorkflow ;
+                                                    rdfs:range :ClimateProcessTask ;
+                                                    rdfs:comment "A relation between a description and a task, e.g. the recipe for a cake defines the task 'boil'."@en ;
+                                                    rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                    rdfs:label "defines task"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/directlyFollows
+<https://w3id.org/hacid/onto/top-level/directlyFollows> rdf:type owl:ObjectProperty ;
+                                                        rdfs:subPropertyOf <https://w3id.org/hacid/onto/top-level/follows> ;
+                                                        owl:inverseOf <https://w3id.org/hacid/onto/top-level/directlyPrecedes> ;
+                                                        rdfs:domain <https://w3id.org/hacid/onto/top-level/Task> ;
+                                                        rdfs:range <https://w3id.org/hacid/onto/top-level/Task> ;
+                                                        rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                        rdfs:label "directly follows"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/directlyPrecedes
+<https://w3id.org/hacid/onto/top-level/directlyPrecedes> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <https://w3id.org/hacid/onto/top-level/precedes> ;
+                                                         rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                         rdfs:label "directly precedes"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/executesTask
+<https://w3id.org/hacid/onto/top-level/executesTask> rdf:type owl:ObjectProperty ;
+                                                     rdfs:subPropertyOf <https://w3id.org/hacid/onto/top-level/isClassifiedBy> ;
+                                                     owl:inverseOf <https://w3id.org/hacid/onto/top-level/isExecutedIn> ;
+                                                     rdfs:domain <https://w3id.org/hacid/onto/top-level/Action> ;
+                                                     rdfs:range <https://w3id.org/hacid/onto/top-level/Task> ;
+                                                     rdfs:comment "A relation between an action and a task, e.g. 'putting some water in a pot and putting the pot on a fire until the water starts bubbling' executes the task 'boiling'."@en ;
+                                                     rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                     rdfs:label "executes task"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/follows
+<https://w3id.org/hacid/onto/top-level/follows> rdf:type owl:ObjectProperty ;
+                                                rdfs:comment "The intransitive follows relation."@en ;
+                                                rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                rdfs:label "follows"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/hasPart
+<https://w3id.org/hacid/onto/top-level/hasPart> rdf:type owl:ObjectProperty ;
+                                                owl:inverseOf <https://w3id.org/hacid/onto/top-level/isPartOf> ;
+                                                rdf:type owl:TransitiveProperty ,
+                                                         owl:ReflexiveProperty ;
+                                                rdfs:domain :ClimateProcessTask ;
+                                                rdfs:range :ClimateProcessTask ;
+                                                rdfs:comment """A schematic relation between any entities, e.g. 'the human body has a brain as part', '20th century contains year 1923', 'World War II includes the Pearl Harbour event'.
+
+Parthood should assume the basic properties of mereology: transitivity, antisymmetry, and reflexivity (propert Parthood of course misses reflexivity). 
+However, antisymmetry is not supported in OWL2 explicitly, therefore DUL has to adopt one of two patterns:
+1) dropping asymmetry axioms, while granting reflexivity: this means that symmetry is not enforced, but permitted for the case of reflexivity. Of course, in this way we cannot prevent symmetric usages of hasPart;
+2) dropping the reflexivity axiom, and enforce asymmetry: in this case, we would prevent all symmetric usages, but we loose the possibility of enforcing reflexivity, which is commonsensical in parthood.
+In DUL, we adopt pattern #1 for partOf, and pattern #2 for properPartOf, which seems a good approximation: due to the lack of inheritance of property characteristics, each asymmetric hasPropertPart assertion would also be a reflexive hasPart assertion (reflexive reduction design pattern).
+
+Subproperties and restrictions can be used to specialize hasPart for objects, events, etc."""@en ;
+                                                rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                rdfs:label "has part"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/hasParticipant
+<https://w3id.org/hacid/onto/top-level/hasParticipant> rdf:type owl:ObjectProperty ;
+                                                       owl:inverseOf <https://w3id.org/hacid/onto/top-level/isParticipantIn> ;
+                                                       rdfs:domain <https://w3id.org/hacid/onto/top-level/Event> ;
+                                                       rdfs:range owl:Thing ;
+                                                       rdfs:comment "A relation between an object and a process, e.g. 'John took part in the discussion', 'a large mass of snow fell during the avalanche', or 'a cook, some sugar, flour, etc. are all present in the cooking of a cake'"@en ;
+                                                       rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                       rdfs:label "has participant"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/hasRole
+<https://w3id.org/hacid/onto/top-level/hasRole> rdf:type owl:ObjectProperty ;
+                                                owl:inverseOf <https://w3id.org/hacid/onto/top-level/isRoleOf> ;
+                                                rdfs:label "has role"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/hasTask
+<https://w3id.org/hacid/onto/top-level/hasTask> rdf:type owl:ObjectProperty ;
+                                                owl:inverseOf <https://w3id.org/hacid/onto/top-level/isTaskOf> ;
+                                                rdfs:comment "A relation between roles and tasks, e.g. 'students have the duty of giving exams' (i.e. the Role 'student' hasTask the Task 'giving exams')."@en ;
+                                                rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                rdfs:label "has task"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/involves
+<https://w3id.org/hacid/onto/top-level/involves> rdf:type owl:ObjectProperty ;
+                                                 owl:inverseOf <https://w3id.org/hacid/onto/top-level/isInvolvedIn> ;
+                                                 rdfs:domain owl:Thing ;
+                                                 rdfs:range owl:Thing ;
+                                                 rdfs:comment "The property that allows to assert that a task involves a certain concept."@en ;
+                                                 rdfs:label "involves"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isClassifiedBy
+<https://w3id.org/hacid/onto/top-level/isClassifiedBy> rdf:type owl:ObjectProperty ;
+                                                       rdfs:comment "A relation between a Concept and an Entity, e.g. 'John is considered a typical rude man'; your last concert constitutes the achievement of a lifetime; '20-year-old means she's mature enough'."@en ;
+                                                       rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                       rdfs:label "is classified by"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isExecutedIn
+<https://w3id.org/hacid/onto/top-level/isExecutedIn> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <https://w3id.org/hacid/onto/top-level/Task> ;
+                                                     rdfs:range <https://w3id.org/hacid/onto/top-level/Action> ;
+                                                     rdfs:comment "A relation between an action and a task, e.g. 'putting some water in a pot and putting the pot on a fire until the water starts bubbling' executes the task 'boiling'."@en ;
+                                                     rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                     rdfs:label "is executed in"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isInvolvedIn
+<https://w3id.org/hacid/onto/top-level/isInvolvedIn> rdf:type owl:ObjectProperty ;
+                                                     rdfs:comment "The peroperty that allows one to assert that a concept is involved in a task."@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isPartOf
+<https://w3id.org/hacid/onto/top-level/isPartOf> rdf:type owl:ObjectProperty ,
+                                                          owl:TransitiveProperty ,
+                                                          owl:ReflexiveProperty ;
+                                                 rdfs:comment "A relation between any entities, e.g. 'brain is a part of the human body'. See dul:hasPart for additional documentation."@en ;
+                                                 rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                 rdfs:label "is part of"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isParticipantIn
+<https://w3id.org/hacid/onto/top-level/isParticipantIn> rdf:type owl:ObjectProperty ;
+                                                        rdfs:comment "A relation between an object and a process, e.g. 'John took part in the discussion', 'a large mass of snow fell during the avalanche', or 'a cook, some sugar, flour, etc. are all present in the cooking of a cake'."@en ;
+                                                        rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                        rdfs:label "is participant in"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isRoleDefinedIn
+<https://w3id.org/hacid/onto/top-level/isRoleDefinedIn> rdf:type owl:ObjectProperty ;
+                                                        rdfs:comment "A relation between a description and a role, e.g. the role 'Ingredient' is defined in the recipe for a cake."@en ;
+                                                        rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                        rdfs:label "is role defined in"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isRoleOf
+<https://w3id.org/hacid/onto/top-level/isRoleOf> rdf:type owl:ObjectProperty ;
+                                                 rdfs:label "is role of"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isTaskDefinedIn
+<https://w3id.org/hacid/onto/top-level/isTaskDefinedIn> rdf:type owl:ObjectProperty ;
+                                                        rdfs:comment "A relation between a description and a task, e.g. the task 'boil' is defined in a recipe for a cake."@en ;
+                                                        rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                        rdfs:label "is task defined in"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/isTaskOf
+<https://w3id.org/hacid/onto/top-level/isTaskOf> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain :ClimateProcessTask ;
+                                                 rdfs:comment "A relation between roles and tasks, e.g. 'students have the duty of giving exams' (i.e. the Role 'student' hasTask the Task 'giving exams')."@en ;
+                                                 rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                 rdfs:label "is task of"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/precedes
+<https://w3id.org/hacid/onto/top-level/precedes> rdf:type owl:ObjectProperty ;
+                                                 rdfs:comment "A relation between entities, expressing a sequence's schema."@en ;
+                                                 rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                 rdfs:label "precedes"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/satisfies
+<https://w3id.org/hacid/onto/top-level/satisfies> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <https://w3id.org/hacid/onto/top-level/Situation> ;
+                                                  rdfs:range <https://w3id.org/hacid/onto/top-level/Plan> ;
+                                                  rdfs:comment "A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan."@en ;
+                                                  rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                  rdfs:label "satisfies"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/hacid/onto/top-level/hasDescription
+<https://w3id.org/hacid/onto/top-level/hasDescription> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:label "has description"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/hacid/onto/ccso/ClimateModel
+<https://w3id.org/hacid/onto/ccso/ClimateModel> rdf:type owl:Class ;
+                                                rdfs:isDefinedBy <https://w3id.org/hacid/onto/ccso> ;
+                                                rdfs:label "Cimate Model"@en .
+
+
+###  https://w3id.org/hacid/onto/ccso/Dataset
+<https://w3id.org/hacid/onto/ccso/Dataset> rdf:type owl:Class ;
+                                           rdfs:isDefinedBy <https://w3id.org/hacid/onto/csso> ;
+                                           rdfs:label "Dataset"@en .
+
+
+###  https://w3id.org/hacid/onto/ccso/EmissionScenario
+<https://w3id.org/hacid/onto/ccso/EmissionScenario> rdf:type owl:Class ;
+                                                    rdfs:label "Emission scenario"@en .
+
+
+###  https://w3id.org/hacid/onto/ccso/HazardType
+<https://w3id.org/hacid/onto/ccso/HazardType> rdf:type owl:Class ;
+                                              rdfs:label "Hazard type"@en .
+
+
+###  https://w3id.org/hacid/onto/ccso/Variable
+<https://w3id.org/hacid/onto/ccso/Variable> rdf:type owl:Class ;
+                                            rdfs:label "Variable"@en .
+
+
+###  https://w3id.org/hacid/onto/core/naming/Name
+<https://w3id.org/hacid/onto/core/naming/Name> rdf:type owl:Class ;
+                                               rdfs:comment "The name of an entity meant as its lexical item, i.e., a single word, a part of a word, or a chain of words that forms a name syntactically." ;
+                                               rdfs:isDefinedBy <https://w3id.org/hacid/onto/core/naming> ;
+                                               rdfs:label "Name" .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateProcessTask
+:ClimateProcessTask rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/Task> ;
+                    rdfs:comment "Tasks that are executed within the climate process workflow."@en ;
+                    rdfs:label "Climate process task"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateProcessWorkflow
+:ClimateProcessWorkflow rdf:type owl:Class ;
+                        rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/Workflow> ;
+                        rdfs:comment "A workflow describing the handling of a request for climate information by instances such as MettOfice."@en ;
+                        rdfs:label "Climate science case"@en .
+
+
+###  https://w3id.org/hacid/onto/data/GeodeticRegion
+<https://w3id.org/hacid/onto/data/GeodeticRegion> rdf:type owl:Class ;
+                                                  rdfs:label "Geodetic region"@en .
+
+
+###  https://w3id.org/hacid/onto/data/TemporalRegion
+<https://w3id.org/hacid/onto/data/TemporalRegion> rdf:type owl:Class ;
+                                                  rdfs:label "Temporal region"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Action
+<https://w3id.org/hacid/onto/top-level/Action> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/Event> ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://w3id.org/hacid/onto/top-level/hasParticipant> ;
+                                                                 owl:someValuesFrom <https://w3id.org/hacid/onto/top-level/Agent>
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://w3id.org/hacid/onto/top-level/executesTask> ;
+                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass <https://w3id.org/hacid/onto/top-level/Task>
+                                                               ] ;
+                                               rdfs:comment "An Event with at least one Agent that isParticipantIn it, and that executes a Task that typically isDefinedIn a Plan, Workflow, Project, etc."@en ;
+                                               rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                               rdfs:label "Action"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Agent
+<https://w3id.org/hacid/onto/top-level/Agent> rdf:type owl:Class ;
+                                              rdfs:comment "Any agentive Object , either physical (e.g. a whale, a robot, an oak), or social (e.g. a corporation, an institution, a community)"@en ;
+                                              rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                              rdfs:label "Agent"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/CustomerNeed
+<https://w3id.org/hacid/onto/top-level/CustomerNeed> rdf:type owl:Class ;
+                                                     rdfs:comment "A customer need is a need that motivates a customer to purchase a product or service."@en ;
+                                                     rdfs:label "Customer need"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Event
+<https://w3id.org/hacid/onto/top-level/Event> rdf:type owl:Class ;
+                                              rdfs:comment "Any physical, social, or mental process, event, or state."@en ;
+                                              rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                              rdfs:label "Event"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/EventType
+<https://w3id.org/hacid/onto/top-level/EventType> rdf:type owl:Class ;
+                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <https://w3id.org/hacid/onto/top-level/classifies> ;
+                                                                    owl:someValuesFrom <https://w3id.org/hacid/onto/top-level/Event>
+                                                                  ] ;
+                                                  owl:disjointWith <https://w3id.org/hacid/onto/top-level/Role> ;
+                                                  rdfs:comment "A Concept that classifies an Event . An event type describes how an Event should be interpreted, executed, expected, seen, etc., according to the Description that the EventType isDefinedIn (or used in)"@en ;
+                                                  rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                                  rdfs:label "Event Type"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Goal
+<https://w3id.org/hacid/onto/top-level/Goal> rdf:type owl:Class ;
+                                             rdfs:comment "The Description of a Situation that is desired by an Agent, and usually associated to a Plan that describes how to actually achieve it"@en ;
+                                             rdfs:label "Goal"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Organisation
+<https://w3id.org/hacid/onto/top-level/Organisation> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/Agent> ;
+                                                     rdfs:comment "An organisation."@en ;
+                                                     rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                                     rdfs:label "Organisation"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Person
+<https://w3id.org/hacid/onto/top-level/Person> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/Agent> ;
+                                               rdfs:comment "A person in the physical commonsense intuition."@en ;
+                                               rdfs:label "Person"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Plan
+<https://w3id.org/hacid/onto/top-level/Plan> rdf:type owl:Class ;
+                                             rdfs:comment "A Description having an explicit Goal, to be achieved by executing the plan"@en ;
+                                             rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                             rdfs:label "Plan"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Role
+<https://w3id.org/hacid/onto/top-level/Role> rdf:type owl:Class ;
+                                             rdfs:comment "A Concept that classifies an Object"@en ;
+                                             rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                             rdfs:label "Role"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Situation
+<https://w3id.org/hacid/onto/top-level/Situation> rdf:type owl:Class ;
+                                                  rdfs:comment """A view, consistent with ('satisfying') a Description, on a set of entities. 
+It can also be seen as a 'relational context' created by an observer on the basis of a 'frame' (i.e. a Description). 
+For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
+Situation is also able to represent reified n-ary relations, where isSettingFor is the top-level relation for all binary projections of the n-ary relation. 
+If used in a transformation pattern for n-ary relations, the designer should take care of adding (some or all) OWL2 keys, corresponding to binary projections of the n-ary, to a subclass of Situation. Otherwise the 'identification constraint' (Calvanese et al., IJCAI 2001) might be violated."""@en ;
+                                                  rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                  rdfs:label "Situation"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Task
+<https://w3id.org/hacid/onto/top-level/Task> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/EventType> ;
+                                             rdfs:comment """An EventType that classifies an Action to be executed. 
+For example, reaching a destination is a task that can be executed by performing certain actions, e.g. driving a car, buying a train ticket, etc. 
+The actions to execute a task can also be organized according to a Plan that is not the same as the one that defines the task (if any). 
+For example, reaching a destination could be defined by a plan to get on holidays, while the plan to execute the task can consist of putting some travels into a sequence."""@en ;
+                                             rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level> ;
+                                             rdfs:label "Task"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/Workflow
+<https://w3id.org/hacid/onto/top-level/Workflow> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/Plan> ;
+                                                 rdfs:comment "A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed, usually supporting the work of an Organization."@en ;
+                                                 rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                 rdfs:label "Workflow"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/WorkflowExecution
+<https://w3id.org/hacid/onto/top-level/WorkflowExecution> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <https://w3id.org/hacid/onto/top-level/Situation> ;
+                                                          rdfs:comment "The execution of a workflow"@en ;
+                                                          rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level/> ;
+                                                          rdfs:label "Workflow Execution"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/hacid/onto/ccso/Precipitation
+<https://w3id.org/hacid/onto/ccso/Precipitation> rdf:type owl:NamedIndividual ,
+                                                          <https://w3id.org/hacid/onto/ccso/Variable> ;
+                                                 <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedVariable ;
+                                                 rdfs:label "Precipitation"@en .
+
+
+###  https://w3id.org/hacid/onto/ccso/RCP8.5
+<https://w3id.org/hacid/onto/ccso/RCP8.5> rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/hacid/onto/ccso/EmissionScenario> ;
+                                          <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedEmissionScenario ;
+                                          rdfs:label "RCP8.5"@en .
+
+
+###  https://w3id.org/hacid/onto/ccso/Temperature
+<https://w3id.org/hacid/onto/ccso/Temperature> rdf:type owl:NamedIndividual ,
+                                                        <https://w3id.org/hacid/onto/ccso/Variable> ;
+                                               <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedVariable ;
+                                               rdfs:label "Temperature"@en .
+
+
+###  https://w3id.org/hacid/onto/core/naming/MetOffice
+<https://w3id.org/hacid/onto/core/naming/MetOffice> rdf:type owl:NamedIndividual ,
+                                                             <https://w3id.org/hacid/onto/core/naming/Name> ;
+                                                    rdfs:label "MetOffice naming"@en .
+
+
+###  https://w3id.org/hacid/onto/core/naming/WildlifeTrusts
+<https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> rdf:type owl:NamedIndividual ,
+                                                                  <https://w3id.org/hacid/onto/core/naming/Name> ;
+                                                         rdfs:label "Wildlife Trusts"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/AdditionalInformationSearch
+:AdditionalInformationSearch rdf:type owl:NamedIndividual ,
+                                      :ClimateProcessTask ;
+                             <https://w3id.org/hacid/onto/top-level/directlyFollows> :CaseCreation ;
+                             <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :ClimateInformationAnalysis ;
+                             <https://w3id.org/hacid/onto/top-level/hasPart> :ExternalExpertiseSearch ,
+                                                                             :PerformLiteratureReview ;
+                             <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                             rdfs:comment "The task of requesting external expertise such as an expert or literature review."@en ;
+                             rdfs:label "Additional information search"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/AnalyseClimateInformation
+:AnalyseClimateInformation rdf:type owl:NamedIndividual ,
+                                    <https://w3id.org/hacid/onto/top-level/Action> ;
+                           <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateInformationAnalysis ;
+                           <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                           rdfs:label "Analyse climate information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/AnalyseObservations
+:AnalyseObservations rdf:type owl:NamedIndividual ,
+                              <https://w3id.org/hacid/onto/top-level/Action> ;
+                     <https://w3id.org/hacid/onto/top-level/executesTask> :ObservationAnalysis ;
+                     <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                     rdfs:label "Analyse observations"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ApplyClimateChangeQuantification
+:ApplyClimateChangeQuantification rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/hacid/onto/top-level/Action> ;
+                                  <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateChangeQuantificationApplication ;
+                                  <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                                  <https://w3id.org/hacid/onto/top-level/hasDescription> "Data for each of the timeframes is extracted from the climate models. To find the region of suitability, for each of the three thresholds given the areas which fall outside of the thresholds are masked. The masks for all three thresholds are combined and the final region is the area which remains after all three thresholds are applied. For the January minimum temperature threshold, anywhere where the temperature is below the threshold value is masked. For the July average temperature and annual precipitation, the data in the relevant period (July or each year) is averaged and areas with averages outside the threshold range are masked." ;
+                                  rdfs:label "Apply climate change quantification"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ApplyDataPreproccesingAnalysis
+:ApplyDataPreproccesingAnalysis rdf:type owl:NamedIndividual ,
+                                         <https://w3id.org/hacid/onto/top-level/Action> ;
+                                <https://w3id.org/hacid/onto/top-level/executesTask> :DataPreproccesingApplication ;
+                                <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                                rdfs:label "Apply data preproccesing analysis"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ApplySpatialDownscaling
+:ApplySpatialDownscaling rdf:type owl:NamedIndividual ,
+                                  <https://w3id.org/hacid/onto/top-level/Action> ;
+                         <https://w3id.org/hacid/onto/top-level/executesTask> :SpatialDownscalingApplication ;
+                         <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                         rdfs:label "Apply spatial downscaling"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ApplyStatisticalAnalysis
+:ApplyStatisticalAnalysis rdf:type owl:NamedIndividual ,
+                                   <https://w3id.org/hacid/onto/top-level/Action> ;
+                          <https://w3id.org/hacid/onto/top-level/executesTask> :StatisticalAnalysisApplication ;
+                          <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                          rdfs:label "Apply statistical analysis"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ApplyUncertaintyQuantification
+:ApplyUncertaintyQuantification rdf:type owl:NamedIndividual ,
+                                         <https://w3id.org/hacid/onto/top-level/Action> ;
+                                <https://w3id.org/hacid/onto/top-level/executesTask> :UncertaintyQuantificationApplication ;
+                                <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                                <https://w3id.org/hacid/onto/top-level/hasDescription> "Uncertainty not quantified as such. Several other non-climatological factors influence the suitability of a location for the plant species and the thresholds used are not strict measures of where the plant can survive or not so there is broad uncertainty within this work. The final regions of suitability are communicated as a rough guide to demonstrate the general northward trend and decreasing size of the zone of suitability." ;
+                                rdfs:label "Apply uncertainty quantification"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/BaselineChoice
+:BaselineChoice rdf:type owl:NamedIndividual ,
+                         :ClimateProcessTask ;
+                <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :FuturePeriodChoice ;
+                <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                rdfs:comment "The task of choosing the baseline."@en ;
+                rdfs:label "Baseline choice"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/CaseCreation
+:CaseCreation rdf:type owl:NamedIndividual ,
+                       :ClimateProcessTask ;
+              <https://w3id.org/hacid/onto/top-level/directlyFollows> :UserInformationExtraction ;
+              <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :AdditionalInformationSearch ,
+                                                                       :ClimateInformationPreparation ;
+              <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ;
+              rdfs:comment "The task of creating a case."@en ;
+              rdfs:label "Case creation"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/CaseCreator
+:CaseCreator rdf:type owl:NamedIndividual ,
+                      <https://w3id.org/hacid/onto/top-level/Role> ;
+             rdfs:comment "The creator of the climate case."@en ;
+             rdfs:label "Creator"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/CaseSolver
+:CaseSolver rdf:type owl:NamedIndividual ,
+                     <https://w3id.org/hacid/onto/top-level/Role> ;
+            rdfs:comment "The solver of the climate case."@en ;
+            rdfs:label "Solver"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ChooseBaseline
+:ChooseBaseline rdf:type owl:NamedIndividual ,
+                         <https://w3id.org/hacid/onto/top-level/Action> ;
+                <https://w3id.org/hacid/onto/top-level/executesTask> :BaselineChoice ;
+                <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                rdfs:label "Chose baseline"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ChooseFuturePeriod
+:ChooseFuturePeriod rdf:type owl:NamedIndividual ,
+                             <https://w3id.org/hacid/onto/top-level/Action> ;
+                    <https://w3id.org/hacid/onto/top-level/executesTask> :FuturePeriodChoice ;
+                    <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                    rdfs:label "Choose future period"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateChangeQuantificationApplication
+:ClimateChangeQuantificationApplication rdf:type owl:NamedIndividual ,
+                                                 :ClimateProcessTask ;
+                                        <https://w3id.org/hacid/onto/top-level/directlyFollows> :FuturePeriodChoice ;
+                                        <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :UncertaintyQuantificationApplication ;
+                                        <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                                        rdfs:comment "The task of applying the climate change quantification method."@en ;
+                                        rdfs:label "Climate change quantification application"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateHazardImpactDescription
+:ClimateHazardImpactDescription rdf:type owl:NamedIndividual ,
+                                         :ClimateProcessTask ;
+                                <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                                rdfs:comment "The task of describing  how climate hazards impact the organisation's activities."@en ;
+                                rdfs:label "Climate hazard impact description"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateInformationAnalysis
+:ClimateInformationAnalysis rdf:type owl:NamedIndividual ,
+                                     :ClimateProcessTask ;
+                            <https://w3id.org/hacid/onto/top-level/directlyFollows> :AdditionalInformationSearch ,
+                                                                                    :ClimateInformationPreparation ;
+                            <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :SendClimateInformation ;
+                            <https://w3id.org/hacid/onto/top-level/hasPart> :BaselineChoice ,
+                                                                            :ClimateChangeQuantificationApplication ,
+                                                                            :DataPreproccesingApplication ,
+                                                                            :FuturePeriodChoice ,
+                                                                            :SpatialDownscalingApplication ,
+                                                                            :StatisticalAnalysisApplication ,
+                                                                            :UncertaintyQuantificationApplication ;
+                            <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                            rdfs:comment "The task of analysing the climate information."@en ;
+                            rdfs:label "Climate information analysis"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateInformationCommunication
+:ClimateInformationCommunication rdf:type owl:NamedIndividual ,
+                                          :ClimateProcessTask ;
+                                 <https://w3id.org/hacid/onto/top-level/directlyFollows> :SendClimateInformation ;
+                                 <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                                 rdfs:comment "The task of communicating the climate information."@en ;
+                                 rdfs:label "Climate information communication"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateInformationPreparation
+:ClimateInformationPreparation rdf:type owl:NamedIndividual ,
+                                        :ClimateProcessTask ;
+                               <https://w3id.org/hacid/onto/top-level/directlyFollows> :CaseCreation ;
+                               <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :ClimateInformationAnalysis ;
+                               <https://w3id.org/hacid/onto/top-level/hasPart> :ClimateModelEvaluation ,
+                                                                               :ClimateModelSelection ,
+                                                                               :DataSelection ,
+                                                                               :EmissionScenarioDefinition ,
+                                                                               :MetricAndVariableIdentification ;
+                               <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                               rdfs:comment "The task of preparing the climate information."@en ;
+                               rdfs:label "Climate information preparation"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateInformationRequest
+:ClimateInformationRequest rdf:type owl:NamedIndividual ,
+                                    :ClimateProcessTask ;
+                           <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :UserBackgroundInformationRequest ;
+                           <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                           rdfs:comment "The task of requesting the climate information."@en ;
+                           rdfs:label "Climate information request"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateInformationRequestGoalDefinition
+:ClimateInformationRequestGoalDefinition rdf:type owl:NamedIndividual ,
+                                                  :ClimateProcessTask ;
+                                         <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                                         rdfs:comment "The task of defining the goal of the climate information request."@en ;
+                                         rdfs:label "Climate information request goal definition"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateModelEvaluation
+:ClimateModelEvaluation rdf:type owl:NamedIndividual ,
+                                 :ClimateProcessTask ;
+                        <https://w3id.org/hacid/onto/top-level/directlyFollows> :DataSelection ;
+                        <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :ClimateModelSelection ;
+                        <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                        rdfs:comment "The task of evaluating the climate model."@en ;
+                        rdfs:label "Climate model evaluation"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateModelSelection
+:ClimateModelSelection rdf:type owl:NamedIndividual ,
+                                :ClimateProcessTask ;
+                       <https://w3id.org/hacid/onto/top-level/directlyFollows> :ClimateModelEvaluation ;
+                       <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                       rdfs:comment "The task of selecing the climate model."@en ;
+                       rdfs:label "Climate model selection"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateQuestionDescription
+:ClimateQuestionDescription rdf:type owl:NamedIndividual ,
+                                     :ClimateProcessTask ;
+                            <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                            rdfs:comment "The task of describing climate questions."@en ;
+                            rdfs:label "Climate question description"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ClimateRiskFramingSpecification
+:ClimateRiskFramingSpecification rdf:type owl:NamedIndividual ,
+                                          :ClimateProcessTask ;
+                                 <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                                 rdfs:comment "The task of specifying the climate risk framing."@en ;
+                                 rdfs:label "Climate risk framing specification"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/CreateCase
+:CreateCase rdf:type owl:NamedIndividual ,
+                     <https://w3id.org/hacid/onto/top-level/Action> ;
+            <https://w3id.org/hacid/onto/top-level/executesTask> :CaseCreation ;
+            <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/MetOffice> ;
+            rdfs:label "Create case"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/CustomerNeedDefinition
+:CustomerNeedDefinition rdf:type owl:NamedIndividual ,
+                                 :ClimateProcessTask ;
+                        <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                        rdfs:comment "The task of defining the customer needs (identifying climate-related challenges faced by the organisation.)"@en ;
+                        rdfs:label "Customer need definition"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/CustomerNeedWildlifeTrusts
+:CustomerNeedWildlifeTrusts rdf:type owl:NamedIndividual ,
+                                     <https://w3id.org/hacid/onto/top-level/CustomerNeed> ;
+                            <https://w3id.org/hacid/onto/top-level/hasDescription> "The changing climate means that many species are struggling to adapt which is contributing to declining populations. This means there is a greater need to more quickly regenerate and re-connect habitats to help nature cope with extreme weather and the changing climate." ;
+                            rdfs:comment "The changing climate means that many species are struggling to adapt which is contributing to declining populations. This means there is a greater need to more quickly regenerate and re-connect habitats to help nature cope with extreme weather and the changing climate."@en ;
+                            rdfs:label "Customer need Wildlife Trusts"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DataPreproccesingApplication
+:DataPreproccesingApplication rdf:type owl:NamedIndividual ,
+                                       :ClimateProcessTask ;
+                              <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                              rdfs:comment "The task of applying data preproccesing methods for the analysis of the climate information."@en ;
+                              rdfs:label "Data preproccesing application"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DataSelection
+:DataSelection rdf:type owl:NamedIndividual ,
+                        :ClimateProcessTask ;
+               <https://w3id.org/hacid/onto/top-level/directlyFollows> :EmissionScenarioDefinition ;
+               <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :ClimateModelEvaluation ;
+               <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+               rdfs:comment "The task of selecting the data."@en ;
+               rdfs:label "Data selection"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DecisionContextSpecification
+:DecisionContextSpecification rdf:type owl:NamedIndividual ,
+                                       :ClimateProcessTask ;
+                              <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ,
+                                                                               :InformationRequester ;
+                              rdfs:label "Decision context specification"@en ,
+                                         "The task of listing decisions or actions that would benefit from better climate information."@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DefineCustomerNeed
+:DefineCustomerNeed rdf:type owl:NamedIndividual ,
+                             <https://w3id.org/hacid/onto/top-level/Action> ;
+                    <https://w3id.org/hacid/onto/top-level/executesTask> :CustomerNeedDefinition ;
+                    <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                    rdfs:comment "The action of defining the customer need."@en ;
+                    rdfs:label "Define customer need."@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DefineEmissionScenarios
+:DefineEmissionScenarios rdf:type owl:NamedIndividual ,
+                                  <https://w3id.org/hacid/onto/top-level/Action> ;
+                         <https://w3id.org/hacid/onto/top-level/executesTask> :EmissionScenarioDefinition ;
+                         <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                         rdfs:label "Define emission scenarios"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DefinePlanningTimescales
+:DefinePlanningTimescales rdf:type owl:NamedIndividual ,
+                                   <https://w3id.org/hacid/onto/top-level/Action> ;
+                          <https://w3id.org/hacid/onto/top-level/executesTask> :PlanningTimeScalesDefinition ;
+                          <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                          rdfs:comment "The action of defining planning timescales from the information requester."@en ;
+                          rdfs:label "Define planning timescales."@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DefineRequestGoal
+:DefineRequestGoal rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/hacid/onto/top-level/Action> ;
+                   <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateInformationRequestGoalDefinition ;
+                   <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                   rdfs:comment "The action of defining the goal of the climate information request from the information requester."@en ;
+                   rdfs:label "Define request goal."@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DescribeClimateHazardImpact
+:DescribeClimateHazardImpact rdf:type owl:NamedIndividual ,
+                                      <https://w3id.org/hacid/onto/top-level/Action> ;
+                             <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateHazardImpactDescription ;
+                             <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                             rdfs:label "Describe climate hazard impact"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DescribeClimateQuestions
+:DescribeClimateQuestions rdf:type owl:NamedIndividual ,
+                                   <https://w3id.org/hacid/onto/top-level/Action> ;
+                          <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateQuestionDescription ;
+                          <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                          <https://w3id.org/hacid/onto/top-level/hasDescription> "Where in the UK is likely to have suitable climatic conditions for a specific plant species (the Meadow Clary) to survive between 2040 and 2080?" ;
+                          rdfs:label "Describe climate questions"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/DisseminateClimateInformation
+:DisseminateClimateInformation rdf:type owl:NamedIndividual ,
+                                        <https://w3id.org/hacid/onto/top-level/Action> ;
+                               <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateInformationCommunication ;
+                               <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                               rdfs:label "Disseminate climate information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/Drought
+:Drought rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/hacid/onto/ccso/HazardType> ;
+         <https://w3id.org/hacid/onto/top-level/hasRole> :RelevantHazardType ;
+         rdfs:label "Drought"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/EmissionScenarioDefinition
+:EmissionScenarioDefinition rdf:type owl:NamedIndividual ,
+                                     :ClimateProcessTask ;
+                            <https://w3id.org/hacid/onto/top-level/directlyFollows> :MetricAndVariableIdentification ;
+                            <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :DataSelection ;
+                            <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                            rdfs:comment "The task of defining the emission scenarios."@en ;
+                            rdfs:label "Emission scenario definition"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/EvaluateClimateModel
+:EvaluateClimateModel rdf:type owl:NamedIndividual ,
+                               <https://w3id.org/hacid/onto/top-level/Action> ;
+                      <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateModelEvaluation ;
+                      <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                      rdfs:label "Evaluate climate model"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ExternalExpertiseSearch
+:ExternalExpertiseSearch rdf:type owl:NamedIndividual ,
+                                  :ClimateProcessTask ;
+                         <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                         rdfs:label "External expertise search"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ExtractUserInformation
+:ExtractUserInformation rdf:type owl:NamedIndividual ,
+                                 <https://w3id.org/hacid/onto/top-level/Action> ;
+                        <https://w3id.org/hacid/onto/top-level/executesTask> :UserInformationExtraction ;
+                        <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/MetOffice> ;
+                        rdfs:label "Extract user information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/FuturePeriodChoice
+:FuturePeriodChoice rdf:type owl:NamedIndividual ,
+                             :ClimateProcessTask ;
+                    <https://w3id.org/hacid/onto/top-level/directlyFollows> :BaselineChoice ;
+                    <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :ClimateChangeQuantificationApplication ;
+                    <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                    rdfs:comment "The task of choosig the future period."@en ;
+                    rdfs:label "Future period choice"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/GoalWildlifeTrusts
+:GoalWildlifeTrusts rdf:type owl:NamedIndividual ,
+                             <https://w3id.org/hacid/onto/top-level/Goal> ;
+                    <https://w3id.org/hacid/onto/top-level/hasDescription> "Find the areas of the UK which by the middle and the end of the century respectively are expected to have suitable climatic conditions (based on 3 climate thresholds) for the plant species to survive. The experts that solve the case source 3 climate thresholds in collaboration with the organisation involved which defines the suitable climatic conditions used." ;
+                    rdfs:label "Goal Wildlife Trusts"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/HazardIdentification
+:HazardIdentification rdf:type owl:NamedIndividual ,
+                               :ClimateProcessTask ;
+                      <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ,
+                                                                       :InformationRequester ;
+                      rdfs:comment "The task of identifying hazards."@en ;
+                      rdfs:label "Hazard identification"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/IdentifyHazards
+:IdentifyHazards rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/hacid/onto/top-level/Action> ;
+                 <https://w3id.org/hacid/onto/top-level/executesTask> :HazardIdentification ;
+                 <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                 <https://w3id.org/hacid/onto/top-level/hasRole> :RelevantHazardType ;
+                 rdfs:comment "The action of identifying hazards from the information requester."@en ;
+                 rdfs:label "Identify hazards."@en .
+
+
+###  https://w3id.org/hacid/onto/csw/IdentifyInformationOnExposure
+:IdentifyInformationOnExposure rdf:type owl:NamedIndividual ,
+                                        <https://w3id.org/hacid/onto/top-level/Action> ;
+                               <https://w3id.org/hacid/onto/top-level/executesTask> :InformationOnExposureIdentification ;
+                               <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                               rdfs:comment "The action of identifying information on exposure from the information requester."@en ;
+                               rdfs:label "Identify information on exposure."@en .
+
+
+###  https://w3id.org/hacid/onto/csw/IdentifyMetricVariable
+:IdentifyMetricVariable rdf:type owl:NamedIndividual ,
+                                 <https://w3id.org/hacid/onto/top-level/Action> ;
+                        <https://w3id.org/hacid/onto/top-level/executesTask> :MetricAndVariableIdentification ;
+                        <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                        rdfs:label "Identify metrics and variables"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/IndicateSpatialRegion
+:IndicateSpatialRegion rdf:type owl:NamedIndividual ,
+                                <https://w3id.org/hacid/onto/top-level/Action> ;
+                       <https://w3id.org/hacid/onto/top-level/executesTask> :SpatialRegionIndication ;
+                       <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                       rdfs:label "Indicate spatial region"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/InformationOnExposureIdentification
+:InformationOnExposureIdentification rdf:type owl:NamedIndividual ,
+                                              :ClimateProcessTask ;
+                                     <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ,
+                                                                                      :InformationRequester ;
+                                     rdfs:comment "The task of identifying information on exposure."@en ;
+                                     rdfs:label "Information on exposure identification"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/InformationRequester
+:InformationRequester rdf:type owl:NamedIndividual ,
+                               <https://w3id.org/hacid/onto/top-level/Role> ;
+                      rdfs:comment "The user that requests and uses the climate information."@en ;
+                      rdfs:label "Information requester"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/MetricAndVariableIdentification
+:MetricAndVariableIdentification rdf:type owl:NamedIndividual ,
+                                          :ClimateProcessTask ;
+                                 <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :EmissionScenarioDefinition ;
+                                 <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                                 rdfs:comment "The task of identifying metrics and variables."@en ;
+                                 rdfs:label "Metric and variable identification"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ObservationAnalysis
+:ObservationAnalysis rdf:type owl:NamedIndividual ,
+                              :ClimateProcessTask ;
+                     <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ,
+                                                                      :InformationRequester ;
+                     rdfs:label "Observation analysis"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/OrganisationInformationDescription
+:OrganisationInformationDescription rdf:type owl:NamedIndividual ,
+                                             :ClimateProcessTask ;
+                                    <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                                    rdfs:comment "The task of describing organisation information."@en ;
+                                    rdfs:label "Organisation information description"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/PerformLiteratureReview
+:PerformLiteratureReview rdf:type owl:NamedIndividual ,
+                                  :ClimateProcessTask ;
+                         <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                         rdfs:label "Perform literature review"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/PerformLiteratureReviewCC
+:PerformLiteratureReviewCC rdf:type owl:NamedIndividual ,
+                                    <https://w3id.org/hacid/onto/top-level/Action> ;
+                           <https://w3id.org/hacid/onto/top-level/executesTask> :PerformLiteratureReview ;
+                           <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                           rdfs:label "Perform literature review CC"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/PestInfestation
+:PestInfestation rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/hacid/onto/ccso/HazardType> ;
+                 <https://w3id.org/hacid/onto/top-level/hasRole> :RelevantHazardType ;
+                 rdfs:label "Pest infestation"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/PlanningTimeScalesDefinition
+:PlanningTimeScalesDefinition rdf:type owl:NamedIndividual ,
+                                       :ClimateProcessTask ;
+                              <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ,
+                                                                               :InformationRequester ;
+                              rdfs:comment "The task of defining planning time scales."@en ;
+                              rdfs:label "Planning time scales definition"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/PrepareClimateInformation
+:PrepareClimateInformation rdf:type owl:NamedIndividual ,
+                                    <https://w3id.org/hacid/onto/top-level/Action> ;
+                           <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateInformationPreparation ;
+                           <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                           rdfs:label "Prepare climate information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ProvideBackgroundInformation
+:ProvideBackgroundInformation rdf:type owl:NamedIndividual ,
+                                       :ClimateProcessTask ;
+                              <https://w3id.org/hacid/onto/top-level/directlyFollows> :UserBackgroundInformationRequest ;
+                              <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :ProvideDecisionContextInformation ;
+                              <https://w3id.org/hacid/onto/top-level/hasPart> :ClimateInformationRequestGoalDefinition ,
+                                                                              :CustomerNeedDefinition ,
+                                                                              :OrganisationInformationDescription ;
+                              <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                              rdfs:comment "The task of providing background information."@en ;
+                              rdfs:label "Provide background information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ProvideDecisionContextInformation
+:ProvideDecisionContextInformation rdf:type owl:NamedIndividual ,
+                                            :ClimateProcessTask ;
+                                   <https://w3id.org/hacid/onto/top-level/directlyFollows> :ProvideBackgroundInformation ;
+                                   <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :UserInformationExtraction ;
+                                   <https://w3id.org/hacid/onto/top-level/hasPart> :ClimateHazardImpactDescription ,
+                                                                                   :ClimateQuestionDescription ,
+                                                                                   :ClimateRiskFramingSpecification ,
+                                                                                   :DecisionContextSpecification ,
+                                                                                   :HazardIdentification ,
+                                                                                   :InformationOnExposureIdentification ,
+                                                                                   :ObservationAnalysis ,
+                                                                                   :PlanningTimeScalesDefinition ,
+                                                                                   :RiskToleranceRating ,
+                                                                                   :SpatialRegionIndication ;
+                                   <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                                   rdfs:comment "The task of providing decision context information."@en ;
+                                   rdfs:label "Provide decision context information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ProvideDecisionContextInformationToCC
+:ProvideDecisionContextInformationToCC rdf:type owl:NamedIndividual ,
+                                                <https://w3id.org/hacid/onto/top-level/Action> ;
+                                       <https://w3id.org/hacid/onto/top-level/executesTask> :ProvideDecisionContextInformation ;
+                                       <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                                       rdfs:comment "The task of providing the decision context information from the information requester to the case creator."@en ;
+                                       rdfs:label "Provide decision context information to case creator."@en .
+
+
+###  https://w3id.org/hacid/onto/csw/ProvideOrganisationInformationDescription
+:ProvideOrganisationInformationDescription rdf:type owl:NamedIndividual ,
+                                                    <https://w3id.org/hacid/onto/top-level/Action> ;
+                                           <https://w3id.org/hacid/onto/top-level/executesTask> :OrganisationInformationDescription ;
+                                           <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                                           rdfs:comment "The action of describing the organisation information from the information requester to the case creator."@en ;
+                                           rdfs:label "Provide organisation information description"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/RelevantHazardType
+:RelevantHazardType rdf:type owl:NamedIndividual ,
+                             <https://w3id.org/hacid/onto/top-level/Role> ;
+                    rdfs:comment "A climate model selected for a case in the context of a climate service workflow execution."@en ;
+                    rdfs:label "Relevant hazard type"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/RiskToleranceRating
+:RiskToleranceRating rdf:type owl:NamedIndividual ,
+                              :ClimateProcessTask ;
+                     <https://w3id.org/hacid/onto/top-level/isTaskOf> :InformationRequester ;
+                     rdfs:comment "The task of rating the risk tolerance."@en ;
+                     rdfs:label "Risk tolerance rating"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SearchAdditionalInformation
+:SearchAdditionalInformation rdf:type owl:NamedIndividual ,
+                                      <https://w3id.org/hacid/onto/top-level/Action> ;
+                             <https://w3id.org/hacid/onto/top-level/executesTask> :AdditionalInformationSearch ;
+                             <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                             rdfs:label "Search additional information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SearchExternalExpertise
+:SearchExternalExpertise rdf:type owl:NamedIndividual ,
+                                  <https://w3id.org/hacid/onto/top-level/Action> ;
+                         <https://w3id.org/hacid/onto/top-level/executesTask> :ExternalExpertiseSearch ;
+                         <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                         rdfs:label "Search external expertise"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectClimateModel
+:SelectClimateModel rdf:type owl:NamedIndividual ,
+                             <https://w3id.org/hacid/onto/top-level/Action> ;
+                    <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateModelSelection ;
+                    <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                    <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedClimateModel ;
+                    rdfs:label "Select climate model"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectData
+:SelectData rdf:type owl:NamedIndividual ,
+                     <https://w3id.org/hacid/onto/top-level/Action> ;
+            <https://w3id.org/hacid/onto/top-level/executesTask> :DataSelection ;
+            <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+            <https://w3id.org/hacid/onto/top-level/hasDescription> "Data on the present-day actual locations of the plant species of interest was compared with the region which was deemed to have a suitable climate for this plant. This region was found by applying the thresholds to the climate data. An inspection was done, by multiple team members comparing the maps produced, to deem that the region of climatic suitability was representative enough of where the plants are in the present day and hence it was deemed appropriate to use for analysis of the future climatic conditions." ;
+            rdfs:label "Select data"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectedBaselineInterval
+:SelectedBaselineInterval rdf:type owl:NamedIndividual ,
+                                   <https://w3id.org/hacid/onto/top-level/Role> ;
+                          rdfs:comment "A time interval selected as baseline for a case in the context of a climate service workflow execution."@en ;
+                          rdfs:label "Selected baseline interval"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectedClimateModel
+:SelectedClimateModel rdf:type owl:NamedIndividual ,
+                               <https://w3id.org/hacid/onto/top-level/Role> ;
+                      rdfs:comment "A climate model selected for a case in the context of a climate service workflow execution."@en ;
+                      rdfs:label "Selected climate model"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectedEmissionScenario
+:SelectedEmissionScenario rdf:type owl:NamedIndividual ,
+                                   <https://w3id.org/hacid/onto/top-level/Role> ;
+                          rdfs:comment "An emission scenario selected for a case in the context of a climate service workflow execution."@en ;
+                          rdfs:label "Selected emission scenario"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectedFutureInterval
+:SelectedFutureInterval rdf:type owl:NamedIndividual ,
+                                 <https://w3id.org/hacid/onto/top-level/Role> ;
+                        rdfs:comment "A time interval selected as future interval for a case in the context of a climate service workflow execution."@en ;
+                        rdfs:label "Selected future interval"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectedGeodeticRegion
+:SelectedGeodeticRegion rdf:type owl:NamedIndividual ,
+                                 <https://w3id.org/hacid/onto/top-level/Role> ;
+                        rdfs:comment "A geodetic region selected for a case in the context of a climate service workflow execution."@en ;
+                        rdfs:label "Selected geodetic region"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SelectedVariable
+:SelectedVariable rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/hacid/onto/top-level/Role> ;
+                  rdfs:comment "A variable selected for a case in the context of a climate service workflow execution."@en ;
+                  rdfs:label "Selected variable"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SendClimateInformation
+:SendClimateInformation rdf:type owl:NamedIndividual ,
+                                 :ClimateProcessTask ;
+                        <https://w3id.org/hacid/onto/top-level/directlyFollows> :ClimateInformationAnalysis ,
+                                                                                :ClimateInformationCommunication ;
+                        <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                        rdfs:comment "The task of sending climate information."@en ;
+                        rdfs:label "Send climate information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SendClimateInformationRequest
+:SendClimateInformationRequest rdf:type owl:NamedIndividual ,
+                                        <https://w3id.org/hacid/onto/top-level/Action> ;
+                               <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateInformationRequest ;
+                               <https://w3id.org/hacid/onto/top-level/hasParticipant> :WildlifeTrustsOrganisation ;
+                               rdfs:comment "An action of sending the climate information request from the information requester to the case creator."@en ;
+                               rdfs:label "Send climate request"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SendClimateInformationtoIR
+:SendClimateInformationtoIR rdf:type owl:NamedIndividual ,
+                                     <https://w3id.org/hacid/onto/top-level/Action> ;
+                            <https://w3id.org/hacid/onto/top-level/executesTask> :SendClimateInformation ;
+                            <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/CaseSolver1> ;
+                            rdfs:label "Send climate information to information requester"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SendUserBackgroundInformation
+:SendUserBackgroundInformation rdf:type owl:NamedIndividual ,
+                                        <https://w3id.org/hacid/onto/top-level/Action> ;
+                               <https://w3id.org/hacid/onto/top-level/executesTask> :ProvideBackgroundInformation ;
+                               <https://w3id.org/hacid/onto/top-level/hasParticipant> :WildlifeTrustsOrganisation ;
+                               rdfs:comment "The action of sending the user background information from the information requester to the case solver."@en ;
+                               rdfs:label "Send user background information"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SendUserBackgroundInformationRequest
+:SendUserBackgroundInformationRequest rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/hacid/onto/top-level/Action> ;
+                                      <https://w3id.org/hacid/onto/top-level/executesTask> :UserBackgroundInformationRequest ;
+                                      <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/top-level/MetOfficeOrganisation> ;
+                                      rdfs:comment "The action of sending the request for user background information from the case solver to the information requester."@en ;
+                                      rdfs:label "Send user background information request"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SpatialDownscalingApplication
+:SpatialDownscalingApplication rdf:type owl:NamedIndividual ,
+                                        :ClimateProcessTask ;
+                               <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                               rdfs:comment "The task of applying spatial downscaling methods for the analysis of the climate information."@en ;
+                               rdfs:label "Spatial downscaling application"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SpatialRegionIndication
+:SpatialRegionIndication rdf:type owl:NamedIndividual ,
+                                  :ClimateProcessTask ;
+                         <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ,
+                                                                          :InformationRequester ;
+                         rdfs:comment "The task of indicating the spatial region of interest."@en ;
+                         rdfs:label "Spatial region indication"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SpecifyClimateRiskFraming
+:SpecifyClimateRiskFraming rdf:type owl:NamedIndividual ,
+                                    <https://w3id.org/hacid/onto/top-level/Action> ;
+                           <https://w3id.org/hacid/onto/top-level/executesTask> :ClimateRiskFramingSpecification ;
+                           <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                           rdfs:label "Specify climate risk framing"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SpecifyDecisionContext
+:SpecifyDecisionContext rdf:type owl:NamedIndividual ,
+                                 <https://w3id.org/hacid/onto/top-level/Action> ;
+                        <https://w3id.org/hacid/onto/top-level/executesTask> :DecisionContextSpecification ;
+                        <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                        <https://w3id.org/hacid/onto/top-level/hasDescription> "Decision making around where to reintroduce specific plant species which are in decline. It will help to determine which regional branches of the organisation should be involved in the reintroduction efforts." ;
+                        rdfs:label "Specify decision context"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/SpecifyRiskToleranceRating
+:SpecifyRiskToleranceRating rdf:type owl:NamedIndividual ,
+                                     <https://w3id.org/hacid/onto/top-level/Action> ;
+                            <https://w3id.org/hacid/onto/top-level/executesTask> :RiskToleranceRating ;
+                            <https://w3id.org/hacid/onto/top-level/hasParticipant> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                            <https://w3id.org/hacid/onto/top-level/hasDescription> "Medium" ;
+                            rdfs:label "Specify risk tolerance rating"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/StatisticalAnalysisApplication
+:StatisticalAnalysisApplication rdf:type owl:NamedIndividual ,
+                                         :ClimateProcessTask ;
+                                <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                                rdfs:comment "The task of applying statistical methods for the analysis of the climate information."@en ;
+                                rdfs:label "Statistical analysis application"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/UncertaintyQuantificationApplication
+:UncertaintyQuantificationApplication rdf:type owl:NamedIndividual ,
+                                               :ClimateProcessTask ;
+                                      <https://w3id.org/hacid/onto/top-level/directlyFollows> :ClimateChangeQuantificationApplication ;
+                                      <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseSolver ;
+                                      rdfs:comment "The task of applying uncertainty quantification"@en ;
+                                      rdfs:label "Uncertainty quantification application"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/UserBackgroundInformationRequest
+:UserBackgroundInformationRequest rdf:type owl:NamedIndividual ,
+                                           :ClimateProcessTask ;
+                                  <https://w3id.org/hacid/onto/top-level/directlyFollows> :ClimateInformationRequest ;
+                                  <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :ProvideBackgroundInformation ;
+                                  <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ;
+                                  rdfs:comment "The task of requesting user background information."@en ;
+                                  rdfs:label "User background information request"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/UserInformationExtraction
+:UserInformationExtraction rdf:type owl:NamedIndividual ,
+                                    :ClimateProcessTask ;
+                           <https://w3id.org/hacid/onto/top-level/directlyFollows> :ProvideDecisionContextInformation ;
+                           <https://w3id.org/hacid/onto/top-level/directlyPrecedes> :CaseCreation ;
+                           <https://w3id.org/hacid/onto/top-level/isTaskOf> :CaseCreator ;
+                           rdfs:comment "The task of extracting user information."@en ;
+                           rdfs:label "User information request"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/Wildfire
+:Wildfire rdf:type owl:NamedIndividual ,
+                   <https://w3id.org/hacid/onto/ccso/HazardType> ;
+          <https://w3id.org/hacid/onto/top-level/hasRole> :RelevantHazardType ;
+          rdfs:label "Wildfire"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/WildlifeTrustsOrganisation
+:WildlifeTrustsOrganisation rdf:type owl:NamedIndividual ,
+                                     <https://w3id.org/hacid/onto/top-level/Organisation> ;
+                            <https://w3id.org/hacid/onto/core/naming/hasNaming> <https://w3id.org/hacid/onto/core/naming/WildlifeTrusts> ;
+                            rdfs:label "Wildlife Trusts Organisation"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/1980-2000
+<https://w3id.org/hacid/onto/csw/1980-2000> rdf:type owl:NamedIndividual ,
+                                                     <https://w3id.org/hacid/onto/data/TemporalRegion> ;
+                                            <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedBaselineInterval ;
+                                            rdfs:comment "Temporal region starting from the year 1980 to the year 2000."@en ;
+                                            rdfs:label "1980-2000"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/2040-2060
+<https://w3id.org/hacid/onto/csw/2040-2060> rdf:type owl:NamedIndividual ,
+                                                     <https://w3id.org/hacid/onto/data/TemporalRegion> ;
+                                            <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedFutureInterval ;
+                                            rdfs:comment "Temporal region starting from the year 2040 to the year 2060."@en ;
+                                            rdfs:label "2040-2060"@en .
+
+
+###  https://w3id.org/hacid/onto/csw/2060-2080
+<https://w3id.org/hacid/onto/csw/2060-2080> rdf:type owl:NamedIndividual ,
+                                                     <https://w3id.org/hacid/onto/data/TemporalRegion> ;
+                                            <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedFutureInterval ;
+                                            rdfs:comment "Temporal region starting from the year 2060 to the year 2080."@en ;
+                                            rdfs:label "2060-2080"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/CaseSolver1
+<https://w3id.org/hacid/onto/top-level/CaseSolver1> rdf:type owl:NamedIndividual ,
+                                                             <https://w3id.org/hacid/onto/top-level/Person> ;
+                                                    rdfs:label "Case solver 1"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/MetOfficeOrganisation
+<https://w3id.org/hacid/onto/top-level/MetOfficeOrganisation> rdf:type owl:NamedIndividual ,
+                                                                       <https://w3id.org/hacid/onto/top-level/Organisation> ;
+                                                              <https://w3id.org/hacid/onto/core/naming/hasNaming> <https://w3id.org/hacid/onto/core/naming/MetOffice> ;
+                                                              rdfs:label "MetOffice"@en .
+
+
+###  https://w3id.org/hacid/onto/top-level/UKCP18_Local_data_at_5km_resolution
+<https://w3id.org/hacid/onto/top-level/UKCP18_Local_data_at_5km_resolution> rdf:type owl:NamedIndividual ,
+                                                                                     <https://w3id.org/hacid/onto/ccso/ClimateModel> ;
+                                                                            <https://w3id.org/hacid/onto/top-level/hasRole> :SelectedClimateModel ;
+                                                                            rdfs:label "UKCP18 Local data at 5km resolution"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
