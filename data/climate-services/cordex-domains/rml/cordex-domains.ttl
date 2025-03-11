@@ -34,26 +34,123 @@
     ];
     rml:referenceFormulation ql:CSV .
   
+:FormatCordexDomainCall
+    rr:predicate fno:executes ;
+    rr:objectMap [ rr:constant hrf:formatCordexDomain ] .
+
+:ParamDomain
+    rr:predicate hrf:domain ;
+    rr:objectMap [ rml:reference "CORDEX_domain" ] .
+
 # TRIPLE MAPPINGS #
 
-:CordexDomainMapping a rr:TriplesMap ;
+:DomainMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
     
 	rr:subjectMap [ 
-        rr:class data:SpatialRegion ;
-        rr:class geo:Geometry ;
-        rr:template "https://w3id.org/hacid/data/cordex-domain/{domain_id}/region"
+        rr:class data:DimensionalSpace ;
+        rr:template "https://w3id.org/hacid/data/cordex-domain/{CORDEX_domain}/ds"
     ] ;
 	
     rr:predicateObjectMap [
-        rr:predicate data:isRegionOf ;
-        rr:object dimension:geodetic, geodetic:WGS84
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:language "en";
+            rr:template "CORDEX:{CORDEX_domain}"
+        ]
     ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:language "en";
+            rr:template "CORDEX geographic domain of {domain}, with {type} coordinates and a resolution of {dlon}° degrees ({CORDEX_domain})."
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:isDiscretizedBy ;
+        rr:objectMap [
+            rr:parentTriplesMap :QuantizationMapping
+        ]
+    ] .
+
+:RegularDomainMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:termType rr:IRI ;
+        fnml:functionValue [
+            rr:predicateObjectMap :FormatCordexDomainCall, :ParamDomain, [
+                rr:predicate hrf:template ;
+                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/{regular_domain}/ds" ]
+            ]
+        ] 
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:object geodetic:WGS84
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasExactBoundingRegion ;
+        rr:objectMap [
+            rr:parentTriplesMap :RegularBoundingRegionMapping
+        ]
+    ] .
+
+:RotatedDomainMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:termType rr:IRI ;
+        fnml:functionValue [
+            rr:predicateObjectMap :FormatCordexDomainCall, :ParamDomain, [
+                rr:predicate hrf:template ;
+                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/{rotated_domain}/ds" ]
+            ]
+        ] 
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:objectMap [
+            rr:parentTriplesMap :RotatedDimensionalSpace
+        ]
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasExactBoundingRegion ;
+        rr:objectMap [
+            rr:parentTriplesMap :RotatedBoundingRegionMapping
+        ]
+    ] .
+
+:RotatedDimensionalSpace a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:class data:DimensionalSpace ;
+        rr:template "https://w3id.org/hacid/data/rotated-WGS84/{pollon},{pollat}"
+    ] ;
+	
+    rr:predicateObjectMap [
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:object geodetic:WGS84
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasReferencePoint ;
+        rr:objectMap [
+            rr:parentTriplesMap :PolarCoordinatesMapping
+        ]
+    ] ; 
 
     rr:predicateObjectMap [
         rr:predicate rdfs:label ;
         rr:objectMap [ 
-            rr:template "Boundaries of {domain} ({domain_id})" ;
+            rr:template "Rotated geodetic: pole {pollon}° {pollat}°" ;
             rr:language "en"
         ]
     ] ;  
@@ -61,7 +158,111 @@
     rr:predicateObjectMap [
         rr:predicate rdfs:comment ;
         rr:objectMap [ 
-            rr:template "WGS 84 bounding box of CORDEX geographic domain encompassing {domain}." ;
+            rr:template "Rotated geodetic dimensional space, with polar coordinates {pollon}° {pollat}°, in reference to the World Geodetic System 1984 (WGS84)." ;
+            rr:language "en"
+        ]
+    ].
+
+:QuantizationMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:class data:Quantization, data:RollingRegularGrid;
+        rr:template "https://w3id.org/hacid/data/geodetic-grid/{dlon}"
+    ] ;
+	
+    rr:predicateObjectMap [
+        rr:predicate data:basedOnDimensionalSpace ;
+        rr:object dimension:geodetic
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasResolutionValue ;
+        rr:objectMap [ 
+            rr:datatype xsd:float ;
+            rr:template "{dlon}"
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:language "en";
+            rr:template "{dlon}° geodetic grid"
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:language "en";
+            rr:template "Geodetic grid composed of regions encompassing {dlon} degrees on both angular axes."
+        ]
+    ] .
+
+:PolarCoordinatesMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:class data:GeodeticPoint, geo:Geometry ;
+        rr:template "https://w3id.org/hacid/data/geodetic-point/WGS84/{pollon},{pollat}"
+    ] ;
+	
+    rr:predicateObjectMap [
+        rr:predicate data:isPointOf ;
+        rr:object geodetic:WGS84
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:template "Geodetic point {pollon}° {pollat}°" ;
+            rr:language "en"
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:template "Geodetic point with longitude {pollon}° and latitude {pollat}°, in reference to the World Geodetic System 1984 (WGS84)." ;
+            rr:language "en"
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate geo:asWKT ;
+        rr:objectMap [ 
+            rr:template "POINT({pollon} {pollat})" ;
+            rr:datatype "geo:wktLiteral"
+        ]
+    ] .
+
+
+:RegularBoundingRegionMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:class data:SpatialRegion, geo:Geometry ;
+        rr:template "https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/{ll_lon},{ll_lat}:{ur_lon},{ur_lat}" 
+    ] ;
+	
+    rr:predicateObjectMap [
+        rr:predicate data:isRegionOf ;
+        rr:object geodetic:WGS84
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:template "Rectangular geodetic region {ll_lon}° {ll_lat}° : {ur_lon}° {ur_lat}°" ;
+            rr:language "en"
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:template "Rectangular geodetic region comprised between lower left coordinates {ll_lon}° {ll_lat}° and upper right coordinates {ur_lon}° {ur_lat}°, based on WGS84." ;
             rr:language "en"
         ]
     ] ;
@@ -70,6 +271,45 @@
         rr:predicate geo:asWKT ;
         rr:objectMap [ 
             rr:template "POLYGON(({ll_lon} {ll_lat},{ll_lon} {ur_lat},{ur_lon} {ur_lat},{ur_lon} {ll_lat}))" ;
+            rr:datatype "geo:wktLiteral"
+        ]
+    ] .
+
+:RotatedBoundingRegionMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+    
+	rr:subjectMap [ 
+        rr:class data:SpatialRegion, geo:Geometry ;
+        rr:template "https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/{pollon},{pollat}/rectangle/{ll_lon},{ll_lat}:{ur_lon},{ur_lat}" 
+    ] ;
+	
+    rr:predicateObjectMap [
+        rr:predicate data:isRegionOf ;
+        rr:objectMap [
+            rr:parentTriplesMap :RotatedDimensionalSpace
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rr:template "Rectangular geodetic region {ll_lon}° {ll_lat}° : {ur_lon}° {ur_lat}° on rotated coordinates (pole: {pollon}° {pollat}°)" ;
+            rr:language "en"
+        ]
+    ] ;  
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [ 
+            rr:template "Rectangular geodetic region comprised between lower left coordinates {ll_lon}° {ll_lat}° and upper right coordinates {ur_lon}° {ur_lat}°, based on rotated coordinates from WGS84 (pole has coordinates {pollon}° {pollat}°)." ;
+            rr:language "en"
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate geo:asWKT ;
+        rr:objectMap [ 
+            rr:template "SRID=ROTATED_POLAR:{pollon} {pollat};POLYGON(({ll_lon} {ll_lat},{ll_lon} {ur_lat},{ur_lon} {ur_lat},{ur_lon} {ll_lat}))" ;
             rr:datatype "geo:wktLiteral"
         ]
     ] .

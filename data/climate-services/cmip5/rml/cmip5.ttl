@@ -53,14 +53,9 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate ccso:usesModel ;
-        rr:objectMap :ModelIRI
-    ] ;
- 
-    rr:predicateObjectMap [
         rr:predicate data:dependsOnVariable ;
         rr:objectMap [
-            rr:parentTriplesMap :SpatialGridMapping
+            rr:parentTriplesMap :SpaceVariableMapping
         ]
     ] ;
 
@@ -106,7 +101,7 @@
     rr:predicateObjectMap [
         rr:predicate data:dependsOnVariable ;
         rr:objectMap [
-            rr:parentTriplesMap :SpatialGridMapping
+            rr:parentTriplesMap :SpaceVariableMapping
         ]
     ] ;
 
@@ -245,7 +240,7 @@
     rr:predicateObjectMap [
         rr:predicate data:basedOnDimensionalSpace, data:hasDiscretization ;
         rr:objectMap [ 
-            rr:parentTriplesMap :GenericTimeVariableMapping
+            rr:parentTriplesMap :TimeQuantizationMapping
         ]
     ] ; 
 
@@ -256,12 +251,12 @@
         ]
     ] .
 
-:GenericTimeVariableMapping a rr:TriplesMap ;
+:TimeQuantizationMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
 
     rr:subjectMap [
         rr:termType rr:IRI ;
-        rr:class data:Variable, data:IndependentVariable, data:DimensionalSpace ;
+        rr:class data:Quantization ;
         fnml:functionValue [
             rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
                 rr:predicate hrf:template ;
@@ -272,7 +267,7 @@
 
     rr:predicateObjectMap [
         rr:predicate data:basedOnDimensionalSpace ;
-        rr:object dimension:time, time:gregorian
+        rr:object dimension:time
     ] ; 
 
     rr:predicateObjectMap [
@@ -380,12 +375,12 @@
         ]
     ] .
 
-:SpatialGridMapping a rr:TriplesMap ;
+:SpaceVariableMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
 
     rr:subjectMap [
         rr:termType rr:IRI ;
-        rr:class data:Variable, data:IndependentVariable, data:DimensionalSpace, data:RollingRegularGrid ;
+        rr:class data:Variable, data:IndependentVariable, data:DimensionalSpace ;
         fnml:functionValue [
             rr:predicateObjectMap [
                 rr:predicate fno:executes ;
@@ -404,7 +399,7 @@
 
     rr:predicateObjectMap [
         rr:predicate data:basedOnDimensionalSpace ;
-        rr:object dimension:geodetic, geodetic:WGS84
+        rr:object geodetic:WGS84
     ] ; 
 
     rr:predicateObjectMap [

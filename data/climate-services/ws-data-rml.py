@@ -21,6 +21,13 @@ scenario_map = {
     'rcp60': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-6'
     }
     
+def _purge_none_values(dictionary: dict) -> dict:
+    return {
+        k: v
+        for k, v in dictionary.items()
+        if v is not None
+    }
+    
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/dictKeys',
               arr='https://w3id.org/hacid/rml-functions/str')
 def dict_keys(_str: str):
@@ -241,25 +248,36 @@ def cordex_driving_simulation_iri(_id: str, _ns: str) -> str:
          _driving_model, _experiment
     ])
     
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDomainRegionIri',
-              _domains='https://w3id.org/hacid/rml-functions/domain',
-              _ns='https://w3id.org/hacid/rml-functions/ns')
-def cordex_domain_region_iri(_domains: list[str], _ns: str) -> str:
-    _domain_parts = eval(_domains)[0].split('-')
-    _domain_region = _domain_parts[0].lower()
-    return _ns + _domain_region + '/region'
-
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDomainIri',
-              _domains='https://w3id.org/hacid/rml-functions/domain',
-              _ns='https://w3id.org/hacid/rml-functions/ns')
-def cordex_domain_iri(_domains: list[str], _ns: str) -> str:
-    return _ns + eval(_domains)[0]
- 
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatCordexDomain',
               _domains='https://w3id.org/hacid/rml-functions/domain',
               _template='https://w3id.org/hacid/rml-functions/template')
-def format_cordex_domain(_domains: list[str], _template: str) -> str:
-    return _template.format(domain = eval(_domains)[0])
+def format_cordex_domain(_domains: str, _template: str) -> str:
+    _domain = eval(_domains)[0] if _domains[0] == "[" else _domains
+    _domain_parts = _domain.split('-')
+    _area_id = _domain_parts[0]
+    _resolution_id = _domain_parts[1]
+    _is_rotated = not (_resolution_id[-1] == 'i')
+    # _rotated_area_id = _area_id if _is_rotated else None
+    # _regular_area_id = None if _is_rotated else _area_id
+    return _template.format_map(_purge_none_values({
+        'domain': _domain,
+        'area_id': _area_id,
+        'resolution_id': _resolution_id,
+        'rotated_domain': _domain if _is_rotated else None,
+        'regular_domain': None if _is_rotated else _domain,
+        'rotated_area_id': _area_id if _is_rotated else None,
+        'regular_area_id': None if _is_rotated else _area_id
+    }))
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatCordexRegionDescr',
+              _domain_descr='https://w3id.org/hacid/rml-functions/domain-descr',
+              _template='https://w3id.org/hacid/rml-functions/template')
+def format_cordex_region_descr(_domain_descr: str, _template: str) -> str:
+    return _template.format(region_desr = (
+        _domain_descr[:-9].rstrip()
+        if _domain_descr.endswith(' high res.')
+        else _domain_descr
+    ))
     
 def round_datetime(
     _datetime: datetime, _granularity: str, _up: bool
@@ -448,13 +466,8 @@ def format_temporal_grid(
         'grid_step': _grid_step,
         'grid_period': _grid_period
     }
-    _temporal_info_dict = {
-        k: v
-        for k, v in _temporal_info_dict.items()
-        if v is not None
-    }
     try:
-        return _template.format_map(_temporal_info_dict)
+        return _template.format_map(_purge_none_values(_temporal_info_dict))
     except Exception:
         return None
     
@@ -561,8 +574,8 @@ if __name__ == '__main__':
     cs_mapper = CSMapper()
     
     for subfolder in subfolders:
-        if subfolder.endswith('cmip5'):
-        # if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
+        # if subfolder.endswith('cmip5'):
+        if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
         # if subfolder.endswith('cordex-domains'):
         # if subfolder.endswith('cmor-tables'):
         # if subfolder.endswith('cf-standard-names'):
