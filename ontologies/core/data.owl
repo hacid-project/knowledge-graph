@@ -235,6 +235,24 @@
         <rdfs:label xml:lang="en">is reference point of</rdfs:label>
     </owl:ObjectProperty>
     
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isDiscretizedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDiscretizationFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Associates a discrete dimensional space, based on a continuous dimensional space, to the quantization used for discretization.</rdfs:comment>
+        <rdfs:label xml:lang="en">is discretized by</rdfs:label>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isDiscretizationFor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDiscretizedBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
+        <rdfs:comment xml:lang="en">Associates a quantization with a discrete dimensional space obtained from a continuous dimensional space using that quantization for discretization.</rdfs:comment>
+        <rdfs:label xml:lang="en">is discretization for</rdfs:label>
+    </owl:ObjectProperty>
+    
 
 
     <!-- https://w3id.org/hacid/onto/data/hasRegion -->
