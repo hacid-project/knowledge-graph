@@ -1,3 +1,5 @@
+import re
+import string
 from pyrml import Framework, rml_function, TermUtils
 import json
 from jsonpath_ng import parse
@@ -7,6 +9,7 @@ import glob
 import os
 from typing import List
 from rdflib.term import URIRef, Literal
+import shortuuid
 from slugify import slugify
 from typing import Literal
 from datetime import datetime, timedelta, timezone
