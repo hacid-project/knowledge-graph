@@ -412,7 +412,7 @@
         ] ;
         rr:predicateObjectMap [
             rr:predicate hrf:ns ;
-            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/variable/" ]
+            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cs/variable/mip/" ]
         ] 
     ].
 
