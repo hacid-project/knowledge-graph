@@ -13,3 +13,5 @@ cordex-domains/rdf/data.ttl,https://w3id.org/hacid/data/cs/cordex/cvs,n
 cordex/rdf/*.ttl,https://w3id.org/hacid/data/cs/cordex/datasets,n
 climdex/rdf/*.jsonld,https://w3id.org/hacid/data/cs/climdex,n
 climdex/rdf/*.ttl,https://w3id.org/hacid/data/cs/climdex,n
+workflow/*.jsonld,https://w3id.org/hacid/data/cs/wf,n
+example-cases/*.ttl,https://w3id.org/hacid/data/examples,n
