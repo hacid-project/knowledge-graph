@@ -8,14 +8,14 @@
 @prefix data: <https://w3id.org/hacid/onto/data/> .
 @prefix wf: <https://w3id.org/hacid/data/cs/wf/> .
 @prefix rcp: <https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp->
+@prefix variable: <https://w3id.org/hacid/data/cs/variable/mip/>
+
 
 @prefix org: <https://w3id.org/hacid/data/cs/examples/organizations/> .
 @prefix people: <https://w3id.org/hacid/data/cs/examples/people/> .
 @prefix hazards: <https://w3id.org/hacid/data/cs/examples/hazard-types/> .
 @prefix models: <https://w3id.org/hacid/data/cs/examples/models/> .
 @prefix risktolerance: <https://w3id.org/hacid/data/cs/examples/risktolerance/>
-@prefix scenarios: <https://w3id.org/hacid/data/cs/examples/scenarios/>
-@prefix variables: <https://w3id.org/hacid/data/cs/examples/variables/>
 
 @base <https://w3id.org/hacid/data/examples/cases/1/> .
 
@@ -67,7 +67,7 @@ people:CaseSolver1 a top:Person ;
     wf:SelectedBaselineInterval <time/baseline> ;
     wf:SelectedFutureInterval <time/future/1>, <time/future/2> ;
     wf:SelectedEmissionScenario rcp:8.5 ;
-    wf:SelectedVariable variables:Precipitation, variables:Temperature .
+    wf:SelectedVariable variable:pr, variable:tas, variable:tasmin, variable:tasmax .
 
 risktolerance:Medium a top:Concept ;
     rdfs:label "Medium" .
@@ -106,14 +106,6 @@ models:UKCP18_Local_data_at_5km_resolution
     rdfs:comment "Time interval from the start of year 2060 to the start of year 2080."@en ;
     top:hasEndDateTime "2060-01-01T00:00:00Z"^^xsd:dateTime ;
     top:hasStartDateTime "2080-01-01T00:00:00Z"^^xsd:dateTime .
-
-variables:Precipitation a data:Variable ;
-    rdfs:label "Precipitation"@en .
-
-variables:Temperature a data:Variable ;
-    rdfs:label "Temperature"@en .
-# tas ?
-# air_temperature ?
 
 
 # Action description
@@ -255,7 +247,7 @@ variables:Temperature a data:Variable ;
 <actions/MetricAndVariableIdentification> a top:Action ;
     top:executesTask wf:MetricAndVariableIdentification ;
     top:hasParticipant people:CaseSolver1 ;
-    top:hasOutput variables:Precipitation, variables:Temperature .
+    top:hasOutput variable:pr, variable:tas, variable:tasmin, variable:tasmax .
 
 <actions/EmissionScenarioDefinition> a top:Action ;
     top:executesTask wf:EmissionScenarioDefinition ;
