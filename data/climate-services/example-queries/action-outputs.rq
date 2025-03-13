@@ -11,7 +11,7 @@ PREFIX ex:  <https://w3id.org/hacid/data/examples/cases/1/>
 
 # Show outputs produced by actions
 
-SELECT DISTINCT ?action ?output ?outputRole ?agentRole
+SELECT DISTINCT ?action ?output ?outputRole ?agent ?agentRole
 WHERE {
     ex:workflow-execution
         top:includesEvent/top:hasPart* ?action.
