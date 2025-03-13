@@ -1,3 +1,5 @@
+import re
+import string
 from pyrml import Framework, rml_function, TermUtils
 import json
 from jsonpath_ng import parse
@@ -7,6 +9,7 @@ import glob
 import os
 from typing import List
 from rdflib.term import URIRef, Literal
+import shortuuid
 from slugify import slugify
 from typing import Literal
 from datetime import datetime, timedelta, timezone
@@ -19,6 +22,13 @@ scenario_map = {
     'rcp85': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-8.5',
     'rcp26': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-2.6',
     'rcp60': 'https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-6'
+    }
+    
+def _purge_none_values(dictionary: dict) -> dict:
+    return {
+        k: v
+        for k, v in dictionary.items()
+        if v is not None
     }
     
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/dictKeys',
@@ -241,25 +251,36 @@ def cordex_driving_simulation_iri(_id: str, _ns: str) -> str:
          _driving_model, _experiment
     ])
     
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDomainRegionIri',
-              _domains='https://w3id.org/hacid/rml-functions/domain',
-              _ns='https://w3id.org/hacid/rml-functions/ns')
-def cordex_domain_region_iri(_domains: list[str], _ns: str) -> str:
-    _domain_parts = eval(_domains)[0].split('-')
-    _domain_region = _domain_parts[0].lower()
-    return _ns + _domain_region + '/region'
-
-@rml_function(fun_id='https://w3id.org/hacid/rml-functions/cordexDomainIri',
-              _domains='https://w3id.org/hacid/rml-functions/domain',
-              _ns='https://w3id.org/hacid/rml-functions/ns')
-def cordex_domain_iri(_domains: list[str], _ns: str) -> str:
-    return _ns + eval(_domains)[0]
- 
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatCordexDomain',
               _domains='https://w3id.org/hacid/rml-functions/domain',
               _template='https://w3id.org/hacid/rml-functions/template')
-def format_cordex_domain(_domains: list[str], _template: str) -> str:
-    return _template.format(domain = eval(_domains)[0])
+def format_cordex_domain(_domains: str, _template: str) -> str:
+    _domain = eval(_domains)[0] if _domains[0] == "[" else _domains
+    _domain_parts = _domain.split('-')
+    _area_id = _domain_parts[0]
+    _resolution_id = _domain_parts[1]
+    _is_rotated = not (_resolution_id[-1] == 'i')
+    # _rotated_area_id = _area_id if _is_rotated else None
+    # _regular_area_id = None if _is_rotated else _area_id
+    return _template.format_map(_purge_none_values({
+        'domain': _domain,
+        'area_id': _area_id,
+        'resolution_id': _resolution_id,
+        'rotated_domain': _domain if _is_rotated else None,
+        'regular_domain': None if _is_rotated else _domain,
+        'rotated_area_id': _area_id if _is_rotated else None,
+        'regular_area_id': None if _is_rotated else _area_id
+    }))
+    
+@rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatCordexRegionDescr',
+              _domain_descr='https://w3id.org/hacid/rml-functions/domain-descr',
+              _template='https://w3id.org/hacid/rml-functions/template')
+def format_cordex_region_descr(_domain_descr: str, _template: str) -> str:
+    return _template.format(region_desr = (
+        _domain_descr[:-9].rstrip()
+        if _domain_descr.endswith(' high res.')
+        else _domain_descr
+    ))
     
 def round_datetime(
     _datetime: datetime, _granularity: str, _up: bool
@@ -396,19 +417,20 @@ def round_datetime_interval(
     )
 
 _time_frequency_descr_and_value = {
-    '3hr': ['three hours', 'rolling', 'PT3H', None],
+    '3hr': ['three hours', 'points', 'PT3H', None],
     '6hr': ['six hours', 'rolling', 'PT6H', None],
     'day': ['day', 'rolling', 'P1D', None],
     'mon': ['month', 'rolling', 'P1M', None],
     'monClim': ['all time aggregated month of the year', 'periodic', 'P1M', 'P1Y'],
     'yr': ['year', 'rolling', 'P1Y', None],
-    'fx': ['all time', 'constant', None, None]
+    'fx': ['all time', None, None, None]
 }
 
 _dimensional_space_type = {
+    'points': 'IntervalSampling',
     'rolling': 'RollingRegularGrid',
     'periodic': 'PeriodicRegularGrid',
-    'constant': 'ConstantDimensionalSpace'
+    'constant': 'SingleRegionPartitioning'
 }
 
 @rml_function(fun_id='https://w3id.org/hacid/rml-functions/formatTemporalGrid',
@@ -436,21 +458,19 @@ def format_temporal_grid(
     def _path(_strs: list[str]) -> str:
         return "/".join([_str for _str in _strs if _str is not None])
         
-    _grid_type_id = _path([_dimensional_space_id, _grid_step, _grid_period])
+    _grid_type_id = _dimensional_space_id and _path([_dimensional_space_id, _grid_step, _grid_period])
     
     _temporal_info_dict = {
         'start_datetime': get_start_time(_start_datetime,_end_datetime,_granularity),
         'end_datetime': get_end_time(_start_datetime,_end_datetime,_granularity),
         'grid_type_id': _grid_type_id,
         'grid_type_description': _grid_type_description,
-        'dimensional_space_type': _dimensional_space_type[_dimensional_space_id]
+        'dimensional_space_type': _dimensional_space_id and _dimensional_space_type[_dimensional_space_id],
+        'grid_step': _grid_step,
+        'grid_period': _grid_period
     }
-    if _grid_step is not None:
-        _temporal_info_dict['grid_step'] = _grid_step
-    if _grid_period is not None:
-        _temporal_info_dict['grid_period'] = _grid_period
     try:
-        return _template.format_map(_temporal_info_dict)
+        return _template.format_map(_purge_none_values(_temporal_info_dict))
     except Exception:
         return None
     
@@ -558,7 +578,7 @@ if __name__ == '__main__':
     
     for subfolder in subfolders:
         # if subfolder.endswith('cmip5'):
-        # if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
+        if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
         # if subfolder.endswith('cordex-domains'):
         # if subfolder.endswith('cmor-tables'):
         # if subfolder.endswith('cf-standard-names'):

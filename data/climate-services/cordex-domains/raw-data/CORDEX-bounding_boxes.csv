@@ -1,0 +1,15 @@
+domain_id,domain,ll_lon,ur_lon,ll_lat,ur_lat
+SAM,South America,-106.25,-16.25,-58.25,18.75
+CAM,Central America,-124.75,-21.75,-19.75,35.25
+NAM,North America,-171.75,-22.25,12.25,76.25
+EUR,Europe,-44.75,65.25,21.75,72.75
+AFR,Africa,-25.25,60.75,-46.25,42.75
+WAS,South Asia,19.25,116.25,-15.75,45.75
+EAS,East Asia,62.75,175.75,-18.75,59.25
+CAS,Central Asia,10.75,140.25,17.75,69.75
+AUS,Australasia,88.75,207.25,-53.25,12.75
+ANT,Antarctica,-179.75,179.75,-89.75,-55.25
+ARC,Arctic,-179.75,179.75,48.75,89.75
+MED,Mediterranean,-20.75,51.75,25.25,57.25
+MNA,Middle East and North Africa,-26.75,75.75,-7.25,45.25
+SEA,South East Asia,89.125,147.125,-15.375,27.375

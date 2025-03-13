@@ -51,23 +51,38 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate ccso:usesModel ;
-        rr:objectMap :ModelIRI
-    ] ;
- 
-    rr:predicateObjectMap [
         rr:predicate data:dependsOnVariable ;
         rr:objectMap [
-            rr:parentTriplesMap :SpatialGridMapping
+            rr:termType rr:IRI ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatCordexDomainCall, :ParamDomain, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/{domain}/ds" ]
+                ]
+            ] 
         ]
     ] ;
 
     rr:predicateObjectMap [
         rr:predicate data:dependsOnVariable ;
         rr:objectMap [
-            rr:parentTriplesMap :TemporalGridMapping
+            rr:parentTriplesMap :TimeVariableMapping
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:isSpecializedAccordingTo ;
+        rr:objectMap [
+            rr:parentTriplesMap :TemporalSpecializationMapping
         ]
     ] .
+
+    # rr:predicateObjectMap [
+    #     rr:predicate data:isSpecializedAccordingTo ;
+    #     rr:objectMap [
+    #         rr:parentTriplesMap :SpatialSpecializationMapping
+    #     ]
+    # ] .      
 
 :OutputMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
@@ -92,7 +107,13 @@
     rr:predicateObjectMap [
         rr:predicate data:dependsOnVariable ;
         rr:objectMap [
-            rr:parentTriplesMap :SpatialGridMapping
+            rr:termType rr:IRI ;
+            fnml:functionValue [
+                rr:predicateObjectMap :FormatCordexDomainCall, :ParamDomain, [
+                    rr:predicate hrf:template ;
+                    rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/{domain}/ds" ]
+                ]
+            ] 
         ]
     ] ;
 
@@ -182,7 +203,35 @@
     rr:predicate hrf:granularity ;
     rr:objectMap [ rml:reference "time_frequency" ] .
 
-:TemporalGridMapping a rr:TriplesMap ;
+:TemporalSpecializationMapping a rr:TriplesMap ;
+    rml:logicalSource :LogicalSource ;
+
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:class data:VariableSpecialization ;
+        fnml:functionValue [
+            rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
+                rr:predicate hrf:template ;
+                rr:objectMap [
+                    rr:constant "https://w3id.org/hacid/data/cs/temporalspec/{start_datetime}-{end_datetime}"
+                ]
+            ] 
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate data:isSpecializationOn ;
+        rr:object dimension:time
+    ] ; 
+
+    rr:predicateObjectMap [
+        rr:predicate data:hasSelectedRegion ;
+        rr:objectMap [ 
+            rr:parentTriplesMap :TemporalRegionMapping
+        ]
+    ] .
+
+:TimeVariableMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
 
     rr:subjectMap [
@@ -202,9 +251,9 @@
     ] ; 
 
     rr:predicateObjectMap [
-        rr:predicate data:basedOnDimensionalSpace ;
+        rr:predicate data:basedOnDimensionalSpace, data:hasDiscretization ;
         rr:objectMap [ 
-            rr:parentTriplesMap :GenericTemporalGridMapping
+            rr:parentTriplesMap :TimeQuantizationMapping
         ]
     ] ; 
 
@@ -213,48 +262,9 @@
         rr:objectMap [ 
             rr:parentTriplesMap :TemporalRegionMapping
         ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type ;
-        rr:objectMap [ 
-            rr:termType rr:IRI ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "https://w3id.org/hacid/onto/data/{dimensional_space_type}" ]
-                ]
-            ]
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate data:hasGridStep ;
-        rr:objectMap [ 
-            rr:datatype xsd:duration ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "{grid_step}" ]
-                ]
-            ]
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate data:hasPeriod ;
-        rr:objectMap [ 
-            rr:datatype xsd:duration ;
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatTemporalGridCall, :ParamDatetimeStart, :ParamDatetimeStop, :ParamGranularity, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "{grid_period}" ]
-                ]
-            ]
-        ]
     ] .
 
-:GenericTemporalGridMapping a rr:TriplesMap ;
+:TimeQuantizationMapping a rr:TriplesMap ;
     rml:logicalSource :LogicalSource ;
 
     rr:subjectMap [
@@ -270,7 +280,7 @@
 
     rr:predicateObjectMap [
         rr:predicate data:basedOnDimensionalSpace ;
-        rr:object dimension:time, time:gregorian
+        rr:object dimension:time
     ] ; 
 
     rr:predicateObjectMap [
@@ -287,7 +297,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate data:hasGridStep ;
+        rr:predicate data:hasResolutionValue ;
         rr:objectMap [ 
             rr:datatype xsd:duration ;
             fnml:functionValue [
@@ -300,7 +310,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate data:hasPeriod ;
+        rr:predicate data:hasPeriodValue ;
         rr:objectMap [ 
             rr:datatype xsd:duration ;
             fnml:functionValue [
@@ -385,56 +395,6 @@
 :ParamDomain
     rr:predicate hrf:domain ;
     rr:objectMap [ rml:reference "domain" ] .
-
-:SpatialGridMapping a rr:TriplesMap ;
-    rml:logicalSource :LogicalSource ;
-
-    rr:subjectMap [
-        rr:termType rr:IRI ;
-        rr:class data:Variable, data:IndependentVariable, data:DimensionalSpace, data:RollingRegularGrid ;
-        fnml:functionValue [
-            rr:predicateObjectMap :FormatCordexDomainCall, :ParamDomain, [
-                rr:predicate hrf:template ;
-                rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/{domain}" ]
-            ]
-        ] 
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate data:basedOnDimensionalSpace ;
-        rr:object dimension:geodetic, geodetic:WGS84
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [ 
-            rr:language "en";
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatCordexDomainCall, :ParamDomain, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "CORDEX:{domain}" ]
-                ] 
-            ]
-        ]
-    ] ;  
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
-        rr:objectMap [ 
-            rr:language "en";
-            fnml:functionValue [
-                rr:predicateObjectMap :FormatCordexDomainCall, :ParamDomain, [
-                    rr:predicate hrf:template ;
-                    rr:objectMap [ rr:constant "CORDEX geographic domain {domain}." ]
-                ]
-            ] 
-        ]
-    ] ;
-
-    rr:predicateObjectMap [
-        rr:predicate data:hasMinimalBoundingRegion ;
-        rr:objectMap :DomainRegionIRI
-    ] .
 
 # FUNCTIONS #
 
@@ -564,23 +524,23 @@
         ] 
     ].
 
-:DomainRegionIRI
-    rr:termType rr:IRI ;
-    rr:class data:GeodeticRegion ;
-    fnml:functionValue [
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ rr:constant hrf:cordexDomainRegionIri ]
-        ] ;
-        rr:predicateObjectMap [
-            rr:predicate hrf:domain ;
-            rr:objectMap [ rml:reference "domain" ]
-        ] ;
-        rr:predicateObjectMap [
-            rr:predicate hrf:ns ;
-            rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/" ]
-        ] 
-    ].
+# :DomainRegionIRI
+#     rr:termType rr:IRI ;
+#     rr:class data:GeodeticRegion ;
+#     fnml:functionValue [
+#         rr:predicateObjectMap [
+#             rr:predicate fno:executes ;
+#             rr:objectMap [ rr:constant hrf:cordexDomainRegionIri ]
+#         ] ;
+#         rr:predicateObjectMap [
+#             rr:predicate hrf:domain ;
+#             rr:objectMap [ rml:reference "domain" ]
+#         ] ;
+#         rr:predicateObjectMap [
+#             rr:predicate hrf:ns ;
+#             rr:objectMap [ rr:constant "https://w3id.org/hacid/data/cordex-domain/" ]
+#         ] 
+#     ].
 
 :DatasetLabel
     rr:language "en" ;
