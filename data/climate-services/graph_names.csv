@@ -1,5 +1,5 @@
 path,graph-name,skip
-../../ontologies/core/data.owl,https://w3id.org/hacid/onto/ccso,n
+../../ontologies/data/data.owl,https://w3id.org/hacid/onto/ccso,n
 ../../ontologies/ccso/ccso.owl,https://w3id.org/hacid/onto/ccso,n
 common-spacetime.ttl,https://w3id.org/hacid/data/cs,n
 activities/rdf/data.ttl,https://w3id.org/hacid/data/cs/cmip6/cvs,n
