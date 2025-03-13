@@ -56,23 +56,48 @@
   "label": "Climate science case",
   "tasks": [
     {
-      "@id": "wf:AdditionalInformationSearch",
+      "@id": "wf:ClimateInformationRequest",
       "@type": "top:Task",
-      "comment": "The task of requesting external expertise such as an expert or literature review.",
-      "label": "Additional information search",
-      "directlyFollows": "wf:CaseCreation",
-      "directlyPrecedes": "wf:ClimateInformationAnalysis",
-      "isTaskOf": "wf:CaseSolver"
+      "comment": "The task of requesting the climate information.",
+      "label": "Climate information request",
+      "directlyPrecedes": "wf:UserBackgroundInformationRequest",
+      "isTaskOf": "wf:InformationRequester"
     },
     {
-      "@id": "wf:BaselineChoice",
+      "@id": "wf:UserBackgroundInformationRequest",
       "@type": "top:Task",
-      "comment": "The task of choosing the baseline.",
-      "label": "Baseline choice",
-      "directlyPrecedes": "wf:FuturePeriodChoice",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "hasOutputRole": "wf:SelectedBaselineInterval"
+      "comment": "The task of requesting user background information.",
+      "label": "User background information request",
+      "directlyFollows": "wf:ClimateInformationRequest",
+      "directlyPrecedes": "wf:ProvideBackgroundInformation",
+      "isTaskOf": "wf:CaseCreator"
+    },
+    {
+      "@id": "wf:ProvideBackgroundInformation",
+      "@type": "top:Task",
+      "comment": "The task of providing background information.",
+      "label": "Provide background information",
+      "directlyFollows": "wf:UserBackgroundInformationRequest",
+      "directlyPrecedes": "wf:ProvideDecisionContextInformation",
+      "isTaskOf": "wf:InformationRequester"
+    },
+    {
+      "@id": "wf:ProvideDecisionContextInformation",
+      "@type": "top:Task",
+      "comment": "The task of providing decision context information.",
+      "label": "Provide decision context information",
+      "directlyFollows": "wf:ProvideBackgroundInformation",
+      "directlyPrecedes": "wf:UserInformationExtraction",
+      "isTaskOf": "wf:InformationRequester"
+    },
+    {
+      "@id": "wf:UserInformationExtraction",
+      "@type": "top:Task",
+      "comment": "The task of extracting user information.",
+      "label": "User information request",
+      "directlyFollows": "wf:ProvideDecisionContextInformation",
+      "directlyPrecedes": "wf:CaseCreation",
+      "isTaskOf": "wf:CaseCreator"
     },
     {
       "@id": "wf:CaseCreation",
@@ -85,6 +110,57 @@
         "wf:ClimateInformationPreparation"
       ],
       "isTaskOf": "wf:CaseCreator"
+    },
+    {
+      "@id": "wf:AdditionalInformationSearch",
+      "@type": "top:Task",
+      "comment": "The task of requesting external expertise such as an expert or literature review.",
+      "label": "Additional information search",
+      "directlyFollows": "wf:CaseCreation",
+      "directlyPrecedes": "wf:ClimateInformationAnalysis",
+      "isTaskOf": "wf:CaseSolver"
+    },
+    {
+      "@id": "wf:ClimateInformationPreparation",
+      "@type": "top:Task",
+      "comment": "The task of preparing the climate information.",
+      "label": "Climate information preparation",
+      "directlyFollows": "wf:CaseCreation",
+      "directlyPrecedes": "wf:ClimateInformationAnalysis",
+      "isTaskOf": "wf:CaseSolver"
+    },
+    {
+      "@id": "wf:ClimateInformationAnalysis",
+      "@type": "top:Task",
+      "comment": "The task of analysing the climate information.",
+      "label": "Climate information analysis",
+      "directlyFollows": [
+        "wf:AdditionalInformationSearch",
+        "wf:ClimateInformationPreparation"
+      ],
+      "directlyPrecedes": "wf:SendClimateInformation",
+      "isTaskOf": "wf:CaseSolver"
+    },
+    {
+      "@id": "wf:SendClimateInformation",
+      "@type": "top:Task",
+      "comment": "The task of sending climate information.",
+      "label": "Send climate information",
+      "directlyFollows": [
+        "wf:ClimateInformationAnalysis",
+        "wf:ClimateInformationCommunication"
+      ],
+      "isTaskOf": "wf:CaseSolver"
+    },
+    {
+      "@id": "wf:BaselineChoice",
+      "@type": "top:Task",
+      "comment": "The task of choosing the baseline.",
+      "label": "Baseline choice",
+      "directlyPrecedes": "wf:FuturePeriodChoice",
+      "isTaskOf": "wf:CaseSolver",
+      "isPartOf": "wf:ClimateInformationAnalysis",
+      "hasOutputRole": "wf:SelectedBaselineInterval"
     },
     {
       "@id": "wf:ClimateChangeQuantificationApplication",
@@ -106,18 +182,6 @@
       "isPartOf": "wf:ProvideDecisionContextInformation"
     },
     {
-      "@id": "wf:ClimateInformationAnalysis",
-      "@type": "top:Task",
-      "comment": "The task of analysing the climate information.",
-      "label": "Climate information analysis",
-      "directlyFollows": [
-        "wf:AdditionalInformationSearch",
-        "wf:ClimateInformationPreparation"
-      ],
-      "directlyPrecedes": "wf:SendClimateInformation",
-      "isTaskOf": "wf:CaseSolver"
-    },
-    {
       "@id": "wf:ClimateInformationCommunication",
       "@type": "top:Task",
       "comment": "The task of communicating the climate information.",
@@ -126,29 +190,13 @@
       "isTaskOf": "wf:InformationRequester"
     },
     {
-      "@id": "wf:ClimateInformationPreparation",
-      "@type": "top:Task",
-      "comment": "The task of preparing the climate information.",
-      "label": "Climate information preparation",
-      "directlyFollows": "wf:CaseCreation",
-      "directlyPrecedes": "wf:ClimateInformationAnalysis",
-      "isTaskOf": "wf:CaseSolver"
-    },
-    {
-      "@id": "wf:ClimateInformationRequest",
-      "@type": "top:Task",
-      "comment": "The task of requesting the climate information.",
-      "label": "Climate information request",
-      "directlyPrecedes": "wf:UserBackgroundInformationRequest",
-      "isTaskOf": "wf:InformationRequester"
-    },
-    {
       "@id": "wf:ClimateInformationRequestGoalDefinition",
       "@type": "top:Task",
       "comment": "The task of defining the goal of the climate information request.",
       "label": "Climate information request goal definition",
       "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideBackgroundInformation"
+      "isPartOf": "wf:ProvideBackgroundInformation",
+      "hasOutputRole": "wf:Goal"
     },
     {
       "@id": "wf:ClimateModelEvaluation",
@@ -158,8 +206,7 @@
       "directlyFollows": "wf:DataSelection",
       "directlyPrecedes": "wf:ClimateModelSelection",
       "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationPreparation",
-      "hasInputRole": "wf:SelectedClimateModel"
+      "isPartOf": "wf:ClimateInformationPreparation"
     },
     {
       "@id": "wf:ClimateModelSelection",
@@ -178,7 +225,8 @@
       "label": "Climate question description",
       "isTaskOf": "wf:InformationRequester",
       "isPartOf": "wf:ProvideDecisionContextInformation",
-      "hasInputRole": "wf:RelevantHazardType"
+      "hasInputRole": "wf:RelevantHazardType",
+      "hasOutputRole": "wf:RelevantClimateQuestion"
     },
     {
       "@id": "wf:ClimateRiskFramingSpecification",
@@ -194,7 +242,8 @@
       "comment": "The task of defining the customer needs (identifying climate-related challenges faced by the organisation.)",
       "label": "Customer need definition",
       "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideBackgroundInformation"
+      "isPartOf": "wf:ProvideBackgroundInformation",
+      "hasOutputRole": "wf:CustomerNeed"
     },
     {
       "@id": "wf:DataPreprocessingApplication",
@@ -327,41 +376,13 @@
       "toBeAssociatedWithARole": true
     },
     {
-      "@id": "wf:ProvideBackgroundInformation",
-      "@type": "top:Task",
-      "comment": "The task of providing background information.",
-      "label": "Provide background information",
-      "directlyFollows": "wf:UserBackgroundInformationRequest",
-      "directlyPrecedes": "wf:ProvideDecisionContextInformation",
-      "isTaskOf": "wf:InformationRequester"
-    },
-    {
-      "@id": "wf:ProvideDecisionContextInformation",
-      "@type": "top:Task",
-      "comment": "The task of providing decision context information.",
-      "label": "Provide decision context information",
-      "directlyFollows": "wf:ProvideBackgroundInformation",
-      "directlyPrecedes": "wf:UserInformationExtraction",
-      "isTaskOf": "wf:InformationRequester"
-    },
-    {
       "@id": "wf:RiskToleranceRating",
       "@type": "top:Task",
       "comment": "The task of rating the risk tolerance.",
       "label": "Risk tolerance rating",
       "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideDecisionContextInformation"
-    },
-    {
-      "@id": "wf:SendClimateInformation",
-      "@type": "top:Task",
-      "comment": "The task of sending climate information.",
-      "label": "Send climate information",
-      "directlyFollows": [
-        "wf:ClimateInformationAnalysis",
-        "wf:ClimateInformationCommunication"
-      ],
-      "isTaskOf": "wf:CaseSolver"
+      "isPartOf": "wf:ProvideDecisionContextInformation",
+      "hasOutputRole": "wf:RiskToleranceRatingOutput"
     },
     {
       "@id": "wf:SpatialDownscalingApplication",
@@ -402,24 +423,6 @@
       "isTaskOf": "wf:CaseSolver",
       "isPartOf": "wf:ClimateInformationAnalysis",
       "toBeAssociatedWithARole": true
-    },
-    {
-      "@id": "wf:UserBackgroundInformationRequest",
-      "@type": "top:Task",
-      "comment": "The task of requesting user background information.",
-      "label": "User background information request",
-      "directlyFollows": "wf:ClimateInformationRequest",
-      "directlyPrecedes": "wf:ProvideBackgroundInformation",
-      "isTaskOf": "wf:CaseCreator"
-    },
-    {
-      "@id": "wf:UserInformationExtraction",
-      "@type": "top:Task",
-      "comment": "The task of extracting user information.",
-      "label": "User information request",
-      "directlyFollows": "wf:ProvideDecisionContextInformation",
-      "directlyPrecedes": "wf:CaseCreation",
-      "isTaskOf": "wf:CaseCreator"
     }
   ],
   "roles": [
@@ -445,11 +448,25 @@
       "range": "top:Agent"
     },
     {
-      "@id": "wf:SelectedClimateModel",
+      "@id": "wf:RelevantClimateQuestion",
       "@type": "top:WorkflowRole",
-      "label": "Selected climate model",
-      "comment": "A climate model selected for a case in the context of a climate service workflow execution.",
-      "range": "ccso:ClimateModel"
+      "label": "Relevant climate question",
+      "comment": "A climate question deemed relevant for the solution of a case in the context of a climate service workflow execution.",
+      "range": "top:Description"
+    },
+    {
+      "@id": "wf:CustomerNeed",
+      "@type": "top:WorkflowRole",
+      "label": "Customer need",
+      "comment": "A description of the customer needs, in respect to the request.",
+      "range": "top:Description"
+    },
+    {
+      "@id": "wf:Goal",
+      "@type": "top:WorkflowRole",
+      "label": "Goal",
+      "comment": "Concrete information goal that should be achieved in order to solve the case.",
+      "range": "top:Goal"
     },
     {
       "@id": "wf:RelevantHazardType",
@@ -457,6 +474,20 @@
       "label": "Relevant hazard type",
       "comment": "An hazard type deemed relevant for a case in the context of a climate service workflow execution.",
       "range": "ccso:HazardType"
+    },
+    {
+      "@id": "wf:RelevantClimateQuestion",
+      "@type": "top:WorkflowRole",
+      "label": "Relevant climate question",
+      "comment": "A climate question deemed relevant for the solution of a case in the context of a climate service workflow execution.",
+      "range": "top:Description"
+    },
+    {
+      "@id": "wf:SelectedClimateModel",
+      "@type": "top:WorkflowRole",
+      "label": "Selected climate model",
+      "comment": "A climate model selected for a case in the context of a climate service workflow execution.",
+      "range": "ccso:ClimateModel"
     },
     {
       "@id": "wf:SelectedBaselineInterval",
