@@ -1,0 +1,319 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix ccso: <https://w3id.org/hacid/onto/ccso/> .
+@prefix data: <https://w3id.org/hacid/onto/data/> .
+@prefix wf: <https://w3id.org/hacid/data/cs/wf/> .
+@prefix rcp: <https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp->
+
+@prefix org: <https://w3id.org/hacid/data/cs/examples/organizations/> .
+@prefix people: <https://w3id.org/hacid/data/cs/examples/people/> .
+@prefix hazards: <https://w3id.org/hacid/data/cs/examples/hazard-types/> .
+@prefix models: <https://w3id.org/hacid/data/cs/examples/models/> .
+@prefix risktolerance: <https://w3id.org/hacid/data/cs/examples/risktolerance/>
+@prefix scenarios: <https://w3id.org/hacid/data/cs/examples/scenarios/>
+@prefix variables: <https://w3id.org/hacid/data/cs/examples/variables/>
+
+@base <https://w3id.org/hacid/data/examples/cases/1/> .
+
+# General description of case as workflow execution
+
+<workflow-execution> a top:WorkflowExecution ;
+    top:satisfies wf:ClimateProcessWorkflow ;
+    rdfs:label "Example case 1: impact on habitats for the Wildlife Trusts"@en ;
+    top:includesObject <goal> ;
+    wf:CustomerNeed <need> .
+
+<goal> a top:Goal ;
+    rdfs:comment "Find the areas of the UK which by the middle and the end of the century respectively are expected to have suitable climatic conditions (based on 3 climate thresholds) for the plant species to survive. The experts that solve the case source 3 climate thresholds in collaboration with the organisation involved which defines the suitable climatic conditions used." ;
+    rdfs:label "Safe Areas for Plant Species"@en .
+
+<need> a top:Description ;
+    rdfs:comment "The changing climate means that many species are struggling to adapt which is contributing to declining populations. This means there is a greater need to more quickly regenerate and re-connect habitats to help nature cope with extreme weather and the changing climate."@en ;
+    rdfs:label "Wildlife Trusts need"@en .
+
+
+# Involved agents
+
+<workflow-execution>
+    # top:includesAgent org:TheWildlifeTrusts, org:MetOffice, people:CaseSolver1 ;
+    wf:InformationRequester org:TheWildlifeTrusts ;
+    wf:CaseCreator org:MetOffice ;
+    wf:CaseSolver people:CaseSolver1 .
+
+org:MetOffice a top:Organisation ;
+    rdfs:label "Met Office"@en ;
+    rdfs:comment "United Kingdom's national weather service"@en .
+    
+org:TheWildlifeTrusts a top:Organisation ;
+    rdfs:label "The Wildlife Trusts"@en ;
+    rdfs:comment "The Wildlife Trusts is the trading name of the Royal Society of Wildlife Trusts, an organisation made up of 47 local Wildlife Trusts in the United Kingdom, the Isle of Man and Alderney"@en .
+
+people:CaseSolver1 a top:Person ;
+    rdfs:label "Case solver 1"@en .
+
+
+# Involved objects
+
+<workflow-execution>
+    # top:includesObject <goal>, hazards:PestInfestation ;
+    wf:RelevantHazardType hazards:PestInfestation, hazards:Wildfire, hazards:Drought ;
+    wf:RiskToleranceRatingOutput risktolerance:Medium ;
+    wf:RelevantClimateQuestion <questions/main> ;
+    wf:SelectedClimateModel models:UKCP18_Local_data_at_5km_resolution ;
+    wf:SelectedBaselineInterval <time/baseline> ;
+    wf:SelectedFutureInterval <time/future/1>, <time/future/2> ;
+    wf:SelectedEmissionScenario rcp:8.5 ;
+    wf:SelectedVariable variables:Precipitation, variables:Temperature .
+
+risktolerance:Medium a top:Concept ;
+    rdfs:label "Medium" .
+
+<questions/main> a top:Description ;
+    rdfs:label "Main climate question" ;
+    rdfs:comment "Where in the UK is likely to have suitable climatic conditions for a specific plant species (the Meadow Clary) to survive between 2040 and 2080?" .
+
+hazards:PestInfestation a ccso:HazardType> ;
+    rdfs:label "Pest infestation"@en .
+
+hazards:Wildfire a ccso:HazardType> ;
+    rdfs:label "Wildfire"@en .
+
+hazards:Drought a ccso:HazardType> ;
+    rdfs:label "Drought"@en .
+
+models:UKCP18_Local_data_at_5km_resolution
+    a ccso:ClimateModel ;
+    rdfs:label "UKCP18 local data at 5km resolution"@en .
+
+<time/baseline> a data:TemporalRegion ;
+    rdfs:label "Time interval 1980-2000"@en ;
+    rdfs:comment "Time interval from the start of year 1980 to the start of year 2000."@en ;
+    ns1:hasEndDateTime "1980-01-01T00:00:00Z"^^xsd:dateTime ;
+    ns1:hasStartDateTime "2000-01-01T00:00:00Z"^^xsd:dateTime .
+
+<time/future/1> a data:TemporalRegion ;
+    rdfs:label "Time interval 2040-2060"@en ;
+    rdfs:comment "Time interval from the start of year 2040 to the start of year 2060."@en ;
+    ns1:hasEndDateTime "2040-01-01T00:00:00Z"^^xsd:dateTime ;
+    ns1:hasStartDateTime "2060-01-01T00:00:00Z"^^xsd:dateTime .
+
+<time/future/2> a data:TemporalRegion ;
+    rdfs:label "Time interval 2060-2080"@en ;
+    rdfs:comment "Time interval from the start of year 2060 to the start of year 2080."@en ;
+    ns1:hasEndDateTime "2060-01-01T00:00:00Z"^^xsd:dateTime ;
+    ns1:hasStartDateTime "2080-01-01T00:00:00Z"^^xsd:dateTime .
+
+variables:Precipitation a data:Variable ;
+    rdfs:label "Precipitation"@en .
+
+variables:Temperature a data:Variable ;
+    rdfs:label "Temperature"@en .
+# tas ?
+# air_temperature ?
+
+
+# Action description
+
+<workflow-execution>
+    top:includesEvent 
+        <actions/ClimateInformationRequest> ,
+        <actions/UserBackgroundInformationRequest> ,
+        <actions/ProvideBackgroundInformation> ,
+        <actions/ProvideDecisionContextInformation> ,
+        <actions/UserInformationExtraction> ,
+        <actions/CreateCase> ,
+        <actions/AdditionalInformationSearch> ,
+        <actions/ClimateInformationPreparation> ,
+        <actions/ClimateInformationAnalysis> ,
+        <actions/SendClimateInformation> .
+
+
+## 1. ClimateInformationRequest
+
+<actions/ClimateInformationRequest> a top:Action ;
+    top:executesTask wf:ClimateInformationRequest ;
+    top:hasParticipant org:TheWildlifeTrusts .
+
+## 2. UserBackgroundInformationRequest
+
+<actions/UserBackgroundInformationRequest> a top:Action ;
+    top:executesTask wf:UserBackgroundInformationRequest ;
+    top:hasParticipant org:MetOffice .
+
+## 3. ProvideBackgroundInformation
+
+<actions/ProvideBackgroundInformation> a top:Action ;
+    top:executesTask wf:ProvideBackgroundInformation ;
+    top:hasParticipant org:TheWildlifeTrusts .
+    top:hasPart
+        <actions/ClimateInformationRequestGoalDefinition> ,
+        <actions/CustomerNeedDefinition> .
+    #     <actions/OrganisationInformationDescription> .
+
+<actions/ClimateInformationRequestGoalDefinition> a top:Action ;
+    top:executesTask wf:HazardIdentification ;
+    top:hasParticipant org:TheWildlifeTrusts ;
+    top:hasOutput <goal> .
+
+<actions/CustomerNeedDefinition> a top:Action ;
+    top:executesTask wf:HazardIdentification ;
+    top:hasParticipant org:TheWildlifeTrusts ;
+    top:hasOutput <need> .
+
+
+## 4. ProvideDecisionContextInformation
+
+<actions/ProvideDecisionContextInformation> a top:Action ;
+    top:executesTask wf:ProvideDecisionContextInformation ;
+    top:hasParticipant org:TheWildlifeTrusts .
+    top:hasPart
+        <actions/HazardIdentification> ,
+        <actions/ClimateQuestionDescription> ,
+        <actions/DecisionContextSpecification> ,
+        <actions/RiskToleranceRating> ,
+    #     <actions/ClimateHazardImpactDescription> ,
+    #     <actions/InformationOnExposureIdentification> ,
+    #     <actions/ObservationAnalysis> ,
+    #     <actions/PlanningTimeScalesDefinition> ,
+        #  "toBeAssociatedWithARole": true
+    #     <actions/SpatialRegionIndication> ,
+        #  "hasOutputRole": "wf:SelectedGeodeticRegion".
+
+<actions/HazardIdentification> a top:Action ;
+    top:executesTask wf:HazardIdentification ;
+    top:hasParticipant org:TheWildlifeTrusts ;
+    top:hasOutput hazards:PestInfestation, hazards:Wildfire, hazards:Drought .
+
+<actions/ClimateQuestionDescription> a top:Action ;
+    top:executesTask wf:ClimateQuestionDescription ;
+    top:hasParticipant org:TheWildlifeTrusts ;
+    top:hasOutput <questions/main> .
+
+<actions/DecisionContextSpecification> a top:Action ;
+    top:executesTask wf:DecisionContextSpecification ;
+    top:hasParticipant org:TheWildlifeTrusts ;
+    rdfs:comment "Decision making around where to reintroduce specific plant species which are in decline. It will help to determine which regional branches of the organisation should be involved in the reintroduction efforts." .
+
+<actions/RiskToleranceRating> a top:Action ;
+    top:executesTask wf:RiskToleranceRating ;
+    top:hasParticipant org:TheWildlifeTrusts ;
+    top:hasDescription "Medium" .
+
+
+## 5. UserInformationExtraction
+
+<actions/UserInformationExtraction> a top:Action ;
+    top:executesTask wf:UserInformationExtraction ;
+    top:hasParticipant org:MetOffice .
+
+## 6. CaseCreation
+
+<actions/CaseCreation> a top:Action ;
+    top:executesTask wf:CaseCreation ;
+    top:hasParticipant org:MetOffice .
+
+## 7. AdditionalInformationSearch
+
+<actions/AdditionalInformationSearch> a top:Action ;
+    top:executesTask wf:AdditionalInformationSearch ;
+    top:hasParticipant people:CaseSolver1 .
+    # top:hasPart
+    #     <actions/ExternalExpertiseSearch> ,
+    #     <actions/PerformLiteratureReview> .
+
+## 8. ClimateInformationPreparation
+
+<actions/ClimateInformationPreparation> a top:Action ;
+    top:executesTask wf:ClimateInformationPreparation ;
+    top:hasParticipant people:CaseSolver1 .
+    top:hasPart
+        <actions/DataSelection> ,
+        # "hasOutputRole": "wf:SelectedDataset"
+        <actions/ClimateModelSelection> ,
+        # "hasOutputRole": "wf:SelectedClimateModel"
+        <actions/MetricAndVariableIdentification> ,
+        # "hasOutputRole": "wf:SelectedVariable"
+        <actions/EmissionScenarioDefinition> .
+        # "hasOutputRole": "wf:SelectedEmissionScenario"
+    #     <actions/ClimateModelEvaluation> ,
+        # "hasInputRole": "wf:SelectedClimateModel"
+
+<actions/DataSelection> a top:Action ;
+    top:executesTask wf:DataSelection ;
+    top:hasParticipant people:CaseSolver1 ;
+    rdfs:comment "Data on the present-day actual locations of the plant species of interest was compared with the region which was deemed to have a suitable climate for this plant. This region was found by applying the thresholds to the climate data. An inspection was done, by multiple team members comparing the maps produced, to deem that the region of climatic suitability was representative enough of where the plants are in the present day and hence it was deemed appropriate to use for analysis of the future climatic conditions."@en .
+
+<actions/ClimateModelSelection> a top:Action ;
+    top:executesTask wf:ClimateModelSelection ;
+    top:hasParticipant people:CaseSolver1 ;
+    top:hasOutput models:UKCP18_Local_data_at_5km_resolution .
+
+<actions/MetricAndVariableIdentification> a top:Action ;
+    top:executesTask wf:MetricAndVariableIdentification ;
+    top:hasParticipant people:CaseSolver1 ;
+    top:hasOutput variables:Precipitation, variables:Temperature .
+
+<actions/EmissionScenarioDefinition> a top:Action ;
+    top:executesTask wf:EmissionScenarioDefinition ;
+    top:hasParticipant people:CaseSolver1 ;
+    top:hasOutput rcp:8.5 .
+
+
+## 9. ClimateInformationAnalysis
+
+<actions/ClimateInformationAnalysis> a top:Action ;
+    top:executesTask wf:ClimateInformationAnalysis ;
+    top:hasParticipant people:CaseSolver1 .
+    top:hasPart
+        <actions/ClimateChangeQuantificationApplication> ,
+        # "toBeAssociatedWithARole": true
+        <actions/UncertaintyQuantificationApplication> ,
+        # "toBeAssociatedWithARole": true
+        <actions/BaselineChoice> ,
+        # "hasOutputRole": "wf:SelectedBaselineInterval"
+        <actions/FuturePeriodChoice> .
+        # "hasOutputRole": "wf:SelectedFutureInterval"
+
+    #     <actions/StatisticalAnalysisApplication> ,
+        # "toBeAssociatedWithARole": true
+    #     <actions/SpatialDownscalingApplication> ,
+        # "toBeAssociatedWithARole": true
+    #     <actions/DataPreprocessingApplication> .
+        # "toBeAssociatedWithARole": true
+
+<actions/ClimateChangeQuantificationApplication> a top:Action ;
+    top:executesTask wf:ClimateChangeQuantificationApplication ;
+    top:hasParticipant people:CaseSolver1 ;
+    rdfs:comment "Data for each of the timeframes is extracted from the climate models. To find the region of suitability, for each of the three thresholds given the areas which fall outside of the thresholds are masked. The masks for all three thresholds are combined and the final region is the area which remains after all three thresholds are applied. For the January minimum temperature threshold, anywhere where the temperature is below the threshold value is masked. For the July average temperature and annual precipitation, the data in the relevant period (July or each year) is averaged and areas with averages outside the threshold range are masked."@en .
+
+<actions/UncertaintyQuantificationApplication> a top:Action ;
+    top:executesTask wf:UncertaintyQuantificationApplication ;
+    top:hasParticipant people:CaseSolver1 ;
+    rdfs:comment "Uncertainty not quantified as such. Several other non-climatological factors influence the suitability of a location for the plant species and the thresholds used are not strict measures of where the plant can survive or not so there is broad uncertainty within this work. The final regions of suitability are communicated as a rough guide to demonstrate the general northward trend and decreasing size of the zone of suitability."@en .
+    
+<actions/BaselineChoice> a top:Action ;
+    top:executesTask wf:BaselineChoice ;
+    top:hasParticipant people:CaseSolver1 ;
+    top:hasOutput <time/baseline> .
+
+<actions/FuturePeriodChoice> a top:Action ;
+    top:executesTask wf:FuturePeriodChoice ;
+    top:hasParticipant people:CaseSolver1 ;
+    top:hasOutput <time/future/1>, <time/future/2> .
+
+
+## 10. SendClimateInformation
+
+<actions/SendClimateInformation> a top:Action ;
+    top:executesTask wf:SendClimateInformation ;
+    top:hasParticipant people:CaseSolver1 .
+
+## 11. ClimateInformationCommunication
+
+<actions/ClimateInformationCommunication> a top:Action ;
+    top:executesTask wf:ClimateInformationCommunication ;
+    top:hasParticipant org:TheWildlifeTrusts .
