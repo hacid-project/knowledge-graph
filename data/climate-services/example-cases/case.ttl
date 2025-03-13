@@ -76,13 +76,13 @@ risktolerance:Medium a top:Concept ;
     rdfs:label "Main climate question" ;
     rdfs:comment "Where in the UK is likely to have suitable climatic conditions for a specific plant species (the Meadow Clary) to survive between 2040 and 2080?" .
 
-hazards:PestInfestation a ccso:HazardType> ;
+hazards:PestInfestation a ccso:HazardType ;
     rdfs:label "Pest infestation"@en .
 
-hazards:Wildfire a ccso:HazardType> ;
+hazards:Wildfire a ccso:HazardType ;
     rdfs:label "Wildfire"@en .
 
-hazards:Drought a ccso:HazardType> ;
+hazards:Drought a ccso:HazardType ;
     rdfs:label "Drought"@en .
 
 models:UKCP18_Local_data_at_5km_resolution
@@ -92,20 +92,20 @@ models:UKCP18_Local_data_at_5km_resolution
 <time/baseline> a data:TemporalRegion ;
     rdfs:label "Time interval 1980-2000"@en ;
     rdfs:comment "Time interval from the start of year 1980 to the start of year 2000."@en ;
-    ns1:hasEndDateTime "1980-01-01T00:00:00Z"^^xsd:dateTime ;
-    ns1:hasStartDateTime "2000-01-01T00:00:00Z"^^xsd:dateTime .
+    top:hasEndDateTime "1980-01-01T00:00:00Z"^^xsd:dateTime ;
+    top:hasStartDateTime "2000-01-01T00:00:00Z"^^xsd:dateTime .
 
 <time/future/1> a data:TemporalRegion ;
     rdfs:label "Time interval 2040-2060"@en ;
     rdfs:comment "Time interval from the start of year 2040 to the start of year 2060."@en ;
-    ns1:hasEndDateTime "2040-01-01T00:00:00Z"^^xsd:dateTime ;
-    ns1:hasStartDateTime "2060-01-01T00:00:00Z"^^xsd:dateTime .
+    top:hasEndDateTime "2040-01-01T00:00:00Z"^^xsd:dateTime ;
+    top:hasStartDateTime "2060-01-01T00:00:00Z"^^xsd:dateTime .
 
 <time/future/2> a data:TemporalRegion ;
     rdfs:label "Time interval 2060-2080"@en ;
     rdfs:comment "Time interval from the start of year 2060 to the start of year 2080."@en ;
-    ns1:hasEndDateTime "2060-01-01T00:00:00Z"^^xsd:dateTime ;
-    ns1:hasStartDateTime "2080-01-01T00:00:00Z"^^xsd:dateTime .
+    top:hasEndDateTime "2060-01-01T00:00:00Z"^^xsd:dateTime ;
+    top:hasStartDateTime "2080-01-01T00:00:00Z"^^xsd:dateTime .
 
 variables:Precipitation a data:Variable ;
     rdfs:label "Precipitation"@en .
@@ -148,19 +148,19 @@ variables:Temperature a data:Variable ;
 
 <actions/ProvideBackgroundInformation> a top:Action ;
     top:executesTask wf:ProvideBackgroundInformation ;
-    top:hasParticipant org:TheWildlifeTrusts .
+    top:hasParticipant org:TheWildlifeTrusts ;
     top:hasPart
         <actions/ClimateInformationRequestGoalDefinition> ,
         <actions/CustomerNeedDefinition> .
     #     <actions/OrganisationInformationDescription> .
 
 <actions/ClimateInformationRequestGoalDefinition> a top:Action ;
-    top:executesTask wf:HazardIdentification ;
+    top:executesTask wf:ClimateInformationRequestGoalDefinition ;
     top:hasParticipant org:TheWildlifeTrusts ;
     top:hasOutput <goal> .
 
 <actions/CustomerNeedDefinition> a top:Action ;
-    top:executesTask wf:HazardIdentification ;
+    top:executesTask wf:CustomerNeedDefinition ;
     top:hasParticipant org:TheWildlifeTrusts ;
     top:hasOutput <need> .
 
@@ -169,12 +169,12 @@ variables:Temperature a data:Variable ;
 
 <actions/ProvideDecisionContextInformation> a top:Action ;
     top:executesTask wf:ProvideDecisionContextInformation ;
-    top:hasParticipant org:TheWildlifeTrusts .
+    top:hasParticipant org:TheWildlifeTrusts ;
     top:hasPart
         <actions/HazardIdentification> ,
         <actions/ClimateQuestionDescription> ,
         <actions/DecisionContextSpecification> ,
-        <actions/RiskToleranceRating> ,
+        <actions/RiskToleranceRating> .
     #     <actions/ClimateHazardImpactDescription> ,
     #     <actions/InformationOnExposureIdentification> ,
     #     <actions/ObservationAnalysis> ,
@@ -229,7 +229,7 @@ variables:Temperature a data:Variable ;
 
 <actions/ClimateInformationPreparation> a top:Action ;
     top:executesTask wf:ClimateInformationPreparation ;
-    top:hasParticipant people:CaseSolver1 .
+    top:hasParticipant people:CaseSolver1 ;
     top:hasPart
         <actions/DataSelection> ,
         # "hasOutputRole": "wf:SelectedDataset"
@@ -267,7 +267,7 @@ variables:Temperature a data:Variable ;
 
 <actions/ClimateInformationAnalysis> a top:Action ;
     top:executesTask wf:ClimateInformationAnalysis ;
-    top:hasParticipant people:CaseSolver1 .
+    top:hasParticipant people:CaseSolver1 ;
     top:hasPart
         <actions/ClimateChangeQuantificationApplication> ,
         # "toBeAssociatedWithARole": true
