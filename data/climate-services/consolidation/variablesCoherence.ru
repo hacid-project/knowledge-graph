@@ -8,17 +8,6 @@ PREFIX time: <https://w3id.org/hacid/data/cs/metric-space/time/>
 
 INSERT {
     GRAPH ?g {
-        ?ds data:hasValuesOn ?ds
-    }
-}
-WHERE {
-    GRAPH ?g {
-        ?ds a data:DimensionalSpace
-    }
-};
-
-INSERT {
-    GRAPH ?g {
         ?depVar data:isSpecializedAccordingTo [
             a data:VariableSpecialization;
             data:isSpecializationOn ?indepVarGeneralized;

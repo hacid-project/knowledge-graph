@@ -17,20 +17,7 @@ WHERE {
         ?s ?property ?o
     }
     ?property rdfs:subPropertyOf+ ?superProperty.
-    ?superProperty a owl:ObjectProperty.
-};
-
-INSERT {
-    GRAPH ?g {
-        ?s ?superProperty ?o
-    }
-}
-WHERE {
-    GRAPH ?g {
-        ?s ?property ?o
-    }
-    ?property rdfs:subPropertyOf+ ?superProperty.
-    ?superProperty a owl:DatatypeProperty.
+    ?superProperty rdfs:label ?label.
 };
 
 INSERT {
@@ -43,7 +30,7 @@ WHERE {
         ?s ?property ?o
     }
     ?property rdfs:subPropertyOf*/rdfs:domain ?domain.
-    ?domain a owl:Class.
+    ?domain rdfs:label ?label.
 };
 
 INSERT {
@@ -56,7 +43,41 @@ WHERE {
         ?s ?property ?o
     }
     ?property rdfs:subPropertyOf*/rdfs:range ?range.
-    ?range a owl:Class.
+    ?range rdfs:label ?label.
+};
+
+INSERT {
+    GRAPH ?g {
+        ?o a ?range
+    }
+}
+WHERE {
+    GRAPH ?g {
+        ?s ?property ?o
+    }
+    ?s rdf:type/rdfs:subClassOf+ [
+        a owl:Restriction;
+        owl:onProperty ?property;
+        owl:allValuesFrom ?range
+    ].
+    ?range rdfs:label ?label.
+};
+
+INSERT {
+    GRAPH ?g {
+        ?s ?property ?s
+    }
+}
+WHERE {
+    GRAPH ?g {
+        ?s a ?class
+    }
+    ?class rdfs:subClassOf+ [
+        a owl:Restriction;
+        owl:onProperty ?property;
+        owl:hasSelf true
+    ].
+    ?class rdfs:label ?label.
 };
 
 INSERT {
@@ -69,6 +90,6 @@ WHERE {
         ?s a ?class
     }
     ?class rdfs:subClassOf+ ?superClass.
-    ?superClass a owl:Class.
+    ?superClass rdfs:label ?label.
 };
 

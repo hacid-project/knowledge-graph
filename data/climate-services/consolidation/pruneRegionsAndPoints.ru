@@ -19,7 +19,7 @@ WHERE {
     FILTER NOT EXISTS {
         ?s ?p2 ?region
     }
-}
+};
 
 DELETE {
     GRAPH ?g {
@@ -34,4 +34,4 @@ WHERE {
     FILTER NOT EXISTS {
         ?s ?p2 ?point
     }
-}
+};

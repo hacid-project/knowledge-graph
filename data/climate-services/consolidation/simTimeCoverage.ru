@@ -17,6 +17,10 @@ INSERT {
             rdfs:comment ?simulationTemporalRegionComment ;
             data:hasStartDateTime ?simulationStartTime;
             data:hasEndDateTime ?simulationEndTime.
+        ?simulationQuantization
+            a ?finestTemporalQuantizationType;
+            data:hasResolutionValue ?minResolution;
+            data:hasPeriodValue ?minGridPeriod.
     }
 }
 WHERE {
@@ -25,24 +29,25 @@ WHERE {
             ?simulationGraph ?simulationOutput
             (MIN(?startTime) AS ?simulationStartTime)
             (MAX(?endTime)AS ?simulationEndTime) 
-            (MAX(?temporalDSTypeId) AS ?finerTemporalDSTypeId)
-            (MIN(?temporalGridStep) AS ?minTemporalGridStep)
-            (MIN(?temporalGridPeriod) AS ?minTemporalGridPeriod)
+            (MAX(?quantizationTypeId) AS ?mostFineGrainedQuantizationTypeId)
+            (MIN(?resolution) AS ?minResolution)
+            (MIN(?gridPeriod) AS ?minGridPeriod)
         WHERE {
             GRAPH ?simulationGraph {
                 ?simulation a ccso:Simulation;
                     ccso:hasOutput ?simulationOutput.
                 ?simulationOutput top:hasPart/data:dependsOnVariable ?temporalDS.
                 ?temporalDS
-                    a ?temporalDSType;
-                    data:basedOnDimensionalSpace dimension:time;
+                    data:basedOnDimensionalSpace+ dimension:time;
                     data:hasExactBoundingRegion [
                         data:hasStartDateTime ?startTime;
                         data:hasEndDateTime ?endTime
-                    ].
-                OPTIONAL {?temporalDS data:hasGridStep ?temporalGridStep}.
-                OPTIONAL {?temporalDS data:hasPeriod ?temporalGridPeriod}.
-                VALUES (?temporalDSType ?temporalDSTypeId) {
+                    ];
+                    data:hasDiscretization ?quantization.
+        		?quantization a ?quantizationType.
+                OPTIONAL {?quantization data:hasResolutionValue ?resolution}.
+                OPTIONAL {?quantization data:hasPeriodValue ?gridPeriod}.
+                VALUES (?quantizationType ?quantizationTypeId) {
                     (data:RollingRegularGrid 'rolling')
                     (data:PeriodicRegularGrid 'periodic')
                     (data:ConstantDimensionalSpace 'constant')
@@ -70,9 +75,9 @@ WHERE {
     ).
     BIND(
         CONCAT(
-            ?finerTemporalDSTypeId,
-            COALESCE(CONCAT ('/', ?minTemporalGridStep), ''),
-            COALESCE(CONCAT ('/', ?minTemporalGridPeriod), '')
+            ?mostFineGrainedQuantizationTypeId,
+            COALESCE(CONCAT ('/', STR(?minResolution)), ''),
+            COALESCE(CONCAT ('/', STR(?minGridPeriod)), '')
         ) AS ?gridTypeId
     ).
     BIND(
@@ -86,4 +91,17 @@ WHERE {
             )
         ) AS ?simulationTemporalGrid
     ).
+    BIND(
+        IRI(
+            CONCAT(
+                "https://w3id.org/hacid/data/cs/temporalgrid/",
+                ?gridTypeId
+            )
+        ) AS ?simulationQuantization
+    ).
+    VALUES (?finestTemporalQuantizationType ?mostFineGrainedQuantizationTypeId) {
+        (data:RollingRegularGrid 'rolling')
+        (data:PeriodicRegularGrid 'periodic')
+        (data:ConstantDimensionalSpace 'constant')
+    }.
 }
