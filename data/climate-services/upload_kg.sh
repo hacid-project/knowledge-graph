@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 MAP_FILE_PATH="graph_names.csv"
-TDB2_LOADER=
-TDB2_DB_LOC="/opt/homebrew/var/fuseki/databases/hacid-test"
+TDB2_CONF_PATH="/opt/homebrew/var/fuseki/configuration/hacid-test.ttl"
 
 brew services stop fuseki
 
@@ -24,7 +23,7 @@ tail -n +2 $MAP_FILE_PATH | awk -F "," '{
     }
 ' | awk -F "," '
     {
-        system("tdb2.tdbloader --loc '$TDB2_DB_LOC' --graph=" $1 " " $2)
+        system("tdb2.tdbloader --tdb '$TDB2_CONF_PATH' --graph=" $1 " " $2)
     }
 '
 
