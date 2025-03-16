@@ -7,372 +7,372 @@
     rdfs:label "CORDEX:AFR-11"@en ;
     rdfs:comment "CORDEX geographic domain of Africa, with rotated coordinates and a resolution of 0.11° degrees (AFR-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/180.0,90.0> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-24.805,-45.925:60.445,42.405> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-24.805,-45.925:60.445,42.405> .
 
 <https://w3id.org/hacid/data/cordex-domain/AFR-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:AFR-22"@en ;
     rdfs:comment "CORDEX geographic domain of Africa, with rotated coordinates and a resolution of 0.22° degrees (AFR-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/180.0,90.0> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-24.75,-45.87:60.39,42.35> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-24.75,-45.87:60.39,42.35> .
 
 <https://w3id.org/hacid/data/cordex-domain/AFR-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:AFR-44"@en ;
     rdfs:comment "CORDEX geographic domain of Africa, with rotated coordinates and a resolution of 0.44° degrees (AFR-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/180.0,90.0> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-24.64,-45.76:60.28,42.24> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-24.64,-45.76:60.28,42.24> .
 
 <https://w3id.org/hacid/data/cordex-domain/AFR-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:AFR-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Africa, with regular coordinates and a resolution of 0.5° degrees (AFR-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-25.25,-46.25:60.75,42.75> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-25.25,-46.25:60.75,42.75> .
 
 <https://w3id.org/hacid/data/cordex-domain/ANT-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:ANT-11"@en ;
     rdfs:comment "CORDEX geographic domain of Antarctica, with rotated coordinates and a resolution of 0.11° degrees (ANT-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-166.92,6.08> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-166.92,6.08/rectangle/152.555,-27.885:207.445,14.685> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-166.92,6.08/rectangle/152.555,-27.885:207.445,14.685> .
 
 <https://w3id.org/hacid/data/cordex-domain/ANT-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:ANT-44"@en ;
     rdfs:comment "CORDEX geographic domain of Antarctica, with rotated coordinates and a resolution of 0.44° degrees (ANT-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-166.92,6.08> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-166.92,6.08/rectangle/152.72,-27.72:207.28,14.52> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-166.92,6.08/rectangle/152.72,-27.72:207.28,14.52> .
 
 <https://w3id.org/hacid/data/cordex-domain/ANT-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:ANT-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Antarctica, with regular coordinates and a resolution of 0.5° degrees (ANT-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-179.75,-89.75:179.75,-55.25> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-179.75,-89.75:179.75,-55.25> .
 
 <https://w3id.org/hacid/data/cordex-domain/ARC-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:ARC-11"@en ;
     rdfs:comment "CORDEX geographic domain of Arctic, with rotated coordinates and a resolution of 0.11° degrees (ARC-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/0.0,6.55> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/0.0,6.55/rectangle/-23.045,-24.365:27.885,34.045> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/0.0,6.55/rectangle/-23.045,-24.365:27.885,34.045> .
 
 <https://w3id.org/hacid/data/cordex-domain/ARC-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:ARC-44"@en ;
     rdfs:comment "CORDEX geographic domain of Arctic, with rotated coordinates and a resolution of 0.44° degrees (ARC-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/0.0,6.55> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/0.0,6.55/rectangle/-22.88,-24.2:27.72,33.88> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/0.0,6.55/rectangle/-22.88,-24.2:27.72,33.88> .
 
 <https://w3id.org/hacid/data/cordex-domain/ARC-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:ARC-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Arctic, with regular coordinates and a resolution of 0.5° degrees (ARC-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-179.75,48.75:179.75,89.75> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-179.75,48.75:179.75,89.75> .
 
 <https://w3id.org/hacid/data/cordex-domain/AUS-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:AUS-11"@en ;
     rdfs:comment "CORDEX geographic domain of Australasia, with rotated coordinates and a resolution of 0.11° degrees (AUS-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/141.38,60.31> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/141.38,60.31/rectangle/141.995,-23.045:229.885,33.605> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/141.38,60.31/rectangle/141.995,-23.045:229.885,33.605> .
 
 <https://w3id.org/hacid/data/cordex-domain/AUS-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:AUS-22"@en ;
     rdfs:comment "CORDEX geographic domain of Australasia, with rotated coordinates and a resolution of 0.22° degrees (AUS-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/141.38,60.31> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/141.38,60.31/rectangle/142.05,-22.99:229.83,33.55> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/141.38,60.31/rectangle/142.05,-22.99:229.83,33.55> .
 
 <https://w3id.org/hacid/data/cordex-domain/AUS-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:AUS-44"@en ;
     rdfs:comment "CORDEX geographic domain of Australasia, with rotated coordinates and a resolution of 0.44° degrees (AUS-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/141.38,60.31> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/141.38,60.31/rectangle/142.16,-22.88:229.72,33.44> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/141.38,60.31/rectangle/142.16,-22.88:229.72,33.44> .
 
 <https://w3id.org/hacid/data/cordex-domain/AUS-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:AUS-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Australasia, with regular coordinates and a resolution of 0.5° degrees (AUS-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/88.75,-53.25:207.25,12.75> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/88.75,-53.25:207.25,12.75> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAM-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAM-11"@en ;
     rdfs:comment "CORDEX geographic domain of Central America, with rotated coordinates and a resolution of 0.11° degrees (CAM-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/113.98,75.74> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/113.98,75.74/rectangle/-52.965,-28.765:39.325,20.845> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/113.98,75.74/rectangle/-52.965,-28.765:39.325,20.845> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAM-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAM-22"@en ;
     rdfs:comment "CORDEX geographic domain of Central America, with rotated coordinates and a resolution of 0.22° degrees (CAM-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/113.98,75.74> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/113.98,75.74/rectangle/-52.91,-28.71:39.27,20.79> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/113.98,75.74/rectangle/-52.91,-28.71:39.27,20.79> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAM-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAM-44"@en ;
     rdfs:comment "CORDEX geographic domain of Central America, with rotated coordinates and a resolution of 0.44° degrees (CAM-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/113.98,75.74> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/113.98,75.74/rectangle/-52.8,-28.6:39.16,20.68> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/113.98,75.74/rectangle/-52.8,-28.6:39.16,20.68> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAM-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAM-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Central America, with regular coordinates and a resolution of 0.5° degrees (CAM-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-124.75,-19.75:-21.75,35.25> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-124.75,-19.75:-21.75,35.25> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAS-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAS-11"@en ;
     rdfs:comment "CORDEX geographic domain of Central Asia, with rotated coordinates and a resolution of 0.11° degrees (CAS-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-103.39,43.48> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-103.39,43.48/rectangle/-34.485,-20.845:32.725,23.045> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-103.39,43.48/rectangle/-34.485,-20.845:32.725,23.045> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAS-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAS-22"@en ;
     rdfs:comment "CORDEX geographic domain of Central Asia, with rotated coordinates and a resolution of 0.22° degrees (CAS-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-103.39,43.48> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-103.39,43.48/rectangle/-34.43,-20.79:32.67,22.99> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-103.39,43.48/rectangle/-34.43,-20.79:32.67,22.99> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAS-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAS-44"@en ;
     rdfs:comment "CORDEX geographic domain of Central Asia, with rotated coordinates and a resolution of 0.44° degrees (CAS-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-103.39,43.48> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-103.39,43.48/rectangle/-34.32,-20.68:32.56,22.88> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-103.39,43.48/rectangle/-34.32,-20.68:32.56,22.88> .
 
 <https://w3id.org/hacid/data/cordex-domain/CAS-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:CAS-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Central Asia, with regular coordinates and a resolution of 0.5° degrees (CAS-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/10.75,17.75:140.25,69.75> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/10.75,17.75:140.25,69.75> .
 
 <https://w3id.org/hacid/data/cordex-domain/EAS-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EAS-11"@en ;
     rdfs:comment "CORDEX geographic domain of East Asia, with rotated coordinates and a resolution of 0.11° degrees (EAS-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-64.78,77.61> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-64.78,77.61/rectangle/-41.085,-27.005:48.125,46.365> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-64.78,77.61/rectangle/-41.085,-27.005:48.125,46.365> .
 
 <https://w3id.org/hacid/data/cordex-domain/EAS-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EAS-22"@en ;
     rdfs:comment "CORDEX geographic domain of East Asia, with rotated coordinates and a resolution of 0.22° degrees (EAS-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-64.78,77.61> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-64.78,77.61/rectangle/-43.23,-22.1:43.67,32.9> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-64.78,77.61/rectangle/-43.23,-22.1:43.67,32.9> .
 
 <https://w3id.org/hacid/data/cordex-domain/EAS-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EAS-44"@en ;
     rdfs:comment "CORDEX geographic domain of East Asia, with rotated coordinates and a resolution of 0.44° degrees (EAS-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-64.78,77.61> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-64.78,77.61/rectangle/-40.92,-26.84:47.96,46.2> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-64.78,77.61/rectangle/-40.92,-26.84:47.96,46.2> .
 
 <https://w3id.org/hacid/data/cordex-domain/EAS-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EAS-44i"@en ;
     rdfs:comment "CORDEX geographic domain of East Asia, with regular coordinates and a resolution of 0.5° degrees (EAS-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/62.75,-18.75:175.75,59.25> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/62.75,-18.75:175.75,59.25> .
 
 <https://w3id.org/hacid/data/cordex-domain/EUR-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EUR-11"@en ;
     rdfs:comment "CORDEX geographic domain of Europe, with rotated coordinates and a resolution of 0.11° degrees (EUR-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-162.0,39.25> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-162.0,39.25/rectangle/-28.375,-23.375:18.155,21.835> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-162.0,39.25/rectangle/-28.375,-23.375:18.155,21.835> .
 
 <https://w3id.org/hacid/data/cordex-domain/EUR-11i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EUR-11i"@en ;
     rdfs:comment "CORDEX geographic domain of Europe high res., with regular coordinates and a resolution of 0.125° degrees (EUR-11i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-44.8125,21.8125:65.1875,72.6875> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.125> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.125> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-44.8125,21.8125:65.1875,72.6875> .
 
 <https://w3id.org/hacid/data/cordex-domain/EUR-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EUR-22"@en ;
     rdfs:comment "CORDEX geographic domain of Europe, with rotated coordinates and a resolution of 0.22° degrees (EUR-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-162.0,39.25> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-162.0,39.25/rectangle/-28.32,-23.32:18.1,21.78> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-162.0,39.25/rectangle/-28.32,-23.32:18.1,21.78> .
 
 <https://w3id.org/hacid/data/cordex-domain/EUR-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EUR-44"@en ;
     rdfs:comment "CORDEX geographic domain of Europe, with rotated coordinates and a resolution of 0.44° degrees (EUR-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-162.0,39.25> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-162.0,39.25/rectangle/-28.21,-23.21:17.99,21.67> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-162.0,39.25/rectangle/-28.21,-23.21:17.99,21.67> .
 
 <https://w3id.org/hacid/data/cordex-domain/EUR-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:EUR-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Europe, with regular coordinates and a resolution of 0.5° degrees (EUR-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-44.75,21.75:65.25,72.75> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-44.75,21.75:65.25,72.75> .
 
 <https://w3id.org/hacid/data/cordex-domain/MED-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MED-11"@en ;
     rdfs:comment "CORDEX geographic domain of Mediterranean, with rotated coordinates and a resolution of 0.11° degrees (MED-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/198.0,39.25> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/198.0,39.25/rectangle/-23.385,-21.505:19.625,6.105> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/198.0,39.25/rectangle/-23.385,-21.505:19.625,6.105> .
 
 <https://w3id.org/hacid/data/cordex-domain/MED-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MED-44"@en ;
     rdfs:comment "CORDEX geographic domain of Mediterranean, with rotated coordinates and a resolution of 0.44° degrees (MED-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/198.0,39.25> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/198.0,39.25/rectangle/-23.22,-21.34:19.46,5.94> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/198.0,39.25/rectangle/-23.22,-21.34:19.46,5.94> .
 
 <https://w3id.org/hacid/data/cordex-domain/MED-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MED-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Mediterranean, with regular coordinates and a resolution of 0.5° degrees (MED-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-20.75,25.25:51.75,57.25> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-20.75,25.25:51.75,57.25> .
 
 <https://w3id.org/hacid/data/cordex-domain/MNA-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MNA-11"@en ;
     rdfs:comment "CORDEX geographic domain of Middle East and North Africa, with rotated coordinates and a resolution of 0.11° degrees (MNA-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/180.0,90.0> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-26.565,-6.765:75.405,45.045> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-26.565,-6.765:75.405,45.045> .
 
 <https://w3id.org/hacid/data/cordex-domain/MNA-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MNA-22"@en ;
     rdfs:comment "CORDEX geographic domain of Middle East and North Africa, with rotated coordinates and a resolution of 0.22° degrees (MNA-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/180.0,90.0> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-26.51,-6.71:75.35,44.99> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-26.51,-6.71:75.35,44.99> .
 
 <https://w3id.org/hacid/data/cordex-domain/MNA-22i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MNA-22i"@en ;
     rdfs:comment "CORDEX geographic domain of Middle East and North Africa  high res., with regular coordinates and a resolution of 0.25° degrees (MNA-22i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-26.625,-6.875:75.625,45.125> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.25> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.25> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-26.625,-6.875:75.625,45.125> .
 
 <https://w3id.org/hacid/data/cordex-domain/MNA-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MNA-44"@en ;
     rdfs:comment "CORDEX geographic domain of Middle East and North Africa, with rotated coordinates and a resolution of 0.44° degrees (MNA-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/180.0,90.0> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-26.4,-6.6:75.24,44.88> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/-26.4,-6.6:75.24,44.88> .
 
 <https://w3id.org/hacid/data/cordex-domain/MNA-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:MNA-44i"@en ;
     rdfs:comment "CORDEX geographic domain of Middle East and North Africa, with regular coordinates and a resolution of 0.5° degrees (MNA-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-26.75,-7.25:75.75,45.25> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-26.75,-7.25:75.75,45.25> .
 
 <https://w3id.org/hacid/data/cordex-domain/NAM-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:NAM-11"@en ;
     rdfs:comment "CORDEX geographic domain of North America, with rotated coordinates and a resolution of 0.11° degrees (NAM-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/83.0,42.5> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/83.0,42.5/rectangle/-34.045,-28.565:34.045,28.525> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/83.0,42.5/rectangle/-34.045,-28.565:34.045,28.525> .
 
 <https://w3id.org/hacid/data/cordex-domain/NAM-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:NAM-22"@en ;
     rdfs:comment "CORDEX geographic domain of North America, with rotated coordinates and a resolution of 0.22° degrees (NAM-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/83.0,42.5> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/83.0,42.5/rectangle/-33.99,-28.51:33.99,28.47> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/83.0,42.5/rectangle/-33.99,-28.51:33.99,28.47> .
 
 <https://w3id.org/hacid/data/cordex-domain/NAM-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:NAM-44"@en ;
     rdfs:comment "CORDEX geographic domain of North America, with rotated coordinates and a resolution of 0.44° degrees (NAM-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/83.0,42.5> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/83.0,42.5/rectangle/-33.88,-28.4:33.88,28.36> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/83.0,42.5/rectangle/-33.88,-28.4:33.88,28.36> .
 
 <https://w3id.org/hacid/data/cordex-domain/NAM-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:NAM-44i"@en ;
     rdfs:comment "CORDEX geographic domain of North America, with regular coordinates and a resolution of 0.5° degrees (NAM-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-171.75,12.25:-22.25,76.25> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-171.75,12.25:-22.25,76.25> .
 
 <https://w3id.org/hacid/data/cordex-domain/SAM-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:SAM-11"@en ;
     rdfs:comment "CORDEX geographic domain of South America, with rotated coordinates and a resolution of 0.11° degrees (SAM-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-56.06,70.6> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-56.06,70.6/rectangle/143.755,-38.445:207.885,34.925> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-56.06,70.6/rectangle/143.755,-38.445:207.885,34.925> .
 
 <https://w3id.org/hacid/data/cordex-domain/SAM-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:SAM-22"@en ;
     rdfs:comment "CORDEX geographic domain of South America, with rotated coordinates and a resolution of 0.22° degrees (SAM-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-56.06,70.6> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-56.06,70.6/rectangle/143.81,-38.39:207.83,34.87> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-56.06,70.6/rectangle/143.81,-38.39:207.83,34.87> .
 
 <https://w3id.org/hacid/data/cordex-domain/SAM-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:SAM-44"@en ;
     rdfs:comment "CORDEX geographic domain of South America, with rotated coordinates and a resolution of 0.44° degrees (SAM-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-56.06,70.6> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-56.06,70.6/rectangle/143.92,-38.28:207.72,34.76> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-56.06,70.6/rectangle/143.92,-38.28:207.72,34.76> .
 
 <https://w3id.org/hacid/data/cordex-domain/SAM-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:SAM-44i"@en ;
     rdfs:comment "CORDEX geographic domain of South America, with regular coordinates and a resolution of 0.5° degrees (SAM-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-106.25,-58.25:-16.25,18.75> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-106.25,-58.25:-16.25,18.75> .
 
 <https://w3id.org/hacid/data/cordex-domain/SEA-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:SEA-22"@en ;
     rdfs:comment "CORDEX geographic domain of South East Asia, with rotated coordinates and a resolution of 0.22° degrees (SEA-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/180.0,90.0> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/89.26,-15.18:147.12,27.28> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/180.0,90.0/rectangle/89.26,-15.18:147.12,27.28> .
 
 <https://w3id.org/hacid/data/cordex-domain/SEA-22i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:SEA-22i"@en ;
     rdfs:comment "CORDEX geographic domain of South East Asia, with regular coordinates and a resolution of 0.25° degrees (SEA-22i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/89.125,-15.375:147.125,27.375> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.25> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.25> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/89.125,-15.375:147.125,27.375> .
 
 <https://w3id.org/hacid/data/cordex-domain/WAS-11/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:WAS-11"@en ;
     rdfs:comment "CORDEX geographic domain of South Asia, with rotated coordinates and a resolution of 0.11° degrees (WAS-11)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-123.34,79.95> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-123.34,79.95/rectangle/-32.285,-21.725:52.525,35.365> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.11> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.11> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-123.34,79.95/rectangle/-32.285,-21.725:52.525,35.365> .
 
 <https://w3id.org/hacid/data/cordex-domain/WAS-22/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:WAS-22"@en ;
     rdfs:comment "CORDEX geographic domain of South Asia, with rotated coordinates and a resolution of 0.22° degrees (WAS-22)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-123.34,79.95> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-123.34,79.95/rectangle/-32.23,-21.67:52.47,35.31> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.22> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.22> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-123.34,79.95/rectangle/-32.23,-21.67:52.47,35.31> .
 
 <https://w3id.org/hacid/data/cordex-domain/WAS-44/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:WAS-44"@en ;
     rdfs:comment "CORDEX geographic domain of South Asia, with rotated coordinates and a resolution of 0.44° degrees (WAS-44)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/rotated-WGS84/-123.34,79.95> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-123.34,79.95/rectangle/-32.12,-21.56:52.36,35.2> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.44> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.44> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/rotated-WGS84/-123.34,79.95/rectangle/-32.12,-21.56:52.36,35.2> .
 
 <https://w3id.org/hacid/data/cordex-domain/WAS-44i/ds> a ns1:DimensionalSpace ;
     rdfs:label "CORDEX:WAS-44i"@en ;
     rdfs:comment "CORDEX geographic domain of South Asia, with regular coordinates and a resolution of 0.5° degrees (WAS-44i)."@en ;
     ns1:basedOnDimensionalSpace <https://w3id.org/hacid/data/cs/metric-space/geodetic/WGS84> ;
-    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/19.25,-15.75:116.25,45.75> ;
-    ns1:isDiscretizedBy <https://w3id.org/hacid/data/geodetic-grid/0.5> .
+    ns1:hasDiscretization <https://w3id.org/hacid/data/geodetic-grid/0.5> ;
+    ns1:hasExactBoundingRegion <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/19.25,-15.75:116.25,45.75> .
 
 <https://w3id.org/hacid/data/geodetic-region/WGS84/rectangle/-22.88,-24.2:27.72,33.88> a ns2:Geometry,
         ns1:SpatialRegion ;

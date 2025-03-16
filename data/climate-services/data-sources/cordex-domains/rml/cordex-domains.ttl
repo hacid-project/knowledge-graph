@@ -69,7 +69,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate data:isDiscretizedBy ;
+        rr:predicate data:hasDiscretization ;
         rr:objectMap [
             rr:parentTriplesMap :QuantizationMapping
         ]

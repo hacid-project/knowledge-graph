@@ -571,14 +571,14 @@ class CSMapper(object):
             map_file_to_rdf(input_filename=filenames[0], file_type=file_type)
 
 if __name__ == '__main__':
-    homepath = '.'
+    homepath = './data-sources'
     subfolders = sorted([ f.path for f in os.scandir(homepath) if f.is_dir() ])
     
     cs_mapper = CSMapper()
     
     for subfolder in subfolders:
         # if subfolder.endswith('cmip5'):
-        if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
+        # if subfolder.endswith('cordex') or subfolder.endswith('cmip5'):
         # if subfolder.endswith('cordex-domains'):
         # if subfolder.endswith('cmor-tables'):
         # if subfolder.endswith('cf-standard-names'):
