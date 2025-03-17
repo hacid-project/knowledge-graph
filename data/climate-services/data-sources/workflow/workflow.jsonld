@@ -29,6 +29,10 @@
       "@id": "top:isPartOf",
       "@type": "@id"
     },
+    "hasPart": {
+      "@id": "top:hasPart",
+      "@type": "@id"
+    },
     "directlyFollows": {
       "@id": "top:directlyFollows",
       "@type": "@id"
@@ -52,8 +56,8 @@
   },
   "@id": "wf:ClimateProcessWorkflow",
   "@type": "top:Workflow",
-  "comment": "A workflow describing the handling of a request for climate information by instances such as MetOffice.",
-  "label": "Climate science case",
+  "comment": "A workflow describing the handling of a request for climate information by climate service providers.",
+  "label": "Climate service case",
   "tasks": [
     {
       "@id": "wf:ClimateInformationRequest",
@@ -68,7 +72,6 @@
       "@type": "top:Task",
       "comment": "The task of requesting user background information.",
       "label": "User background information request",
-      "directlyFollows": "wf:ClimateInformationRequest",
       "directlyPrecedes": "wf:ProvideBackgroundInformation",
       "isTaskOf": "wf:CaseCreator"
     },
@@ -77,25 +80,142 @@
       "@type": "top:Task",
       "comment": "The task of providing background information.",
       "label": "Provide background information",
-      "directlyFollows": "wf:UserBackgroundInformationRequest",
       "directlyPrecedes": "wf:ProvideDecisionContextInformation",
-      "isTaskOf": "wf:InformationRequester"
+      "isTaskOf": "wf:InformationRequester",
+      "hasPart": [
+        {
+          "@id": "wf:ClimateInformationRequestGoalDefinition",
+          "@type": "top:Task",
+          "comment": "The task of defining the goal of the climate information request.",
+          "label": "Climate information request goal definition",
+          "isTaskOf": "wf:InformationRequester",
+          "hasOutputRole": "wf:Goal"
+        },
+        {
+          "@id": "wf:CustomerNeedDefinition",
+          "@type": "top:Task",
+          "comment": "The task of defining the customer needs (identifying climate-related challenges faced by the organisation.)",
+          "label": "Customer need definition",
+          "isTaskOf": "wf:InformationRequester",
+          "hasOutputRole": "wf:CustomerNeed"
+        },
+        {
+          "@id": "wf:OrganisationInformationDescription",
+          "@type": "top:Task",
+          "comment": "The task of describing organisation information.",
+          "label": "Organisation information description",
+          "isTaskOf": "wf:InformationRequester"
+        }
+      ]
     },
     {
       "@id": "wf:ProvideDecisionContextInformation",
       "@type": "top:Task",
       "comment": "The task of providing decision context information.",
       "label": "Provide decision context information",
-      "directlyFollows": "wf:ProvideBackgroundInformation",
       "directlyPrecedes": "wf:UserInformationExtraction",
-      "isTaskOf": "wf:InformationRequester"
+      "isTaskOf": "wf:InformationRequester",
+      "hasPart": [
+        {
+          "@id": "wf:ClimateHazardImpactDescription",
+          "@type": "top:Task",
+          "comment": "The task of describing how climate hazards impact the organisation's activities.",
+          "label": "Climate hazard impact description",
+          "isTaskOf": "wf:InformationRequester"
+        },
+        {
+          "@id": "wf:ClimateQuestionDescription",
+          "@type": "top:Task",
+          "comment": "The task of describing climate questions.",
+          "label": "Climate question description",
+          "isTaskOf": "wf:InformationRequester",
+          "hasInputRole": "wf:RelevantHazardType",
+          "hasOutputRole": "wf:RelevantClimateQuestion"
+        },
+        {
+          "@id": "wf:ClimateRiskFramingSpecification",
+          "@type": "top:Task",
+          "comment": "The task of specifying the climate risk framing.",
+          "label": "Climate risk framing specification",
+          "isTaskOf": "wf:InformationRequester"
+        },
+        {
+          "@id": "wf:DecisionContextSpecification",
+          "@type": "top:Task",
+          "label": "Decision context specification",
+          "comment": "The task of listing decisions or actions that would benefit from better climate information.",
+          "isTaskOf": [
+            "wf:CaseCreator",
+            "wf:InformationRequester"
+          ]
+        },
+        {
+          "@id": "wf:HazardIdentification",
+          "@type": "top:Task",
+          "comment": "The task of identifying hazards.",
+          "label": "Hazard identification",
+          "isTaskOf": [
+            "wf:CaseSolver",
+            "wf:InformationRequester"
+          ],
+          "hasOutputRole": "wf:RelevantHazardType"
+        },
+        {
+          "@id": "wf:InformationOnExposureIdentification",
+          "@type": "top:Task",
+          "comment": "The task of identifying information on exposure.",
+          "label": "Information on exposure identification",
+          "isTaskOf": [
+            "wf:CaseCreator",
+            "wf:InformationRequester"
+          ]
+        },
+        {
+          "@id": "wf:ObservationAnalysis",
+          "@type": "top:Task",
+          "label": "Observation analysis",
+          "isTaskOf": [
+            "wf:CaseCreator",
+            "wf:InformationRequester"
+          ]
+        },
+        {
+          "@id": "wf:PlanningTimeScalesDefinition",
+          "@type": "top:Task",
+          "comment": "The task of defining planning time scales.",
+          "label": "Planning time scales definition",
+          "isTaskOf": [
+            "wf:CaseCreator",
+            "wf:InformationRequester"
+          ],
+          "toBeAssociatedWithARole": true
+        },
+        {
+          "@id": "wf:RiskToleranceRating",
+          "@type": "top:Task",
+          "comment": "The task of rating the risk tolerance.",
+          "label": "Risk tolerance rating",
+          "isTaskOf": "wf:InformationRequester",
+          "hasOutputRole": "wf:RiskToleranceRatingOutput"
+        },
+        {
+          "@id": "wf:SpatialRegionIndication",
+          "@type": "top:Task",
+          "comment": "The task of indicating the spatial region of interest.",
+          "label": "Spatial region indication",
+          "isTaskOf": [
+            "wf:CaseCreator",
+            "wf:InformationRequester"
+          ],
+          "hasOutputRole": "wf:SelectedGeodeticRegion"
+        }
+      ]
     },
     {
       "@id": "wf:UserInformationExtraction",
       "@type": "top:Task",
       "comment": "The task of extracting user information.",
       "label": "User information request",
-      "directlyFollows": "wf:ProvideDecisionContextInformation",
       "directlyPrecedes": "wf:CaseCreation",
       "isTaskOf": "wf:CaseCreator"
     },
@@ -104,7 +224,6 @@
       "@type": "top:Task",
       "comment": "The task of creating a case.",
       "label": "Case creation",
-      "directlyFollows": "wf:UserInformationExtraction",
       "directlyPrecedes": [
         "wf:AdditionalInformationSearch",
         "wf:ClimateInformationPreparation"
@@ -116,70 +235,151 @@
       "@type": "top:Task",
       "comment": "The task of requesting external expertise such as an expert or literature review.",
       "label": "Additional information search",
-      "directlyFollows": "wf:CaseCreation",
       "directlyPrecedes": "wf:ClimateInformationAnalysis",
-      "isTaskOf": "wf:CaseSolver"
+      "isTaskOf": "wf:CaseSolver",
+      "hasPart": [
+        {
+          "@id": "wf:ExternalExpertiseSearch",
+          "@type": "top:Task",
+          "label": "External expertise search",
+          "isTaskOf": "wf:CaseSolver"
+        },
+        {
+          "@id": "wf:PerformLiteratureReview",
+          "@type": "top:Task",
+          "label": "Perform literature review",
+          "isTaskOf": "wf:CaseSolver"
+        }
+      ]
     },
     {
       "@id": "wf:ClimateInformationPreparation",
       "@type": "top:Task",
       "comment": "The task of preparing the climate information.",
       "label": "Climate information preparation",
-      "directlyFollows": "wf:CaseCreation",
       "directlyPrecedes": "wf:ClimateInformationAnalysis",
-      "isTaskOf": "wf:CaseSolver"
+      "isTaskOf": "wf:CaseSolver",
+      "hasPart": [
+        {
+          "@id": "wf:MetricAndVariableIdentification",
+          "@type": "top:Task",
+          "comment": "The task of identifying metrics and variables.",
+          "label": "Metric and variable identification",
+          "directlyPrecedes": "wf:EmissionScenarioDefinition",
+          "isTaskOf": "wf:CaseSolver",
+          "hasOutputRole": "wf:SelectedVariable"
+        },
+        {
+          "@id": "wf:EmissionScenarioDefinition",
+          "@type": "top:Task",
+          "comment": "The task of defining the emission scenarios.",
+          "label": "Emission scenario definition",
+          "directlyPrecedes": "wf:DataSelection",
+          "isTaskOf": "wf:CaseSolver",
+          "hasOutputRole": "wf:SelectedEmissionScenario"
+        },
+        {
+          "@id": "wf:DataSelection",
+          "@type": "top:Task",
+          "comment": "The task of selecting the data.",
+          "label": "Data selection",
+          "directlyPrecedes": "wf:ClimateModelEvaluation",
+          "isTaskOf": "wf:CaseSolver",
+          "hasOutputRole": "wf:SelectedDataset"
+        },
+        {
+          "@id": "wf:ClimateModelEvaluation",
+          "@type": "top:Task",
+          "comment": "The task of evaluating the climate model.",
+          "label": "Climate model evaluation",
+          "directlyPrecedes": "wf:ClimateModelSelection",
+          "isTaskOf": "wf:CaseSolver"
+        },
+        {
+          "@id": "wf:ClimateModelSelection",
+          "@type": "top:Task",
+          "comment": "The task of selecing the climate model.",
+          "label": "Climate model selection",
+          "isTaskOf": "wf:CaseSolver",
+          "hasOutputRole": "wf:SelectedClimateModel"
+        }
+      ]
     },
     {
       "@id": "wf:ClimateInformationAnalysis",
       "@type": "top:Task",
       "comment": "The task of analysing the climate information.",
       "label": "Climate information analysis",
-      "directlyFollows": [
-        "wf:AdditionalInformationSearch",
-        "wf:ClimateInformationPreparation"
-      ],
       "directlyPrecedes": "wf:SendClimateInformation",
-      "isTaskOf": "wf:CaseSolver"
+      "isTaskOf": "wf:CaseSolver",
+      "hasPart": [
+        {
+          "@id": "wf:BaselineChoice",
+          "@type": "top:Task",
+          "comment": "The task of choosing the baseline.",
+          "label": "Baseline choice",
+          "directlyPrecedes": "wf:FuturePeriodChoice",
+          "isTaskOf": "wf:CaseSolver",
+          "hasOutputRole": "wf:SelectedBaselineInterval"
+        },
+        {
+          "@id": "wf:FuturePeriodChoice",
+          "@type": "top:Task",
+          "comment": "The task of choosing the future period.",
+          "label": "Future period choice",
+          "directlyPrecedes": "wf:ClimateChangeQuantificationApplication",
+          "isTaskOf": "wf:CaseSolver",
+          "hasOutputRole": "wf:SelectedFutureInterval"
+        },
+        {
+          "@id": "wf:ClimateChangeQuantificationApplication",
+          "@type": "top:Task",
+          "comment": "The task of applying the climate change quantification method.",
+          "label": "Climate change quantification application",
+          "directlyPrecedes": "wf:UncertaintyQuantificationApplication",
+          "isTaskOf": "wf:CaseSolver",
+          "toBeAssociatedWithARole": true
+        },
+        {
+          "@id": "wf:UncertaintyQuantificationApplication",
+          "@type": "top:Task",
+          "comment": "The task of applying uncertainty quantification",
+          "label": "Uncertainty quantification application",
+          "isTaskOf": "wf:CaseSolver",
+          "toBeAssociatedWithARole": true
+        },
+        {
+          "@id": "wf:DataPreprocessingApplication",
+          "@type": "top:Task",
+          "comment": "The task of applying data preprocessing methods for the analysis of the climate information.",
+          "label": "Data preprocessing application",
+          "isTaskOf": "wf:CaseSolver",
+          "toBeAssociatedWithARole": true
+        },
+        {
+          "@id": "wf:SpatialDownscalingApplication",
+          "@type": "top:Task",
+          "comment": "The task of applying spatial downscaling methods for the analysis of the climate information.",
+          "label": "Spatial downscaling application",
+          "isTaskOf": "wf:CaseSolver",
+          "toBeAssociatedWithARole": true
+        },
+        {
+          "@id": "wf:StatisticalAnalysisApplication",
+          "@type": "top:Task",
+          "comment": "The task of applying statistical methods for the analysis of the climate information.",
+          "label": "Statistical analysis application",
+          "isTaskOf": "wf:CaseSolver",
+          "toBeAssociatedWithARole": true
+        }
+      ]
     },
     {
       "@id": "wf:SendClimateInformation",
       "@type": "top:Task",
       "comment": "The task of sending climate information.",
       "label": "Send climate information",
-      "directlyFollows": [
-        "wf:ClimateInformationAnalysis",
-        "wf:ClimateInformationCommunication"
-      ],
       "isTaskOf": "wf:CaseSolver"
-    },
-    {
-      "@id": "wf:BaselineChoice",
-      "@type": "top:Task",
-      "comment": "The task of choosing the baseline.",
-      "label": "Baseline choice",
-      "directlyPrecedes": "wf:FuturePeriodChoice",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "hasOutputRole": "wf:SelectedBaselineInterval"
-    },
-    {
-      "@id": "wf:ClimateChangeQuantificationApplication",
-      "@type": "top:Task",
-      "comment": "The task of applying the climate change quantification method.",
-      "label": "Climate change quantification application",
-      "directlyFollows": "wf:FuturePeriodChoice",
-      "directlyPrecedes": "wf:UncertaintyQuantificationApplication",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "toBeAssociatedWithARole": true
-    },
-    {
-      "@id": "wf:ClimateHazardImpactDescription",
-      "@type": "top:Task",
-      "comment": "The task of describing how climate hazards impact the organisation's activities.",
-      "label": "Climate hazard impact description",
-      "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideDecisionContextInformation"
     },
     {
       "@id": "wf:ClimateInformationCommunication",
@@ -188,241 +388,6 @@
       "label": "Climate information communication",
       "directlyFollows": "wf:SendClimateInformation",
       "isTaskOf": "wf:InformationRequester"
-    },
-    {
-      "@id": "wf:ClimateInformationRequestGoalDefinition",
-      "@type": "top:Task",
-      "comment": "The task of defining the goal of the climate information request.",
-      "label": "Climate information request goal definition",
-      "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideBackgroundInformation",
-      "hasOutputRole": "wf:Goal"
-    },
-    {
-      "@id": "wf:ClimateModelEvaluation",
-      "@type": "top:Task",
-      "comment": "The task of evaluating the climate model.",
-      "label": "Climate model evaluation",
-      "directlyFollows": "wf:DataSelection",
-      "directlyPrecedes": "wf:ClimateModelSelection",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationPreparation"
-    },
-    {
-      "@id": "wf:ClimateModelSelection",
-      "@type": "top:Task",
-      "comment": "The task of selecing the climate model.",
-      "label": "Climate model selection",
-      "directlyFollows": "wf:ClimateModelEvaluation",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationPreparation",
-      "hasOutputRole": "wf:SelectedClimateModel"
-    },
-    {
-      "@id": "wf:ClimateQuestionDescription",
-      "@type": "top:Task",
-      "comment": "The task of describing climate questions.",
-      "label": "Climate question description",
-      "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideDecisionContextInformation",
-      "hasInputRole": "wf:RelevantHazardType",
-      "hasOutputRole": "wf:RelevantClimateQuestion"
-    },
-    {
-      "@id": "wf:ClimateRiskFramingSpecification",
-      "@type": "top:Task",
-      "comment": "The task of specifying the climate risk framing.",
-      "label": "Climate risk framing specification",
-      "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideDecisionContextInformation"
-    },
-    {
-      "@id": "wf:CustomerNeedDefinition",
-      "@type": "top:Task",
-      "comment": "The task of defining the customer needs (identifying climate-related challenges faced by the organisation.)",
-      "label": "Customer need definition",
-      "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideBackgroundInformation",
-      "hasOutputRole": "wf:CustomerNeed"
-    },
-    {
-      "@id": "wf:DataPreprocessingApplication",
-      "@type": "top:Task",
-      "comment": "The task of applying data preprocessing methods for the analysis of the climate information.",
-      "label": "Data preprocessing application",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "toBeAssociatedWithARole": true
-    },
-    {
-      "@id": "wf:DataSelection",
-      "@type": "top:Task",
-      "comment": "The task of selecting the data.",
-      "label": "Data selection",
-      "directlyFollows": "wf:EmissionScenarioDefinition",
-      "directlyPrecedes": "wf:ClimateModelEvaluation",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationPreparation",
-      "hasOutputRole": "wf:SelectedDataset"
-    },
-    {
-      "@id": "wf:DecisionContextSpecification",
-      "@type": "top:Task",
-      "label": "Decision context specification",
-      "comment": "The task of listing decisions or actions that would benefit from better climate information.",
-      "isTaskOf": [
-        "wf:CaseCreator",
-        "wf:InformationRequester"
-      ],
-      "isPartOf": "wf:ProvideDecisionContextInformation"
-    },
-    {
-      "@id": "wf:EmissionScenarioDefinition",
-      "@type": "top:Task",
-      "comment": "The task of defining the emission scenarios.",
-      "label": "Emission scenario definition",
-      "directlyFollows": "wf:MetricAndVariableIdentification",
-      "directlyPrecedes": "wf:DataSelection",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationPreparation",
-      "hasOutputRole": "wf:SelectedEmissionScenario"
-    },
-    {
-      "@id": "wf:ExternalExpertiseSearch",
-      "@type": "top:Task",
-      "label": "External expertise search",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:AdditionalInformationSearch"
-    },
-    {
-      "@id": "wf:FuturePeriodChoice",
-      "@type": "top:Task",
-      "comment": "The task of choosing the future period.",
-      "label": "Future period choice",
-      "directlyFollows": "wf:BaselineChoice",
-      "directlyPrecedes": "wf:ClimateChangeQuantificationApplication",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "hasOutputRole": "wf:SelectedFutureInterval"
-    },
-    {
-      "@id": "wf:HazardIdentification",
-      "@type": "top:Task",
-      "comment": "The task of identifying hazards.",
-      "label": "Hazard identification",
-      "isTaskOf": [
-        "wf:CaseSolver",
-        "wf:InformationRequester"
-      ],
-      "isPartOf": "wf:ProvideDecisionContextInformation",
-      "hasOutputRole": "wf:RelevantHazardType"
-    },
-    {
-      "@id": "wf:InformationOnExposureIdentification",
-      "@type": "top:Task",
-      "comment": "The task of identifying information on exposure.",
-      "label": "Information on exposure identification",
-      "isTaskOf": [
-        "wf:CaseCreator",
-        "wf:InformationRequester"
-      ],
-      "isPartOf": "wf:ProvideDecisionContextInformation"
-    },
-    {
-      "@id": "wf:MetricAndVariableIdentification",
-      "@type": "top:Task",
-      "comment": "The task of identifying metrics and variables.",
-      "label": "Metric and variable identification",
-      "directlyPrecedes": "wf:EmissionScenarioDefinition",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationPreparation",
-      "hasOutputRole": "wf:SelectedVariable"
-    },
-    {
-      "@id": "wf:ObservationAnalysis",
-      "@type": "top:Task",
-      "label": "Observation analysis",
-      "isTaskOf": [
-        "wf:CaseCreator",
-        "wf:InformationRequester"
-      ],
-      "isPartOf": "wf:ProvideDecisionContextInformation"
-    },
-    {
-      "@id": "wf:OrganisationInformationDescription",
-      "@type": "top:Task",
-      "comment": "The task of describing organisation information.",
-      "label": "Organisation information description",
-      "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideBackgroundInformation"
-    },
-    {
-      "@id": "wf:PerformLiteratureReview",
-      "@type": "top:Task",
-      "label": "Perform literature review",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:AdditionalInformationSearch"
-    },
-    {
-      "@id": "wf:PlanningTimeScalesDefinition",
-      "@type": "top:Task",
-      "comment": "The task of defining planning time scales.",
-      "label": "Planning time scales definition",
-      "isTaskOf": [
-        "wf:CaseCreator",
-        "wf:InformationRequester"
-      ],
-      "isPartOf": "wf:ProvideDecisionContextInformation",
-      "toBeAssociatedWithARole": true
-    },
-    {
-      "@id": "wf:RiskToleranceRating",
-      "@type": "top:Task",
-      "comment": "The task of rating the risk tolerance.",
-      "label": "Risk tolerance rating",
-      "isTaskOf": "wf:InformationRequester",
-      "isPartOf": "wf:ProvideDecisionContextInformation",
-      "hasOutputRole": "wf:RiskToleranceRatingOutput"
-    },
-    {
-      "@id": "wf:SpatialDownscalingApplication",
-      "@type": "top:Task",
-      "comment": "The task of applying spatial downscaling methods for the analysis of the climate information.",
-      "label": "Spatial downscaling application",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "toBeAssociatedWithARole": true
-    },
-    {
-      "@id": "wf:SpatialRegionIndication",
-      "@type": "top:Task",
-      "comment": "The task of indicating the spatial region of interest.",
-      "label": "Spatial region indication",
-      "isTaskOf": [
-        "wf:CaseCreator",
-        "wf:InformationRequester"
-      ],
-      "isPartOf": "wf:ProvideDecisionContextInformation",
-      "hasOutputRole": "wf:SelectedGeodeticRegion"
-    },
-    {
-      "@id": "wf:StatisticalAnalysisApplication",
-      "@type": "top:Task",
-      "comment": "The task of applying statistical methods for the analysis of the climate information.",
-      "label": "Statistical analysis application",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "toBeAssociatedWithARole": true
-    },
-    {
-      "@id": "wf:UncertaintyQuantificationApplication",
-      "@type": "top:Task",
-      "comment": "The task of applying uncertainty quantification",
-      "label": "Uncertainty quantification application",
-      "directlyFollows": "wf:ClimateChangeQuantificationApplication",
-      "isTaskOf": "wf:CaseSolver",
-      "isPartOf": "wf:ClimateInformationAnalysis",
-      "toBeAssociatedWithARole": true
     }
   ],
   "roles": [
