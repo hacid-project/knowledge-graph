@@ -18,6 +18,11 @@ WHERE {
     }
     ?property rdfs:subPropertyOf+ ?superProperty.
     ?superProperty rdfs:label ?label.
+  	FILTER NOT EXISTS {
+      GRAPH ?g {
+          ?s ?superProperty ?o
+      }
+    }
 };
 
 INSERT {
@@ -31,6 +36,11 @@ WHERE {
     }
     ?property rdfs:subPropertyOf*/rdfs:domain ?domain.
     ?domain rdfs:label ?label.
+  	FILTER NOT EXISTS {
+        GRAPH ?g {
+            ?s a ?domain
+        }
+    }
 };
 
 INSERT {
@@ -44,6 +54,11 @@ WHERE {
     }
     ?property rdfs:subPropertyOf*/rdfs:range ?range.
     ?range rdfs:label ?label.
+  	FILTER NOT EXISTS {
+        GRAPH ?g {
+            ?o a ?range
+        }
+    }
 };
 
 INSERT {
@@ -61,6 +76,11 @@ WHERE {
         owl:allValuesFrom ?range
     ].
     ?range rdfs:label ?label.
+  	FILTER NOT EXISTS {
+        GRAPH ?g {
+            ?o a ?range
+        }
+    }
 };
 
 INSERT {
@@ -78,6 +98,11 @@ WHERE {
         owl:hasSelf true
     ].
     ?class rdfs:label ?label.
+  	FILTER NOT EXISTS {
+        GRAPH ?g {
+            ?s ?property ?s
+        }
+    }
 };
 
 INSERT {
@@ -91,5 +116,10 @@ WHERE {
     }
     ?class rdfs:subClassOf+ ?superClass.
     ?superClass rdfs:label ?label.
+  	FILTER NOT EXISTS {
+        GRAPH ?g {
+            ?s a ?superClass
+        }
+    }
 };
 

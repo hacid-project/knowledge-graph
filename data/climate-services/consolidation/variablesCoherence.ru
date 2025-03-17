@@ -8,11 +8,11 @@ PREFIX time: <https://w3id.org/hacid/data/cs/metric-space/time/>
 
 INSERT {
     GRAPH ?g {
-        ?depVar data:isSpecializedAccordingTo [
+        ?depVar data:isSpecializedAccordingTo ?specialization.
+        ?specialization
             a data:VariableSpecialization;
             data:isSpecializationOn ?indepVarGeneralized;
             data:isSelectedRegion ?boundingRegion
-        ]
     }
 }
 WHERE {
@@ -24,6 +24,12 @@ WHERE {
     FILTER NOT EXISTS {
         ?indepVarGeneralized data:hasValuesOn/data:hasBoundingRegion ?boundingRegion.
     }
+    FILTER NOT EXISTS {
+        GRAPH ?g {
+            ?depVar data:isSpecializedAccordingTo/data:isSpecializationOn ?indepVarGeneralized
+        }
+    }
+    BIND(CONCAT(STR(?indepVarGeneralized),'/specialization/', ENCODE_FOR_URI(STR(?boundingRegion))) AS ?specialization)
 };
 
 INSERT {
@@ -36,4 +42,9 @@ WHERE {
         ?parentVar top:hasPart ?childVar.
     }
     ?parentVar data:isSpecializedAccordingTo ?parentVarSpecialization
+    FILTER NOT EXISTS {
+        GRAPH ?g {
+            ?childVar data:isSpecializedAccordingTo ?parentVarSpecialization
+        }
+    }
 };
