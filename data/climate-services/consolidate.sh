@@ -10,7 +10,8 @@ tail -n +2 $UPDATES_CSV_PATH | awk -F "," '{
             system("ls -l " $1 " | awk '\''{ print $9 }'\''")
         }
     }' | awk -F "," '{
-        system("tdb2.tdbupdate --tdb '$TDB2_CONF_PATH' --update " $1)
+        print("Running " $1 " ...");
+        system("tdb2.tdbupdate --tdb '$TDB2_CONF_PATH' --update " $1);
     }'
 
 brew services start fuseki
