@@ -1,11 +1,4 @@
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX ccso: <https://w3id.org/hacid/onto/ccso/>
-PREFIX data: <https://w3id.org/hacid/onto/data/>
 PREFIX top: <https://w3id.org/hacid/onto/top-level/> 
-PREFIX dimension: <https://w3id.org/hacid/data/cs/dimension/>
-PREFIX time: <https://w3id.org/hacid/data/cs/metric-space/time/>
 PREFIX wf: <https://w3id.org/hacid/data/cs/wf/>
 
 # Return all climate cases (executions of the climate process wf) in the KG
@@ -15,4 +8,3 @@ WHERE {
     ?case a top:WorkflowExecution;
     top:satisfies wf:ClimateProcessWorkflow
 }
-LIMIT 100
