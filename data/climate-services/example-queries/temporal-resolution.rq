@@ -1,0 +1,17 @@
+PREFIX ccso: <https://w3id.org/hacid/onto/ccso/>
+PREFIX data: <https://w3id.org/hacid/onto/data/>
+PREFIX dimension: <https://w3id.org/hacid/data/cs/dimension/>
+
+# Get temporal resolutions for simulations
+
+SELECT DISTINCT ?simulation ?temporalDiscretization ?temporalResolution ?temporalPeriod
+WHERE {
+    ?simulation a ccso:Simulation;
+        ccso:hasOutput/data:dependsOnVariable ?temporalVariable.
+    ?temporalVariable
+        data:holdsSpecializationOfVariable* dimension:time;
+        data:hasDiscretization ?temporalDiscretization.
+    OPTIONAL {?temporalDiscretization data:hasResolutionValue ?temporalResolution}
+    OPTIONAL {?temporalDiscretization data:hasPeriodValue ?temporalPeriod}
+}
+LIMIT 100

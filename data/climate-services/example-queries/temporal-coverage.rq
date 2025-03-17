@@ -1,0 +1,15 @@
+PREFIX ccso: <https://w3id.org/hacid/onto/ccso/>
+PREFIX data: <https://w3id.org/hacid/onto/data/>
+PREFIX dimension: <https://w3id.org/hacid/data/cs/dimension/>
+
+# Get temporal coverage for simulations
+
+SELECT *
+WHERE {
+    ?simulation a ccso:Simulation;
+        ccso:hasOutput/data:isSpecializedAccordingTo [
+            data:isSpecializationOn/data:holdsSpecializationOf* dimension:time;
+            data:isSelectedRegion ?timeInterval
+        ]
+}
+LIMIT 100

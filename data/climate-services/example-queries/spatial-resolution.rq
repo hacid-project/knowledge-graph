@@ -1,0 +1,17 @@
+PREFIX ccso: <https://w3id.org/hacid/onto/ccso/>
+PREFIX data: <https://w3id.org/hacid/onto/data/>
+PREFIX dimension: <https://w3id.org/hacid/data/cs/dimension/>
+
+# Get geodetic (spatial) resolutions for simulations
+
+SELECT DISTINCT ?simulation ?geodeticDiscretization ?geodeticResolution ?geodeticPeriod
+WHERE {
+    ?simulation a ccso:Simulation;
+        ccso:hasOutput/data:dependsOnVariable ?geodeticVariable.
+    ?geodeticVariable
+        data:holdsSpecializationOfVariable* dimension:geodetic;
+        data:hasDiscretization ?geodeticDiscretization.
+    OPTIONAL {?geodeticDiscretization data:hasResolutionValue ?geodeticResolution}
+    OPTIONAL {?geodeticDiscretization data:hasPeriodValue ?geodeticPeriod}
+}
+LIMIT 100
