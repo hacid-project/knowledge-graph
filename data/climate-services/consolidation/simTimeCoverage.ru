@@ -11,7 +11,8 @@ INSERT {
         ?simulationOutput data:dependsOnVariable ?simulationTemporalGrid.
         ?simulationTemporalGrid
             data:basedOnDimensionalSpace dimension:time, time:gregorian;
-            data:hasExactBoundingRegion ?simulationTemporalRegion.
+            data:hasExactBoundingRegion ?simulationTemporalRegion;
+            data:hasDiscretization ?simulationQuantization.
         ?simulationTemporalRegion
             rdfs:label ?simulationTemporalRegionLabel ;
             rdfs:comment ?simulationTemporalRegionComment ;
@@ -52,6 +53,11 @@ WHERE {
                     (data:PeriodicRegularGrid 'periodic')
                     (data:ConstantDimensionalSpace 'constant')
                 }.
+            }
+            FILTER NOT EXISTS {
+                GRAPH ?simulationGraph {
+                    ?simulationOutput data:dependsOnVariable/data:hasExactBoundingRegion ?simulationTemporalRegion
+                }
             }
         }
         GROUP BY ?simulationGraph ?simulationOutput
