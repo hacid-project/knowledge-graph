@@ -29,7 +29,7 @@ WHERE {
             ?depVar data:isSpecializedAccordingTo/data:isSpecializationOn ?indepVarGeneralized
         }
     }
-    BIND(CONCAT(STR(?indepVarGeneralized),'/specialization/', ENCODE_FOR_URI(STR(?boundingRegion))) AS ?specialization)
+    BIND(IRI(CONCAT(STR(?indepVarGeneralized),'/specialization/', ENCODE_FOR_URI(STR(?boundingRegion)))) AS ?specialization)
 };
 
 INSERT {
