@@ -13,7 +13,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:agent="https://w3id.org/hacid/data/agent/"
      xmlns:terms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/ccso/">
+    <owl:Ontology rdf:about="https://w3id.org/hacid/onto/ccso">
         <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/ccso/2.0/"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/core/data"/>
