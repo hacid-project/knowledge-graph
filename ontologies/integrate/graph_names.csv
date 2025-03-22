@@ -1,0 +1,6 @@
+path,graph-name,skip-import,skip-export
+integrate/default.ttl,,n,y
+top-level/top-level.owl,https://w3id.org/hacid/onto/top-level,n,n
+data/data.owl,https://w3id.org/hacid/onto/data,n,n
+ccso/ccso.owl,https://w3id.org/hacid/onto/ccso,n,n
+climate-services/external-ontologies/DUL.owl,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl,n,y

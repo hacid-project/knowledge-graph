@@ -1,0 +1,23 @@
+PREFIX irao:    <http://ontology.ethereal.cz/irao>
+PREFIX vann:    <http://purl.org/vocab/vann>
+PREFIX owl:	    <http://www.w3.org/2002/07/owl>
+PREFIX odp:     <https://w3id.org/odp/onto/>
+PREFIX status:  <https://w3id.org/odp/data/status/>
+
+<https://w3id.org/hacid/onto/top-level> a owl:Ontology;
+    odp:hasStatus status:draft;
+    vann:preferredNamespaceUri 'https://w3id.org/hacid/onto/top-level/';
+    odp:includesPartOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl>.
+
+<https://w3id.org/hacid/onto/data> a owl:Ontology;
+    odp:hasStatus status:draft;
+    vann:preferredNamespaceUri 'https://w3id.org/hacid/onto/data/'.
+
+<https://w3id.org/hacid/onto/ccso> a owl:Ontology;
+    odp:hasStatus status:draft;
+    vann:preferredNamespaceUri 'https://w3id.org/hacid/onto/ccso/'.
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> a owl:Ontology;
+    odp:hasStatus status:final;
+    vann:preferredNamespaceUri 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#'.
+

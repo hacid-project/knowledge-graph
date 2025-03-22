@@ -1,0 +1,15 @@
+PREFIX irao:    <http://ontology.ethereal.cz/irao>
+PREFIX vann:    <http://purl.org/vocab/vann>
+PREFIX owl:	    <http://www.w3.org/2002/07/owl>
+PREFIX odp:     <https://w3id.org/odp/onto/>
+PREFIX status:  <https://w3id.org/odp/data/status/>
+
+SELECT *
+WHERE {
+    ?ontology a owl:Ontology;
+        odp:hasStatus status:draft;
+        vann:preferredNamespaceUri ?ns.
+    GRAPH ?ontology {
+
+    }
+}
