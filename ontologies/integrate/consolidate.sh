@@ -2,7 +2,7 @@
 
 BASE_PATH=integrate/
 UPDATES_CSV_PATH="consolidation_updates.csv"
-TDB2_CONF_PATH="/opt/homebrew/var/fuseki/configuration/hacid-test.ttl"
+TDB2_CONF_PATH="/opt/homebrew/var/fuseki/configuration/hacid-onto-integrate.ttl"
 
 brew services stop fuseki
 
