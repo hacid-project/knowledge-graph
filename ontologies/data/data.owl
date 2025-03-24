@@ -978,6 +978,14 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/GeodeticPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/GeodeticPoint">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/GeodeticRegion -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/GeodeticRegion">
@@ -997,6 +1005,14 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">A variable that is indepedent (not dependent from other variables) in the given context of use.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Independent Variable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/IntervalSampling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/IntervalSampling">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
     </owl:Class>
     
 

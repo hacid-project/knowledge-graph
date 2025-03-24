@@ -146,7 +146,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasOutput">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/DataGeneratingProcess"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/core/data#Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data#Dataset"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">has output</rdfs:label>
     </owl:ObjectProperty>
@@ -284,7 +284,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isOutputOf">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/data#Dataset"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data#Dataset"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/DataGeneratingProcess"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">is output of</rdfs:label>
@@ -789,9 +789,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/core/data#Dataset -->
+    <!-- https://w3id.org/hacid/onto/data#Dataset -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/data#Dataset"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data#Dataset"/>
     
 
 

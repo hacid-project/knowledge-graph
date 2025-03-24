@@ -462,6 +462,14 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/hasOutput -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasOutput">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/hasOutputRole -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasOutputRole">
@@ -694,6 +702,28 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">ha valore</rdfs:label>
         <rdfs:label xml:lang="en">has value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/includesEvent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/includesEvent">
+        <rdfs:comment xml:lang="en">A relation between situations and events, e.g. 'this morning I've prepared my coffee and had my fingers burnt' (i.e.: the preparation of my coffee this morning included a burning of my fingers).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">include l'evento</rdfs:label>
+        <rdfs:label xml:lang="en">includes event</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/includesObject -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/includesObject">
+        <rdfs:comment xml:lang="en">A relation between situations and objects, e.g. 'this morning I've prepared my coffee and had my fingers burnt' (i.e.: the preparation of my coffee this morning included me).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">include l'oggetto</rdfs:label>
+        <rdfs:label xml:lang="en">includes object</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1795,6 +1825,17 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">Entità formale astratta</rdfs:label>
         <rdfs:label xml:lang="en">Formal entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Goal -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Goal">
+        <rdfs:comment xml:lang="en">The Description of a Situation that is desired by an Agent, and usually associated to a Plan that describes how to actually achieve it</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Goal</rdfs:label>
+        <rdfs:label xml:lang="it">Scopo</rdfs:label>
     </owl:Class>
     
 
