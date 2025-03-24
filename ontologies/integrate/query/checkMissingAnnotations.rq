@@ -1,0 +1,22 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:	    <http://www.w3.org/2002/07/owl>
+PREFIX odp:     <https://w3id.org/odp/onto/>
+PREFIX status:  <https://w3id.org/odp/data/status/>
+
+SELECT *
+WHERE {
+    ?ontology a owl:Ontology;
+        odp:hasStatus status:draft.
+    GRAPH ?ontology {
+        ?term rdfs:isDefinedBy ?ontology
+    }
+    FILTER NOT EXISTS {
+        GRAPH ?ontology {
+            ?term ?annotationProperty []
+        }
+    }
+    VALUES ?annotationProperty {
+        rdfs:label rdfs:comment 
+    }
+}
