@@ -1,0 +1,43 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:	    <http://www.w3.org/2002/07/owl>
+PREFIX irao:    <http://ontology.ethereal.cz/irao>
+PREFIX vann:    <http://purl.org/vocab/vann>
+PREFIX odp:     <https://w3id.org/odp/onto/>
+PREFIX status:  <https://w3id.org/odp/data/status/>
+
+INSERT {
+    GRAPH ?targetOntology {
+        ?targetTerm ?annotationProperty ?sourceAnnotationWithLang
+    }
+}
+WHERE {
+    ?targetOntology a owl:Ontology;
+        odp:hasStatus status:draft;
+        vann:preferredNamespaceUri ?targetNs;
+        odp:includesPartOf ?sourceOntology.
+    ?sourceOntology a owl:Ontology;
+        vann:preferredNamespaceUri ?sourceNs.
+    GRAPH ?targetOntology {
+        ?targetTerm rdfs:isDefinedBy ?targetOntology
+    }
+    GRAPH ?sourceOntology {
+        ?sourceTerm rdfs:isDefinedBy ?sourceOntology;
+            ?annotationProperty ?sourceAnnotation.
+    }
+    BIND(SUBSTR(STR(?targetTerm), STRLEN(?targetNs) + 1) AS ?termLocalName)
+    FILTER(?termLocalName = SUBSTR(STR(?sourceTerm), STRLEN(?sourceNs) + 1)) 
+    VALUES ?annotationProperty {
+        rdfs:label rdfs:comment 
+    }
+    BIND(LANG(?sourceAnnotation) AS ?baseSourceAnnotationLang)
+    BIND(IF(STRLEN(?baseSourceAnnotationLang) > 0, ?baseSourceAnnotationLang, 'en') AS ?sourceAnnotationLang)
+    FILTER NOT EXISTS {
+        GRAPH ?targetOntology {
+            ?targetTerm ?annotationProperty ?targetAnnotation
+            FILTER(LANG(?targetAnnotation) = ?sourceAnnotationLang)
+        }
+    }
+    BIND(STRLANG(STR(?sourceAnnotation), ?sourceAnnotationLang) AS ?sourceAnnotationWithLang)
+};
+
