@@ -1,6 +1,7 @@
 path,graph-name,skip
-../../ontologies/data/data.owl,https://w3id.org/hacid/onto/ccso,n
+../../ontologies/data/data.owl,https://w3id.org/hacid/onto/data,n
 ../../ontologies/ccso/ccso.owl,https://w3id.org/hacid/onto/ccso,n
+../../ontologies/top-level/top-level.owl,https://w3id.org/hacid/onto/top-level,n
 data-sources/common-spacetime.ttl,https://w3id.org/hacid/data/cs,n
 data-sources/activities/rdf/data.ttl,https://w3id.org/hacid/data/cs/cmip6/cvs,n
 data-sources/experiments/rdf/data.ttl,https://w3id.org/hacid/data/cs/cmip6/cvs,y
