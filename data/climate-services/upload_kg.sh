@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 MAP_FILE_PATH="graph_names.csv"
-TDB2_CONF_PATH="/opt/homebrew/var/fuseki/configuration/hacid-test.ttl"
+TDB2_CONF_PATH="/opt/homebrew/var/fuseki/configuration/hacid-kg-integrate.ttl"
 
 brew services stop fuseki
 
