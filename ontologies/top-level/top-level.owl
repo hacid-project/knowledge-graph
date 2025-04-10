@@ -226,6 +226,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">has assigned role</rdfs:label>
+        <rdfs:comment xml:lang="en">Associates the assignment with the assigned role.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -239,6 +240,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">has assignee object</rdfs:label>
+        <rdfs:comment xml:lang="en">Associates the assignment with the object to which the corresponding role is assigned.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -466,6 +468,10 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasOutput">
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Action"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+        <rdfs:label xml:lang="en">has output</rdfs:label>
+        <rdfs:comment xml:lang="en">Associates an action with a produced object. The object typically fulfills one the output roles of the executed task.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -753,6 +759,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">is assigned role in</rdfs:label>
+        <rdfs:comment xml:lang="en">Associates a role with an assignment of that role.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -765,6 +772,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/ObjectRoleAssignment"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">is assignee object in</rdfs:label>
+        <rdfs:comment xml:lang="en">Associates an object with an assignment of some role to such object.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -1963,6 +1971,7 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Object role assignement</rdfs:label>
+        <rdfs:comment xml:lang="en">The assignement of an object to a role contextualized to a specific situation.</rdfs:comment>
     </owl:Class>
     
 
@@ -2274,6 +2283,8 @@ For example, reaching a destination could be defined by a plan to get on holiday
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">Esecuzione di workflow</rdfs:label>
         <rdfs:label xml:lang="en">Workflow execution</rdfs:label>
+        <rdfs:comment xml:lang="en">The execution of a workflow, i.e. a situation that satisfies a workflow.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
     </owl:Class>
     
 
@@ -2289,6 +2300,7 @@ For example, reaching a destination could be defined by a plan to get on holiday
                 <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/WorkflowExecution"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A role of a workflow, also a property with WorkflowExecution as domain, to enable the concise representation of objects assigned to the role.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Workflow role</rdfs:label>
     </owl:Class>

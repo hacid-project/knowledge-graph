@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dul 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#'>
+    <!ENTITY owl 'http://www.w3.org/2002/07/owl#'>
+    <!ENTITY owl2xml 'http://www.w3.org/2006/12/owl2-xml#'>
+    <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+    <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+    <!ENTITY xsd 'http://www.w3.org/2001/XMLSchema#'>
+]>
+
+<rdf:RDF
+    xml:base="http://www.ontologydesignpatterns.org/ont/dul/PlansLite.owl"
+    xmlns="http://www.ontologydesignpatterns.org/ont/dul/PlansLite.owl#"
+    xmlns:PlansLite="http://www.ontologydesignpatterns.org/ont/dul/PlansLite.owl#"
+    xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Imports: DOLCE Ultralite</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[The Plan Ontology with a lite axiomatization. OWL engineering by Aldo Gangemi.
+Most workflow patterns are captured by the task notions introduced in this ontology. Several other notions relevant for plan modelling, assessment and creation are also introduced.]]></rdfs:comment>
+    <owl:versionInfo rdf:datatype="&xsd;string"><![CDATA[1.1 added English labels.
+1.2 changed name of CircumstantialPlan to GroundedPlan, as common in planning domain.]]></owl:versionInfo>
+    <owl:versionInfo rdf:datatype="&xsd;string">1.2</owl:versionInfo>
+</owl:Ontology>
+
+<owl:Class rdf:about="#DeliberationTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyFollows"/>
+            <owl:someValuesFrom rdf:resource="#CaseTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;isExecutedIn"/>
+            <owl:allValuesFrom rdf:resource="#DecisionState"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ControlTask"/>
+    <owl:disjointWith rdf:resource="#SynchroTask"/>
+    <owl:disjointWith rdf:resource="#LoopTask"/>
+    <owl:disjointWith rdf:resource="#EndingTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AbortionTask">
+    <rdfs:subClassOf rdf:resource="#EndingTask"/>
+    <owl:disjointWith rdf:resource="#SuspensionTask"/>
+    <owl:disjointWith rdf:resource="#CompletionTask"/>
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="#isOutputOf">
+    <owl:inverseOf rdf:resource="#hasOutput"/>
+    <rdfs:subPropertyOf rdf:resource="&dul;isParticipantIn"/>
+    <rdfs:domain rdf:resource="&dul;Object"/>
+    <rdfs:range rdf:resource="&dul;Event"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#PartlyCaseTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;precedes"/>
+            <owl:someValuesFrom rdf:resource="#SynchroTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#CaseTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#BranchingTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MaximalTask">
+    <rdfs:subClassOf rdf:resource="#ComplexTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AbstractPlan">
+    <rdfs:subClassOf rdf:resource="&dul;Plan"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ActionTask">
+    <rdfs:subClassOf rdf:resource="#ElementaryTask"/>
+    <owl:disjointWith rdf:resource="#ControlTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CaseTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#DeliberationTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#BranchingTask"/>
+    <owl:disjointWith rdf:resource="#PartlyCaseTask"/>
+    <owl:disjointWith rdf:resource="#ConcurrencyTask"/>
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="#isMainGoalIn">
+    <rdfs:subPropertyOf rdf:resource="&dul;isComponentOf"/>
+    <rdfs:domain rdf:resource="&dul;Goal"/>
+    <rdfs:range rdf:resource="&dul;Plan"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#ConcurrencyTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;precedes"/>
+            <owl:someValuesFrom rdf:resource="#SynchroTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#BranchingTask"/>
+    <owl:disjointWith rdf:resource="#PartlyCaseTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RejectionTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;isExecutedIn"/>
+            <owl:allValuesFrom rdf:resource="#DecisionActivity"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanAssessmentTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GoalSituation">
+    <rdfs:subClassOf rdf:resource="&dul;Situation"/>
+    <owl:equivalentClass>
+        <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="&dul;Situation"/>
+                <owl:Restriction>
+                    <owl:onProperty rdf:resource="&dul;satisfies"/>
+                    <owl:someValuesFrom rdf:resource="&dul;Goal"/>
+                </owl:Restriction>
+            </owl:intersectionOf>
+        </owl:Class>
+    </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#MergingTask">
+    <rdfs:subClassOf rdf:resource="#ControlTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SequentialTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;hasComponent"/>
+            <owl:someValuesFrom rdf:resource="#ActionTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;hasComponent"/>
+            <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;hasComponent"/>
+            <owl:allValuesFrom>
+                <owl:Class>
+                    <owl:complementOf>
+                        <owl:Class rdf:about="#ControlTask"/>
+                    </owl:complementOf>
+                </owl:Class>
+            </owl:allValuesFrom>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ComplexTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LoopFor">
+    <rdfs:subClassOf rdf:resource="#LoopTask"/>
+    <owl:disjointWith rdf:resource="#LoopUntil"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CompletionTask">
+    <rdfs:subClassOf rdf:resource="#EndingTask"/>
+    <owl:disjointWith rdf:resource="#SuspensionTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AlternateTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#CaseTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PreparednessTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#ReadinessTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanAssessmentTask"/>
+    <owl:disjointWith rdf:resource="#RejectionTask"/>
+    <owl:disjointWith rdf:resource="#ReadinessTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SuspensionTask">
+    <rdfs:subClassOf rdf:resource="#EndingTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AnyOrderTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#SynchroTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#BranchingTask"/>
+    <owl:disjointWith rdf:resource="#PartlyCaseTask"/>
+    <owl:disjointWith rdf:resource="#ConcurrencyTask"/>
+    <owl:disjointWith rdf:resource="#CaseTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConsiderednessTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom>
+                <owl:Class>
+                    <owl:unionOf rdf:parseType="Collection">
+                        <owl:Class rdf:about="#AcceptationTask"/>
+                        <owl:Class rdf:about="#RejectionTask"/>
+                    </owl:unionOf>
+                </owl:Class>
+            </owl:someValuesFrom>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;isExecutedIn"/>
+            <owl:allValuesFrom rdf:resource="#DecisionActivity"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanAssessmentTask"/>
+    <owl:disjointWith rdf:resource="#RejectionTask"/>
+    <owl:disjointWith rdf:resource="#ReadinessTask"/>
+    <owl:disjointWith rdf:resource="#PreparednessTask"/>
+    <owl:disjointWith rdf:resource="#PossibilityTask"/>
+    <owl:disjointWith rdf:resource="#DecidednessTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PossibilityTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#ConsiderednessTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanAssessmentTask"/>
+    <owl:disjointWith rdf:resource="#RejectionTask"/>
+    <owl:disjointWith rdf:resource="#ReadinessTask"/>
+    <owl:disjointWith rdf:resource="#PreparednessTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlanningActivity">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;isDescribedBy"/>
+            <owl:someValuesFrom rdf:resource="#PlanningAsTechnique"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#hasOutput"/>
+            <owl:allValuesFrom rdf:resource="&dul;Plan"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="&dul;Action"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SynchroTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;follows"/>
+            <owl:someValuesFrom>
+                <owl:Class>
+                    <owl:unionOf rdf:parseType="Collection">
+                        <owl:Class rdf:about="#AnyOrderTask"/>
+                        <owl:Class rdf:about="#ConcurrencyTask"/>
+                        <owl:Class rdf:about="#PartlyCaseTask"/>
+                    </owl:unionOf>
+                </owl:Class>
+            </owl:someValuesFrom>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#MergingTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LoopUntil">
+    <rdfs:subClassOf rdf:resource="#LoopTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlanAssessmentTask">
+    <rdfs:subClassOf rdf:resource="#ControlTask"/>
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="#hasOutput">
+    <rdfs:subPropertyOf rdf:resource="&dul;hasParticipant"/>
+    <rdfs:domain rdf:resource="&dul;Event"/>
+    <rdfs:range rdf:resource="&dul;Object"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#ReadinessTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#ActivationTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanAssessmentTask"/>
+    <owl:disjointWith rdf:resource="#RejectionTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ReactivationTask">
+    <rdfs:subClassOf rdf:resource="#ActivationTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BagTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;hasComponent"/>
+            <owl:allValuesFrom>
+                <owl:Class>
+                    <owl:complementOf>
+                        <owl:Class rdf:about="#ControlTask"/>
+                    </owl:complementOf>
+                </owl:Class>
+            </owl:allValuesFrom>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ComplexTask"/>
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="#hasInput">
+    <rdfs:subPropertyOf rdf:resource="&dul;hasParticipant"/>
+    <rdfs:domain rdf:resource="&dul;Event"/>
+    <rdfs:range rdf:resource="&dul;Object"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#TemporallyBoundTask">
+    <rdfs:subClassOf rdf:resource="#ActionTask"/>
+    <owl:equivalentClass>
+        <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#ActionTask"/>
+                <owl:Restriction>
+                    <owl:onProperty rdf:resource="&dul;hasParameter"/>
+                    <owl:someValuesFrom>
+                        <owl:Class>
+                            <owl:intersectionOf rdf:parseType="Collection">
+                                <owl:Class rdf:about="#TemporalParameter"/>
+                                <owl:Restriction>
+                                    <owl:onProperty rdf:resource="&dul;parametrizes"/>
+                                    <owl:someValuesFrom rdf:resource="&dul;TimeInterval"/>
+                                </owl:Restriction>
+                            </owl:intersectionOf>
+                        </owl:Class>
+                    </owl:someValuesFrom>
+                </owl:Restriction>
+            </owl:intersectionOf>
+        </owl:Class>
+    </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#ActivationTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="&dul;Task"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ControlTask"/>
+    <owl:disjointWith rdf:resource="#SynchroTask"/>
+    <owl:disjointWith rdf:resource="#LoopTask"/>
+    <owl:disjointWith rdf:resource="#DeliberationTask"/>
+    <owl:disjointWith rdf:resource="#BranchingTask"/>
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="#hasMainGoal">
+    <owl:inverseOf rdf:resource="#isMainGoalIn"/>
+    <rdfs:subPropertyOf rdf:resource="&dul;hasComponent"/>
+    <rdfs:domain rdf:resource="&dul;Plan"/>
+    <rdfs:range rdf:resource="&dul;Goal"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#BeginningTask">
+    <rdfs:subClassOf rdf:resource="#ActivationTask"/>
+    <owl:disjointWith rdf:resource="#ReactivationTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DecidednessTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;isExecutedIn"/>
+            <owl:allValuesFrom rdf:resource="#DecisionActivity"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#PreparednessTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanAssessmentTask"/>
+    <owl:disjointWith rdf:resource="#RejectionTask"/>
+    <owl:disjointWith rdf:resource="#ReadinessTask"/>
+    <owl:disjointWith rdf:resource="#PreparednessTask"/>
+    <owl:disjointWith rdf:resource="#PossibilityTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ElementaryTask">
+    <rdfs:subClassOf rdf:resource="&dul;Task"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AbandonmentTask">
+    <rdfs:subClassOf rdf:resource="#EndingTask"/>
+    <owl:disjointWith rdf:resource="#SuspensionTask"/>
+    <owl:disjointWith rdf:resource="#CompletionTask"/>
+    <owl:disjointWith rdf:resource="#AbortionTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ControlTask">
+    <rdfs:subClassOf rdf:resource="#ElementaryTask"/>
+    <owl:equivalentClass>
+        <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#ElementaryTask"/>
+                <owl:Restriction>
+                    <owl:onProperty rdf:resource="&dul;isExecutedIn"/>
+                    <owl:allValuesFrom>
+                        <owl:Class>
+                            <owl:unionOf rdf:parseType="Collection">
+                                <owl:Class rdf:about="#DecisionState"/>
+                                <owl:Class rdf:about="#PlanningActivity"/>
+                            </owl:unionOf>
+                        </owl:Class>
+                    </owl:allValuesFrom>
+                </owl:Restriction>
+            </owl:intersectionOf>
+        </owl:Class>
+    </owl:equivalentClass>
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="#isInputOf">
+    <owl:inverseOf rdf:resource="#hasInput"/>
+    <rdfs:subPropertyOf rdf:resource="&dul;isParticipantIn"/>
+    <rdfs:domain rdf:resource="&dul;Object"/>
+    <rdfs:range rdf:resource="&dul;Event"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#AcceptationTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:someValuesFrom rdf:resource="#DecidednessTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;isExecutedIn"/>
+            <owl:allValuesFrom rdf:resource="#DecisionActivity"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanAssessmentTask"/>
+    <owl:disjointWith rdf:resource="#RejectionTask"/>
+    <owl:disjointWith rdf:resource="#ReadinessTask"/>
+    <owl:disjointWith rdf:resource="#PreparednessTask"/>
+    <owl:disjointWith rdf:resource="#PossibilityTask"/>
+    <owl:disjointWith rdf:resource="#DecidednessTask"/>
+    <owl:disjointWith rdf:resource="#ConsiderednessTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SpatialParameter">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;parametrizes"/>
+            <owl:allValuesFrom rdf:resource="&dul;SpaceRegion"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="&dul;Parameter"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GroundedPlan">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;usesConcept"/>
+            <owl:allValuesFrom>
+                <owl:Class>
+                    <owl:intersectionOf rdf:parseType="Collection">
+                        <owl:Class rdf:about="&dul;Concept"/>
+                        <owl:Restriction>
+                            <owl:onProperty rdf:resource="&dul;classifies"/>
+                            <owl:someValuesFrom rdf:resource="&dul;Entity"/>
+                        </owl:Restriction>
+                    </owl:intersectionOf>
+                </owl:Class>
+            </owl:allValuesFrom>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="&dul;Plan"/>
+</owl:Class>
+
+<owl:DatatypeProperty rdf:about="#hasIterationCardinality">
+    <rdfs:domain rdf:resource="&dul;Task"/>
+    <rdfs:range rdf:resource="&xsd;integer"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#ParallelTask">
+    <rdfs:subClassOf rdf:resource="#ConcurrencyTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EndingTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyFollows"/>
+            <owl:someValuesFrom rdf:resource="&dul;Task"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ControlTask"/>
+    <owl:disjointWith rdf:resource="#SynchroTask"/>
+    <owl:disjointWith rdf:resource="#LoopTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BranchingTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;directlyPrecedes"/>
+            <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;isExecutedIn"/>
+            <owl:allValuesFrom rdf:resource="#PlanningActivity"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ControlTask"/>
+    <owl:disjointWith rdf:resource="#SynchroTask"/>
+    <owl:disjointWith rdf:resource="#LoopTask"/>
+    <owl:disjointWith rdf:resource="#EndingTask"/>
+    <owl:disjointWith rdf:resource="#DeliberationTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DecisionState">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;follows"/>
+            <owl:someValuesFrom rdf:resource="#DecisionActivity"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;executesTask"/>
+            <owl:someValuesFrom rdf:resource="#DeliberationTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanningActivity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DecisionActivity">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;executesTask"/>
+            <owl:someValuesFrom rdf:resource="#CaseTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PlanningActivity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SaturatedPlan">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;usesConcept"/>
+            <owl:someValuesFrom rdf:resource="#TemporallyBoundTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;usesConcept"/>
+            <owl:someValuesFrom rdf:resource="#SpatiallyBoundRole"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="&dul;Plan"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlanningAsTechnique">
+    <rdfs:subClassOf rdf:resource="&dul;Method"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TemporalParameter">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;parametrizes"/>
+            <owl:allValuesFrom rdf:resource="&dul;TimeInterval"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="&dul;Parameter"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LoopTask">
+    <rdfs:subClassOf rdf:resource="#ControlTask"/>
+    <owl:disjointWith rdf:resource="#SynchroTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Schedule">
+    <rdfs:subClassOf rdf:resource="#ComplexTask"/>
+    <owl:equivalentClass>
+        <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#ComplexTask"/>
+                <owl:Restriction>
+                    <owl:onProperty rdf:resource="&dul;hasComponent"/>
+                    <owl:allValuesFrom rdf:resource="#TemporallyBoundTask"/>
+                </owl:Restriction>
+            </owl:intersectionOf>
+        </owl:Class>
+    </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#InformationGathering">
+    <rdfs:subClassOf rdf:resource="&dul;Action"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ComplexTask">
+    <rdfs:subClassOf rdf:resource="&dul;Task"/>
+    <owl:equivalentClass>
+        <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="&dul;Task"/>
+                <owl:Restriction>
+                    <owl:onProperty rdf:resource="&dul;hasComponent"/>
+                    <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+                </owl:Restriction>
+            </owl:intersectionOf>
+        </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#ElementaryTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SpatiallyBoundRole">
+    <rdfs:subClassOf rdf:resource="&dul;Role"/>
+    <owl:equivalentClass>
+        <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="&dul;Role"/>
+                <owl:Restriction>
+                    <owl:onProperty rdf:resource="&dul;hasParameter"/>
+                    <owl:someValuesFrom>
+                        <owl:Class>
+                            <owl:intersectionOf rdf:parseType="Collection">
+                                <owl:Class rdf:about="#SpatialParameter"/>
+                                <owl:Restriction>
+                                    <owl:onProperty rdf:resource="&dul;parametrizes"/>
+                                    <owl:someValuesFrom rdf:resource="&dul;SpaceRegion"/>
+                                </owl:Restriction>
+                            </owl:intersectionOf>
+                        </owl:Class>
+                    </owl:someValuesFrom>
+                </owl:Restriction>
+            </owl:intersectionOf>
+        </owl:Class>
+    </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#AbstractMergingTask">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="&dul;follows"/>
+            <owl:someValuesFrom rdf:resource="#CaseTask"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#MergingTask"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AbandonmentTask">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[A specialization of ending-task, aimed at sequencing events that end a plan execution without having reached its main-goal, and with no intention to resurrect the plan.
+While 'abortion' depends on external causes, 'abandonment' depends on decisions.]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Abandonment task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#AbortionTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A specialization of ending-task, aimed at sequencing events that end a plan execution without having reached its main-goal for a certain time, and can be considered with no chance of resurrecting the original plan execution. While 'abortion' depends on external causes, 'abandonment' depends on decisions.</rdfs:comment>
+    <rdfs:label xml:lang="en">Abortion task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#AbstractMergingTask">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[An abstract merging task is a merging aimed at 'formally' joining the tasks that are direct successor to a case task.
+Differently from synchronization tasks, which are expected to be executed, abstract mergings only provide abstract boundaries to a task structure, because in a case task, only one action task is supposed to be executed.]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Abstract merging task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#AbstractPlan">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[An abstract plan is a plan whose roles and tasks do not classify specific entities. They only specify classes of entities that can be included in a plan execution.
+This condition cannot be formalized in FOL, since we would like to express a condition by which an instance of an abstract plan specifies instances of plan components, but no instances of execution elements, e.g. that 'manager' classifies some (if any) instance of person, but not a specified (named) person.]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Abstract plan</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#AcceptationTask">
+    <rdfs:comment rdf:datatype="&xsd;string">The task sequencing a positive decision to adopt a plan for execution.</rdfs:comment>
+    <rdfs:label xml:lang="en">Acceptation task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ActionTask">
+    <rdfs:comment rdf:datatype="&xsd;string">An action task is an elementary task that sequences non-planning activities, like: moving, exercising forces, gathering information, etc. Planning activites are mental events involving some rational event.</rdfs:comment>
+    <rdfs:label xml:lang="en">Action task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ActivationTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A control task aimed at starting an activity. It is specialized either by a beginning task or a reactivation task.</rdfs:comment>
+    <rdfs:label xml:lang="en">Activation task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#AlternateTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A case task branched to exactly 2 tasks, not executable in  parallel.</rdfs:comment>
+    <rdfs:label xml:lang="en">Alternate task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#AnyOrderTask">
+    <rdfs:comment rdf:datatype="&xsd;string">An any order task is a branching task that defines no order in the successor tasks. Itís another way of defining a bag task, because any temporal relation can be expected between any two perdurants sequenced by the tasks that are direct successor to the any order task.</rdfs:comment>
+    <rdfs:label xml:lang="en">Any order task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#BagTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A bag task is a complex task that does not include either a control task, or a successor relation among any two component tasks.The last condition cannot be stated in OWL-DL, because it needs a coreference.</rdfs:comment>
+    <rdfs:label xml:lang="en">Bag task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#BeginningTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A beginning task is a control task that is the predecessor of all tasks defined in the plan.</rdfs:comment>
+    <rdfs:label xml:lang="en">Beginning task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#BranchingTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A task that articulates the plan into an ordered set of tasks.</rdfs:comment>
+    <rdfs:label xml:lang="en">Branching task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#CaseTask">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[A case task is a task branched to a set of tasks that are not executable concurrently. In order to choose which task has to be undertaken, preliminary deliberation tasks should be executed, possibly based on information-gathering and decision rationales. BTW, the representation of decision making processes is not addressed in this ontology, and only a minimal formalization is provided as follows.
+A case task 'sequences' a decision-activity (a kind of mental event involving rationality) that has a deliberation-state as an outcome (i.e. it is 'sequenced-by' a deliberation-task).]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Case task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#CompletionTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A specialization of ending-task, aimed at sequencing events that end a plan execution having reached its main-goal.</rdfs:comment>
+    <rdfs:label xml:lang="en">Completion task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ComplexTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A task that has at least two other tasks as components.</rdfs:comment>
+    <rdfs:label xml:lang="en">Complex task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ConcurrencyTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A concurrent task is a task branched to a set of tasks executable concurrently -the sequenced perdurants can overlap-, which means that no deliberation task is performed in order to choose among them. A concurrent task has at least one successor synchronization task, which is aimed at waiting for the execution of all -except the optional ones- tasks direct successor to the concurrent -or any order, see below- one.The axioms cannot be expressed fully in OWL-DL (no value mapping available).</rdfs:comment>
+    <rdfs:label xml:lang="en">Concurrency task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ConsiderednessTask">
+    <rdfs:comment rdf:datatype="&xsd;string">The task sequencing a decision activity, aiming at if action has to be taken in order to start a plan execution.</rdfs:comment>
+    <rdfs:label xml:lang="en">Consideredness task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ControlTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A control task is an elementary task that sequences a planning activity, e.g. an activity aimed at (cognitively or via simulation) anticipating other activities. Therefore, control tasks have usually at least one direct successor task (the controlled one), with the exception of ending tasks.The reification of control constructs allows to represent procedural knowledge into the same ontology including controlled action. Besides conceptual transparency and independency from a particular grounding system, a further advantage is enabling the representation of coordination tasks. For example, a manager that coordinates the execution of several related activities can be represented as a role with a responsibility (duty+right) towards some complex task.</rdfs:comment>
+    <rdfs:label xml:lang="en">Control task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DecidednessTask">
+    <rdfs:comment rdf:datatype="&xsd;string">The task sequencing a decision to take action in order to start a plan execution.</rdfs:comment>
+    <rdfs:label xml:lang="en">Decidedness task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DecisionActivity">
+    <rdfs:comment rdf:datatype="&xsd;string">An activity related to planning. It is supposed to execute a 'case task', and can contain an information gathering activity.</rdfs:comment>
+    <rdfs:label xml:lang="en">Decision activity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DecisionState">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[A state related to planning. It is sequenced by 'deliberation task', and is preceded by a decision activity.
+When a plan is 'private', a decision state is cognitive, otherwise it depends on some cognitive state.]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Decision state</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DeliberationTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A deliberation task is a control task that sequences deliberation states (decisions taken after a case task execution).</rdfs:comment>
+    <rdfs:label xml:lang="en">Deliberation task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ElementaryTask">
+    <rdfs:comment rdf:datatype="&xsd;string">An atomic task.</rdfs:comment>
+    <rdfs:label xml:lang="en">Elementary task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#EndingTask">
+    <rdfs:comment rdf:datatype="&xsd;string">An ending task is a control task that has no successor tasks defined in the plan.</rdfs:comment>
+    <rdfs:label xml:lang="en">Ending task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#GoalSituation">
+    <rdfs:comment rdf:datatype="&xsd;string">A goal situation is a situation that satisfies a goal.Opposite to the case of subplan executions, a goal situation is not part of a plan execution.In other words, it is not true in general that any situation satisfying a part of a description, is also part of the situation that satisfies the whole description. This helps to account for the following cases: a) Execution of plans containing abort or suspension conditions (the plan would be satisfied even if the goal has not been reached, see below), b) Incidental satisfaction, like when a situation satisfies a goal without being intentionally planned (but anyway desired).</rdfs:comment>
+    <rdfs:label xml:lang="en">Goal situation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#GroundedPlan">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[A grounded (aka 'circumstantial') plan has all components classifying named individuals from the ground ontology (e.g. only specific persons, specified resources, a finite number of time intervals and space regions, etc.).
+This is the typical outcome of a planner, which, given certain constraints (here modeled as a Plan), and available entities in the environment (resources, agents, actions), delivers an optimized 'ground plan' to be executed.]]></rdfs:comment>
+    <rdfs:label xml:lang="it">Piano istanziato</rdfs:label>
+    <rdfs:label xml:lang="en">Circumstantial plan</rdfs:label>
+    <rdfs:label xml:lang="en">Grounded plan</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#InformationGathering">
+    <rdfs:comment rdf:datatype="&xsd;string">An activity aimed at gathering information for some purpose. It is typically sequenced by case tasks for taking decisions (can be part of decision activities).</rdfs:comment>
+    <rdfs:label xml:lang="en">Information gathering</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LoopFor">
+    <rdfs:comment rdf:datatype="&xsd;string">A loop task with a defined number -and possibly frequency- of iterations.</rdfs:comment>
+    <rdfs:label xml:lang="en">Loop for</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LoopTask">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[A loop task is a control task that has as successor an action -or complex- task that sequences at least two distinct activities sharing a minimal common set of properties -they have a MinimalCommonType. Notice that MinimalCommonType cannot be formalised as a first-order predicate, and then neither in OWL-DL. It can be considered a trivial guideline: when sequencing looped actions, choose a definite action class from the ground ontology.
+Some relations typically hold for loop tasks. Exit condition can be used to state what deliberation task causes to exit the cycle; iteration interval can be used to state how much time should be taken by each iteration of the looped activity; iteration cardinality can be used to state how many times the action should be repeated.]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Loop task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LoopUntil">
+    <rdfs:comment rdf:datatype="&xsd;string">A loop task, which specifies when a certain condition becomes true for a cyclical task to exit.</rdfs:comment>
+    <rdfs:label xml:lang="en">Loop until</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MaximalTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A maximal task is a complex task that has all the tasks defined in a plan as components.In OWL-DL the axiom is defined as a concept axiom over plan component task.</rdfs:comment>
+    <rdfs:label xml:lang="en">Maximal task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MergingTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A task that joins a set of tasks after a branching.</rdfs:comment>
+    <rdfs:label xml:lang="en">Merging task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ParallelTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A task for parallel concurrent activities.</rdfs:comment>
+    <rdfs:label xml:lang="en">Parallel task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PartlyCaseTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A control task that directly precedes both a case task and some other task.It specializes the branching task.</rdfs:comment>
+    <rdfs:label xml:lang="en">Partly case task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PlanAssessmentTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A task defined in a plan assessment.</rdfs:comment>
+    <rdfs:label xml:lang="en">Plan assessment task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PlanningActivity">
+    <rdfs:comment rdf:datatype="&xsd;string">The activity to generate a plan.</rdfs:comment>
+    <rdfs:label xml:lang="en">Planning activity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PlanningAsTechnique">
+    <rdfs:comment rdf:datatype="&xsd;string">The technique by which a planning process can be carried out.</rdfs:comment>
+    <rdfs:label xml:lang="en">Planning as technique</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PossibilityTask">
+    <rdfs:comment rdf:datatype="&xsd;string">The task sequencing an activity from which the possibility is raised to execute a plan.</rdfs:comment>
+    <rdfs:label xml:lang="en">Possibility task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PreparednessTask">
+    <rdfs:comment rdf:datatype="&xsd;string">The task sequencing an assessment that the activities aiming at creating the prerequisites to start a plan execution are completed.</rdfs:comment>
+    <rdfs:label xml:lang="en">Preparedness task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ReactivationTask">
+    <rdfs:comment rdf:datatype="&xsd;string">An activation task to start a plan execution after it has been suspended.</rdfs:comment>
+    <rdfs:label xml:lang="en">Reactivation task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ReadinessTask">
+    <rdfs:comment rdf:datatype="&xsd;string">The task joining the decision and preparation phases of the plan assessment, with the activation phases of the plan.</rdfs:comment>
+    <rdfs:label xml:lang="en">Readiness task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RejectionTask">
+    <rdfs:comment rdf:datatype="&xsd;string">The task sequencing a negative decision to adopt a plan execution.</rdfs:comment>
+    <rdfs:label xml:lang="en">Rejection task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SaturatedPlan">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[A saturated plan is a dul:Plan that cannot be executed twice, since it defines spatio-temporal parameters restricted to one value, e.g. one of its tasks classifies an event that is valued by a definite dul:TimeInterval and a definite dul:SpaceRegion
+Of course, in the case of maximal spatio-temporal regions, a saturated plan tends to approximate an abstract plan from the execution viewpoint, but these worst cases are unavoidable when dealing with maximality.]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Saturated plan</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Schedule">
+    <rdfs:comment rdf:datatype="&xsd;string"><![CDATA[A schedule is a task that cannot be executed twice, since it has a temporal parameter restricted to one value. In other words, a schedule classifies a specific event, which results to be 'scheduled'.
+When a schedule is complex, all component tasks must be temporally-bound.]]></rdfs:comment>
+    <rdfs:label xml:lang="en">Schedule</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SequentialTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A sequential task is a complex task that includes a successor relation among any two component tasks, and does not contain any control task.The first condition cannot be stated in OWL-DL, because it needs coreference.</rdfs:comment>
+    <rdfs:label xml:lang="en">Sequential task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SpatialParameter">
+    <rdfs:label xml:lang="en">Spatial parameter</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SpatiallyBoundRole">
+    <rdfs:label xml:lang="en">Spatially bound role</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SuspensionTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A specialization of ending-task, aimed at sequencing events that end a plan execution without having reached its main-goal, but with the possibility or resurrecting the plan.</rdfs:comment>
+    <rdfs:label xml:lang="en">Suspension task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SynchroTask">
+    <rdfs:comment rdf:datatype="&xsd;string">A synchronization task is a merging aimed at waiting for the execution of all (except the optional ones) tasks that are direct successor to a concurrent or any order task.</rdfs:comment>
+    <rdfs:label xml:lang="en">Synchro task</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TemporalParameter">
+    <rdfs:label xml:lang="en">Temporal parameter</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TemporallyBoundTask">
+    <rdfs:label xml:lang="en">Temporally bound task</rdfs:label>
+</owl:Class>
+
+<owl:DatatypeProperty rdf:about="#hasIterationCardinality">
+    <rdfs:comment rdf:datatype="&xsd;string">iteration cardinality can be used to state in a task how many times an action should be repeated</rdfs:comment>
+    <rdfs:label xml:lang="en">has iteration cardinality</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:ObjectProperty rdf:about="#hasInput">
+    <rdfs:label xml:lang="en">has input</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasMainGoal">
+    <rdfs:label xml:lang="en">has main goal</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasOutput">
+    <rdfs:label xml:lang="en">has output</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isInputOf">
+    <rdfs:label xml:lang="en">is input of</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isMainGoalIn">
+    <rdfs:comment rdf:datatype="&xsd;string">A main goal can be defined as a goal that is part of a plan but not of one of its subplans. The characteristic axiom cannot be formalized in OWL-DL (it requires coreference).</rdfs:comment>
+    <rdfs:label xml:lang="en">is main goal in</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isOutputOf">
+    <rdfs:label xml:lang="en">is output of</rdfs:label>
+</owl:ObjectProperty>
+
+
+
+<owl:Class rdf:about="&dul;Action"/>
+
+<owl:Class rdf:about="&dul;Concept"/>
+
+<owl:Class rdf:about="&dul;Entity"/>
+
+<owl:Class rdf:about="&dul;Event"/>
+
+<owl:Class rdf:about="&dul;Goal"/>
+
+<owl:Class rdf:about="&dul;Method"/>
+
+<owl:Class rdf:about="&dul;Object"/>
+
+<owl:Class rdf:about="&dul;Parameter"/>
+
+<owl:Class rdf:about="&dul;Plan"/>
+
+<owl:Class rdf:about="&dul;Role"/>
+
+<owl:Class rdf:about="&dul;Situation"/>
+
+<owl:Class rdf:about="&dul;SpaceRegion"/>
+
+<owl:Class rdf:about="&dul;Task"/>
+
+<owl:Class rdf:about="&dul;TimeInterval"/>
+
+<rdfs:Datatype rdf:about="&xsd;integer"/>
+
+<owl:ObjectProperty rdf:about="&dul;classifies"/>
+
+<owl:ObjectProperty rdf:about="&dul;directlyFollows"/>
+
+<owl:ObjectProperty rdf:about="&dul;directlyPrecedes"/>
+
+<owl:ObjectProperty rdf:about="&dul;executesTask"/>
+
+<owl:ObjectProperty rdf:about="&dul;follows"/>
+
+<owl:ObjectProperty rdf:about="&dul;hasComponent"/>
+
+<owl:ObjectProperty rdf:about="&dul;hasParameter"/>
+
+<owl:ObjectProperty rdf:about="&dul;hasParticipant"/>
+
+<owl:ObjectProperty rdf:about="&dul;isComponentOf"/>
+
+<owl:ObjectProperty rdf:about="&dul;isDescribedBy"/>
+
+<owl:ObjectProperty rdf:about="&dul;isExecutedIn"/>
+
+<owl:ObjectProperty rdf:about="&dul;isParticipantIn"/>
+
+<owl:ObjectProperty rdf:about="&dul;parametrizes"/>
+
+<owl:ObjectProperty rdf:about="&dul;precedes"/>
+
+<owl:ObjectProperty rdf:about="&dul;satisfies"/>
+
+<owl:ObjectProperty rdf:about="&dul;usesConcept"/>
+
+</rdf:RDF>

@@ -46,9 +46,9 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
-    <!-- https://w3id.org/hacid/onto/data#specifiesVariableSpecializationFor -->
+    <!-- https://w3id.org/hacid/onto/data/specifiesVariableSpecializationFor -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data#specifiesVariableSpecializationFor">
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/specifiesVariableSpecializationFor">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isSpecializedAccordingTo"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/VariableSpecialization"/>
@@ -789,9 +789,9 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
-    <!-- https://w3id.org/hacid/onto/data#GeodeticPoint -->
+    <!-- https://w3id.org/hacid/onto/data/GeodeticPoint -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/data#GeodeticPoint">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/GeodeticPoint">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Point"/>
         <rdfs:comment xml:lang="en">A point in a geodetic dimensional space, i.e. a georaphic location of the Earth surface.</rdfs:comment>
@@ -800,9 +800,9 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
-    <!-- https://w3id.org/hacid/onto/data#Instant -->
+    <!-- https://w3id.org/hacid/onto/data/Instant -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/data#Instant">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Instant">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Point"/>
         <rdfs:comment xml:lang="en">An instant in time, i.e. a point in a temporal dimensional space.</rdfs:comment>
         <rdfs:label xml:lang="en">Instant</rdfs:label>
