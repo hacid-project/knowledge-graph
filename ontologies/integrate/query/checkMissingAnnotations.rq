@@ -20,3 +20,4 @@ WHERE {
         rdfs:label rdfs:comment 
     }
 }
+ORDER BY ?ontology ?term ?annotationProperty
