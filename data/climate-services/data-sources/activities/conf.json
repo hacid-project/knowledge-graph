@@ -1,4 +1,0 @@
-{
-	"jsonpath": "$.activity_id",
-	"columns": ["id", "label"]
-}

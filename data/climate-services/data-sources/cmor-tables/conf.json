@@ -1,4 +1,0 @@
-{
-	"jsonpath": "$.variable_entry.*",
-	"transpose": false
-}

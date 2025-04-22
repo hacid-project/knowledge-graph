@@ -1,4 +1,0 @@
-{
-	"jsonpath": "$.standard_name_table.entry.[*]",
-	"transpose": false
-}

@@ -1,4 +1,0 @@
-{
-	"jsonpath": "$.institution_id",
-	"columns": ["id", "label"]
-}
