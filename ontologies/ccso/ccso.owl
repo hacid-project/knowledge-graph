@@ -4,8 +4,8 @@
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/data"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <dc:description rdf:resource="https://raw.githubusercontent.com/hacid-project/knowledge-graph/main/ontologies/climate-services/visual/simpler_model_rev.png"/>
-        <terms:creator rdf:resource="https://w3id.org/hacid/data/person/andrea-giovanni-nuzzolese"/>
-        <terms:creator rdf:resource="https://w3id.org/hacid/data/person/miguel-ceriani"/>
+        <terms:creator rdf:resource="https://w3id.org/hacid/data/cs/person/andrea-giovanni-nuzzolese"/>
+        <terms:creator rdf:resource="https://w3id.org/hacid/data/cs/person/miguel-ceriani"/>
         <terms:title xml:lang="en">CCSO - Core Climate Services Ontology</terms:title>
         <rdfs:comment xml:lang="en">The Core Climate Services Ontology (CCSO) is a comprehensive framework designed to facilitate the representation and integration of diverse climate-related data and knowledge. This ontology encompasses key concepts related to climate models, simulations, datasets, variables, and scenarios, along with their associated characteristics. The CCSO enables structured and standardized descriptions of these elements, promoting interoperability and data sharing among various stakeholders in climate science.
 
@@ -841,9 +841,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-1.9 -->
+    <!-- https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-1.9 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-1.9">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-1.9">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway"/>
         <top:acronym xml:lang="en">RCP 1.9</top:acronym>
         <rdfs:comment xml:lang="en">RCP 1.9 is a pathway that limits global warming to below 1.5 °C, the aspirational goal of the Paris Agreement.</rdfs:comment>
@@ -853,9 +853,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-2.6 -->
+    <!-- https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-2.6 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-2.6">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-2.6">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway"/>
         <top:acronym xml:lang="en">RCP 2.6</top:acronym>
         <rdfs:comment xml:lang="en">RCP 2.6 is a "very stringent" pathway. According to the IPCC, RCP 2.6 requires that carbon dioxide (CO2) emissions start declining by 2020 and go to zero by 2100. It also requires that methane emissions (CH4) go to approximately half the CH4 levels of 2020, and that sulphur dioxide (SO2) emissions decline to approximately 10% of those of 1980–1990. Like all the other RCPs, RCP 2.6 requires negative CO2 emissions (such as CO2 absorption by trees). For RCP 2.6, those negative emissions would be on average 2 Gigatons of CO2 per year (GtCO2/yr). RCP 2.6 is likely to keep global temperature rise below 2 °C by 2100.</rdfs:comment>
@@ -865,9 +865,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-3.4 -->
+    <!-- https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-3.4 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-3.4">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-3.4">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway"/>
         <top:acronym xml:lang="en">RCP 3.4</top:acronym>
         <rdfs:comment xml:lang="en">RCP 3.4 represents an intermediate pathway between the "very stringent" RCP2.6 and less stringent mitigation efforts associated with RCP4.5. As well as just providing another option a variant of RCP3.4 includes considerable removal of greenhouse gases from the atmosphere.
@@ -879,9 +879,9 @@ A 2021 paper suggests that the most plausible projections of cumulative CO2 emis
     
 
 
-    <!-- https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-4.5 -->
+    <!-- https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-4.5 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-4.5">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-4.5">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway"/>
         <top:acronym xml:lang="en">RCP 4.5</top:acronym>
         <rdfs:comment xml:lang="en">RCP 4.5 is described by the IPCC as an intermediate scenario. Emissions in RCP 4.5 peak around 2040, then decline. 
@@ -892,9 +892,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-6 -->
+    <!-- https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-6 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-6">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-6">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway"/>
         <top:acronym xml:lang="en">RCP 6</top:acronym>
         <rdfs:comment xml:lang="en">In RCP 6, emissions peak around 2080, then decline. The RCP 6.0 scenario uses a high greenhouse gas emission rate and is a stabilisation scenario where total radiative forcing is stabilised after 2100 by employment of a range of technologies and strategies for reducing greenhouse gas emissions. 6.0 W/m2 refers to the radiative forcing reached by 2100 Projections for temperature according to RCP 6.0 include continuous global warming through 2100 where CO2 levels rise to 670 ppm by 2100 making the global temperature rise by about 3–4 °C by 2100.</rdfs:comment>
@@ -904,9 +904,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-7 -->
+    <!-- https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-7 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-7">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-7">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway"/>
         <top:acronym xml:lang="en">RCP 7</top:acronym>
         <rdfs:comment xml:lang="en">RCP7 is a baseline outcome rather than a mitigation target.</rdfs:comment>
@@ -916,9 +916,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-8.5 -->
+    <!-- https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-8.5 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/greenhousegasconcentrationpathway/rcp-8.5">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/greenhousegasconcentrationpathway/RCP-8.5">
         <top:acronym xml:lang="en">RCP 8.5</top:acronym>
         <rdfs:comment xml:lang="en">In RCP 8.5 emissions continue to rise throughout the 21st century. RCP8.5, generally taken as the basis for worst-case climate change scenarios, was based on what proved to be overestimation of projected coal outputs. It is still used for predicting mid-century (and earlier) emissions based on current and stated policies.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/cs"/>
@@ -927,9 +927,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-1 -->
+    <!-- https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-1 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-1">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-1">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway"/>
         <top:acronym xml:lang="en">SS1</top:acronym>
         <terms:title xml:lang="en">SS1: Sustainability ("Taking the Green Road")</terms:title>
@@ -939,9 +939,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-2 -->
+    <!-- https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-2 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-2">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-2">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway"/>
         <top:acronym xml:lang="en">SSP 2</top:acronym>
         <terms:title xml:lang="en">SSP2: Middle of the road</terms:title>
@@ -951,9 +951,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-3 -->
+    <!-- https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-3 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-3">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-3">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway"/>
         <top:acronym xml:lang="en">SSP 3</top:acronym>
         <terms:title xml:lang="en">SSP3: Regional rivalry (A Rocky Road)</terms:title>
@@ -963,9 +963,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-4 -->
+    <!-- https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-4 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-4">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-4">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway"/>
         <top:acronym xml:lang="en">SSP 4</top:acronym>
         <terms:title xml:lang="en">SSP4: Inequality (A Road Divided)</terms:title>
@@ -975,9 +975,9 @@ According to the IPCC, RCP 4.5 requires that carbon dioxide (CO2) emissions star
     
 
 
-    <!-- https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-5 -->
+    <!-- https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-5 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/sharedsocioeconomicpathway/ssp-5">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/sharedsocioeconomicpathway/ssp-5">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway"/>
         <top:acronym xml:lang="en">SSP 5</top:acronym>
         <terms:title xml:lang="en">SSP5: Fossil-Fueled Development (Taking the Highway)</terms:title>
