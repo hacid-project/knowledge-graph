@@ -1,9 +1,4 @@
 .DS_Store
-data/climate-services/data-sources/cordex/data
-data/climate-services/data-sources/cordex/raw-data/chunks
-data/climate-services/data-sources/cordex/rdf
-data/climate-services/data-sources/cmor-tables/rdf
-data/climate-services/data-sources/cmor-tables/data
 env/
 
 **/*.properties
