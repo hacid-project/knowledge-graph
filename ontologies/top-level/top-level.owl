@@ -317,6 +317,25 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/hasConstituent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasConstituent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isConstituentOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment>&apos;Constituency&apos; depends on some layering of  the world described by the ontology. For example, scientific granularities (e.g. body-organ-tissue-cell) or ontological &apos;strata&apos; (e.g. social-mental-biological-physical) are  typical layerings. 
+Intuitively, a constituent is a part belonging to a lower layer. Since layering is actually a partition of the world described by the ontology, constituents are not properly classified as parts, although this kinship can be intuitive for common sense.
+A desirable advantage of this distinction is that we are able to talk e.g. of physical constituents of non-physical objects (e.g. systems), while this is not possible in terms of parts.
+Example of are the persons constituting a social system, the molecules constituting a person, the atoms constituting a river, etc. 
+In all these examples, we notice a typical discontinuity between the constituted and the constituent object: e.g. a social system is conceptualized at a different layer from the persons that constitute it, a person is conceptualized at a different layer from the molecules that constitute them, and a river is conceptualized at a different layer from the atoms that constitute it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha costituente</rdfs:label>
+        <rdfs:label xml:lang="en">has constituent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/hasCreator -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasCreator">
@@ -736,6 +755,20 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/inScheme -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/inScheme">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/includesInScheme"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/ConceptScheme"/>
+        <rdfs:comment xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">in scheme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/includesEvent -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/includesEvent">
@@ -744,6 +777,19 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">include l&apos;evento</rdfs:label>
         <rdfs:label xml:lang="en">includes event</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/includesInScheme -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/includesInScheme">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/ConceptScheme"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">Relates a concept scheme to a included resource (for example a concept).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">includes in scheme</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -874,6 +920,24 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">is concept used in</rdfs:label>
         <rdfs:label xml:lang="it">è un concetto usato in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isConstituentOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isConstituentOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment>&apos;Constituency&apos; depends on some layering of  the world described by the ontology. For example, scientific granularities (e.g. body-organ-tissue-cell) or ontological &apos;strata&apos; (e.g. social-mental-biological-physical) are  typical layerings. 
+Intuitively, a constituent is a part belonging to a lower layer. Since layering is actually a partition of the world described by the ontology, constituents are not properly classified as parts, although this kinship can be intuitive for common sense.
+A desirable advantage of this distinction is that we are able to talk e.g. of physical constituents of non-physical objects (e.g. systems), while this is not possible in terms of parts.
+Example of are the persons constituting a social system, the molecules constituting a person, the atoms constituting a river, etc. 
+In all these examples, we notice a typical discontinuity between the constituted and the constituent object: e.g. a social system is conceptualized at a different layer from the persons that constitute it, a person is conceptualized at a different layer from the molecules that constitute them, and a river is conceptualized at a different layer from the atoms that constitute it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is constituent of</rdfs:label>
+        <rdfs:label xml:lang="it">è costituente di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1309,6 +1373,23 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/isSpecializedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSpecializedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/specializes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
+        <rdfs:comment>A partial order relation that holds between social objects. It represents the subsumption relation between e.g. a Concept and another Concept that is broader in extensional interpretation, but narrowe in intensional interpretation.
+E.g. PhDStudent Role specializes Student Role</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is specialized by</rdfs:label>
+        <rdfs:label xml:lang="it">è specializzato da</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/isSystemOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSystemOf">
@@ -1501,6 +1582,23 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/specializes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/specializes">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
+        <rdfs:comment>A partial order relation that holds between social objects. 
+It mainly represents the subsumption relation between e.g. a Concept or Description and another Concept (resp. Description) that is broader in extensional interpretation, but narrower in intensional interpretation. For example, the role PhDStudent specializes the role Student.
+Another possible use is between a Collection that isCoveredBy a Concept A, and another Collection that isCoveredBy a Concept B that on its turm specializes A. For example, the 70,000 series Selmer Mark VI saxophone Collection specializes the Selmer Mark VI saxophone Collection.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">specializes</rdfs:label>
+        <rdfs:label xml:lang="it">specializza</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/usesConcept -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/usesConcept">
@@ -1536,6 +1634,19 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">acronimo</rdfs:label>
         <rdfs:label xml:lang="en">acronym</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/definition -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/definition">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">A statement or formal explanation of the meaning of a concept.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">definition</rdfs:label>
+        <rdfs:label xml:lang="it">definizione</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1774,6 +1885,17 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/ConceptScheme -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/ConceptScheme">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Concept scheme</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/DataSchema -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/DataSchema">
@@ -1881,6 +2003,7 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
     <!-- https://w3id.org/hacid/onto/top-level/Goal -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Goal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
         <rdfs:comment xml:lang="en">The Description of a Situation that is desired by an Agent, and usually associated to a Plan that describes how to actually achieve it</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Goal</rdfs:label>
@@ -1913,6 +2036,28 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">Entità informativa</rdfs:label>
         <rdfs:label xml:lang="en">Information entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/InformationRole -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/InformationRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:comment xml:lang="en">A role that classifies information.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Information role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/InputInformationRole -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/InputInformationRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/InformationRole"/>
+        <rdfs:comment xml:lang="en">A role that classifies information and corresponds to a process input in a particular context.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Input information role</rdfs:label>
     </owl:Class>
     
 
@@ -2017,6 +2162,18 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/Operation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Operation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+        <rdfs:comment xml:lang="en">A task that is not specific to a plan, i.e. it is self described.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Operation</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/Organization -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Organization">
@@ -2027,6 +2184,17 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Organisation</rdfs:label>
         <rdfs:label xml:lang="it">Organizzazione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/OutputInformationRole -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/OutputInformationRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/InformationRole"/>
+        <rdfs:comment xml:lang="en">A role that classifies information and corresponds to a process output in a particular context.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Output information role</rdfs:label>
     </owl:Class>
     
 

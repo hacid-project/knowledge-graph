@@ -207,6 +207,15 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasEndDateTime -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasEndDateTime">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/TemporalRegion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#datetime"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasExactBoundingRegion -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasExactBoundingRegion">
@@ -230,6 +239,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a periodic binning with the resolution adopted inside each period (to associate a literal resource use data:hasInPeriodResolutionValue).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has in period resolution</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasOutput -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOutput">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isOutputOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
+        <rdfs:comment xml:lang="en">Associates a data generating process with a dataset obtained as output.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has output</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -312,6 +335,15 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a variable specialization with the region used to constrain the variable.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has selected region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasStartDateTime -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasStartDateTime">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/TemporalRegion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#datetime"/>
     </owl:ObjectProperty>
     
 
@@ -517,6 +549,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/isEquivalentTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isEquivalentTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:comment xml:lang="en">Associates two variables that are mathematically equivalent, i.e. they always have the same value.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is equivalent to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/isExactBoundingRegionOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isExactBoundingRegionOf">
@@ -538,6 +584,19 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a resource with a periodic binning of which the resource is the resolution adopted inside each period.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is in period resolution of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isOutputOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isOutputOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
+        <rdfs:comment xml:lang="en">Associates a dataset with the data generating process that produced it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is output of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -749,6 +808,12 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasEndDateTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasEndDateTime"/>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue">
@@ -805,6 +870,12 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasStartDateTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasStartDateTime"/>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasURL -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasURL">
@@ -830,6 +901,12 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- http://www.opengis.net/ont/geosparql#Geometry -->
 
     <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#datetime -->
+
+    <owl:Class rdf:about="http://www.w3.org/2001/XMLSchema#datetime"/>
     
 
 
@@ -895,6 +972,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">A data format that can be used to serialize a dataset (e.g., CSV). Usage of controlled vocabularies is suggested.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Data Format</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/DataGeneratingProcess -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataGeneratingProcess">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A process that generates some data as output.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Data Generating Process</rdfs:label>
     </owl:Class>
     
 
@@ -1229,6 +1317,27 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/top-level/Region -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Region"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/hasEndDateTime">
+        <rdfs:comment xml:lang="en">Associates a temporal region (which happens to be an interval) with its end date time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has end date-time</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/hasStartDateTime">
+        <rdfs:comment xml:lang="en">Associates a temporal region (which happens to be an interval) with its start date time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has start date-time</rdfs:label>
+    </rdf:Description>
 </rdf:RDF>
 
 
