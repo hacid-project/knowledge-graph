@@ -243,6 +243,19 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasOffset -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOffset">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isOffsetOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Optionally associates a quantization with an offset in respect to the given reference frame (to associate directly a literal use data:hasOffsetValue).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has offset</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasOutput -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOutput">
@@ -588,6 +601,18 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/isOffsetOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isOffsetOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Associates a resource with a quantization of which the resource is the offset.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is offset of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/isOutputOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isOutputOf">
@@ -821,6 +846,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a periodic binning with the resolution adopted inside each period (to associate a non-literal resource use data:hasInPeriodResolution).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has in period resolution value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasOffsetValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasOffsetValue">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Optionally associates a quantization with an offset in respect to the given reference frame (to associate a non-literal resource use data:hasOffset).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has offset value</rdfs:label>
     </owl:DatatypeProperty>
     
 
