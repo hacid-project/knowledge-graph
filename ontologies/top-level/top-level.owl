@@ -2139,6 +2139,19 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/Method -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Method">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment>A method is a Description that defines or uses concepts in order to guide carrying out actions aimed at a solution with respect to a problem. 
+It is different from a Plan, because plans could be carried out in order to follow a method, but a method can be followed by executing alternative plans.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Method</rdfs:label>
+        <rdfs:label xml:lang="it">Metodo</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/Object -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Object">

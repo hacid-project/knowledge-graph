@@ -145,7 +145,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasMemberSimulation -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasMemberSimulation">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasComponent"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isMemberSimulationOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/EnsembleSimulation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
