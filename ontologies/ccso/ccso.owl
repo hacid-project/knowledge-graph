@@ -621,8 +621,10 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/EnsembleSimulation">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/ccso/SingleSimulation"/>
+        <rdfs:comment xml:lang="en">A simulation that is composed of a set of simulations with a common set of constraints but with one or more dimensions assuming differing values (e.g., multiple models or parameter values).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
-        <rdfs:label>Ensemble Simulation</rdfs:label>
+        <rdfs:label xml:lang="en">Ensemble Simulation</rdfs:label>
     </owl:Class>
     
 
@@ -724,6 +726,17 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/SingleSimulation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SingleSimulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:comment xml:lang="en">A simulation that is a single run of a model with well specified parameters and conditions.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Single Simulation</rdfs:label>
     </owl:Class>
     
 
