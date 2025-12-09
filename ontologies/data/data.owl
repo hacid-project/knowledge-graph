@@ -196,7 +196,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasDiscretization -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasDiscretization">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/basedOnDimensionalSpace"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDiscretizationFor"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
@@ -552,7 +552,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isDiscretizationFor -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isDiscretizationFor">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isBasisOfDimensionalSpace"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
         <rdfs:comment xml:lang="en">Associates a quantization with a discrete dimensional space (based on a continuum) that has been discretized by such quantization.</rdfs:comment>
