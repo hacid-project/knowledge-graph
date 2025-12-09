@@ -1106,12 +1106,9 @@ In all these examples, we notice a typical discontinuity between the constituted
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Location"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:comment xml:lang="it">La proprietà che permette di dire che un determinato luogo è la posizione di un dato oggetto.</rdfs:comment>
-        <rdfs:comment xml:lang="it">La relazione esistente tra un luogo ed un&apos;entità di un qualsiasi tipo.</rdfs:comment>
         <rdfs:comment xml:lang="en">The property that allows to say that a certain place is the location of a given object.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relation holding between a place and an entity of any possible type.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">is location of</rdfs:label>
-        <rdfs:label xml:lang="en">is place of</rdfs:label>
+        <rdfs:label xml:lang="en">is location of</rdfs:label>
         <rdfs:label xml:lang="it">è luogo di</rdfs:label>
     </owl:ObjectProperty>
     
@@ -1304,8 +1301,6 @@ In all these examples, we notice a typical discontinuity between the constituted
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:comment xml:lang="en">A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">La relazione tra una descrizione ed un&apos;eventualità.</rdfs:label>
-        <rdfs:label xml:lang="en">The relation between a description and an eventuality.</rdfs:label>
         <rdfs:label xml:lang="en">is satisfied by</rdfs:label>
         <rdfs:label xml:lang="it">è soddisfatto da</rdfs:label>
     </owl:ObjectProperty>
