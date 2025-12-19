@@ -910,6 +910,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5">
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway"/>
         <top:acronym xml:lang="en">RCP 8.5</top:acronym>
         <rdfs:comment xml:lang="en">In RCP 8.5 emissions continue to rise throughout the 21st century. RCP8.5, generally taken as the basis for worst-case climate change scenarios, was based on what proved to be overestimation of projected coal outputs. It is still used for predicting mid-century (and earlier) emissions based on current and stated policies.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
