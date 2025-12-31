@@ -497,6 +497,17 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/Aggregation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Aggregation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Rescaling"/>
+        <rdfs:comment xml:lang="en">A type of projection rescaling in which one or more of the independent variables are rescaled to a lower accuracy and the new values of the dependent variables are computed by aggregation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Aggregation</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/Asset -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Asset">
@@ -534,6 +545,17 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionEnsembleProduction"/>
+        <rdfs:comment xml:lang="en">A set of simulations run with the same constraints, using multiple models.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Climate Model Intercomparison Experiment</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/ClimatePhenomenon -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimatePhenomenon">
@@ -563,6 +585,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/ClimateSimulation -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ClimateSimulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -580,7 +603,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/Downscaling -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Downscaling">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Rescaling"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
@@ -617,6 +640,17 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/EnsembleProjection -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/EnsembleProjection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+        <rdfs:comment xml:lang="en">A climate projection composed of multiple single projections, corresponding to different assumptions. They still have aspects in common, usually the same spacetime coverage and resolution, possibly some constraints or the general production method (e.g., a specific model).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Ensemble Projection</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/EnsembleSimulation -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/EnsembleSimulation">
@@ -647,6 +681,28 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:comment xml:lang="en">A climate simulation run at global scale, i.e. for all the surface of Earth.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Global Climate Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A global warming threshold specified as global temperature increase in respect to pre-industrial levels.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Global Warming Level</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/GlobalWarmingLevelBasedProjection -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevelBasedProjection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+        <rdfs:comment xml:lang="en">A climate projection that is located in time with the period in which the global warming level (GWL) is predicted to reach a certain value. The values of the time variable are thus relative to that event, rather than being absolute.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Global Warming Level Based Projection</rdfs:label>
     </owl:Class>
     
 
@@ -698,6 +754,106 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/IndexComputation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/IndexComputation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionTransformation"/>
+        <rdfs:comment xml:lang="en">A projection transformation such that the dependent variables of the output projection are indices computed on the dependent variables of the input projection.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Index Computation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionEnsembleProduction"/>
+        <rdfs:comment xml:lang="en">A set of simulations run with the same model and common constraints, variating the values of some parameters.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Perturbed Parameter Climate Ensemble Simulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ProbabilisticProjection -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ProbabilisticProjection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+        <rdfs:comment xml:lang="en">A climate projection containing a probability distribution of values for each point in space-time. Such distribution may be represented in multiple ways, including the probability density function (PDF) and the cumulative distribution function (CDF).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Probabilistic Projection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ProbabilisticProjectionProduction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ProbabilisticProjectionProduction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
+        <rdfs:comment xml:lang="en">A process that generates a probabilistic climate projection.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Probabilistic Projection Production</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/Projection -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Projection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
+        <rdfs:comment xml:lang="en">A climate projection. It is a dataset with spatio-temporal independent variables and climate-relevant dependent variables. It is associated to some assumptions (e.g., a specific emission scenario).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Projection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ProjectionEnsembleProduction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ProjectionEnsembleProduction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
+        <rdfs:comment xml:lang="en">A process that generates a climate projection ensemble.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Projection Ensemble Production</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ProjectionProduction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ProjectionProduction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
+        <rdfs:comment xml:lang="en">A process that generates a climate projection. It may use climate models (a simulation) or purely statistical means.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Projection Production</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ProjectionTransformation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ProjectionTransformation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DataTransformation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/hasInput"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/hasOutput"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A process taking as input one or more climate projections and producing as output one or more climate projections.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Projection Transformation</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/RegionalClimateModel -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/RegionalClimateModel">
@@ -705,6 +861,28 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:comment xml:lang="en">A climate model meant to be used to simulate climate at regional scale.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Regional Climate Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/Rescaling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Rescaling">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionTransformation"/>
+        <rdfs:comment xml:lang="en">A projection transformation concerned with adapting to a change in one or more of the dimensional spaces adopted for the independent variables (e.g., a different geodetic grid).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Rescaling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+        <rdfs:comment xml:lang="en">A climate projection (for the future) associated with a certain emission scenario.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Scenario Based Projection</rdfs:label>
     </owl:Class>
     
 
@@ -730,6 +908,28 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/SingleProjection -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SingleProjection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+        <rdfs:comment xml:lang="en">A climate projection containing definite values for each point in space-time (its only independent variables are spatio-temporal), in contrast with ensemble projections and probabilistic projections.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Single Projection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/SingleProjectionProduction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SingleProjectionProduction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
+        <rdfs:comment xml:lang="en">A process that generates a single climate projection.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Single Projection Production</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/SingleSimulation -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SingleSimulation">
@@ -741,12 +941,36 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/SliceExtraction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SliceExtraction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Rescaling"/>
+        <rdfs:comment xml:lang="en">A type of projection rescaling in which one or more of the independent variables are rescaled so that the (possibly aggregated) value of some independent variable conform to some criteria (e.g., the time slice of a dataset such that the global warming level is 2°C).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Slice Extraction</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/StatisticalDownscaling -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/StatisticalDownscaling">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation"/>
+        <rdfs:comment xml:lang="en">A statistical process taking as input a climate projection and producing as output a new climate projection having accuracy (usually in respect to the geodetic dimension).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Statistical Downscaling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionTransformation"/>
+        <rdfs:comment xml:lang="en">A projection transformation performed with statistical methods. This is a catch all definition to distinguish from model-based transformations (e.g., a dynamical downscaling based on a regional climate model).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Statistical Projection Transformation</rdfs:label>
     </owl:Class>
     
 
@@ -809,6 +1033,12 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/data/DataGeneratingProcess -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/DataTransformation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataTransformation"/>
     
 
 
