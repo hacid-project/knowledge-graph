@@ -243,6 +243,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasInput -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasInput">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isInputOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataConsumingProcess"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
+        <rdfs:comment xml:lang="en">Associates a data consuming process with a dataset used as input.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has input</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasOffset -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOffset">
@@ -597,6 +611,19 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a resource with a periodic binning of which the resource is the resolution adopted inside each period.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is in period resolution of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isInputOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isInputOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataConsumingProcess"/>
+        <rdfs:comment xml:lang="en">Associates a dataset with a data consuming process that uses it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is input of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1001,6 +1028,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/DataConsumingProcess -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataConsumingProcess">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A process that uses some data as input.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Data Consuming Process</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/DataFormat -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataFormat">
@@ -1030,6 +1068,18 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">A data source is a location (in a broader sense, but typically an URL or a path in a specific file system) which contains somehow a dataset, alongside with the technical specification of how to access it. The hosted dataset should be available in one or more data formats.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Data Source</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/DataTransformation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataTransformation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DataConsumingProcess"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
+        <rdfs:comment xml:lang="en">A process that gets some data as input and produces some data as output.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Data Transformation</rdfs:label>
     </owl:Class>
     
 
