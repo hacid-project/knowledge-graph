@@ -339,6 +339,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasRescaledVersion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasRescaledVersion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasVariableDerivedFrom"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isRescaledVersionOfVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DerivedVariable"/>
+        <rdfs:comment xml:lang="en">Associates a variable with a rescaled version of it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has rescaled version</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasResolution -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasResolution">
@@ -700,6 +714,19 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a region with a dimensional space it is part of (any dimensional space that contains and is able to represent that region).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is region of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isRescaledVersionOfVariable -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isRescaledVersionOfVariable">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/derivedFromVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DerivedVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:comment xml:lang="en">Associates a variable with a variable of which the former is a rescaled version.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is rescaled version of variable</rdfs:label>
     </owl:ObjectProperty>
     
 
