@@ -124,6 +124,35 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasApproximateBoundingRegion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasApproximateBoundingRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasBoundingRegion"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasApproximateRegion"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isApproximateBoundingRegionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
+        <rdfs:comment xml:lang="en">Associates a dimensional space with a region (possibly defined on a more generic dimensional space) which approximates the dimensional space bounding: i,e., the extension of the dimensional space matches with the region within some (possibly but non necessarily specified) error.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has approximate bounding region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasApproximateResolution -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasApproximateResolution">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasResolution"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasApproximateRegion"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isApproximateResolutionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Associates a quantization with its approximate resolution.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has approximate resolution</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasAvailableDataFormat -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasAvailableDataFormat">
@@ -141,7 +170,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasBoundingRegion -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasBoundingRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isBoundingRegionOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
@@ -220,12 +249,27 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasExactBoundingRegion">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasBoundingRegion"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasExactRegion"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isExactBoundingRegionOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:comment xml:lang="en">Associates a dimensional space with a region (possibly defined on a more generic dimensional space) which bounds exactly the dimensional space: i,e., the extension of the dimensional space matches with the region.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has exact bounding region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasExactResolution -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasExactResolution">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/hasResolution"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasExactRegion"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isExactResolutionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Associates a quantization with its exact resolution.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has exact resolution</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -356,26 +400,12 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasResolution -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasResolution">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isResolutionOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
         <rdfs:comment xml:lang="en">Associates a quantization with its resolution (to associate directly a literal use data:hasResolutionValue).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has resolution</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/data/hasSelectedRegion -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasSelectedRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isSelectedRegionOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/VariableSpecialization"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
-        <rdfs:comment xml:lang="en">Associates a variable specialization with the region used to constrain the variable.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">has selected region</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -498,6 +528,33 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/isApproximateBoundingRegionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isApproximateBoundingRegionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isBoundingRegionOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isApproximateRegionFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:comment xml:lang="en">Associates a region with a dimensional space (possibly more specific that the one on which the region is defined) which is approximately bounded by the region: i,e., the extension of the dimensional space matches with the region within some (possibly but non necessarily specified) error.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is approximate bounding region of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isApproximateResolutionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isApproximateResolutionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isResolutionOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isApproximateRegionFor"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Associates a resource with a quantization of which the resource is an approximate resolution.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is approximate resolution of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/isAvailableDataFormatOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isAvailableDataFormatOf">
@@ -527,7 +584,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isBoundingRegionOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isBoundingRegionOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:comment xml:lang="en">Associates a region with a dimensional space (possibly more specific that the one on which the region is defined) which is bounded by the region: i,e., such that the dimensional space is contained in the region.</rdfs:comment>
@@ -608,11 +665,25 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isExactBoundingRegionOf">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isBoundingRegionOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isExactRegionFor"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
         <rdfs:comment xml:lang="en">Associates a region with a dimensional space (possibly more specific that the one on which the region is defined) which is exactly bounded by the region: i,e., such that the extension of the dimensional space matches with the region.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is exact bounding region of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isExactResolutionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isExactResolutionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isResolutionOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isExactRegionFor"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Associates a resource with a quantization of which the resource is the exact resolution.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is exact resolution of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -734,24 +805,11 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isResolutionOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isResolutionOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
         <rdfs:comment xml:lang="en">Associates a resource with a quantization of which the resource is the resolution.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is resolution of</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/data/isSelectedRegionOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isSelectedRegionOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/VariableSpecialization"/>
-        <rdfs:comment xml:lang="en">Associates a region with a variable specialization in which that region is used to constrain the variable.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">is selected region of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1401,35 +1459,11 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/VariableSpecialization -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/VariableSpecialization">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
         <rdfs:comment xml:lang="en">The specialization of a dependent variable by choosing a specific region for the values of one or more of the inependent variables it depends on.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Variable Specialization</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Concept -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Concept"/>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Entity -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Entity"/>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/InformationEntity -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/InformationEntity"/>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Region -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Region"/>
     
 
 
