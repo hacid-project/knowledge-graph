@@ -224,6 +224,20 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/hasApproximateRegion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasApproximateRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isApproximateRegionFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <rdfs:comment xml:lang="en">A relation between an entity and a region representing an approximate quantification of some aspect/quality of that entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">has approximate region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/hasAssignedRole -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasAssignedRole">
@@ -413,6 +427,20 @@ In all these examples, we notice a typical discontinuity between the constituted
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/hasExactRegion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasExactRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isExactRegionFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <rdfs:comment xml:lang="en">A relation between an entity and a region representing an exact quantification of some aspect/quality of that entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">has exact region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/hasIdentifierSchema -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasIdentifierSchema">
@@ -506,6 +534,20 @@ In all these examples, we notice a typical discontinuity between the constituted
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/hasNominalRegion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasNominalRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isNominalRegionFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <rdfs:comment xml:lang="en">A relation between an entity and a region representing the nominal (according to some specification) quantification of some aspect/quality of that entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">has nominal region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/hasOutput -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasOutput">
@@ -579,6 +621,21 @@ In all these examples, we notice a typical discontinuity between the constituted
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">ha parte propria</rdfs:label>
         <rdfs:label xml:lang="en">has proper part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/hasQuality -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasQuality">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isQualityOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Quality"/>
+        <rdfs:comment>A relation between entities and qualities, e.g. &apos;Dmitri&apos;s skin is yellowish&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha qualità</rdfs:label>
+        <rdfs:label xml:lang="en">has quality</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -823,6 +880,19 @@ In all these examples, we notice a typical discontinuity between the constituted
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/isApproximateRegionFor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isApproximateRegionFor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A relation between a region and an entity such that the region is an approximate quantification of some aspect/quality of the entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is approximate region for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/isAssignedRoleIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isAssignedRoleIn">
@@ -1028,6 +1098,19 @@ In all these examples, we notice a typical discontinuity between the constituted
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/isExactRegionFor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isExactRegionFor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A relation between a region and an entity such that the region is an exact quantification of some aspect/quality of the entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is exact region for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/isExecutedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isExecutedIn">
@@ -1144,6 +1227,19 @@ In all these examples, we notice a typical discontinuity between the constituted
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/isNominalRegionFor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isNominalRegionFor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A relation between a region and an entity such that the region is a nominal quantification of some aspect/quality of the entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is nominal region for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/isOutputRoleOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isOutputRoleOf">
@@ -1216,6 +1312,20 @@ In all these examples, we notice a typical discontinuity between the constituted
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">is proper part of</rdfs:label>
         <rdfs:label xml:lang="it">è parte propria di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/isQualityOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isQualityOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Quality"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment>A relation between entities and qualities, e.g. &apos;Dmitri&apos;s skin is yellowish&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">is quality of</rdfs:label>
+        <rdfs:label xml:lang="it">è una qualità di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -2245,6 +2355,45 @@ It is different from a Plan, because plans could be carried out in order to foll
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">Oggetto fisico</rdfs:label>
         <rdfs:label xml:lang="en">Physical object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/Quality -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Quality">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isQualityOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasConstituent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Quality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Quality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the way the surface of a specific PhysicalObject looks like, or the specific light of a place at a certain time, are examples of Quality, while the encoding of a Quality into e.g. a PhysicalAttribute should be modeled as a Region. 
+From the design viewpoint, the Quality-Region distinction is useful only when individual aspects of an Entity are considered in a domain of discourse. 
+For example, in an automotive context, it would be irrelevant to consider the aspects of car windows for a specific car, unless the factory wants to check a specific window against design parameters (anomaly detection). 
+On the other hand, in an antiques context, the individual aspects for a specific piece of furniture are a major focus of attention, and may constitute the actual added value, because the design parameters for old furniture are often not fixed, and may not be viewed as &apos;anomalies&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Quality</rdfs:label>
+        <rdfs:label xml:lang="it">Qualità</rdfs:label>
     </owl:Class>
     
 
