@@ -287,6 +287,8 @@
         </owl:equivalentClass>
         <rdfs:comment xml:lang="en">A value representing either "Relevant" or "Not Relevant" for binary relevance statements.</rdfs:comment>
         <rdfs:comment xml:lang="it">Un valore che rappresenta "Rilevante" oppure "Non rilevante" per le affermazioni di rilevanza binaria.</rdfs:comment>
+        <rdfs:label xml:lang="en">Binary relevance value</rdfs:label>
+        <rdfs:label xml:lang="it">Valore di rilevanza binaria</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
     </owl:Class>
 
