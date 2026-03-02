@@ -81,7 +81,19 @@
         <rdfs:label xml:lang="it">is judgement on</rdfs:label>
         <rdfs:label xml:lang="it">è giudizio su</rdfs:label>
     </owl:ObjectProperty>
-    
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/hasRelevanceContext -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/core/judgement/hasRelevanceContext">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">Links a relevance assignment to another entity that defines the context in which relevance is evaluated or the entity relative to which the relevance assignment holds.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Collega un'assegnazione di rilevanza a un'altra entità che definisce il contesto in cui la rilevanza è valutata o l'entità rispetto alla quale l'assegnazione di rilevanza ha effetto.</rdfs:comment>
+        <rdfs:label xml:lang="en">has relevance context</rdfs:label>
+        <rdfs:label xml:lang="it">ha contesto di rilevanza</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+    </owl:ObjectProperty>
 
 
     <!-- 
@@ -177,7 +189,7 @@
         <rdfs:comment xml:lang="it">La caratteristica di rilevanza espressa come valore (ed es. numerico, ordinale, ecc...)</rdfs:comment>
         <rdfs:comment xml:lang="en">The relevancy expressed in any possible value.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
-        <rdfs:label xml:lang="en">Relevancy</rdfs:label>
+        <rdfs:label xml:lang="en">Relevance</rdfs:label>
         <rdfs:label xml:lang="it">Rilevanza</rdfs:label>
     </owl:Class>
     
@@ -214,11 +226,87 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/MetaJudgement"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment"/>
         <rdfs:comment xml:lang="en">A specific case of judgement is identified by the assignment of a relevance score to another judgement.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Attribuzione di rilevanza sul giudizio</rdfs:comment>
-        <rdfs:comment xml:lang="en">Relevance assignment on judgement</rdfs:comment>
         <rdfs:comment xml:lang="it">Una specifica fattispecie di giudizio è individuata mediante l&apos;assegnazione di un punteggio di rilevanza ad un altro giudizio.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+        <rdfs:label xml:lang="it">Attribuzione di rilevanza sul giudizio</rdfs:label>
+        <rdfs:label xml:lang="en">Relevance assignment on judgement</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
     </owl:Class>
+
+
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/RelevanceStatement -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/RelevanceStatement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/RelevanceAssignment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/core/judgement/hasJudgmentResult"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/BinaryRelevance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A relevance assignment statement producing a binary relevance (Relevant / Not relevant).</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un&apos;assegnazione di rilevanza che produce una rilevanza binaria (Rilevante / Non rilevante).</rdfs:comment>
+        <rdfs:label xml:lang="en">Relevance statement</rdfs:label>
+        <rdfs:label xml:lang="it">Dichiarazione di rilevanza</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+    </owl:Class>
+
+    <!-- https://w3id.org/hacid/onto/core/judgement/BinaryRelevance -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/BinaryRelevance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevance"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasValue"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/BinaryRelevanceValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasValue"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Relevance that can only be either "Relevant" or "Not relevant".</rdfs:comment>
+        <rdfs:comment xml:lang="it">Rilevanza che può essere solo "Rilevante" or "Non rilevante".</rdfs:comment>
+        <rdfs:label xml:lang="en">Binary relevance</rdfs:label>
+        <rdfs:label xml:lang="it">Rilevanza binaria</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/core/judgement/BinaryRelevanceValue">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Value"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/Relevant"/>
+                    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/NotRelevant"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A value representing either "Relevant" or "Not Relevant" for binary relevance statements.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un valore che rappresenta "Rilevante" oppure "Non rilevante" per le affermazioni di rilevanza binaria.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+    </owl:Class>
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/Relevant">
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/core/judgement/BinaryRelevanceValue"/>
+        <top:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">relevant</top:value>
+        <rdfs:label xml:lang="en">Relevant</rdfs:label>
+        <rdfs:label xml:lang="it">Rilevante</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/NotRelevant">
+        <rdf:type rdf:resource="https://w3id.org/hacid/onto/core/judgement/BinaryRelevanceValue"/>
+        <top:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not relevant</top:value>
+        <rdfs:label xml:lang="en">Not relevant</rdfs:label>
+        <rdfs:label xml:lang="it">Non rilevante</rdfs:label>
+        <owl:differentFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevant"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
+    </owl:NamedIndividual>
+
 </rdf:RDF>
 
 
