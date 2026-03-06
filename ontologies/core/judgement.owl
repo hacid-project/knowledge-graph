@@ -280,8 +280,8 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:oneOf rdf:parseType="Collection">
-                    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/Relevant"/>
-                    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/NotRelevant"/>
+                    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/relevant"/>
+                    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/not-relevant"/>
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -292,7 +292,7 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
     </owl:Class>
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/Relevant">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/relevant">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/core/judgement/BinaryRelevanceValue"/>
         <top:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">relevant</top:value>
         <rdfs:label xml:lang="en">Relevant</rdfs:label>
@@ -300,12 +300,12 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
     </owl:NamedIndividual>
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/NotRelevant">
+    <owl:NamedIndividual rdf:about="https://w3id.org/hacid/onto/core/judgement/not-relevant">
         <rdf:type rdf:resource="https://w3id.org/hacid/onto/core/judgement/BinaryRelevanceValue"/>
         <top:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not relevant</top:value>
         <rdfs:label xml:lang="en">Not relevant</rdfs:label>
         <rdfs:label xml:lang="it">Non rilevante</rdfs:label>
-        <owl:differentFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/Relevant"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/hacid/onto/core/judgement/relevant"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
     </owl:NamedIndividual>
 
