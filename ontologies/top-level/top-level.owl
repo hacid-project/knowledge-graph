@@ -1939,6 +1939,19 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/Amount -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Amount">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/TimeInterval"/>
+        <rdfs:comment>A quantity, independently from how it is measured, computed, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Amount</rdfs:label>
+        <rdfs:label xml:lang="it">Quantità</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/Characteristic -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Characteristic">
