@@ -1,0 +1,43 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top15.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "What are the arguments that characterise a description?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?argument
+WHERE {
+  test-data:description top:describes ?argument .
+} ORDER BY ?argument
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top15-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"argument\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"argument\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity-a\"
+        }
+      },
+      {
+        \"argument\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity-b\"
+        }
+      }
+    ]
+  }
+}""" .

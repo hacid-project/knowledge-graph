@@ -1,0 +1,42 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:ar3.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/agentrole> ;
+  owlunit:hasCompetencyQuestion "Who plays a specific role at a certain time?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX ar: <https://w3id.org/hacid/onto/core/agentrole/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?agent
+WHERE {
+  ?ar ar:involvesAgent ?agent ;
+      ar:involvesRole test-data:cardiologist ;
+      top:atTime ?time .
+  ?time top:time "2024-01"^^xsd:gYearMonth .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/ar3-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"agent\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"agent\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/John\"
+        }
+      }
+    ]
+  }
+}""" .

@@ -1,0 +1,43 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top6.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "What collections is this thing a member of?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?collection
+WHERE {
+  test-data:entity2 top:isMemberOf ?collection.
+} ORDER BY ?collection
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top6-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"collection\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"collection\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/collection1\"
+        }
+      },
+      {
+        \"collection\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/collection2\"
+        }
+      }
+    ]
+  }
+}""" .

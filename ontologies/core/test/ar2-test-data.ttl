@@ -1,0 +1,21 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix ar: <https://w3id.org/hacid/onto/core/agentrole/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+test-data:cardiologist a top:Role .
+
+test-data:John a top:Person .
+
+test-data:Dec24 a top:TemporalEntity ;
+                top:time "2024-01"^^xsd:gYearMonth .
+
+
+test-data:JohnRoleDec24 a ar:AgentRole ;
+                     ar:involvesAgent test-data:John ;
+                     ar:involvesRole test-data:cardiologist ;
+                     top:atTime test-data:Dec24 .
+
+

@@ -1,0 +1,19 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix jdg: <https://w3id.org/hacid/onto/core/judgement/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+test-data:Robert a top:Person .
+
+test-data:clinical-case-1 a top:Entity .
+
+test-data:pneumonia a jdg:JudgementResult .
+
+test-data:judgement a jdg:Judgement ;
+                    jdg:hasJudge test-data:Robert ;
+                    jdg:judgesOn test-data:clinical-case-1 ;
+                    jdg:hasJudgmentResult test-data:pneumonia .
+
+

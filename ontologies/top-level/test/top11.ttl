@@ -1,0 +1,52 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top11.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "What is before what?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?entityBefore ?entityAfter
+WHERE {
+  ?entityBefore top:precedes ?entityAfter .
+} ORDER BY ?entityBefore
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top11-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"entityBefore\",
+      \"entityAfter\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"entityBefore\":{
+        \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity1\"
+        },
+        \"entityAfter\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity2\"
+        }
+      },
+      {
+        \"entityBefore\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity2\"
+        },
+        \"entityAfter\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity3\"
+        }
+      }
+    ]
+  }
+}""" .

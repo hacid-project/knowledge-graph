@@ -1,0 +1,32 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix mdx: <https://w3id.org/hacid/onto/mdx/> .
+@prefix ar: <https://w3id.org/hacid/onto/core/agentrole/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+test-data:Paul a mdx:HealthcareProfessional .
+
+test-data:hospital a top:Organization .
+
+test-data:cardiology a mdx:Specialty .
+
+test-data:senior a mdx:Seniority .
+
+test-data:paul-role a mdx:HealthcareProfessionalRole ; 
+                    ar:involvesAgent test-data:Paul ; 
+                    mdx:hasSeniority test-data:senior ; 
+                    mdx:hasSpecialty test-data:cardiology ; 
+                    mdx:worksFor test-data:hospital .
+
+test-data:clinical-evaluation a mdx:ClinicalEvaluation ;
+                              mdx:hasDiagnostician test-data:Paul ;
+                              mdx:hasDiagnosis test-data:diagnosis .
+
+test-data:diagnosis a mdx:Diagnosis .
+
+test-data:description a mdx:DisorderDescription ;
+                      mdx:isInScopeOfDiagnosis test-data:diagnosis ;
+                      top:describes test-data:pneumonia .
+
+test-data:pneumonia a mdx:Disorder .

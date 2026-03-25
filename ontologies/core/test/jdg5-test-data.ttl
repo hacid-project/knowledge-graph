@@ -1,0 +1,24 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix jdg: <https://w3id.org/hacid/onto/core/judgement/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+test-data:Martina a top:Person .
+
+test-data:solution1 a top:Entity .
+
+test-data:relevance-assignment a jdg:RelevanceAssignment ;
+                               jdg:hasJudge test-data:Martina ;
+                               jdg:judgesOn test-data:solution1 ;
+                               jdg:hasRelevance test-data:relevance .
+
+test-data:relevance a jdg:Relevance ;
+                    top:hasValue test-data:4-on-likert-5 .
+
+test-data:4-on-likert-5 a top:Value ;
+                        top:value "4"^^xsd:int ;
+                        top:hasUnitOfMeasure test-data:5-points-likert-scale .
+
+test-data:5-points-likert-scale a top:UnitOfMeasure .

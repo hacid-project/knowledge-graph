@@ -1,0 +1,61 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top18.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "How is a task sequenced in a workflow?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?task ?seq
+WHERE {
+  test-data:workflow top:definesTask test-data:task2 .
+  {
+    test-data:task2 top:directlyPrecedes ?task .
+    BIND ("directly follows task2" AS ?seq) .
+  }
+  UNION
+  {
+    ?task top:directlyPrecedes test-data:task2 .
+    BIND ("directly precedes task2" AS ?seq) .
+  }
+} ORDER BY ?task
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top18-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"task\",
+      \"seq\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task1\"
+        },
+        \"seq\":{
+          \"value\":\"directly precedes task2\",
+          \"type\":\"literal\"
+        }
+      },
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task3\"
+        },
+        \"seq\":{
+          \"value\":\"directly follows task2\",
+          \"type\":\"literal\"
+        }
+      }
+    ]
+  }
+}""" .

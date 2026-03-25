@@ -1,0 +1,46 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top22.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "Which task can be performed by different roles?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?task
+WHERE {
+  ?task top:definesRole ?role .
+}
+GROUP BY ?task
+HAVING (COUNT(DISTINCT ?role) > 1)
+ORDER BY ?task
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top22-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"task\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task1\"
+        }
+      },
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task3\"
+        }
+      }
+    ]
+  }
+}""" .

@@ -1,0 +1,23 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix ev: <https://w3id.org/hacid/onto/core/evidence/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+test-data:10.5194_npg-18-295-2011 a top:InformationEntity .
+
+test-data:thames-graph a ev:Graph ;
+                       ev:isReferenceOf test-data:10.5194_npg-18-295-2011 ;
+                       top:hasMember test-data:thames-stmt .
+
+test-data:thames-stmt a ev:Statement ;
+                      ev:isReferenceOf test-data:10.5194_npg-18-295-2011 ;
+                      ev:hasSubject test-data:river-thames ;
+                      ev:hasObject test-data:singular-spectrum-analysis ;
+                      ev:hasSemantics test-data:floodPredictionMethod .
+
+test-data:river-thames a top:entity ;
+                       test-data:floodPredictionMethod test-data:singular-spectrum-analysis .
+
+test-data:singular-spectrum-analysis a top:Entity .

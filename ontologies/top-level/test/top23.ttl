@@ -1,0 +1,50 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top23.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "Which workflow execution satisfies a workflow? " ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?execution
+WHERE {
+  ?execution top:satisfies test-data:workflow .
+}
+ORDER BY ?execution
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top23-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"execution\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"execution\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/workflow-execution1\"
+        }
+      },
+      {
+        \"execution\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/workflow-execution2\"
+        }
+      },
+      {
+        \"execution\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/workflow-execution3\"
+        }
+      }
+    ]
+  }
+}""" .

@@ -1,0 +1,25 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+@prefix nm: <https://w3id.org/hacid/onto/core/naming/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+test-data:covid-19 a top:Entity ;
+                   nm:hasNaming test-data:covid-nm-1 , test-data:covid-nm-2 .
+
+test-data:covid-nm-1 a nm:Naming ;
+                     nm:hasName test-data:covid-name-1 ;
+                     nm:hasNameType nm:preferred-name .
+
+test-data:covid-nm-2 a nm:Naming ;
+                     nm:hasName test-data:covid-name-2 ;
+                     nm:hasNameType nm:alternative-name .
+
+test-data:covid-name-1 a nm:Name ;
+                       nm:lexicalItem "Disease caused by severe acute respiratory syndrome coronavirus 2" .
+
+test-data:covid-name-2 a nm:Name ;
+                       nm:lexicalItem "COVID" .
+
+test-data:covid-synset a nm:SynonymSet ;
+                       top:hasMember test-data:covid-nm-1 , test-data:covid-nm-2 .

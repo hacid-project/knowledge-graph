@@ -1,0 +1,54 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:ev1.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/evidence> ;
+  owlunit:hasCompetencyQuestion "What is the information entity about a certain entity in the KG?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX ev: <https://w3id.org/hacid/onto/core/evidence/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?e ?ie
+WHERE {
+  ?e ev:isReferenceOf ?ie .
+  ?ie a top:InformationEntity .
+} ORDER BY ?e ?ie
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/ev1-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"e\",
+      \"ie\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"e\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/thames-graph\"
+        },
+        \"ie\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/10.5194_npg-18-295-2011\"
+        }
+      },
+      {
+        \"e\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/thames-stmt\"
+        },
+        \"ie\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/10.5194_npg-18-295-2011\"
+        }
+      }
+    ]
+  }
+}""" .

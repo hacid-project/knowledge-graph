@@ -1,0 +1,20 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+
+
+test-data:entity a top:Entity .
+
+test-data:category1 a top:Concept ;
+                   top:classifies test-data:entity .
+
+test-data:category2 a top:Concept ;
+                   top:classifies test-data:entity .
+
+test-data:category3 a top:Concept ;
+                   top:classifies test-data:entity .
+
+
+
+
+

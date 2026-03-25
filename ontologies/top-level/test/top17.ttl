@@ -1,0 +1,50 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top17.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "Which task is included in a workflow?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?task
+WHERE {
+  test-data:workflow top:definesTask ?task .
+} ORDER BY ?task
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top17-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"task\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task1\"
+        }
+      },
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task2\"
+        }
+      }
+      ,
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task3\"
+        }
+      }
+    ]
+  }
+}""" .

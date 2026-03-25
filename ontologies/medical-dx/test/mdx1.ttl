@@ -1,0 +1,44 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:mdx1.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/mdx> ;
+  owlunit:hasCompetencyQuestion "What are the specialties of a given clinical case?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX : <https://w3id.org/hacid/mdx/data/clinicalcase/>
+PREFIX mdx: <https://w3id.org/hacid/onto/mdx/>
+
+SELECT DISTINCT?specialty
+WHERE {
+  :1883 a mdx:ClinicalCase ;
+        mdx:hasSpecialty ?specialty .
+  ?specialty a mdx:Specialty
+} ORDER BY ?specialty
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:SPARQLEndpoint ;
+  owlunit:hasInputData <https://w3id.org/hacid/sparql> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"specialty\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"specialty\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/mdx/data/specialty/endocrinology\"
+        }
+      },
+      {
+        \"specialty\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/mdx/data/specialty/neonatology-and-perinatology\"
+        }
+      }
+    ]
+  }
+}""" .

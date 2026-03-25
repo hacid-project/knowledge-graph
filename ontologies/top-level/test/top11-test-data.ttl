@@ -1,0 +1,11 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+
+test-data:entity1 a top:Entity ;
+                  top:precedes test-data:entity2 .
+
+test-data:entity2 a top:Entity ;
+                  top:precedes test-data:entity3 .
+
+test-data:entity3 a top:Entity .

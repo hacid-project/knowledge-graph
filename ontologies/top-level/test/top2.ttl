@@ -1,0 +1,49 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top2.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "Which category does this entity belong to?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?category
+WHERE {
+  ?category top:classifies test-data:entity .
+} ORDER BY ?category
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top2-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"category\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"category\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/category1\"
+        }
+      },
+      {
+        \"category\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/category2\"
+        }
+      },
+      {
+        \"category\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/category3\"
+        }
+      }
+    ]
+  }
+}""" .

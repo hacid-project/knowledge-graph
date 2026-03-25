@@ -1,0 +1,337 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:mdx2.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/mdx> ;
+  owlunit:hasCompetencyQuestion "What are the diagnoses suggested by healthcare professionals?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX mdx: <https://w3id.org/hacid/onto/mdx/>
+
+SELECT DISTINCT ?diagnosis ?disorderDescription ?disorder
+WHERE {
+  
+ 
+  ?clinicalEval a mdx:ClinicalEvaluation ;
+                mdx:forClinicalCase ?case ;
+                mdx:hasDiagnosis ?diagnosis .
+
+  ?case top:identifier ?caseId .
+  FILTER(?caseId = "1883")
+  
+  ?disorderDescription mdx:isInScopeOfDiagnosis ?diagnosis ;
+                       top:describes ?disorder .
+
+} ORDER BY ?diagnosis ?disorderDescription ?disorder
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:SPARQLEndpoint ;
+  owlunit:hasInputData <https://semantics.istc.cnr.it/hacid/sparql> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\": {
+    \"vars\": [
+      \"diagnosis\",
+      \"disorderDescription\",
+      \"disorder\"
+    ]
+  },
+  \"results\": {
+    \"bindings\": [
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-MjI2Mw:1brhLC:juRK5EkSfSOgCBOjQl9o3CR4OeY-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/b93a07b80bba2cdc3efd93203e447426\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/1eb03b411e805213588194c37797ec5c\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-MjI2Mw:1brhLC:juRK5EkSfSOgCBOjQl9o3CR4OeY-2\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/6901b6bcced7bb720d6b89760d8e01e2\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/75cde58f0e5563f287f2d4afb0ce4b7e\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-MzE2:1brhL6:EldovF-crtBS6uqxCWzkFkebcGE-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/ca9bb9644ac9cfbf1024b0066ab007a4\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/7fede4c34625fa10da8cd1a0d482b8ab\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzg4:1brhL6:OMmF23Zbf-q5_RwNre9-sIULNmE-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/997c8314f9e58b5e14283406a51a120e\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/0bf53878c0057e842d91f0057c4af116\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzg4:1brhL6:OMmF23Zbf-q5_RwNre9-sIULNmE-2\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/ca9bb9644ac9cfbf1024b0066ab007a4\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/7fede4c34625fa10da8cd1a0d482b8ab\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzg4:1brhL6:OMmF23Zbf-q5_RwNre9-sIULNmE-3\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/d6910dd346034eebb240af6d5af8050f\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/7c70fc94a16546fd80a64fe52f0de0fe\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzg4:1brhL6:OMmF23Zbf-q5_RwNre9-sIULNmE-4\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/9540819a615981d448d73bc583333582\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/f1f2c12bc28f048e281d5a9af85c9b5a\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzk0:1brhL6:Jiia_bDJETPkmzzMaSgO1hlHZAc-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/997c8314f9e58b5e14283406a51a120e\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/0bf53878c0057e842d91f0057c4af116\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzk0:1brhL6:Jiia_bDJETPkmzzMaSgO1hlHZAc-2\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/8b1082a7b3700c1b17e6bb6f24dbf6b8\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/9f8251416f7e77176a63f96f1f10d7ac\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzk0:1brhL6:Jiia_bDJETPkmzzMaSgO1hlHZAc-3\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/f891c6d7e20e13e95fc65060c0eef3ed\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/01da3ef25313dba8bd4e2123c9ae77eb\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Mzk0:1brhL6:Jiia_bDJETPkmzzMaSgO1hlHZAc-4\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/efad7c3525ffeace9060e2f25be5e559\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/2434af72bf20d5b2e41cc689bbd65403\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NDY0MQ:1brhLL:KtPzqnPLBoH3RNEeOwu8Wp27pVM-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/997c8314f9e58b5e14283406a51a120e\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/0bf53878c0057e842d91f0057c4af116\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NDc4MA:1brhLM:aPxaQGjiG2ePxPLg1M7uByVdzRo-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/0c79a6888f6083edd72a5bdaebf4eb66\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/4a9eca16e405cc15bb0937526b7b4fba\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NDc4MA:1brhLM:aPxaQGjiG2ePxPLg1M7uByVdzRo-2\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/997c8314f9e58b5e14283406a51a120e\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/0bf53878c0057e842d91f0057c4af116\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NDc4MA:1brhLM:aPxaQGjiG2ePxPLg1M7uByVdzRo-3\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/ca9bb9644ac9cfbf1024b0066ab007a4\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/7fede4c34625fa10da8cd1a0d482b8ab\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NDc4MA:1brhLM:aPxaQGjiG2ePxPLg1M7uByVdzRo-4\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/7e4b64574015dcb40432ca5d781313fb\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/a6c2b2b23d592c4a520b97cb9dd407a6\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NDczNA:1brhLL:wXeAVsjSL1y1VcvWmlgv4bTJ_0Y-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/e37ad2e6d17e21eddf3cae1e9b482c9b\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/8780fa196d546149f22cbabaa81fa208\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NTE3NA:1brhLN:0Ebx03oq8U8it5X9ozMeoEQYSRI-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/e37ad2e6d17e21eddf3cae1e9b482c9b\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/8780fa196d546149f22cbabaa81fa208\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-NTY3Ng:1brhLP:mf7bQWx6ZUsMzQBMO_Gnv_c1EFE-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/e37ad2e6d17e21eddf3cae1e9b482c9b\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/8780fa196d546149f22cbabaa81fa208\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-Njk1MQ:1brhLT:qAXmTGkLQrMjDh5FmqGooofYOXQ-1\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/997c8314f9e58b5e14283406a51a120e\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/0bf53878c0057e842d91f0057c4af116\"
+        }
+      },
+      {
+        \"diagnosis\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/diagnosis/1883-primary\"
+        },
+        \"disorderDescription\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorderdescription/997c8314f9e58b5e14283406a51a120e\"
+        },
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/0bf53878c0057e842d91f0057c4af116\"
+        }
+      }
+    ]
+  }
+}""" .

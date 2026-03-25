@@ -1,0 +1,56 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:jdg5.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/judgement> ;
+  owlunit:hasCompetencyQuestion "What is the relevance associated with an object by a certain judge?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?object ?value ?unit 
+WHERE { 
+  ?relAssign a jdg:RelevanceAssignment ; 
+             jdg:judgesOn ?object ; 
+             jdg:hasJudge test-data:Martina ; 
+             jdg:hasRelevance ?relevance .
+  ?relevance a jdg:Relevance ; 
+             top:hasValue ?valueObj .
+  ?valueObj top:value ?value ;
+            top:hasUnitOfMeasure ?unit . 
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/jdg5-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"object\",
+      \"value\",
+      \"unit\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"object\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/solution1\"
+        },
+        \"value\":{
+          \"type\":\"literal\",
+          \"value\":\"4\",
+          \"datatype\":\"http://www.w3.org/2001/XMLSchema#int\"
+        },
+        \"unit\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/5-points-likert-scale\"
+        }
+      }
+    ]
+  }
+}""" .

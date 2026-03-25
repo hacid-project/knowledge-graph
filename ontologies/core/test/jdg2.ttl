@@ -1,0 +1,38 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:jdg2.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/judgement> ;
+  owlunit:hasCompetencyQuestion "Who is judging a certain entity?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?agent
+WHERE {
+  test-data:judgement jdg:hasJudge ?agent .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/jdg2-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"agent\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"agent\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/Robert\"
+        }
+      }
+    ]
+  }
+}""" .

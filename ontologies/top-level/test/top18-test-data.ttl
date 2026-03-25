@@ -1,0 +1,16 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+
+test-data:workflow a top:Workflow ;
+                   top:definesTask test-data:task1 , test-data:task2 , test-data:task3 .
+
+test-data:task1 a top:Task ;
+                top:directlyPrecedes test-data:task2 .
+
+test-data:task2 a top:Task ;
+                top:directlyPrecedes test-data:task3 .
+                
+test-data:task3 a top:Task .
+
+

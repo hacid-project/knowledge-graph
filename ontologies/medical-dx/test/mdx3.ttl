@@ -1,0 +1,60 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:mdx3.ttl a owlunit:CompetencyQuestionVerification ;
+  # owlunit:testsOntology <https://w3id.org/hacid/onto/mdx> ;
+  owlunit:hasCompetencyQuestion "Which is the relevance order of a diagnosis provided by a certain healthcare professional?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX mdx: <https://w3id.org/hacid/onto/mdx/>
+PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/> 
+
+SELECT DISTINCT ?clinicalEval ?rank
+WHERE {
+  
+  ?rankedClinicalEval a mdx:RankedClinicalEvaluation ;
+                        mdx:ranks ?clinicalEval ;
+                        mdx:withRank ?rank ;
+                        jdg:hasJudge ?judge .
+  
+  ?judge top:identifier ?judgeId .
+  FILTER(?judgeId = "MzE2:1brhL6:EldovF-crtBS6uqxCWzkFkebcGE")
+ 
+  ?clinicalEval a mdx:ClinicalEvaluation ;
+                mdx:forClinicalCase ?case ;
+                mdx:hasDiagnosis ?diagnosis .
+
+  ?case top:identifier ?caseId .
+  FILTER(?caseId = "1883")
+  
+  ?disorderDescription mdx:isInScopeOfDiagnosis ?diagnosis ;
+                       top:describes ?disorder .
+
+} ORDER BY ?clinicalEval ?rank
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:SPARQLEndpoint ;
+  owlunit:hasInputData <https://semantics.istc.cnr.it/hacid/sparql> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\": {
+    \"vars\": [
+      \"clinicalEval\",
+      \"rank\"
+    ]
+  },
+  \"results\": {
+    \"bindings\": [
+      {
+        \"clinicalEval\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/clinicalevaluation/1883-MzE2:1brhL6:EldovF-crtBS6uqxCWzkFkebcGE-1\"
+        },
+        \"rank\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/rank/1\"
+        }
+      }
+    ]
+  }
+}""" .

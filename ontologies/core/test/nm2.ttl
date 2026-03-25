@@ -1,0 +1,42 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:nm2.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/naming> ;
+  owlunit:hasCompetencyQuestion "What is the alternative name of an entity?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX nm: <https://w3id.org/hacid/onto/core/naming/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?lexicalItem
+WHERE { 
+  test-data:covid-19 a top:Entity ; 
+                     nm:hasNaming ?naming . 
+  ?naming nm:hasName ?name ;
+          nm:hasNameType nm:alternative-name .
+  ?name nm:lexicalItem ?lexicalItem .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/nm2-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"lexicalItem\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"lexicalItem\":{
+          \"type\":\"literal\",
+          \"value\":\"COVID\"
+        }
+      }
+    ]
+  }
+}""" .

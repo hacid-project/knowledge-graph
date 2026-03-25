@@ -1,0 +1,38 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:jdg1.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/judgement> ;
+  owlunit:hasCompetencyQuestion "What is the object of a judgement?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?obj
+WHERE {
+  test-data:judgement jdg:judgesOn ?obj .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/jdg1-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"obj\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"obj\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/clinical-case-1\"
+        }
+      }
+    ]
+  }
+}""" .

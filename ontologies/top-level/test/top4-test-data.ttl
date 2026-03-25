@@ -1,0 +1,13 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+
+test-data:role1 a top:Role .
+test-data:role2 a top:Role .
+test-data:role3 a top:Role .
+
+test-data:agent1 a top:Agent ;
+                 top:hasRole test-data:role1 , test-data:role2 .
+
+test-data:agent2 a top:Agent ;
+                 top:hasRole test-data:role2 , test-data:role3 .

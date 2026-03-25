@@ -1,0 +1,43 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top7.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "What is this entity part of?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?entity
+WHERE {
+  test-data:entity-a top:isPartOf ?entity.
+} ORDER BY ?entity
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top7-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"entity\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"entity\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity1\"
+        }
+      },
+      {
+        \"entity\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/entity3\"
+        }
+      }
+    ]
+  }
+}""" .

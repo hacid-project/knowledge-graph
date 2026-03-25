@@ -1,0 +1,67 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:mdx6.ttl a owlunit:CompetencyQuestionVerification ;
+  # owlunit:testsOntology <https://w3id.org/hacid/onto/mdx> ;
+  owlunit:hasCompetencyQuestion "What are the findings reported for a case?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX mdx: <https://w3id.org/hacid/onto/mdx/>
+
+SELECT DISTINCT ?finding
+WHERE {
+  <https://w3id.org/hacid/mdx/data/clinicalcase/NL3KUbLDKbR0Qks2Bo> a mdx:ClinicalCase ; 
+        mdx:hasFinding ?finding .
+} ORDER BY ?finding
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:SPARQLEndpoint ;
+  owlunit:hasInputData <https://semantics.istc.cnr.it/hacid/sparql> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\": {
+    \"vars\": [
+      \"finding\"
+    ]
+  },
+  \"results\": {
+    \"bindings\": [
+      {
+        \"finding\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/finding/NL3KUbLDKbR0Qks2Bo-1\"
+        }
+      },
+      {
+        \"finding\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/finding/NL3KUbLDKbR0Qks2Bo-2\"
+        }
+      },
+      {
+        \"finding\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/finding/NL3KUbLDKbR0Qks2Bo-3\"
+        }
+      },
+      {
+        \"finding\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/finding/NL3KUbLDKbR0Qks2Bo-4\"
+        }
+      },
+      {
+        \"finding\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/finding/NL3KUbLDKbR0Qks2Bo-5\"
+        }
+      },
+      {
+        \"finding\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/finding/NL3KUbLDKbR0Qks2Bo-6\"
+        }
+      }
+    ]
+  }
+}""" .

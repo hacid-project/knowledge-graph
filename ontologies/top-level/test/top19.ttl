@@ -1,0 +1,63 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top19.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "Which role is associated with a task?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?task ?role
+WHERE {
+  test-data:workflow top:definesTask ?task .
+  ?task top:definesRole ?role .
+} ORDER BY ?task ?role
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top19-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"task\",
+      \"role\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task1\"
+        },
+        \"role\":{
+          \"value\":\"https://w3id.org/hacid/test-data/role2\",
+          \"type\":\"uri\"
+        }
+      },
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task2\"
+        },
+        \"role\":{
+          \"value\":\"https://w3id.org/hacid/test-data/role1\",
+          \"type\":\"uri\"
+        }
+      },
+      {
+        \"task\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/task3\"
+        },
+        \"role\":{
+          \"value\":\"https://w3id.org/hacid/test-data/role1\",
+          \"type\":\"uri\"
+        }
+      }
+    ]
+  }
+}""" .

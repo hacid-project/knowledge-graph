@@ -1,0 +1,38 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:mdx7.ttl a owlunit:CompetencyQuestionVerification ;
+  # owlunit:testsOntology <https://w3id.org/hacid/onto/mdx> ;
+  owlunit:hasCompetencyQuestion "What are the solutions of a case?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX mdx: <https://w3id.org/hacid/onto/mdx/>
+
+SELECT DISTINCT ?evaluation 
+WHERE { 
+  ?evaluation a mdx:ClinicalEvaluation ; 
+              mdx:forClinicalCase <https://w3id.org/hacid/mdx/data/clinicalcase/1883> ;
+              mdx:hasClinicalEvaluationType mdx:primary_solution .
+} ORDER BY ?evaluation
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:SPARQLEndpoint ;
+  owlunit:hasInputData <https://semantics.istc.cnr.it/hacid/sparql> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\": {
+    \"vars\": [
+      \"evaluation\"
+    ]
+  },
+  \"results\": {
+    \"bindings\": [
+      {
+        \"evaluation\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/clinicalevaluation/1883-primary\"
+        }
+      }
+    ]
+  }
+}""" .

@@ -1,0 +1,50 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:nm3.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/naming> ;
+  owlunit:hasCompetencyQuestion "What are the synonyms of a given label?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX nm: <https://w3id.org/hacid/onto/core/naming/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?synset ?name2
+WHERE {
+  ?naming a nm:Naming ;
+          nm:hasName ?name .
+  ?name a nm:Name ; 
+        nm:lexicalItem "COVID" . 
+  ?synset top:hasMember ?naming ;
+          top:hasMember ?naming2 .
+  ?naming2 nm:hasName ?name2 .
+  FILTER(?naming != ?naming2)
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/nm3-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"synset\",
+      \"name2\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"synset\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/covid-synset\"
+        },
+        \"name2\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/covid-name-1\"
+        }
+      }
+    ]
+  }
+}""" .

@@ -1,0 +1,46 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:top20.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/top-level> ;
+  owlunit:hasCompetencyQuestion "What role does an agent have in the execution of a task?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?agent ?role
+WHERE {
+  test-data:workflow top:definesTask test-data:task1 .
+  ?action top:executesTask test-data:task1 ;
+          top:hasParticipant ?agent .
+  ?agentRole top:hasAgent ?agent ;
+             top:hasRole ?role .
+} ORDER BY ?agent ?role
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/top-level/test/top20-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"agent\",
+      \"role\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"agent\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/agent\"
+        },
+        \"role\":{
+          \"value\":\"https://w3id.org/hacid/test-data/role1\",
+          \"type\":\"uri\"
+        }
+      }
+    ]
+  }
+}""" .

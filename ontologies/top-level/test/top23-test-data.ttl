@@ -1,0 +1,34 @@
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+@prefix test-data: <https://w3id.org/hacid/test-data/> .
+@prefix top: <https://w3id.org/hacid/onto/top-level/> .
+
+test-data:workflow a top:Workflow ;
+                   top:definesTask test-data:task1 , test-data:task2 , test-data:task3 .
+
+test-data:task1 a top:Task ;
+                top:directlyPrecedes test-data:task2 ;
+                top:definesRole test-data:role2 , test-data:role3 .
+
+test-data:task2 a top:Task ;
+                top:directlyPrecedes test-data:task3 ;
+                top:definesRole test-data:role1 .
+                
+test-data:task3 a top:Task ;
+                top:definesRole test-data:role1 , test-data:role2 , test-data:role4 .
+
+test-data:role1 a top:Role .
+
+test-data:role2 a top:Role .
+
+test-data:role3 a top:Role .
+
+test-data:role4 a top:Role .
+
+test-data:workflow-execution1 a top:WorkflowExecution ;
+                              top:satisfies test-data:workflow .
+
+test-data:workflow-execution2 a top:WorkflowExecution ;
+                              top:satisfies test-data:workflow .
+
+test-data:workflow-execution3 a top:WorkflowExecution ;
+                              top:satisfies test-data:workflow .

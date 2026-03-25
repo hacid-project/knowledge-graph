@@ -1,0 +1,39 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:ev3.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/evidence> ;
+  owlunit:hasCompetencyQuestion "Which graphs are a reference of a given information entity?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX ev: <https://w3id.org/hacid/onto/core/evidence/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?graph
+WHERE {
+  ?graph a ev:Graph ; 
+        ev:isReferenceOf test-data:10.5194_npg-18-295-2011 .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/ev3-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"graph\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"graph\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/thames-graph\"
+        }
+      }
+    ]
+  }
+}""" .

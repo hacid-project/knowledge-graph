@@ -1,0 +1,64 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:mdx4.ttl a owlunit:CompetencyQuestionVerification ;
+  # owlunit:testsOntology <https://w3id.org/hacid/onto/mdx> ;
+  owlunit:hasCompetencyQuestion "What is the seniority, specialty, and organisation of a healthcare professional that performs a diagnosis?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX mdx: <https://w3id.org/hacid/onto/mdx/>
+PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+PREFIX ar: <https://w3id.org/hacid/onto/core/agentrole/>
+
+SELECT DISTINCT ?professional ?seniority ?specialty ?organisation
+WHERE { 
+  ?professional a mdx:HealthcareProfessional . 
+  ?professionalRole a mdx:HealthcareProfessionalRole ; 
+                    ar:involvesAgent ?professional ; 
+                    mdx:hasSeniority ?seniority ; 
+                    mdx:hasSpecialty ?specialty ; 
+                    mdx:worksFor ?organisation . 
+  ?evaluation a mdx:ClinicalEvaluation ; 
+              mdx:hasDiagnostician ?professional ; 
+              mdx:hasDiagnosis ?diagnosis . 
+  ?diagnosis a mdx:Diagnosis ; 
+             ^mdx:isInScopeOfDiagnosis/top:describes test-data:pneumonia .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/medical-dx/test/mdx4-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\": {
+    \"vars\": [
+      \"professional\",
+      \"seniority\",
+      \"specialty\",
+      \"organisation\"
+    ]
+  },
+  \"results\": {
+    \"bindings\": [
+      {
+        \"professional\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/test-data/Paul\"
+        },
+        \"seniority\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/test-data/senior\"
+        },
+        \"specialty\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/test-data/cardiology\"
+        },
+        \"organisation\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/test-data/hospital\"
+        }
+      }
+    ]
+  }
+}""" .

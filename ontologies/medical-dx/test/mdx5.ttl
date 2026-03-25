@@ -1,0 +1,38 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:mdx5.ttl a owlunit:CompetencyQuestionVerification ;
+  # owlunit:testsOntology <https://w3id.org/hacid/onto/mdx> ;
+  owlunit:hasCompetencyQuestion "What is the disorder a diagnosis targets?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX mdx: <https://w3id.org/hacid/onto/mdx/>
+PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/> 
+
+SELECT ?disorder
+WHERE { 
+  <https://w3id.org/hacid/mdx/data/diagnosis/1883-MjI2Mw:1brhLC:juRK5EkSfSOgCBOjQl9o3CR4OeY-1> a mdx:Diagnosis ; 
+    ^mdx:isInScopeOfDiagnosis/top:describes ?disorder .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:SPARQLEndpoint ;
+  owlunit:hasInputData <https://semantics.istc.cnr.it/hacid/sparql> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\": {
+    \"vars\": [
+      \"disorder\"
+    ]
+  },
+  \"results\": {
+    \"bindings\": [
+      {
+        \"disorder\": {
+          \"type\": \"uri\",
+          \"value\": \"https://w3id.org/hacid/mdx/data/disorder/1eb03b411e805213588194c37797ec5c\"
+        }
+      }
+    ]
+  }
+}""" .

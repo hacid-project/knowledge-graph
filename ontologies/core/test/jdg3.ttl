@@ -1,0 +1,38 @@
+@prefix owlunit: <https://w3id.org/OWLunit/ontology/> .
+@prefix ex: <https://w3id.org/OWLunit/examples/> .
+@prefix test: <https://w3id.org/hacid/data/testcase/> .
+
+test:jdg3.ttl a owlunit:CompetencyQuestionVerification ;
+  owlunit:testsOntology <https://w3id.org/hacid/onto/core/judgement> ;
+  owlunit:hasCompetencyQuestion "What is the result of a judgement?" ;
+  owlunit:hasSPARQLUnitTest """
+PREFIX top: <https://w3id.org/hacid/onto/top-level/>
+PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/>
+PREFIX test-data: <https://w3id.org/hacid/test-data/>
+
+SELECT DISTINCT ?result
+WHERE {
+  test-data:judgement jdg:hasJudgmentResult ?result .
+}
+""" ;
+
+  owlunit:hasInputTestDataCategory owlunit:ToyDataset ;
+  owlunit:hasInputData <https://raw.githubusercontent.com/hacid-project/knowledge-graph/refs/heads/main/ontologies/core/test/jdg3-test-data.ttl> ;
+  owlunit:hasExpectedResult """
+{
+  \"head\":{
+    \"vars\":[
+      \"result\"
+    ]
+  },
+  \"results\":{
+    \"bindings\":[
+      {
+        \"result\":{
+          \"type\":\"uri\",
+          \"value\":\"https://w3id.org/hacid/test-data/pneumonia\"
+        }
+      }
+    ]
+  }
+}""" .
