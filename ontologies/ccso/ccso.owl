@@ -234,6 +234,20 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/isGlobalWarmingLevelReferredBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isGlobalWarmingLevelReferredBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">The object property that allows a global warming level to be referred by an entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">is global warming level referred by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/isImpactTypeOfAssertedVulnerability -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isImpactTypeOfAssertedVulnerability">
@@ -326,7 +340,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isScenarioReferredBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isScenarioReferredBy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/refersToScenario"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -423,10 +437,23 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel"/>
+        <rdfs:comment xml:lang="en">The object property that allows an entity to refer to a global warming level.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">refers to global warming level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/refersToScenario -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/refersToScenario">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
         <rdfs:comment xml:lang="en">The object property that allows an entity to refer to a scenario.</rdfs:comment>
@@ -654,7 +681,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/EmissionScenario -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/EmissionScenario">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
         <rdfs:comment xml:lang="en">A projected trajectory of future greenhouse gas emissions, atmospheric concentrations, and corresponding impacts on the climate system. These scenarios are used in climate modeling to explore how different levels of emissions might influence global temperatures, weather patterns, sea level rise, and other climate-related phenomena.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Emission Scenario</rdfs:label>
@@ -721,7 +748,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
         <rdfs:comment xml:lang="en">A global warming threshold specified as global temperature increase in respect to pre-industrial levels.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Global Warming Level</rdfs:label>
@@ -857,6 +884,12 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/ProjectionProduction">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/hasOutput"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A process that generates a climate projection. It may use climate models (a simulation) or purely statistical means.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Projection Production</rdfs:label>
@@ -872,12 +905,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/hasInput"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/hasOutput"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -974,6 +1001,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/SingleSimulation">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/SingleProjectionProduction"/>
         <rdfs:comment xml:lang="en">A simulation that is a single run of a model with well specified parameters and conditions.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Single Simulation</rdfs:label>
@@ -1237,5 +1265,5 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
 
 
-<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
 
