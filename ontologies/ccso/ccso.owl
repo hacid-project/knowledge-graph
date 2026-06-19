@@ -939,7 +939,12 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <!-- https://w3id.org/hacid/onto/ccso/Rescaling -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Rescaling"/>
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Rescaling">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionTransformation"/>
+        <rdfs:comment xml:lang="en">A projection transformation meant to change the resolution of some dependent variables, with a focus on maintaining the overall structure and relationships within the data.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">Rescaling</rdfs:label>
+    </owl:Class>
     
 
 
