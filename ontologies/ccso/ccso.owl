@@ -142,6 +142,20 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- https://w3id.org/hacid/onto/ccso/hasIndicator -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasIndicator">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isIndicatorOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/HazardType"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:comment xml:lang="en">Associates a hazard type to a variable that is a relevant indicator for it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">has indicator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/ccso/hasMemberSimulation -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasMemberSimulation">
@@ -257,6 +271,19 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/VulnerabilityType"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">is impact type of asserted vulnerability</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/isIndicatorOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isIndicatorOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/HazardType"/>
+        <rdfs:comment xml:lang="en">Indicates that a variable is a relevant indicator for a hazard type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">is indicator of</rdfs:label>
     </owl:ObjectProperty>
     
 
