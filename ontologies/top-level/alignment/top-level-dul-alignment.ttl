@@ -12,9 +12,8 @@
 # the top-level terms and vice versa. Replicas whose definition diverges from DUL carry
 # an axiom annotation (rdfs:comment) describing the divergence.
 #
-# Caveat: top-level declares hasProperPart/isProperPartOf asymmetric while DUL declares
-# them transitive. Under these equivalences the union of top-level, DUL and this file
-# is outside OWL 2 DL and is rejected by HermiT until that divergence is resolved.
+# The union of top-level, DUL and this file is in OWL 2 DL, consistent and coherent
+# (checked with HermiT).
 #
 # See ../doc/dul-consistency-review.md for the full analysis and
 # ../doc/novel-terms.md for the top-level terms that have no DUL counterpart.
@@ -223,7 +222,7 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:Event ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Event ;
-    rdfs:comment "top-level drops the DUL restrictions (participants, time interval, parts/constituents only Events) and the disjointness with Object and Quality; it adds 'hasPart some Event', which is trivially entailed by the reflexivity of hasPart."@en .
+    rdfs:comment "top-level drops the DUL restrictions (participants, time interval, parts/constituents only Events); it adds 'hasPart some Event', which is trivially entailed by the reflexivity of hasPart."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:FormalEntity ;
@@ -241,7 +240,7 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:Object ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Object ;
-    rdfs:comment "top-level drops all DUL restrictions (participation, location, parts/constituents, classification only by roles) and the disjointness with Quality."@en .
+    rdfs:comment "top-level drops the DUL restrictions (participation, location, parts/constituents, classification only by roles)."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Organization ;
@@ -271,7 +270,7 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:TimeInterval ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:TimeInterval ;
-    rdfs:comment "top-level places TimeInterval under the novel class TemporalEntity instead of Region, and adds startTime/endTime restrictions."@en .
+    rdfs:comment "top-level also places TimeInterval under the novel class TemporalEntity, and adds startTime/endTime restrictions."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Workflow ;
@@ -286,16 +285,10 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     rdfs:comment "DUL declares it symmetric and transitive with domain/range Entity; top-level declares none of these although its comment says it is symmetric and transitive."@en .
 
 [] a owl:Axiom ;
-    owl:annotatedSource top:hasLocation ;
+    owl:annotatedSource top:hasMember ;
     owl:annotatedProperty owl:equivalentProperty ;
-    owl:annotatedTarget dul:hasLocation ;
-    rdfs:comment "top-level narrows the range from Entity to top:Location (= dul:Place)."@en .
-
-[] a owl:Axiom ;
-    owl:annotatedSource top:hasProperPart ;
-    owl:annotatedProperty owl:equivalentProperty ;
-    owl:annotatedTarget dul:hasProperPart ;
-    rdfs:comment "top-level declares it asymmetric and not transitive, whereas DUL declares it transitive; with this equivalence the union of the two is outside OWL 2 DL (asymmetry on a non-simple property)."@en .
+    owl:annotatedTarget dul:hasMember ;
+    rdfs:comment "top-level adds the super-property top:isCollectionOf."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:hasRegionDataValue ;
@@ -313,19 +306,19 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:includesEvent ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:includesEvent ;
-    rdfs:comment "top-level makes it a direct sub-property of associatedWith (DUL: of isSettingFor) and drops domain, range and inverse."@en .
+    rdfs:comment "top-level does not replicate the inverse property dul:isEventIncludedIn."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:includesObject ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:includesObject ;
-    rdfs:comment "top-level makes it a direct sub-property of associatedWith (DUL: of isSettingFor) and drops domain, range and inverse."@en .
+    rdfs:comment "top-level does not replicate the inverse property dul:isObjectIncludedIn."@en .
 
 [] a owl:Axiom ;
-    owl:annotatedSource top:isLocationOf ;
+    owl:annotatedSource top:isMemberOf ;
     owl:annotatedProperty owl:equivalentProperty ;
-    owl:annotatedTarget dul:isLocationOf ;
-    rdfs:comment "top-level narrows the domain from Entity to top:Location (= dul:Place)."@en .
+    owl:annotatedTarget dul:isMemberOf ;
+    rdfs:comment "top-level adds the super-property top:hasCollection."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:isParametrisedBy ;
@@ -337,13 +330,7 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:isProperPartOf ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:isPropertPartOf ;
-    rdfs:comment "Renamed: DUL's IRI carries a typo (isPropertPartOf). top-level declares it asymmetric and not transitive, whereas DUL declares it transitive; with this equivalence the union of the two is outside OWL 2 DL (asymmetry on a non-simple property)."@en .
-
-[] a owl:Axiom ;
-    owl:annotatedSource top:isRelatedToConcept ;
-    owl:annotatedProperty owl:equivalentProperty ;
-    owl:annotatedTarget dul:isRelatedToConcept ;
-    rdfs:comment "DUL declares it symmetric; top-level does not."@en .
+    rdfs:comment "Renamed: DUL's IRI carries a typo (isPropertPartOf)."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:isRoleOf ;
@@ -352,7 +339,19 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     rdfs:comment "top-level widens the range from Object to Entity."@en .
 
 [] a owl:Axiom ;
+    owl:annotatedSource top:isSpecializedBy ;
+    owl:annotatedProperty owl:equivalentProperty ;
+    owl:annotatedTarget dul:isSpecializedBy ;
+    rdfs:comment "top-level adds the super-property top:isSpecialisedBy (same relation with domain and range widened to Entity)."@en .
+
+[] a owl:Axiom ;
     owl:annotatedSource top:parametrises ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:parametrizes ;
     rdfs:comment "Renamed (British spelling of dul:parametrizes). top-level widens the range from Region to Entity."@en .
+
+[] a owl:Axiom ;
+    owl:annotatedSource top:specializes ;
+    owl:annotatedProperty owl:equivalentProperty ;
+    owl:annotatedTarget dul:specializes ;
+    rdfs:comment "top-level adds the super-property top:specialises (same relation with domain and range widened to Entity)."@en .

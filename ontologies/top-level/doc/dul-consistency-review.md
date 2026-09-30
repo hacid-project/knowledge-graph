@@ -38,6 +38,9 @@ How it was done:
 
 ## 2. Overview
 
+> Sections 2–4 and the appendix describe the ontology **as reviewed**, before the changes
+> listed in section 5. Section 5 gives the current state.
+
 | | Count |
 |---|---:|
 | Terms in top-level (classes / object props / datatype props) | 174 (47 / 113 / 14) |
@@ -312,7 +315,96 @@ Before changing any replicated term, check the modules that use it (`data`, `ccs
 `medical-dx`). `associatedWith`, `hasPart`, `hasRegion`, `Concept`, `classifies` and `Situation`
 are used extensively.
 
-## 5. Reproducing the checks
+## 5. Implementation of the recommendations
+
+### 5.1 Compatibility checks
+
+Each recommendation of section 4 (except B2, excluded for now because of its possible
+performance impact) was applied to a copy of the top-level ontology, **alone and all together**,
+and checked against the local modules that depend on it:
+
+- `data/data.owl`, `ccso/ccso.owl`, `medical-dx/mdx.owl`, and `core/agentrole.owl`,
+  `core/evidence.owl`, `core/judgement.owl`, `core/naming.owl`. The medical-dx `pattern/`,
+  `full/` and `alignment/` files use their own namespace and do not import the top-level.
+- The test data of their OWLUnit tests: 23 top-level, 14 core and 1 medical-dx dataset.
+  The four ccso usage examples (`ccso/doc/usage-examples/*.ttl`) could not be used, because
+  they are not valid Turtle.
+
+The checks were:
+
+1. **Reasoning.** HermiT (ignoring unsupported datatypes) on the union of all the modules, and
+   on that union plus each test dataset (39 runs per variant). Each run records whether the
+   result is consistent and which classes are unsatisfiable.
+2. **Profile.** The OWL 2 DL profile of the union (ROBOT `validate-profile`).
+3. **Usage.** Every changed term was searched for in the modules, the test data and the SPARQL
+   queries of the OWLUnit tests. This catches changes that are logically harmless but could
+   change query results or break references.
+
+**Result:** no recommendation, alone or combined, changes the outcome of any of the 39 runs.
+No new inconsistency, no new unsatisfiable class, no new OWL 2 DL violation. The combined
+change removes 21 OWL 2 DL violations from the union. No OWLUnit query uses a term whose
+inferences change: only `top7` and `top8` query parthood, and they use `hasPart`/`isPartOf`
+directly. All recommendations were therefore applied.
+
+After the changes:
+- The top-level ontology alone is **in OWL 2 DL** and is consistent and coherent.
+- Top-level + DUL + the equivalence alignment is **in OWL 2 DL, consistent and coherent**.
+
+### 5.2 Changes applied
+
+| Rec. | Change in `top-level.owl` | Compatibility notes |
+|---|---|---|
+| **A1** | `hasProperPart` / `isProperPartOf`: `owl:AsymmetricProperty` replaced by `owl:TransitiveProperty`. DUL comment restored. Asymmetry is stated in the comment as a constraint that OWL 2 DL cannot express for a transitive property. The former "direct components" comments were removed; direct parthood is `hasComponent`. | Not used by any dependent module. The `hasComponent`/`isComponentOf` tests (`top9`, `top10`) are unaffected. |
+| **A2** | Removed `WorkflowRole ⊑ rdfs:Property`, `WorkflowRole ⊑ rdfs:domain only WorkflowExecution`, the `rdfs:Class` range of `hasExpectedType` and domain of `isExpectedTypeOf`, and the declarations of `rdfs:domain`, `rdfs:Class`, `rdfs:Property`. The constraints that cannot be expressed in OWL 2 DL are now stated in the `rdfs:comment` of `WorkflowRole`, `hasExpectedType` and `isExpectedTypeOf`. | Terms not used by any dependent module. |
+| **A3** | Removed `TemporalEntity ⊑ time some xsd:dateTime` and `⊑ time only xsd:dateTime`. The comment of `TemporalEntity` now says that the datatype follows the granularity (e.g. `xsd:dateTime`, `xsd:date`, `xsd:gYearMonth`, `xsd:gYear`). | **Fixes a latent inconsistency in the core tests.** `ar1`–`ar3` test data assert `top:time "2024-01"^^xsd:gYearMonth` on a `TemporalEntity`, which contradicts `time only xsd:dateTime`. Replacing the literal with a non-`dateTime` value that HermiT supports gives *inconsistent* before the change and *consistent* after. The ranges `xsd:gYear`, `xsd:date` and `xsd:time` of `year`/`startTime`/`endTime` were **kept**. They are outside the OWL 2 datatype map, so HermiT in strict mode still rejects them; replacing them is a modelling decision left open. |
+| B1 | `TimeInterval ⊑ Region` added (it stays under `TemporalEntity` too). | `TimeInterval` not used by any dependent module. |
+| B2 | *Not applied* (excluded for now). | — |
+| B3 | `isRelatedToConcept` declared `owl:SymmetricProperty`. | Sub-properties `hasTask`/`isTaskOf` only; no dependent module uses them. |
+| B4 | `includesEvent` / `includesObject`: now `⊑ isSettingFor`, domain `Situation`, range `Event` / `Object`. The DUL inverses `isEventIncludedIn` / `isObjectIncludedIn` were not added. | Not used by any dependent module. |
+| B5 | `hasLocation` range and `isLocationOf` domain restored to `Entity`. Labels ("has location" / "ha localizzazione", "è una localizzazione di") and comments (DUL, plus Italian translation) restored. | `mdx.owl` uses `HeatlhcareProfessional ⊑ hasLocation some Location`, which names `Location` explicitly, so nothing is lost. |
+| B9 | `Situation`: `rdfs:comment` is now DUL's definition. The HACID reading as a catch-all for d0 eventualities is documented in a `skos:scopeNote` (en, it). | Annotation only. |
+| C | Disjointness added: `Event ⊥ Object`, `Event ⊥ Quality`, `Object ⊥ Quality`, `PhysicalObject ⊥ SocialObject`, `Concept ⊥ Situation`, `Parameter ⊥ Role`. | No new unsatisfiable class or inconsistency in any module or test dataset. |
+| D1 | Labels: "descrive"@it (`describes`), "è soddisfatta da"@it (`isSatisfiedBy`), "regione ha valore"@it (`hasRegionDataValue`), "Organization"@en, "ha ruolo"@it (`hasRole`), "è un ruolo di"@it (`isRoleOf`). | Annotation only. |
+| D2 | For the 24 remaining replicas whose comment had been replaced, `rdfs:comment` is now DUL's text. The former HACID comments (en and it) are kept as `skos:scopeNote`. Deliberate divergences get an extra scope note: widened domain/range of `hasRole`, `isRoleOf`, `parametrises`, `isParametrisedBy`; flattened hierarchy of `Organization`, `Workflow`; `Parameter ⊑ Characteristic`; `TimeInterval ⊑ TemporalEntity`; `Location` = `dul:Place`. The 5 abridged comments (`Event`, `FormalEntity`, `Region`, `follows`, `precedes`) now carry DUL's full text. | Annotation only. `skos:scopeNote` is declared as an annotation property. |
+| D3 | Ontology header: `rdfs:label`, `rdfs:comment` (pointing to the alignment file), `dcterms:license` CC BY 4.0 (the repository licence), `prov:wasDerivedFrom` DUL. | Annotation only. No version IRI was added. |
+| 8 | `hasDescription`/`isDescriptionOf` ≡ `isDescribedBy`/`describes`. `specializes`/`isSpecializedBy` ⊑ `specialises`/`isSpecialisedBy`. `involves`, `isEventualityOf` ⊑ `isSettingFor`. `isInvolvedIn`, `hasEventuality` ⊑ `hasSetting`. `isMemberOf` ⊑ `hasCollection`, `hasMember` ⊑ `isCollectionOf`. `isIssuedBy`/`issues` get their own labels and comments ("is issued by" / "issues"). `isSouceOf` renamed `isSourceOf`, with `isSouceOf` kept as a deprecated equivalent alias. | No IRI was removed, because `involves`, `isInvolvedIn`, `hasEventuality` and `hasDescription` are used by core, medical-dx and ccso documentation. |
+
+The alignment file was regenerated: its divergence annotations now describe the current state.
+
+### 5.3 Pre-existing issues found in the dependent modules
+
+These were present before any change, and the changes neither cause nor fix them (except the
+last one, fixed by A3). They are reported here because they surfaced during the checks.
+
+- **`mdx:HeatlhcareProfessionalRole` is unsatisfiable.** It is `⊑ mdx:worksFor some top:Organization`
+  and `⊑ ar:involvesAgent only mdx:HeatlhcareProfessional` (a `Person`). `mdx:worksFor` is a
+  sub-property of `ar:involvesAgent`, so the organisation must also be a `Person`, while top-level
+  declares `Organization ⊥ Person`. Either `worksFor` should not specialise `involvesAgent`, or
+  the restriction should be qualified differently.
+- **`medical-dx/test/mdx4-test-data.ttl` is inconsistent.** The mdx property chain
+  `isInScopeOfDiagnosis ∘ hasDiagnosis⁻ ∘ forClinicalCase ⊑ top:satisfies` makes
+  `test-data:description`, a `Description` (it `describes` something), the subject of
+  `satisfies`, hence a `Situation`, while `Description ⊥ Situation`. With the chain removed, the
+  dataset is consistent both before and after the changes.
+- **`data.owl`** declares `hasStartDateTime`/`hasEndDateTime` both as object and datatype
+  properties, with object range `xsd:dateTime`. This is outside OWL 2 DL, and in a merge it turns
+  `xsd:dateTime` into a class.
+- **`core/evidence.owl`** uses `rdf:Property` as a class (outside OWL 2 DL).
+  **`core/agentrole.owl`** uses `ar:hasEventuality` without declaring it.
+- The four **ccso usage examples** are not valid Turtle.
+- The **core `ar1`–`ar3` test data** (`xsd:gYearMonth` time values) contradicted
+  `TemporalEntity ⊑ time only xsd:dateTime`. This is fixed by A3.
+
+### 5.4 Still open
+
+- B2 (`associatedWith` characteristics): excluded for now.
+- The OWL 2 datatype-map issue of `xsd:gYear`, `xsd:date` and `xsd:time` (A3, second part).
+- Items not in the prioritised list: B6 (document or revert the widenings; they are now
+  documented in scope notes), B7/B8 (flattening and additions, including the vacuous
+  `Event ⊑ hasPart some Event`), the non-replicated DUL restrictions of section C, and the
+  Italian comments of replicas that never had one.
+
+## 6. Reproducing the checks
 
 With [ROBOT](https://robot.obolibrary.org/), from the repository root:
 
@@ -328,11 +420,7 @@ robot merge --input $T --input $D --input $A \
       reason --reasoner hermit --output /tmp/out.owl
 ```
 
-Until A1 is fixed, the last command fails with the non-simple-property error. To check the
-rest of the alignment, remove the two `owl:AsymmetricProperty` declarations from a copy of
-`$T` first.
-
-## Appendix: per-term comparison of the replicas
+## Appendix: per-term comparison of the replicas (as reviewed, before section 5)
 
 "=" means no difference in the compared axioms. Annotation differences are covered in D1/D2.
 Names of DUL terms that are not replicated in the top-level are prefixed with `dul:`.
