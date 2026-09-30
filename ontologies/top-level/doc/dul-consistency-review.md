@@ -1,0 +1,424 @@
+# Top-level ontology: consistency review against DUL
+
+**Subject:** `ontologies/top-level/top-level.owl` (namespace `https://w3id.org/hacid/onto/top-level/`, prefix `top:`)
+**Reference:** DOLCE+DnS Ultralite, `ontologies/ccso/doc/external-ontologies/DUL.owl` (prefix `dul:`)
+**Companion files:**
+- [`../alignment/top-level-dul-alignment.ttl`](../alignment/top-level-dul-alignment.ttl): `owl:sameAs` links from every replicated term to its DUL original, with the divergences recorded as axiom annotations.
+- [`novel-terms.md`](novel-terms.md): the 91 top-level terms that have no DUL counterpart.
+
+## 1. Scope and method
+
+The top-level ontology is a project-scoped replica of part of DUL, re-minted in the HACID
+namespace and extended with project-specific terms. This review checks that:
+
+1. every term taken from DUL keeps **analogous annotations** (labels, comments);
+2. every such term keeps **coherent relationships** (hierarchy, domain/range, inverses,
+   property characteristics, restrictions, disjointness); and
+3. the top-level ontology is **logically consistent** on its own, and remains so when
+   combined with DUL through the alignment.
+
+How it was done:
+
+- **Term matching.** Terms were matched by local name (79 exact matches). Four more replicas
+  were identified by label, definition and position: `Location`↔`Place`,
+  `isProperPartOf`↔`isPropertPartOf`, `parametrises`↔`parametrizes`,
+  `isParametrisedBy`↔`isParametrizedBy`. No other top-level term matches a DUL term by name
+  or case-insensitive name.
+- **Structural comparison.** For each pair, rdflib compared the labels (per language),
+  comments, `rdfs:subClassOf` (named classes and restrictions), `owl:disjointWith`,
+  `owl:equivalentClass`, `rdfs:domain`/`rdfs:range`, `rdfs:subPropertyOf`, `owl:inverseOf`
+  (declared on either side) and property characteristics. DUL IRIs were translated to their
+  top-level replicas before comparing.
+- **Reasoning.** ROBOT 1.9.7 with HermiT. It ran on the top-level ontology alone, on small test
+  ABoxes, on top-level + DUL + the `owl:sameAs` alignment, and on top-level + DUL + a stronger
+  variant of the alignment in which each link is an `owl:equivalentClass`/`owl:equivalentProperty`
+  axiom. The stronger variant was built only for the check and is not committed. It shows
+  whether the top-level could be *semantically* identified with DUL. ROBOT
+  `validate-profile --profile DL` was used for OWL 2 DL compliance.
+
+## 2. Overview
+
+| | Count |
+|---|---:|
+| Terms in top-level (classes / object props / datatype props) | 174 (47 / 113 / 14) |
+| Replicas of DUL terms | **83** (28 / 54 / 1) |
+| of which identical to DUL in all compared axioms (annotations aside) | 50 |
+| of which with at least one axiom-level divergence | 33 |
+| Novel terms (see `novel-terms.md`) | 91 |
+| DUL terms not replicated | 112 |
+
+DUL terms that are not replicated but are referenced in the comments of replicated terms,
+or that sit between replicated terms in the DUL hierarchy:
+`Abstract`, `SocialAgent`, `Plan`, `EventType`, `InformationObject`, `InformationRealization`,
+`PhysicalAttribute`, `SpaceRegion`, `LocalConcept`, `hasDataValue`, `isEventIncludedIn`,
+`isObjectIncludedIn`, `isExpressedBy`, `overlaps`, `realizes`.
+
+### Reasoning results
+
+| Check | Result |
+|---|---|
+| top-level alone, OWL 2 DL profile | ❌ **Not OWL 2 DL**: reserved vocabulary (`rdfs:domain` used as an object property, `rdfs:Property` and `rdfs:Class` used as classes). See A2. |
+| top-level alone, HermiT, datatype-strict mode (Protégé default) | ❌ **Refuses to load**: `xsd:gYear` (also `xsd:date`, `xsd:time`) is not in the OWL 2 datatype map. See A3. |
+| top-level alone, HermiT, ignoring unsupported datatypes | ✅ Consistent, no unsatisfiable classes. |
+| top-level + ABox `Year` with `year "…"^^xsd:string` | ❌ Inconsistent. This confirms that `TemporalEntity ⊑ time only xsd:dateTime` constrains every sub-property of `time`. See A3. |
+| top-level + DUL + `owl:sameAs` alignment | ✅ Consistent, no unsatisfiable classes (the only DL violations are the top-level's own, A2). The alignment file alone is OWL 2 DL. |
+| top-level + DUL + equivalence alignment | ❌ **Rejected by HermiT / not OWL 2 DL**: "Non-simple property `top:isProperPartOf` or its inverse appears in asymmetric object property axiom". See A1. |
+| same, with the two top-level `owl:AsymmetricProperty` axioms removed | ✅ Consistent, no unsatisfiable classes. |
+
+**Reading.** Apart from the proper-parthood characteristics, the axioms of the top-level are
+**compatible with DUL**. Adding all DUL axioms to the replicated terms introduces no
+contradiction or unsatisfiable class. Most divergences are **weakenings** (DUL axioms that were
+not copied) or **flattenings** (intermediate DUL classes skipped). A few are real changes of
+meaning, listed in section B.
+
+## 3. Findings
+
+Severity: **A** = logical/technical problem (reasoning breaks, profile violation or latent
+inconsistency). **B** = semantic divergence from DUL that changes the meaning of a
+replicated term. **C** = weakening (DUL axioms not replicated). **D** = annotation divergence.
+
+### A. Logical and technical problems
+
+**A1. Proper parthood: `hasProperPart` / `isProperPartOf` are asymmetric in top-level but transitive in DUL.**
+DUL declares `hasProperPart` and `isPropertPartOf` (sic) as `owl:TransitiveProperty`. Its
+documentation calls them asymmetric, but DUL cannot assert that: asymmetry on a transitive
+(non-simple) property is outside OWL 2 DL. The top-level declares them `owl:AsymmetricProperty`
+and **not** transitive. It also re-describes them in the comments as the relation between
+objects and their *direct* components, which is what DUL's `hasComponent` is for. As a result:
+- the top-level `hasProperPart` means something different from DUL's (non-transitive, "direct");
+- the two ontologies cannot be merged under equivalence in OWL 2 DL (checked with HermiT);
+- `hasComponent`/`isComponentOf` (asymmetric, "without transitivity" by their comments) are now
+  nearly indistinguishable from their super-properties.
+
+*Recommendation:* realign with DUL. Make `hasProperPart`/`isProperPartOf` transitive, drop
+`owl:AsymmetricProperty`, and restore the DUL comment ("Asymmetric (so including irreflexive)
+parthood"). Keep `hasComponent` for direct, design-based parthood. If non-transitive direct
+parthood is really wanted, introduce a new property rather than redefining the replica.
+
+**A2. OWL 2 DL violations (meta-modelling with RDF/RDFS vocabulary).**
+- `WorkflowRole ⊑ rdfs:Property` and `WorkflowRole ⊑ rdfs:domain only WorkflowExecution`.
+  This declares `rdfs:domain` as an `owl:ObjectProperty`.
+- `hasExpectedType` has range `rdfs:Class`, and `isExpectedTypeOf` has domain `rdfs:Class`.
+
+The ontology is therefore OWL 2 Full. DL reasoners ignore or reject these axioms (ROBOT reports
+them as dangling references). These are novel terms, so the problem is not about DUL
+consistency, but it affects every module that imports the top-level.
+*Recommendation:* model workflow-role properties with OWL 2 punning (declare the concrete
+role IRIs both as `top:WorkflowRole` individuals and as object properties, and give each
+property its own `rdfs:domain`), or with an annotation property. For expected types, use
+`owl:Class` IRIs as punned individuals with an unconstrained range, or an annotation property.
+
+**A3. Temporal datatypes: latent inconsistency and unsupported datatypes.**
+- `TemporalEntity ⊑ time some xsd:dateTime` and `TemporalEntity ⊑ time only xsd:dateTime`.
+- The sub-properties of `time` have other ranges: `year` → `xsd:gYear`, and
+  `startTime`/`endTime` → `xsd:date ∪ xsd:dateTime ∪ xsd:time`.
+- The value spaces of `xsd:gYear`, `xsd:date` and `xsd:time` are disjoint from that of
+  `xsd:dateTime`. So any `Year` that has a `year` value, or any `TimeInterval` with a
+  `startTime`/`endTime` of type `xsd:date` or `xsd:time`, is **inconsistent** under a reasoner
+  that supports those datatypes. The `time some xsd:dateTime` restriction also forces every
+  year or interval to carry an `xsd:dateTime` value.
+- `xsd:date`, `xsd:time` and `xsd:gYear` are not part of the OWL 2 datatype map. HermiT in
+  strict mode (the Protégé default) refuses to load the ontology. ROBOT's lenient mode treats
+  them as opaque, which is why the clash is not detected there. With a non-`dateTime` literal
+  the inconsistency shows up (see the table above).
+
+*Recommendation:* remove the `time only/some xsd:dateTime` restrictions from `TemporalEntity`,
+or move them to a subclass that really requires timestamps. Consider `xsd:dateTimeStamp`
+(which is in the OWL 2 datatype map) for timestamps. Keep `gYear`/`date` for data-level use
+only if all downstream tools accept non-OWL-2 datatypes. None of this comes from DUL:
+`TemporalEntity`, `time`, `year`, `startTime`, `endTime` and `Year` are all novel.
+
+### B. Semantic divergences in replicated terms
+
+**B1. `TimeInterval` is not a `Region`.** In DUL, `TimeInterval ⊑ Region`. In the top-level,
+`TimeInterval ⊑ TemporalEntity ⊑ Entity`. But the replicated `hasTimeInterval` is still
+`⊑ hasRegion`, whose range is `Region`, so every time interval *used* with `hasTimeInterval`
+is inferred to be a `Region` anyway. The asserted hierarchy and the property hierarchy
+disagree. The `owl:disjointWith Amount` axiom that was kept only makes sense if
+`TimeInterval` is a Region. *Recommendation:* assert `TimeInterval ⊑ Region` (it can also stay
+under `TemporalEntity`).
+
+**B2. `associatedWith` is neither symmetric nor transitive, but its comment says it is.**
+DUL declares `associatedWith` `owl:SymmetricProperty` + `owl:TransitiveProperty`, with
+domain/range `Entity`. The top-level copies the comment ("It is declared as both transitive and
+symmetric…") but none of those axioms. *Recommendation:* restore the characteristics
+(and domain/range `Entity`), or change the comment. Restoring them has consequences, because
+`associatedWith` is the root of all object properties in `data.owl` and `ccso.owl`.
+Transitivity combined with symmetry makes every pair of connected individuals associated.
+That is DUL's intended "maximal closure", but it can be expensive for large knowledge graphs.
+If performance is the reason for dropping the characteristics, say so in the comment.
+
+**B3. `isRelatedToConcept` is not symmetric** (DUL: symmetric, and its own inverse).
+*Recommendation:* restore `owl:SymmetricProperty`.
+
+**B4. `includesEvent` / `includesObject` are detached from `isSettingFor`.** In DUL they are
+sub-properties of `isSettingFor`, with domain `Situation`, ranges `Event`/`Object`, and
+inverses `isEventIncludedIn`/`isObjectIncludedIn`. In the top-level they hang directly under
+`associatedWith`, with no domain, range or inverse. So an `includesObject` assertion no longer
+implies that the subject is a `Situation` or that it is the setting for the object.
+*Recommendation:* restore `rdfs:subPropertyOf top:isSettingFor` and the domain/range.
+
+**B5. `hasLocation` / `isLocationOf` are narrowed to `Location` (= `dul:Place`).** DUL's
+`hasLocation` is a generic, *relative* location between any two entities ("the cat is on the
+mat", "the wound is close to the femoral artery"). The top-level restricts the range to
+`top:Location`, a `SocialObject`, and relabels it "has place" / "ha luogo". Every object of
+`hasLocation` then becomes a social object, so "the cat is on the mat" would make the mat a
+`SocialObject`. This is incompatible with DUL usage. *Recommendation:* keep DUL's `Entity`
+range and labels. If the "place" reading is needed, add a sub-property (e.g. `hasPlace`) with
+range `Location`.
+
+**B6. Domain/range widenings:**
+- `hasRole` domain and `isRoleOf` range are `Entity` in the top-level, `Object` in DUL.
+- `parametrises` range and `isParametrisedBy` domain are `Entity` in the top-level, `Region` in DUL.
+
+These are compatible when the ontologies are merged. Under an equivalence alignment the DUL
+restrictions would apply again, so any entity with a role would be inferred to be an `Object`.
+They are acceptable as deliberate generalisations, but they should be documented in the
+comments. They currently are not.
+
+**B7. Hierarchy flattening** (compatible with DUL, but it loses intermediate distinctions):
+
+| top-level | DUL |
+|---|---|
+| `Organization ⊑ Agent` | `Organization ⊑ SocialAgent ⊑ Agent` |
+| `Task ⊑ Concept` | `Task ⊑ EventType ⊑ Concept` |
+| `Workflow ⊑ Description` | `Workflow ⊑ Plan ⊑ Description` |
+| `FormalEntity ⊑ Entity`, `Region ⊑ FormalEntity` | `FormalEntity ⊑ Abstract`, `Region ⊑ Abstract` (siblings) |
+
+The last row is a real restructuring: `Region` is placed *under* `FormalEntity`. This is
+consistent with DUL (DUL has no disjointness between the two), but it goes beyond DUL. The
+`Region` comment still refers to `SpaceRegion` and `PhysicalAttribute`, which are not
+replicated.
+
+**B8. Additions to replicated classes:**
+- `Parameter ⊑ Characteristic` (novel class).
+- `Collection ⊑ hasMember some Entity` (DUL allows empty collections).
+- `Organization` disjoint with `Person`.
+- `TimeInterval` gets `startTime`/`endTime` max-1 restrictions.
+- `Event ⊑ hasPart some Event`. This is vacuous, because `hasPart` is reflexive, so every event
+  is part of itself. It is probably meant to be DUL's `hasPart only Event`.
+
+**B9. `Situation` has been given the definition of `d0:Eventuality`.** The top-level comment on
+`Situation` reads "Any event, situation, activity, event type, etc. … This is the same concept
+as defined in d0.owl", which is the d0 definition of *Eventuality*. DUL defines `Situation` as
+"a view, consistent with ('satisfying') a Description, on a set of entities" (D&S reification
+and n-ary relations). The axioms are still DUL's (`satisfies some Description`). The
+comments of `satisfies` ("an eventuality satisfies a description") and of the novel
+`hasEventuality` follow the same reading. This is the biggest *conceptual* change in the
+replica. It should be either reverted to the DUL definition or stated explicitly as a
+design decision.
+
+### C. Weakenings (DUL axioms not replicated)
+
+These do not cause inconsistency. They mean the top-level infers less and catches fewer
+modelling errors than DUL. The most significant ones:
+
+| Term | DUL axioms missing from the top-level |
+|---|---|
+| `Event` | `hasParticipant some Object`, `hasTimeInterval some TimeInterval`, `hasPart only Event`, `hasConstituent only Event`; **disjoint with `Object`, `Quality`** |
+| `Object` | `isParticipantIn some Event`, `hasLocation some Entity`, `hasPart only Object`, `hasConstituent only Object`, `isClassifiedBy only Role`; **disjoint with `Quality`** |
+| `Action` | `hasParticipant some Agent`, `executesTask min 1` |
+| `PhysicalObject` | `hasPart only PhysicalObject`; **disjoint with `SocialObject`** |
+| `Concept` | `isDefinedIn some Description`, `hasPart only Concept`; **disjoint with `Situation`** (and with non-replicated `InformationObject`, `SocialAgent`) |
+| `Description` | disjoint with non-replicated `InformationObject`, `SocialAgent` (disjointness with `Situation` *is* kept) |
+| `Role` | `classifies only Object`, `hasPart only Role` |
+| `Parameter` | `classifies only Region`, `hasPart only Parameter`; disjoint with `Role` |
+| `Task` | `isExecutedIn only Action`, `isTaskDefinedIn only Description`, `isTaskOf only Role`, `hasPart only Task` |
+| `Region` | `hasPart/hasConstituent/precedes only Region`, `overlaps only Region` |
+| `SocialObject` | `isExpressedBy some InformationObject`, `hasPart only SocialObject` |
+| `UnitOfMeasure` | `parametrizes some Region` |
+| `Workflow` | `definesRole some Role`, `definesTask some Task` |
+| `Location` (`Place`) | `isLocationOf min 1` |
+| `Amount` | disjoint with non-replicated `PhysicalAttribute`, `SpaceRegion` |
+| `hasRegionDataValue` | sub-property of `hasDataValue` (not replicated) |
+| `isDescribedBy` | explicit domain `Entity`, range `Description` (still inferable from `describes`) |
+
+*Recommendation:* restore at least the **top-level disjointness axioms** (`Event ⊥ Object`,
+`Event ⊥ Quality`, `Object ⊥ Quality`, `PhysicalObject ⊥ SocialObject`, `Concept ⊥ Situation`,
+`Parameter ⊥ Role`). They are cheap for reasoners and catch the most common category errors,
+especially since the downstream modules (`data`, `ccso`, `core`) are validated with OWLUnit.
+Existential restrictions such as `Event ⊑ hasTimeInterval some TimeInterval` are a matter of
+choice: they do not burden a lightweight replica, but they do generate anonymous individuals.
+
+### D. Annotation divergences
+
+**D1. Labels.** Labels match DUL for most replicas. The divergences are:
+
+| Term | top-level | DUL | Note |
+|---|---|---|---|
+| `Organization` | "Organisation"@en | "Organization"@en | British spelling in label, US spelling in IRI |
+| `hasLocation` | "has place"@en, "ha luogo"@it | "has location"@en, "ha localizzazione"@it | see B5 |
+| `isLocationOf` | "è luogo di"@it | "è una localizzazione di"@it | see B5 |
+| `hasRole` | "ha il ruolo"@it | "ha ruolo"@it | minor |
+| `isRoleOf` | "è ruolo di"@it | "è un ruolo di"@it | minor |
+| `isSatisfiedBy` | "è soddisfatto da"@it | "è soddisfatta da"@it | the subject is a *descrizione* (feminine), so DUL's form is correct |
+| `describes` | "describe"@it | "descrive"@it | **typo** in top-level |
+| `Workflow` | "Flusso di lavoro"@it | "Workflow"@it | translation, fine |
+| `associatedWith` | "associated with"@en, "associato a"@it | "associatedWith" (no language tag) | improvement |
+| `Person` | "Persona"@it | "Persona {it}" (malformed in DUL) | improvement |
+| `InformationEntity` | "Information entity"@en, "Entità informativa"@it | none | improvement |
+| `hasProperPart`, `isProperPartOf` | en + it | en only; DUL IRI and label have the typo "propert" | improvement |
+| `parametrises`, `isParametrisedBy` | "parametrises", "is parametrised by" | "parametrizes", "is parametrized by" | spelling follows renamed IRI |
+| `hasRegionDataValue` | "has region data value"@en only | + "regione ha valore"@it | Italian label missing |
+
+**D2. Comments.** Of the 83 replicas:
+- **Identical** (apart from the added `@en` tag): 46.
+- **Abridged** (the first paragraph of DUL's comment is kept and the rest dropped): `Event`,
+  `FormalEntity`, `Region`, `follows`, `precedes`. The dropped parts carry important modelling
+  guidance: the event/situation discussion, formal vs social semantics, and the note on
+  `hasDataValue`.
+- **Replaced by a different, usually shorter, text**: `Collection`, `Concept`, `Description`,
+  `Organization`, `Parameter`, `Person`, `Role`, `Situation` (see B9), `TimeInterval`,
+  `UnitOfMeasure`, `Workflow`, `classifies`, `describes`, `isDescribedBy`, `hasLocation`,
+  `isLocationOf`, `hasMember`, `isMemberOf`, `hasPart`, `isPartOf`, `hasRole`, `isRoleOf`,
+  `isClassifiedBy`, `satisfies`, `hasProperPart`, `isProperPartOf`, `parametrises`,
+  `isParametrisedBy`, `Location`. Several of these lose the defining statement:
+  - `Role`: DUL says "A Concept that classifies an Object"; top-level says "The class for representing roles".
+  - `Parameter`: DUL gives the Region/Parameter distinction; top-level says "The class of parameters".
+  - `Organization`: DUL says "An internally structured, conventionally created SocialAgent…"; top-level says "An organisation".
+  - `Workflow`: DUL says "A Plan that defines Role(s), Task(s)…"; top-level says "A workflow with tasks".
+  - `TimeInterval`: DUL says "Any Region in a dimensional space that aims at representing time"; top-level says "…having a start and end time".
+  - `hasPart`: top-level drops DUL's explanation of the reflexivity/asymmetry design, which is exactly what A1 is about.
+- **Spelling only**: `InformationEntity` ("realised" instead of "realized").
+- **Improved over DUL**: `directlyFollows` (DUL's example, "Wednesday directly precedes
+  Thursday", is wrong for *follows*; top-level has "Tuesday directly follows Monday"), and
+  `WorkflowExecution` (DUL has no comment).
+- **Italian comments** were added to many replicas, which is an improvement. Where the English
+  text was replaced, the Italian text follows the replacement, not DUL.
+
+*Recommendation:* for replicas, keep DUL's `rdfs:comment` verbatim (tagged `@en`). Put
+HACID-specific explanations in a separate annotation, such as `skos:scopeNote` or a second
+`rdfs:comment`. That way the replica stays traceable and the local notes stay visible.
+
+**D3. Provenance.** The ontology header has no annotations: no label, comment, version,
+licence, or reference to DUL. The replicas use `rdfs:isDefinedBy <https://w3id.org/hacid/onto/top-level>`,
+which hides their origin. *Recommendation:* add ontology metadata (`dcterms:title`,
+`owl:versionInfo`/`owl:versionIRI`, `dcterms:license`, `prov:wasDerivedFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl>`)
+and point to the alignment file. Optionally, add `rdfs:seeAlso dul:X` on each replica.
+
+## 4. Prioritised recommendations
+
+1. **Fix proper parthood** (A1): transitive, not asymmetric, DUL comment.
+2. **Make the ontology OWL 2 DL** (A2): remodel `WorkflowRole`, `hasExpectedType` and `isExpectedTypeOf`.
+3. **Fix the temporal datatypes** (A3): drop or relax `TemporalEntity ⊑ time some/only xsd:dateTime`, and review the use of `xsd:gYear`, `xsd:date` and `xsd:time`.
+4. **Restore DUL relations that change meaning** (B1–B5): `TimeInterval ⊑ Region`; the characteristics of `associatedWith` (or fix its comment); `isRelatedToConcept` symmetric; `includesEvent`/`includesObject` under `isSettingFor`; the range of `hasLocation`.
+5. **Revert or explicitly document the `Situation` redefinition** (B9).
+6. **Restore the core disjointness axioms** (C).
+7. **Align annotations** (D1–D3): fix "describe"@it, restore DUL comments for replicas, add ontology metadata.
+8. **Resolve the duplicates among novel terms** (see `novel-terms.md`): `hasDescription`/`isDescribedBy`, `specialises`/`specializes`, `involves`/`hasEventuality`/`isSettingFor`, `isIssuedBy`/`hasCreator`, `hasCollection`/`isMemberOf`, and the `isSouceOf` typo.
+
+Before changing any replicated term, check the modules that use it (`data`, `ccso`, `core`,
+`medical-dx`). `associatedWith`, `hasPart`, `hasRegion`, `Concept`, `classifies` and `Situation`
+are used extensively.
+
+## 5. Reproducing the checks
+
+With [ROBOT](https://robot.obolibrary.org/), from the repository root:
+
+```bash
+T=ontologies/top-level/top-level.owl
+D=ontologies/ccso/doc/external-ontologies/DUL.owl
+A=ontologies/top-level/alignment/top-level-dul-alignment.ttl
+
+robot validate-profile --input $T --profile DL --output top-dl.txt
+robot reason --reasoner hermit --input $T --output /tmp/out.owl
+robot merge --input $T --input $D --input $A \
+      reason --reasoner hermit --output /tmp/out.owl
+```
+
+For the equivalence variant, replace each `owl:sameAs` in `$A` with `owl:equivalentClass`
+(classes) or `owl:equivalentProperty` (properties). Merge it into a single file with the two
+ontologies before running ROBOT, so that the declarations are visible to the parser.
+
+## Appendix: per-term comparison of the replicas
+
+"=" means no difference in the compared axioms. Annotation differences are covered in D1/D2.
+Names of DUL terms that are not replicated in the top-level are prefixed with `dul:`.
+
+| top-level | DUL | Type | Axiom differences (top-level only / DUL only) | Label | Comment |
+|---|---|---|---|---|---|
+| `Action` | `dul:Action` | C | superclasses/restrictions: −`executesTask min 1`, `hasParticipant some Agent` | = | = |
+| `Agent` | `dul:Agent` | C | = | = | = |
+| `Amount` | `dul:Amount` | C | disjoint with: −`dul:PhysicalAttribute`, `dul:SpaceRegion` | = | = |
+| `Collection` | `dul:Collection` | C | superclasses/restrictions: +`hasMember some Entity` | = | replaced |
+| `Concept` | `dul:Concept` | C | superclasses/restrictions: −`hasPart only Concept`, `isDefinedIn some Description`<br>disjoint with: −`dul:InformationObject`, `dul:SocialAgent`, `Situation` | = | replaced |
+| `Description` | `dul:Description` | C | disjoint with: −`dul:InformationObject`, `dul:SocialAgent` | = | replaced |
+| `Entity` | `dul:Entity` | C | = | = | = |
+| `Event` | `dul:Event` | C | superclasses/restrictions: +`hasPart some Event` / −`hasConstituent only Event`, `hasPart only Event`, `hasParticipant some Object`, `hasTimeInterval some TimeInterval`<br>disjoint with: −`Object`, `Quality` | = | abridged |
+| `FormalEntity` | `dul:FormalEntity` | C | superclasses/restrictions: +`Entity` / −`dul:Abstract` | = | abridged |
+| `Goal` | `dul:Goal` | C | = | = | = |
+| `InformationEntity` | `dul:InformationEntity` | C | = | differs | replaced |
+| `Location` | `dul:Place` | C | superclasses/restrictions: −`isLocationOf min 1` | = | replaced |
+| `Method` | `dul:Method` | C | = | = | = |
+| `Object` | `dul:Object` | C | superclasses/restrictions: −`hasConstituent only Object`, `hasLocation some Entity`, `hasPart only Object`, `isClassifiedBy only Role`, `isParticipantIn some Event`<br>disjoint with: −`Quality` | = | = |
+| `Organization` | `dul:Organization` | C | superclasses/restrictions: +`Agent` / −`dul:SocialAgent`<br>disjoint with: +`Person` | differs | replaced |
+| `Parameter` | `dul:Parameter` | C | superclasses/restrictions: +`Characteristic` / −`classifies only Region`, `hasPart only Parameter`<br>disjoint with: −`Role` | = | replaced |
+| `Person` | `dul:Person` | C | = | differs | replaced |
+| `PhysicalObject` | `dul:PhysicalObject` | C | superclasses/restrictions: −`hasPart only PhysicalObject`<br>disjoint with: −`SocialObject` | = | = |
+| `Quality` | `dul:Quality` | C | = | = | = |
+| `Region` | `dul:Region` | C | superclasses/restrictions: +`FormalEntity` / −`dul:Abstract`, `dul:overlaps only Region`, `hasConstituent only Region`, `hasPart only Region`, `precedes only Region` | = | abridged |
+| `Role` | `dul:Role` | C | superclasses/restrictions: −`classifies only Object`, `hasPart only Role` | = | replaced |
+| `Situation` | `dul:Situation` | C | = | = | replaced |
+| `SocialObject` | `dul:SocialObject` | C | superclasses/restrictions: −`dul:isExpressedBy some dul:InformationObject`, `hasPart only SocialObject` | = | = |
+| `Task` | `dul:Task` | C | superclasses/restrictions: +`Concept` / −`dul:EventType`, `hasPart only Task`, `isExecutedIn only Action`, `isTaskDefinedIn only Description`, `isTaskOf only Role` | = | = |
+| `TimeInterval` | `dul:TimeInterval` | C | superclasses/restrictions: +`TemporalEntity`, `endTime max 1 (xsd:date or xsd:dateTime or xsd:time)`, `startTime max 1 (xsd:date or xsd:dateTime or xsd:time)` / −`Region` | = | replaced |
+| `UnitOfMeasure` | `dul:UnitOfMeasure` | C | superclasses/restrictions: −`parametrises some Region` | = | replaced |
+| `Workflow` | `dul:Workflow` | C | superclasses/restrictions: +`Description` / −`dul:Plan`, `definesRole some Role`, `definesTask some Task` | differs | replaced |
+| `WorkflowExecution` | `dul:WorkflowExecution` | C | = | = | added |
+| `associatedWith` | `dul:associatedWith` | OP | domain: −`Entity`<br>range: −`Entity`<br>inverse: −`associatedWith`<br>characteristics: −`owl:SymmetricProperty`, `owl:TransitiveProperty` | differs | = |
+| `classifies` | `dul:classifies` | OP | = | = | replaced |
+| `defines` | `dul:defines` | OP | = | = | = |
+| `definesRole` | `dul:definesRole` | OP | = | = | = |
+| `definesTask` | `dul:definesTask` | OP | = | = | = |
+| `describes` | `dul:describes` | OP | = | differs | replaced |
+| `directlyFollows` | `dul:directlyFollows` | OP | = | = | replaced |
+| `directlyPrecedes` | `dul:directlyPrecedes` | OP | = | = | = |
+| `executesTask` | `dul:executesTask` | OP | = | = | = |
+| `follows` | `dul:follows` | OP | = | = | abridged |
+| `hasComponent` | `dul:hasComponent` | OP | = | = | = |
+| `hasConstituent` | `dul:hasConstituent` | OP | = | = | = |
+| `hasLocation` | `dul:hasLocation` | OP | range: +`Location` / −`Entity` | differs | replaced |
+| `hasMember` | `dul:hasMember` | OP | = | = | replaced |
+| `hasPart` | `dul:hasPart` | OP | = | = | replaced |
+| `hasParticipant` | `dul:hasParticipant` | OP | = | = | = |
+| `hasProperPart` | `dul:hasProperPart` | OP | domain: +`Entity`<br>range: +`Entity`<br>characteristics: +`owl:AsymmetricProperty` / −`owl:TransitiveProperty` | differs | replaced |
+| `hasQuality` | `dul:hasQuality` | OP | = | = | = |
+| `hasRegion` | `dul:hasRegion` | OP | = | = | = |
+| `hasRegionDataValue` | `dul:hasRegionDataValue` | DP | super-properties: −`dul:hasDataValue` | differs | = |
+| `hasRole` | `dul:hasRole` | OP | domain: +`Entity` / −`Object` | differs | replaced |
+| `hasSetting` | `dul:hasSetting` | OP | = | = | = |
+| `hasTask` | `dul:hasTask` | OP | = | = | = |
+| `hasTimeInterval` | `dul:hasTimeInterval` | OP | = | = | = |
+| `includesEvent` | `dul:includesEvent` | OP | domain: −`Situation`<br>range: −`Event`<br>super-properties: +`associatedWith` / −`isSettingFor`<br>inverse: −`dul:isEventIncludedIn` | = | = |
+| `includesObject` | `dul:includesObject` | OP | domain: −`Situation`<br>range: −`Object`<br>super-properties: +`associatedWith` / −`isSettingFor`<br>inverse: −`dul:isObjectIncludedIn` | = | = |
+| `isClassifiedBy` | `dul:isClassifiedBy` | OP | = | = | replaced |
+| `isComponentOf` | `dul:isComponentOf` | OP | = | = | = |
+| `isConceptUsedIn` | `dul:isConceptUsedIn` | OP | = | = | = |
+| `isConstituentOf` | `dul:isConstituentOf` | OP | = | = | = |
+| `isDefinedIn` | `dul:isDefinedIn` | OP | = | = | = |
+| `isDescribedBy` | `dul:isDescribedBy` | OP | domain: −`Entity`<br>range: −`Description` | = | replaced |
+| `isExecutedIn` | `dul:isExecutedIn` | OP | = | = | = |
+| `isLocationOf` | `dul:isLocationOf` | OP | domain: +`Location` / −`Entity` | differs | replaced |
+| `isMemberOf` | `dul:isMemberOf` | OP | = | = | replaced |
+| `isParametrisedBy` | `dul:isParametrizedBy` | OP | domain: +`Entity` / −`Region` | differs | replaced |
+| `isParticipantIn` | `dul:isParticipantIn` | OP | = | = | = |
+| `isPartOf` | `dul:isPartOf` | OP | = | = | replaced |
+| `isProperPartOf` | `dul:isPropertPartOf` | OP | domain: +`Entity`<br>range: +`Entity`<br>characteristics: +`owl:AsymmetricProperty` / −`owl:TransitiveProperty` | differs | replaced |
+| `isQualityOf` | `dul:isQualityOf` | OP | = | = | = |
+| `isRegionFor` | `dul:isRegionFor` | OP | = | = | = |
+| `isRelatedToConcept` | `dul:isRelatedToConcept` | OP | inverse: −`isRelatedToConcept`<br>characteristics: −`owl:SymmetricProperty` | = | = |
+| `isRoleDefinedIn` | `dul:isRoleDefinedIn` | OP | = | = | = |
+| `isRoleOf` | `dul:isRoleOf` | OP | range: +`Entity` / −`Object` | differs | replaced |
+| `isSatisfiedBy` | `dul:isSatisfiedBy` | OP | = | differs | = |
+| `isSettingFor` | `dul:isSettingFor` | OP | = | = | = |
+| `isSpecializedBy` | `dul:isSpecializedBy` | OP | = | = | = |
+| `isTaskDefinedIn` | `dul:isTaskDefinedIn` | OP | = | = | = |
+| `isTaskOf` | `dul:isTaskOf` | OP | = | = | = |
+| `isTimeIntervalOf` | `dul:isTimeIntervalOf` | OP | = | = | = |
+| `parametrises` | `dul:parametrizes` | OP | range: +`Entity` / −`Region` | differs | replaced |
+| `precedes` | `dul:precedes` | OP | = | = | abridged |
+| `satisfies` | `dul:satisfies` | OP | = | = | replaced |
+| `specializes` | `dul:specializes` | OP | = | = | = |
+| `usesConcept` | `dul:usesConcept` | OP | = | = | = |
+
+"+" = present only in the top-level; "−" = present only in DUL. For comments: "=" identical, "replaced" different text, "abridged" DUL text truncated, "added" DUL has none.
