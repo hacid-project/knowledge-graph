@@ -1782,6 +1782,18 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/componentIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/componentIdentifier">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/identifier"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">The literal value of an identifier, local to the parent entity in a top:hasComponent hierarchy. It is well defined if and only if the subject entity has a single parent.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">component identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/definition -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/definition">
@@ -1830,6 +1842,7 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     <!-- https://w3id.org/hacid/onto/top-level/identifier -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/identifier">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:comment xml:lang="it">Il valore letterale di un identificativo, ex. il codice WMO &apos;6100218&apos;.</rdfs:comment>
         <rdfs:comment xml:lang="en">The literal value of an identifier, e.g. the WMO code &apos;6100218&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
