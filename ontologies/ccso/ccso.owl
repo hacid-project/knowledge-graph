@@ -157,20 +157,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/hasMemberSimulation -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasMemberSimulation">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasComponent"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isMemberSimulationOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/EnsembleSimulation"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Simulation"/>
-        <rdfs:comment xml:lang="en">Associates an ensemble simulation with each of the simulations of which it is composed of.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
-        <rdfs:label xml:lang="en">has member simulation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/ccso/hasPotentialImpactType -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasPotentialImpactType">
@@ -538,6 +524,29 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">uses model</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/hacid/onto/ccso/productId -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/ccso/productId">
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Projection"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">An identifier associated to a specific projection in the context of its production (e.g., a simulation having multiple outputs).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
+        <rdfs:label xml:lang="en">product ID</rdfs:label>
+    </owl:DatatypeProperty>
     
 
 
