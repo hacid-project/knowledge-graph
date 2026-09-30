@@ -3,7 +3,7 @@
 **Subject:** `ontologies/top-level/top-level.owl` (namespace `https://w3id.org/hacid/onto/top-level/`, prefix `top:`)
 **Reference:** DOLCE+DnS Ultralite, `ontologies/ccso/doc/external-ontologies/DUL.owl` (prefix `dul:`)
 **Companion files:**
-- [`../alignment/top-level-dul-alignment.ttl`](../alignment/top-level-dul-alignment.ttl): `owl:sameAs` links from every replicated term to its DUL original, with the divergences recorded as axiom annotations.
+- [`../alignment/top-level-dul-alignment.ttl`](../alignment/top-level-dul-alignment.ttl): `owl:equivalentClass` / `owl:equivalentProperty` axioms from every replicated term to its DUL original, with the divergences recorded as axiom annotations.
 - [`novel-terms.md`](novel-terms.md): the 91 top-level terms that have no DUL counterpart.
 
 ## 1. Scope and method
@@ -30,10 +30,10 @@ How it was done:
   (declared on either side) and property characteristics. DUL IRIs were translated to their
   top-level replicas before comparing.
 - **Reasoning.** ROBOT 1.9.7 with HermiT. It ran on the top-level ontology alone, on small test
-  ABoxes, on top-level + DUL + the `owl:sameAs` alignment, and on top-level + DUL + a stronger
-  variant of the alignment in which each link is an `owl:equivalentClass`/`owl:equivalentProperty`
-  axiom. The stronger variant was built only for the check and is not committed. It shows
-  whether the top-level could be *semantically* identified with DUL. ROBOT
+  ABoxes, and on top-level + DUL + the alignment file. The alignment declares each replica
+  equivalent to its DUL term (`owl:equivalentClass` / `owl:equivalentProperty`), so all DUL
+  axioms also apply to the top-level terms. The check therefore shows whether the top-level
+  can be *semantically* identified with DUL. ROBOT
   `validate-profile --profile DL` was used for OWL 2 DL compliance.
 
 ## 2. Overview
@@ -61,8 +61,8 @@ or that sit between replicated terms in the DUL hierarchy:
 | top-level alone, HermiT, datatype-strict mode (Protégé default) | ❌ **Refuses to load**: `xsd:gYear` (also `xsd:date`, `xsd:time`) is not in the OWL 2 datatype map. See A3. |
 | top-level alone, HermiT, ignoring unsupported datatypes | ✅ Consistent, no unsatisfiable classes. |
 | top-level + ABox `Year` with `year "…"^^xsd:string` | ❌ Inconsistent. This confirms that `TemporalEntity ⊑ time only xsd:dateTime` constrains every sub-property of `time`. See A3. |
-| top-level + DUL + `owl:sameAs` alignment | ✅ Consistent, no unsatisfiable classes (the only DL violations are the top-level's own, A2). The alignment file alone is OWL 2 DL. |
-| top-level + DUL + equivalence alignment | ❌ **Rejected by HermiT / not OWL 2 DL**: "Non-simple property `top:isProperPartOf` or its inverse appears in asymmetric object property axiom". See A1. |
+| alignment file alone, OWL 2 DL profile | ✅ In profile. |
+| top-level + DUL + alignment | ❌ **Rejected by HermiT / not OWL 2 DL**: "Non-simple property `top:isProperPartOf` or its inverse appears in asymmetric object property axiom". See A1. |
 | same, with the two top-level `owl:AsymmetricProperty` axioms removed | ✅ Consistent, no unsatisfiable classes. |
 
 **Reading.** Apart from the proper-parthood characteristics, the axioms of the top-level are
@@ -86,7 +86,8 @@ documentation calls them asymmetric, but DUL cannot assert that: asymmetry on a 
 and **not** transitive. It also re-describes them in the comments as the relation between
 objects and their *direct* components, which is what DUL's `hasComponent` is for. As a result:
 - the top-level `hasProperPart` means something different from DUL's (non-transitive, "direct");
-- the two ontologies cannot be merged under equivalence in OWL 2 DL (checked with HermiT);
+- top-level, DUL and the equivalence alignment together are outside OWL 2 DL, and HermiT
+  rejects them (checked);
 - `hasComponent`/`isComponentOf` (asymmetric, "without transitivity" by their comments) are now
   nearly indistinguishable from their super-properties.
 
@@ -171,8 +172,8 @@ range `Location`.
 - `hasRole` domain and `isRoleOf` range are `Entity` in the top-level, `Object` in DUL.
 - `parametrises` range and `isParametrisedBy` domain are `Entity` in the top-level, `Region` in DUL.
 
-These are compatible when the ontologies are merged. Under an equivalence alignment the DUL
-restrictions would apply again, so any entity with a role would be inferred to be an `Object`.
+These are compatible when the ontologies are merged. Under the equivalence alignment the DUL
+restrictions apply again, so any entity with a role is inferred to be an `Object`.
 They are acceptable as deliberate generalisations, but they should be documented in the
 comments. They currently are not.
 
@@ -322,13 +323,14 @@ A=ontologies/top-level/alignment/top-level-dul-alignment.ttl
 
 robot validate-profile --input $T --profile DL --output top-dl.txt
 robot reason --reasoner hermit --input $T --output /tmp/out.owl
+robot validate-profile --input $A --profile DL --output alignment-dl.txt
 robot merge --input $T --input $D --input $A \
       reason --reasoner hermit --output /tmp/out.owl
 ```
 
-For the equivalence variant, replace each `owl:sameAs` in `$A` with `owl:equivalentClass`
-(classes) or `owl:equivalentProperty` (properties). Merge it into a single file with the two
-ontologies before running ROBOT, so that the declarations are visible to the parser.
+Until A1 is fixed, the last command fails with the non-simple-property error. To check the
+rest of the alignment, remove the two `owl:AsymmetricProperty` declarations from a copy of
+`$T` first.
 
 ## Appendix: per-term comparison of the replicas
 

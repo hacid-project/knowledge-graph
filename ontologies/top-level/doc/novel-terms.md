@@ -5,7 +5,7 @@ This document lists the terms of the HACID top-level ontology
 prefix `top:`) that have **no counterpart in DOLCE+DnS Ultralite (DUL)**
 (`ontologies/ccso/doc/external-ontologies/DUL.owl`, prefix `dul:`).
 
-The other 83 terms replicate a DUL term. They are linked to it by `owl:sameAs` in
+The other 83 terms replicate a DUL term. They are declared equivalent to it (`owl:equivalentClass` / `owl:equivalentProperty`) in
 [`../alignment/top-level-dul-alignment.ttl`](../alignment/top-level-dul-alignment.ttl), and
 [`dul-consistency-review.md`](dul-consistency-review.md) reviews how closely they match DUL.
 Four of those replicas have a local name that differs from DUL, so they are **not** listed here:
