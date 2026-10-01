@@ -61,6 +61,8 @@
     <!-- https://w3id.org/hacid/onto/top-level/associatedWith -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/associatedWith">
+        <rdfs:comment xml:lang="it">Una proprietà generica (catch-all), utile per l&apos;allineamento e l&apos;interrogazione.
+È dichiarata sia transitiva sia simmetrica, per ragionare su una chiusura massimale delle associazioni tra individui.</rdfs:comment>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
@@ -94,6 +96,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     <!-- https://w3id.org/hacid/onto/top-level/classifies -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/classifies">
+        <rdfs:comment xml:lang="it">Una relazione tra un Concept e un&apos;Entity, ad es. il Role &apos;studente&apos; classifica una Person &apos;John&apos;.</rdfs:comment>
         <rdfs:comment xml:lang="en">A relation between a Concept and an Entity, e.g. the Role &apos;student&apos; classifies a Person &apos;John&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
@@ -111,6 +114,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     <!-- https://w3id.org/hacid/onto/top-level/defines -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/defines">
+        <rdfs:comment xml:lang="it">Una relazione tra una Description e un Concept, ad es. un Workflow per un&apos;Organization governativa definisce il Role &apos;funzionario&apos;, oppure &apos;il Codice della strada italiano definisce il ruolo Veicolo&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/usesConcept"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDefinedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
@@ -126,6 +130,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     <!-- https://w3id.org/hacid/onto/top-level/definesRole -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/definesRole">
+        <rdfs:comment xml:lang="it">Una relazione tra una descrizione e un ruolo, ad es. la ricetta di una torta definisce il ruolo &apos;ingrediente&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/defines"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRoleDefinedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
@@ -141,6 +146,7 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     <!-- https://w3id.org/hacid/onto/top-level/definesTask -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/definesTask">
+        <rdfs:comment xml:lang="it">Una relazione tra una descrizione e un task, ad es. la ricetta di una torta definisce il task &apos;bollire&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/defines"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isTaskDefinedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
@@ -156,6 +162,8 @@ It is declared as both transitive and symmetric, in order to reason an a maximal
     <!-- https://w3id.org/hacid/onto/top-level/describes -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/describes">
+        <rdfs:comment xml:lang="it">La relazione tra una Description e un&apos;Entity: una Description dà unità a una Collection di parti (i componenti), o di costituenti, assegnando un Role a ciascuno di essi nel contesto di un Object complessivo (il sistema).
+A una stessa Entity si possono dare descrizioni diverse: ad esempio, a una vecchia culla si può dare una Description unificante basata sul design estetico originale, sulla funzionalità per cui è stata costruita, o su una nuova funzionalità estetica in cui può essere usata come vaso da fiori.</rdfs:comment>
         <rdfs:comment xml:lang="en">The relation between a Description and an Entity : a Description gives a unity to a Collection of parts (the components), or constituents, by assigning a Role to each of them in the context of a whole Object (the system).
 A same Entity can be given different descriptions, for example, an old cradle can be given a unifying Description based on the original aesthetic design, the functionality it was built for, or a new aesthetic functionality in which it can be used as a flower pot.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
@@ -205,6 +213,7 @@ A same Entity can be given different descriptions, for example, an old cradle ca
     <!-- https://w3id.org/hacid/onto/top-level/executesTask -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/executesTask">
+        <rdfs:comment xml:lang="it">Una relazione tra un&apos;azione e un task, ad es. &apos;mettere dell&apos;acqua in una pentola e mettere la pentola sul fuoco finché l&apos;acqua comincia a bollire&apos; esegue il task &apos;bollire&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isExecutedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Action"/>
@@ -330,6 +339,7 @@ It can be used between tasks, processes or time intervals, and subproperties wou
     <!-- https://w3id.org/hacid/onto/top-level/hasComponent -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasComponent">
+        <rdfs:comment xml:lang="it">La relazione hasProperPart senza transitività, tra un Object (il sistema) e un altro (il componente), che presuppone un Design che struttura l&apos;Object.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasProperPart"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isComponentOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
@@ -346,6 +356,11 @@ It can be used between tasks, processes or time intervals, and subproperties wou
     <!-- https://w3id.org/hacid/onto/top-level/hasConstituent -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasConstituent">
+        <rdfs:comment xml:lang="it">La &apos;costituzione&apos; dipende da una stratificazione del mondo descritto dall&apos;ontologia. Ad esempio, le granularità scientifiche (ad es. corpo-organo-tessuto-cellula) o gli &apos;strati&apos; ontologici (ad es. sociale-mentale-biologico-fisico) sono stratificazioni tipiche.
+Intuitivamente, un costituente è una parte che appartiene a uno strato inferiore. Poiché la stratificazione è in realtà una partizione del mondo descritto dall&apos;ontologia, i costituenti non sono propriamente classificati come parti, sebbene questa affinità possa essere intuitiva per il senso comune.
+Un vantaggio di questa distinzione è che si può parlare, ad es., di costituenti fisici di oggetti non fisici (ad es. sistemi), cosa non possibile in termini di parti.
+Esempi sono le persone che costituiscono un sistema sociale, le molecole che costituiscono una persona, gli atomi che costituiscono un fiume, ecc.
+In tutti questi esempi si nota una tipica discontinuità tra l&apos;oggetto costituito e il costituente: ad es. un sistema sociale è concettualizzato a uno strato diverso da quello delle persone che lo costituiscono, una persona a uno strato diverso da quello delle molecole che la costituiscono, e un fiume a uno strato diverso da quello degli atomi che lo costituiscono.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isConstituentOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -534,6 +549,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/hasMember -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasMember">
+        <rdfs:comment xml:lang="it">Una relazione tra collezioni ed entità, ad es. &apos;la mia collezione di sassofoni include un vecchio contralto originale Adolphe Sax&apos; (cioè la mia collezione ha come membro un contralto Adolphe Sax).</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCollectionOf"/>
         <rdfs:comment xml:lang="en">A relation between collections and entities, e.g. &apos;my collection of saxophones includes an old Adolphe Sax original alto&apos; (i.e. my collection has member an Adolphe Sax alto).</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
@@ -609,6 +625,15 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/hasPart -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasPart">
+        <rdfs:comment xml:lang="it">Una relazione schematica tra entità qualsiasi, ad es. &apos;il corpo umano ha come parte un cervello&apos;, &apos;il XX secolo contiene l&apos;anno 1923&apos;, &apos;la Seconda guerra mondiale include l&apos;evento di Pearl Harbour&apos;.
+
+La relazione di parte dovrebbe avere le proprietà di base della mereologia: transitività, antisimmetria e riflessività (la parte propria ovviamente non è riflessiva).
+Tuttavia, l&apos;antisimmetria non è supportata esplicitamente in OWL2, quindi DUL deve adottare uno di due pattern:
+1) eliminare gli assiomi di asimmetria, mantenendo la riflessività: la simmetria non è imposta, ma è permessa per il caso della riflessività. Naturalmente, in questo modo non si possono impedire usi simmetrici di hasPart;
+2) eliminare l&apos;assioma di riflessività e imporre l&apos;asimmetria: in questo caso si impedirebbero tutti gli usi simmetrici, ma si perderebbe la possibilità di imporre la riflessività, che è di senso comune per la relazione di parte.
+In DUL si adotta il pattern 1 per partOf e il pattern 2 per properPartOf, il che sembra una buona approssimazione: poiché le caratteristiche delle proprietà non vengono ereditate, ogni asserzione asimmetrica di hasProperPart sarebbe anche un&apos;asserzione riflessiva di hasPart (design pattern della riduzione riflessiva).
+
+Sottoproprietà e restrizioni possono essere usate per specializzare hasPart per oggetti, eventi, ecc.</rdfs:comment>
         <rdfs:comment xml:lang="en">A schematic relation between any entities, e.g. &apos;the human body has a brain as part&apos;, &apos;20th century contains year 1923&apos;, &apos;World War II includes the Pearl Harbour event&apos;.
 
 Parthood should assume the basic properties of mereology: transitivity, antisymmetry, and reflexivity (propert Parthood of course misses reflexivity). 
@@ -636,6 +661,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/hasParticipant -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasParticipant">
+        <rdfs:comment xml:lang="it">Una relazione tra un oggetto e un processo, ad es. &apos;John ha preso parte alla discussione&apos;, &apos;una grande massa di neve è caduta durante la valanga&apos;, oppure &apos;un cuoco, dello zucchero, della farina, ecc. sono tutti presenti nella preparazione di una torta&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isParticipantIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
@@ -669,6 +695,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/hasQuality -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasQuality">
+        <rdfs:comment xml:lang="it">Una relazione tra entità e qualità, ad es. &apos;la pelle di Dmitri è giallastra&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isQualityOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -700,6 +727,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/hasRole -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasRole">
+        <rdfs:comment xml:lang="it">Una relazione tra un oggetto e un ruolo, ad es. la persona &apos;John&apos; ha il ruolo &apos;studente&apos;.</rdfs:comment>
         <rdfs:comment xml:lang="en">A relation between an object and a role, e.g. the person &apos;John&apos; has role &apos;student&apos;.</rdfs:comment>
         <skos:scopeNote xml:lang="en">In the top-level the domain is widened from Object to Entity: any entity can have a role.</skos:scopeNote>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
@@ -734,6 +762,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/hasSetting -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasSetting">
+        <rdfs:comment xml:lang="it">Una relazione tra entità e situazioni, ad es. &apos;stamattina ho preparato il caffè con un nuovo fantastico Arabica&apos;, cioè: (una quantità di) un nuovo fantastico Arabica ha come contesto (hasSetting) la preparazione del mio caffè di stamattina.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSettingFor"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -780,6 +809,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/hasTask -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasTask">
+        <rdfs:comment xml:lang="it">Una relazione tra ruoli e task, ad es. &apos;gli studenti hanno il dovere di sostenere esami&apos; (cioè il Role &apos;studente&apos; ha il Task &apos;sostenere esami&apos;).</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRelatedToConcept"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isTaskOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
@@ -872,6 +902,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/includesEvent -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/includesEvent">
+        <rdfs:comment xml:lang="it">Una relazione tra situazioni ed eventi, ad es. &apos;stamattina ho preparato il caffè e mi sono bruciato le dita&apos; (cioè: la preparazione del mio caffè di stamattina ha incluso una bruciatura delle mie dita).</rdfs:comment>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSettingFor"/>
@@ -899,6 +930,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/includesObject -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/includesObject">
+        <rdfs:comment xml:lang="it">Una relazione tra situazioni e oggetti, ad es. &apos;stamattina ho preparato il caffè e mi sono bruciato le dita&apos; (cioè: la preparazione del mio caffè di stamattina ha incluso me).</rdfs:comment>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSettingFor"/>
@@ -984,6 +1016,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/isClassifiedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isClassifiedBy">
+        <rdfs:comment xml:lang="it">Una relazione tra un Concept e un&apos;Entity, ad es. &apos;John è considerato un tipico uomo maleducato&apos;; &apos;il tuo ultimo concerto costituisce il risultato di una vita&apos;; &apos;avere 20 anni significa che è abbastanza matura&apos;.</rdfs:comment>
         <rdfs:comment xml:lang="en">A relation between a Concept and an Entity, e.g. &apos;John is considered a typical rude man&apos;; your last concert constitutes the achievement of a lifetime; &apos;20-year-old means she&apos;s mature enough&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -1015,6 +1048,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/isComponentOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isComponentOf">
+        <rdfs:comment xml:lang="it">La relazione asimmetrica isProperPartOf senza transitività, tra un Object (il sistema) e un altro (il componente), che presuppone un Design che struttura l&apos;Object.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isProperPartOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -1030,6 +1064,7 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/isConceptUsedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isConceptUsedIn">
+        <rdfs:comment xml:lang="it">Una relazione più generica tra una Description e un Concept. Per essere usato, un Concept deve essere stato prima definito (isDefinedIn) in un&apos;altra Description.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/usesConcept"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
@@ -1045,6 +1080,11 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
     <!-- https://w3id.org/hacid/onto/top-level/isConstituentOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isConstituentOf">
+        <rdfs:comment xml:lang="it">La &apos;costituzione&apos; dipende da una stratificazione del mondo descritto dall&apos;ontologia. Ad esempio, le granularità scientifiche (ad es. corpo-organo-tessuto-cellula) o gli &apos;strati&apos; ontologici (ad es. sociale-mentale-biologico-fisico) sono stratificazioni tipiche.
+Intuitivamente, un costituente è una parte che appartiene a uno strato inferiore. Poiché la stratificazione è in realtà una partizione del mondo descritto dall&apos;ontologia, i costituenti non sono propriamente classificati come parti, sebbene questa affinità possa essere intuitiva per il senso comune.
+Un vantaggio di questa distinzione è che si può parlare, ad es., di costituenti fisici di oggetti non fisici (ad es. sistemi), cosa non possibile in termini di parti.
+Esempi sono le persone che costituiscono un sistema sociale, le molecole che costituiscono una persona, gli atomi che costituiscono un fiume, ecc.
+In tutti questi esempi si nota una tipica discontinuità tra l&apos;oggetto costituito e il costituente: ad es. un sistema sociale è concettualizzato a uno strato diverso da quello delle persone che lo costituiscono, una persona a uno strato diverso da quello delle molecole che la costituiscono, e un fiume a uno strato diverso da quello degli atomi che lo costituiscono.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -1092,6 +1132,7 @@ In all these examples, we notice a typical discontinuity between the constituted
     <!-- https://w3id.org/hacid/onto/top-level/isDefinedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isDefinedIn">
+        <rdfs:comment xml:lang="it">Una relazione tra una Description e un Concept, ad es. un Workflow per un&apos;Organization governativa definisce il Role &apos;funzionario&apos;, oppure &apos;il Codice della strada italiano definisce il ruolo Veicolo&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isConceptUsedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
@@ -1106,6 +1147,10 @@ In all these examples, we notice a typical discontinuity between the constituted
     <!-- https://w3id.org/hacid/onto/top-level/isDescribedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isDescribedBy">
+        <rdfs:comment xml:lang="it">La relazione tra un&apos;Entity e una Description: una Description dà unità a una Collection di parti (i componenti), o di costituenti, assegnando un Role a ciascuno di essi nel contesto di un Object complessivo (il sistema).
+A una stessa Entity si possono dare descrizioni diverse: ad esempio, a una vecchia culla si può dare una Description unificante basata sul design estetico originale, sulla funzionalità per cui è stata costruita, o su una nuova funzionalità estetica in cui può essere usata come vaso da fiori.</rdfs:comment>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
         <rdfs:comment xml:lang="en">The relation between an Entity and a Description: a Description gives a unity to a Collection of parts (the components), or constituents, by assigning a Role to each of them in the context of a whole Object (the system).
 A same Entity can be given different descriptions, for example, an old cradle can be given a unifying Description based on the original aesthetic design, the functionality it was built for, or a new aesthetic functionality in which it can be used as a flower pot.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
@@ -1165,6 +1210,7 @@ A same Entity can be given different descriptions, for example, an old cradle ca
     <!-- https://w3id.org/hacid/onto/top-level/isExecutedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isExecutedIn">
+        <rdfs:comment xml:lang="it">Una relazione tra un&apos;azione e un task, ad es. &apos;mettere dell&apos;acqua in una pentola e mettere la pentola sul fuoco finché l&apos;acqua comincia a bollire&apos; esegue il task &apos;bollire&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Action"/>
@@ -1281,6 +1327,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isMemberOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isMemberOf">
+        <rdfs:comment xml:lang="it">Una relazione tra collezioni ed entità, ad es. &apos;la Ronda di notte di Rembrandt è nella collezione del Rijksmuseum&apos;; &apos;Davide è membro del Pen Club&apos;, &apos;Igor è uno dei soggetti scelti per l&apos;esperimento&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasCollection"/>
         <rdfs:comment xml:lang="en">A relation between collections and entities, e.g. &apos;the Night Watch by Rembrandt is in the Rijksmuseum collection&apos;; &apos;Davide is member of the Pen Club&apos;, &apos;Igor is one the subjects chosen for the experiment&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
@@ -1324,6 +1371,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isParametrisedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isParametrisedBy">
+        <rdfs:comment xml:lang="it">La relazione tra un Parameter, ad es. &apos;MaggioreEtà&apos;, e una Region, ad es. &apos;&gt;17 anni&apos;.</rdfs:comment>
         <rdfs:comment xml:lang="en">The relation between a Parameter, e.g. &apos;MajorAge&apos;, and a Region, e.g. &apos;&gt;17 year&apos;.</rdfs:comment>
         <skos:scopeNote xml:lang="en">In the top-level the domain is widened from Region to Entity.</skos:scopeNote>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
@@ -1342,6 +1390,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isPartOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isPartOf">
+        <rdfs:comment xml:lang="it">Una relazione tra entità qualsiasi, ad es. &apos;il cervello è una parte del corpo umano&apos;. Si veda dul:hasPart per ulteriore documentazione.</rdfs:comment>
         <rdfs:comment xml:lang="en">A relation between any entities, e.g. &apos;brain is a part of the human body&apos;. See dul:hasPart for additional documentation.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
@@ -1360,6 +1409,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isParticipantIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isParticipantIn">
+        <rdfs:comment xml:lang="it">Una relazione tra un oggetto e un processo, ad es. &apos;John ha preso parte alla discussione&apos;, &apos;una grande massa di neve è caduta durante la valanga&apos;, oppure &apos;un cuoco, dello zucchero, della farina, ecc. sono tutti presenti nella preparazione di una torta&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
@@ -1391,6 +1441,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isQualityOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isQualityOf">
+        <rdfs:comment xml:lang="it">Una relazione tra entità e qualità, ad es. &apos;la pelle di Dmitri è giallastra&apos;.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Quality"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -1420,6 +1471,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isRelatedToConcept -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRelatedToConcept">
+        <rdfs:comment xml:lang="it">Qualsiasi relazione tra concetti, ad es. sovraordinazione, parte concettuale, avere un parametro, avere un task, ecc.</rdfs:comment>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
@@ -1435,6 +1487,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isRoleDefinedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleDefinedIn">
+        <rdfs:comment xml:lang="it">Una relazione tra una descrizione e un ruolo, ad es. il ruolo &apos;Ingrediente&apos; è definito nella ricetta di una torta.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDefinedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
@@ -1463,6 +1516,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isRoleOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isRoleOf">
+        <rdfs:comment xml:lang="it">Una relazione tra un oggetto e un ruolo, ad es. &apos;studente&apos; è il ruolo di &apos;John&apos;.</rdfs:comment>
         <rdfs:comment xml:lang="en">A relation between an object and a role, e.g. &apos;student&apos; is the role of &apos;John&apos;.</rdfs:comment>
         <skos:scopeNote xml:lang="en">In the top-level the range is widened from Object to Entity: a role can be the role of any entity.</skos:scopeNote>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
@@ -1480,6 +1534,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isSatisfiedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSatisfiedBy">
+        <rdfs:comment xml:lang="it">Una relazione tra una Situation e una Description, ad es. l&apos;esecuzione di un Plan soddisfa quel piano.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/satisfies"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
@@ -1510,6 +1565,7 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isSettingFor -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSettingFor">
+        <rdfs:comment xml:lang="it">Una relazione tra situazioni ed entità, ad es. &apos;stamattina ho preparato il caffè con un nuovo fantastico Arabica&apos;, cioè: la preparazione del mio caffè di stamattina è il contesto (isSettingFor) per (una quantità di) un nuovo fantastico Arabica.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -1568,6 +1624,8 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isSpecializedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSpecializedBy">
+        <rdfs:comment xml:lang="it">Una relazione d&apos;ordine parziale tra oggetti sociali. Rappresenta la relazione di sussunzione tra, ad es., un Concept e un altro Concept più ampio nell&apos;interpretazione estensionale, ma più ristretto nell&apos;interpretazione intensionale.
+Ad es. il Role DottorandoDiRicerca specializza il Role Studente.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSpecialisedBy"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/specializes"/>
@@ -1601,6 +1659,7 @@ E.g. PhDStudent Role specializes Student Role</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isTaskDefinedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isTaskDefinedIn">
+        <rdfs:comment xml:lang="it">Una relazione tra una descrizione e un task, ad es. il task &apos;bollire&apos; è definito in una ricetta per una torta.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDefinedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
@@ -1615,6 +1674,7 @@ E.g. PhDStudent Role specializes Student Role</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/isTaskOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isTaskOf">
+        <rdfs:comment xml:lang="it">Una relazione tra ruoli e task, ad es. &apos;gli studenti hanno il dovere di sostenere esami&apos; (cioè il Role &apos;studente&apos; ha il Task &apos;sostenere esami&apos;).</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRelatedToConcept"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
@@ -1716,6 +1776,8 @@ E.g. PhDStudent Role specializes Student Role</rdfs:comment>
     <!-- https://w3id.org/hacid/onto/top-level/parametrises -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/parametrises">
+        <rdfs:comment xml:lang="it">La relazione tra un Parameter, ad es. &apos;LimiteMaggioreEtà&apos;, e una Region, ad es. &apos;18_anni&apos;.
+Per una relazione più orientata ai dati, si veda hasDataValue.</rdfs:comment>
         <rdfs:comment xml:lang="en">The relation between a Parameter, e.g. &apos;MajorAgeLimit&apos;, and a Region, e.g. &apos;18_year&apos;.
 For a more data-oriented relation, see hasDataValue</rdfs:comment>
         <skos:scopeNote xml:lang="en">In the top-level the range is widened from Region to Entity.</skos:scopeNote>
@@ -1753,6 +1815,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- https://w3id.org/hacid/onto/top-level/satisfies -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/satisfies">
+        <rdfs:comment xml:lang="it">Una relazione tra una Situation e una Description, ad es. l&apos;esecuzione di un Plan soddisfa quel piano.</rdfs:comment>
         <rdfs:comment xml:lang="en">A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
@@ -1785,6 +1848,9 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- https://w3id.org/hacid/onto/top-level/specializes -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/specializes">
+        <rdfs:comment xml:lang="it">Una relazione d&apos;ordine parziale tra oggetti sociali.
+Rappresenta principalmente la relazione di sussunzione tra, ad es., un Concept o una Description e un altro Concept (risp. Description) più ampio nell&apos;interpretazione estensionale, ma più ristretto nell&apos;interpretazione intensionale. Ad esempio, il ruolo DottorandoDiRicerca specializza il ruolo Studente.
+Un altro uso possibile è tra una Collection coperta (isCoveredBy) da un Concept A e un&apos;altra Collection coperta da un Concept B che a sua volta specializza A. Ad esempio, la Collection dei sassofoni Selmer Mark VI della serie 70.000 specializza la Collection dei sassofoni Selmer Mark VI.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/specialises"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
@@ -1803,6 +1869,7 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     <!-- https://w3id.org/hacid/onto/top-level/usesConcept -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/usesConcept">
+        <rdfs:comment xml:lang="it">Una relazione generica tra una Description e un Concept. Per essere usato, un Concept deve essere stato prima definito (definedIn) in un&apos;altra Description. Quest&apos;ultima condizione non può essere codificata per le object property in OWL.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
@@ -1889,9 +1956,48 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasDataValue">
+        <rdfs:comment xml:lang="it">Una proprietà di tipo datatype che codifica, per un&apos;Entity, valori di un datatype.
+In DOLCE (Ultralite) ci sono diversi modi per codificare valori:
+
+1) asserire direttamente un valore xsd:_ per un&apos;Entity usando hasDataValue;
+2) asserire una Region per un&apos;Entity usando hasRegion, e poi asserire un valore xsd:_ per quella Region usando hasRegionDataValue;
+3) asserire una Quality per un&apos;Entity usando hasQuality, poi asserire una Region per quella Quality, e asserire un valore xsd:_ per quella Region usando hasRegionDataValue;
+4) quando il valore è richiesto ma non osservato direttamente, asserire un Parameter per un valore xsd:_ usando hasParameterDataValue, e poi associare il Parameter a un&apos;Entity usando isConstraintFor;
+5) quando il valore è richiesto ma non osservato direttamente, si può anche asserire un Parameter per una Region usando parametrizes, e poi asserire un valore xsd:_ per quella Region usando hasRegionDataValue.
+
+I cinque approcci rispondono a requisiti diversi.
+Ad esempio, un valore semplice può essere asserito facilmente con il pattern (1), ma se si deve asserire un intervallo tra due valori, si dovrebbe introdurre una Region per materializzare quell&apos;intervallo, come suggerisce il pattern (2).
+Inoltre, se si deve distinguere la Quality individuale di un valore, ad es. la natura particolare della densità di una sostanza, si può usare il pattern (3).
+I pattern (4) e (5) dovrebbero invece essere usati quando si modella un vincolo o una selezione, indipendentemente dall&apos;osservazione effettiva dei valori nel mondo reale.</rdfs:comment>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:comment xml:lang="en">A datatype property that encodes values from a datatype for an Entity. 
+There are several ways to encode values in DOLCE (Ultralite):
+
+1) Directly assert an xsd:_ value to an Entity by using hasDataValue
+2) Assert a Region for an Entity by using hasRegion, and then assert an xsd:_ value to that Region, by using hasRegionDataValue
+3) Assert a Quality for an Entity by using hasQuality, then assert a Region for that Quality, and assert an xsd:_ value to that Region, by using hasRegionDataValue
+4) When the value is required, but not directly observed, assert a Parameter for an xsd:_ value by using hasParameterDataValue, and then associate the Parameter to an Entity by using isConstraintFor
+5) When the value is required, but not directly observed, you can also assert a Parameter for a Region by using parametrizes, and then assert an xsd:_ value to that Region, by using hasRegionDataValue
+
+The five approaches obey different requirements. 
+For example, a simple value can be easily asserted by using pattern (1), but if one needs to assert an interval between two values, a Region should be introduced to materialize that interval, as pattern (2) suggests. 
+Furthermore, if one needs to distinguish the individual Quality of a value, e.g. the particular nature of the density of a substance, pattern (3) can be used. 
+Patterns (4) and (5) should be used instead when a constraint or a selection is modeled, independently from the actual observation of values in the real world.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">ha valore</rdfs:label>
+        <rdfs:label xml:lang="en">has data value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/hasRegionDataValue -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasRegionDataValue">
+        <rdfs:comment xml:lang="it">Una proprietà di tipo datatype che codifica valori per una Region, ad es. un float per la Region Altezza.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasDataValue"/>
         <rdfs:label xml:lang="it">regione ha valore</rdfs:label>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
         <rdfs:comment xml:lang="en">A datatype property that encodes values for a Region, e.g. a float for the Region Height.</rdfs:comment>
@@ -2010,9 +2116,38 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/Abstract -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Abstract">
+        <rdfs:comment xml:lang="it">Qualsiasi Entity che non può essere localizzata nello spazio-tempo. Ad es. entità matematiche: entità formali semantiche, regioni in spazi dimensionali, ecc.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Quality"/>
+        <rdfs:comment xml:lang="en">Any Entity that cannot be located in space-time. E.g. mathematical entities: formal semantics elements, regions within dimensional spaces, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Abstract</rdfs:label>
+        <rdfs:label xml:lang="it">Astratto</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/Action -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Action">
+        <rdfs:comment xml:lang="it">Un Event con almeno un Agent che vi partecipa (isParticipantIn) e che esegue un Task, tipicamente definito (isDefinedIn) in un Plan, un Workflow, un Project, ecc.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/executesTask"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
         <rdfs:comment xml:lang="en">An Event with at least one Agent that isParticipantIn it, and that executes a Task that typically isDefinedIn a Plan, Workflow, Project, etc.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -2025,6 +2160,8 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     <!-- https://w3id.org/hacid/onto/top-level/Agent -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Agent">
+        <rdfs:comment xml:lang="it">Commento aggiuntivo: un agente computazionale può essere considerato come un PhysicalAgent che realizza una certa classe di algoritmi (che possono essere considerati istanze di InformationObject), i quali permettono di ottenere comportamenti considerati tipici degli agenti in generale. Per un&apos;ontologia degli oggetti computazionali basata su DOLCE si vedano ad es. http://www.loa-cnr.it/COS/COS.owl e http://www.loa-cnr.it/KCO/KCO.owl.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Qualsiasi Object agentivo, sia fisico (ad es. una balena, un robot, una quercia) sia sociale (ad es. una società, un&apos;istituzione, una comunità).</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:comment xml:lang="en">Additional comment: a computational agent can be considered as a PhysicalAgent that realizes a certain class of algorithms (that can be considered as instances of InformationObject) that allow to obtain some behaviors that are considered typical of agents in general. For an ontology of computational objects based on DOLCE see e.g. http://www.loa-cnr.it/COS/COS.owl, and http://www.loa-cnr.it/KCO/KCO.owl.</rdfs:comment>
         <rdfs:comment xml:lang="en">Any agentive Object , either physical (e.g. a whale, a robot, an oak), or social (e.g. a corporation, an institution, a community).</rdfs:comment>
@@ -2038,6 +2175,7 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     <!-- https://w3id.org/hacid/onto/top-level/Amount -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Amount">
+        <rdfs:comment xml:lang="it">Una quantità, indipendentemente da come viene misurata, calcolata, ecc.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/TimeInterval"/>
         <rdfs:comment>A quantity, independently from how it is measured, computed, etc.</rdfs:comment>
@@ -2064,6 +2202,9 @@ Another possible use is between a Collection that isCoveredBy a Concept A, and a
     <!-- https://w3id.org/hacid/onto/top-level/Collection -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Collection">
+        <rdfs:comment xml:lang="it">Qualsiasi contenitore di entità che condividono una o più proprietà comuni. Ad es. &quot;gli oggetti di pietra&quot;, &quot;le infermiere&quot;, &quot;la collezione egizia del Louvre&quot;, tutte le elezioni del Presidente della Repubblica Italiana.
+Una collezione non è una classe logica: una collezione è un&apos;entità del primo ordine, mentre una classe è del secondo ordine.
+Una collezione non è nemmeno un aggregato delle entità che ne sono membri (si veda ad es. la classe ObjectAggregate).</rdfs:comment>
         <rdfs:comment xml:lang="en">Any container for entities that share one or more common properties. E.g. &quot;stone objects&quot;, &quot;the nurses&quot;, &quot;the Louvre Aegyptian collection&quot;, all the elections for the Italian President of the Republic. 
 A collection is not a logical class: a collection is a first-order entity, while a class is second-order.
 A collection is neither an aggregate of its member entities (see e.g. ObjectAggregate class).</rdfs:comment>
@@ -2092,6 +2233,15 @@ A collection is neither an aggregate of its member entities (see e.g. ObjectAggr
     <!-- https://w3id.org/hacid/onto/top-level/Concept -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Concept">
+        <rdfs:comment xml:lang="it">Un Concept è un SocialObject ed è definito (isDefinedIn) in qualche Description; una volta definito, un Concept può essere usato in altre Description. Se un Concept è definito in esattamente una Description, si veda la classe LocalConcept.
+La relazione classifies collega Concept a Entity in un certo TimeInterval.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/SocialAgent"/>
         <rdfs:comment xml:lang="en">A Concept is a SocialObject, and isDefinedIn some Description; once defined, a Concept can be used in other Description(s). If a Concept isDefinedIn exactly one Description, see the LocalConcept class.
 The classifies relation relates Concept(s) to Entity(s) at some TimeInterval</rdfs:comment>
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
@@ -2164,6 +2314,11 @@ The classifies relation relates Concept(s) to Entity(s) at some TimeInterval</rd
     <!-- https://w3id.org/hacid/onto/top-level/Description -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Description">
+        <rdfs:comment xml:lang="it">Una Description è un SocialObject che rappresenta una concettualizzazione.
+Può essere pensata anche come un &apos;contesto descrittivo&apos; che usa o definisce concetti per creare una vista su un &apos;contesto relazionale&apos; (cfr. Situation) a partire da un insieme di dati o osservazioni.
+Ad esempio, un Plan è una Description di alcune azioni da eseguire da parte di agenti in un certo modo, con certi parametri; una Diagnosis è una Description che fornisce un&apos;interpretazione di un insieme di entità osservate, ecc.
+Le Description &apos;definiscono&apos; o &apos;usano&apos; concetti, e possono essere &apos;soddisfatte&apos; da situazioni.</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/SocialAgent"/>
         <rdfs:comment xml:lang="en">A Description is a SocialObject that represents a conceptualization. 
 It can be thought also as a &apos;descriptive context&apos; that uses or defines concepts in order to create a view on a &apos;relational context&apos; (cf. Situation) out of a set of data or observations. 
 For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
@@ -2182,6 +2337,7 @@ Descriptions &apos;define&apos; or &apos;use&apos; concepts, and can be &apos;sa
     <!-- https://w3id.org/hacid/onto/top-level/Entity -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Entity">
+        <rdfs:comment xml:lang="it">Qualsiasi cosa, reale, possibile o immaginaria, di cui un modellatore voglia parlare per qualche scopo.</rdfs:comment>
         <rdfs:comment xml:lang="en">Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Entity</rdfs:label>
@@ -2193,6 +2349,12 @@ Descriptions &apos;define&apos; or &apos;use&apos; concepts, and can be &apos;sa
     <!-- https://w3id.org/hacid/onto/top-level/Event -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Event">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasConstituent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Any physical, social, or mental process, event, or state.
 
 More theoretically, events can be classified in different ways, possibly based on &apos;aspect&apos; (e.g. stative, continuous, accomplishement, achievement, etc.), on &apos;agentivity&apos; (e.g. intentional, natural, etc.), or on &apos;typical participants&apos; (e.g. human, physical, abstract, food, etc.).
@@ -2233,13 +2395,34 @@ For this reason, in this ontology version of DOLCE, both events and situations a
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="it">Qualsiasi processo, evento o stato fisico, sociale o mentale.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Event</rdfs:label>
         <rdfs:label xml:lang="it">Evento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/top-level/EventType -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/EventType">
+        <rdfs:comment xml:lang="it">Un Concept che classifica un Event. Un tipo di evento descrive come un Event dovrebbe essere interpretato, eseguito, atteso, visto, ecc., secondo la Description in cui l&apos;EventType è definito (isDefinedIn) o usato.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+        <rdfs:comment xml:lang="en">A Concept that classifies an Event . An event type describes how an Event should be interpreted, executed, expected, seen, etc., according to the Description that the EventType isDefinedIn (or used in)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="en">Event type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di evento</rdfs:label>
     </owl:Class>
     
 
@@ -2256,7 +2439,7 @@ For example, the class &apos;Quark&apos; is an abstract FormalEntity from the pu
 
 These distinctions allow to represent two different notions of &apos;semantics&apos;: the first one is abstract and formal (&apos;formal semantics&apos;), and formallyInterprets symbols that are about entities whatsoever; for example, the term &apos;Quark&apos; isAbout the Collection of all quarks, and that Collection isFormalGroundingFor the abstract class &apos;Quark&apos; (in the extensional sense). 
 The second notion is social, localized in space-time (&apos;social semantics&apos;), and can be used to interpret entities in the intensional sense. For example, the Collection of all quarks isCoveredBy the Concept &apos;Quark&apos;, which is also expressed by the term &apos;Quark&apos;.</rdfs:comment>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Abstract"/>
         <rdfs:comment xml:lang="it">Entità formalmente definite e considerate indipendenti dal contesto sociale in cui vengono utilizzate. Non possono essere localizzati nello spazio o nel tempo. Chiamate anche &quot;entità platoniche&quot;.
 In questa classe sono incluse le entità matematiche e logiche: insiemi, categorie, tuple, costanti, variabili, ecc.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -2269,6 +2452,7 @@ In questa classe sono incluse le entità matematiche e logiche: insiemi, categor
     <!-- https://w3id.org/hacid/onto/top-level/Goal -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Goal">
+        <rdfs:comment xml:lang="it">La Description di una Situation desiderata da un Agent, solitamente associata a un Plan che descrive come raggiungerla effettivamente.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
         <rdfs:comment xml:lang="en">The Description of a Situation that is desired by an Agent, and usually associated to a Plan that describes how to actually achieve it</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -2344,6 +2528,14 @@ In un modello semiotico non vi è alcuna ragione particolare per distinguerli, t
     <!-- https://w3id.org/hacid/onto/top-level/Location -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Location">
+        <rdfs:comment xml:lang="it">Localizzazioni dipendenti socialmente o cognitivamente: entità geografiche politiche (Roma, Lesotho) e localizzazioni non materiali determinate dalla presenza di altre entità (&quot;l&apos;area vicino a Roma&quot;) o di eventi o segni di riferimento (&quot;l&apos;area in cui è caduto l&apos;elicottero&quot;), oppure identificate come complementi di altre entità (&quot;l&apos;area sotto il tavolo&quot;), ecc.
+In questo senso generico, un Place è una localizzazione &apos;dipendente&apos;. Per le localizzazioni &apos;non dipendenti&apos;, cfr. la classe PhysicalPlace. Per una localizzazione astratta (dimensionale), cfr. la classe SpaceRegion.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isLocationOf"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Socially or cognitively dependent locations: political geographic entities (Rome, Lesotho), and non-material locations determined by the presence of other entities (&quot;the area close to Rome&quot;) or of pivot events or signs (&quot;the area where the helicopter fell&quot;), as well as identified as complements to other entities (&quot;the area under the table&quot;), etc. 
 In this generic sense, a Place is a &apos;dependent&apos; location. For &apos;non-dependent&apos; locations, cf. the PhysicalPlace class. For an abstract (dimensional) location, cf. the SpaceRegion class.</rdfs:comment>
         <skos:scopeNote xml:lang="en">This class replicates dul:Place.</skos:scopeNote>
@@ -2411,6 +2603,8 @@ In this generic sense, a Place is a &apos;dependent&apos; location. For &apos;no
     <!-- https://w3id.org/hacid/onto/top-level/Method -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Method">
+        <rdfs:comment xml:lang="it">Un metodo è una Description che definisce o usa concetti per guidare l&apos;esecuzione di azioni volte a una soluzione rispetto a un problema.
+È diverso da un Plan, perché dei piani possono essere eseguiti per seguire un metodo, ma un metodo può essere seguito eseguendo piani alternativi.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
         <rdfs:comment>A method is a Description that defines or uses concepts in order to guide carrying out actions aimed at a solution with respect to a problem. 
 It is different from a Plan, because plans could be carried out in order to follow a method, but a method can be followed by executing alternative plans.</rdfs:comment>
@@ -2424,6 +2618,19 @@ It is different from a Plan, because plans could be carried out in order to foll
     <!-- https://w3id.org/hacid/onto/top-level/Object -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Object">
+        <rdfs:comment xml:lang="it">Qualsiasi oggetto fisico, sociale o mentale, o una sostanza. Seguendo DOLCE Full, gli oggetti partecipano sempre a qualche evento (almeno la loro stessa vita) e sono localizzati nello spazio.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasConstituent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Quality"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:comment xml:lang="en">Any physical, social, or mental object, or a substance. Following DOLCE Full, objects are always participating in some event (at least their own life), and are spatially located.</rdfs:comment>
@@ -2462,8 +2669,8 @@ It is different from a Plan, because plans could be carried out in order to foll
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Organization">
         <rdfs:comment xml:lang="en">An internally structured, conventionally created SocialAgent, needing a specific Role and Agent that plays it, in order to act.</rdfs:comment>
         <rdfs:comment xml:lang="it">Un agente sociale strutturato internamente e creato convenzionalmente. Per agire, ha bisogno di ruoli e agenti che li ricoprano.</rdfs:comment>
-        <skos:scopeNote xml:lang="en">In the top-level, SocialAgent is not replicated: Organization is a direct subclass of Agent, and it is disjoint with Person.</skos:scopeNote>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <skos:scopeNote xml:lang="en">In the top-level, Organization is disjoint with Person.</skos:scopeNote>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/SocialAgent"/>
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Person"/>
         <skos:scopeNote xml:lang="en">An organisation.</skos:scopeNote>
         <skos:scopeNote xml:lang="it">Un&apos;organizzazione.</skos:scopeNote>
@@ -2488,6 +2695,13 @@ It is different from a Plan, because plans could be carried out in order to foll
     <!-- https://w3id.org/hacid/onto/top-level/Parameter -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Parameter">
+        <rdfs:comment xml:lang="it">Un Concept che classifica una Region; la differenza tra una Region e un Parameter è che le regioni rappresentano insiemi di valori osservabili, ad es. l&apos;altezza di un dato edificio, mentre i parametri rappresentano vincoli o selezioni sui valori osservabili, ad es. &apos;MoltoAlto&apos;. Pertanto, i parametri possono essere usati anche per vincolare regioni, ad es. MoltoAlto su un sottoinsieme dei valori della Region Altezza applicata agli edifici, o per aggiungere alle regioni un criterio di selezione esterno, come le unità di misura, ad es. Metro su un sottoinsieme dei valori della Region Lunghezza applicata alle strade.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A Concept that classifies a Region; the difference between a Region and a Parameter is that regions represent sets of observable values, e.g. the height  of a given building, while parameters represent constraints or selections on observable values, e.g. &apos;VeryHigh&apos;. Therefore, parameters can also be used to constrain regions, e.g. VeryHigh on a subset of values of the Region Height applied to buildings, or to add an external selection criterion , such as measurement units, to regions, e.g. Meter on a subset of values from the Region Length applied to the Region Length applied to roads.</rdfs:comment>
         <skos:scopeNote xml:lang="en">In the top-level, Parameter is also a Characteristic.</skos:scopeNote>
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
@@ -2507,6 +2721,7 @@ It is different from a Plan, because plans could be carried out in order to foll
     <!-- https://w3id.org/hacid/onto/top-level/Person -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Person">
+        <rdfs:comment xml:lang="it">Le persone secondo l&apos;intuizione del senso comune, che apparentemente non distingue tra persone fisiche e persone giuridiche.</rdfs:comment>
         <rdfs:comment xml:lang="en">Persons in commonsense intuition, which does not apparently distinguish between either natural or social persons.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
         <skos:scopeNote xml:lang="en">A person</skos:scopeNote>
@@ -2521,6 +2736,12 @@ It is different from a Plan, because plans could be carried out in order to foll
     <!-- https://w3id.org/hacid/onto/top-level/PhysicalObject -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/PhysicalObject">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/PhysicalObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:comment xml:lang="en">Any Object that has a proper space region. The prototypical physical object has also an associated mass, but the nature of its mass can greatly vary based on the epistemological status of the object (scientifically measured, subjectively possible, imaginary).</rdfs:comment>
@@ -2532,9 +2753,32 @@ It is different from a Plan, because plans could be carried out in order to foll
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/Plan -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Plan">
+        <rdfs:comment xml:lang="it">Una Description con un Goal esplicito, da raggiungere eseguendo il piano.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasComponent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment xml:lang="en">A Description having an explicit Goal, to be achieved by executing the plan</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Piano</rdfs:label>
+        <rdfs:label xml:lang="en">Plan</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/Quality -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Quality">
+        <rdfs:comment xml:lang="it">Qualsiasi aspetto di un&apos;Entity (ma non una sua parte), che non può esistere senza quell&apos;Entity. Ad esempio, l&apos;aspetto della superficie di uno specifico PhysicalObject, o la luce specifica di un luogo in un certo momento, sono esempi di Quality, mentre la codifica di una Quality in, ad es., un PhysicalAttribute dovrebbe essere modellata come Region.
+Dal punto di vista della progettazione, la distinzione Quality-Region è utile solo quando nel dominio del discorso si considerano gli aspetti individuali di un&apos;Entity.
+Ad esempio, in un contesto automobilistico sarebbe irrilevante considerare gli aspetti dei finestrini di una specifica automobile, a meno che la fabbrica non voglia verificare uno specifico finestrino rispetto ai parametri di progetto (rilevamento di anomalie).
+D&apos;altra parte, nel contesto dell&apos;antiquariato, gli aspetti individuali di uno specifico mobile sono un fuoco principale dell&apos;attenzione e possono costituire il vero valore aggiunto, perché i parametri di progetto dei mobili antichi spesso non sono fissi e non possono essere visti come &apos;anomalie&apos;.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2574,6 +2818,25 @@ On the other hand, in an antiques context, the individual aspects for a specific
     <!-- https://w3id.org/hacid/onto/top-level/Region -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Region">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/precedes"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasConstituent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Abstract"/>
         <rdfs:comment xml:lang="en">Any region in a dimensional space (a dimensional space is a maximal Region), which can be used as a value for a quality of an Entity . For example, TimeInterval, SpaceRegion, PhysicalAttribute, Amount, SocialAttribute are all subclasses of Region. 
 Regions are not data values in the ordinary knowledge representation sense; in order to get patterns for modelling data, see the properties: representsDataValue and hasDataValue</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/FormalEntity"/>
@@ -2588,6 +2851,13 @@ Regions are not data values in the ordinary knowledge representation sense; in o
     <!-- https://w3id.org/hacid/onto/top-level/Role -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Role">
+        <rdfs:comment xml:lang="it">Un Concept che classifica un Object.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A Concept that classifies an Object</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
         <skos:scopeNote xml:lang="it">La classe per rappresentare i ruoli.</skos:scopeNote>
@@ -2623,6 +2893,11 @@ Regions are not data values in the ordinary knowledge representation sense; in o
     <!-- https://w3id.org/hacid/onto/top-level/Situation -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Situation">
+        <rdfs:comment xml:lang="it">Una vista, coerente con una Description (che la &apos;soddisfa&apos;), su un insieme di entità.
+Può essere vista anche come un &apos;contesto relazionale&apos; creato da un osservatore sulla base di una &apos;cornice&apos; (cioè una Description).
+Ad esempio, una PlanExecution è un contesto che include alcune azioni eseguite da agenti secondo certi parametri e i task attesi da realizzare secondo un Plan; una DiagnosedSituation è un contesto di entità osservate interpretato sulla base di una Diagnosis, ecc.
+Situation può rappresentare anche relazioni n-arie reificate, dove isSettingFor è la relazione di più alto livello per tutte le proiezioni binarie della relazione n-aria.
+Se usata in un pattern di trasformazione per relazioni n-arie, il progettista dovrebbe aggiungere (alcune o tutte) le chiavi OWL2 corrispondenti alle proiezioni binarie della relazione n-aria a una sottoclasse di Situation. Altrimenti il &apos;vincolo di identificazione&apos; (Calvanese et al., IJCAI 2001) potrebbe essere violato.</rdfs:comment>
         <rdfs:comment xml:lang="en">A view, consistent with (&apos;satisfying&apos;) a Description, on a set of entities. 
 It can also be seen as a &apos;relational context&apos; created by an observer on the basis of a &apos;frame&apos; (i.e. a Description). 
 For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
@@ -2644,9 +2919,32 @@ If used in a transformation pattern for n-ary relations, the designer should tak
     
 
 
+    <!-- https://w3id.org/hacid/onto/top-level/SocialAgent -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/SocialAgent">
+        <rdfs:comment xml:lang="it">Qualsiasi individuo la cui esistenza è garantita semplicemente dalla sua comunicabilità sociale e dalla sua capacità di agire (tramite qualche PhysicalAgent).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Agent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
+        <rdfs:comment xml:lang="en">Any individual whose existence is granted simply by its social communicability and capability of action (through some PhysicalAgent).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <rdfs:label xml:lang="it">Agente sociale</rdfs:label>
+        <rdfs:label xml:lang="en">Social agent</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/top-level/SocialObject -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/SocialObject">
+        <rdfs:comment xml:lang="it">Qualsiasi Object che esiste solo all&apos;interno di un Event di comunicazione, al quale partecipa almeno un PhysicalObject.
+In altre parole, tutti gli oggetti che sono stati o sono creati nel processo di comunicazione sociale: ai fini della comunicazione (InformationObject), per incorporare nuovi individui (SocialAgent, Place), per contestualizzare o interpretare entità esistenti (Description, Concept), o per raccogliere entità esistenti (Collection).
+Dipendendo dalla comunicazione, tutti gli oggetti sociali devono essere espressi da qualche oggetto informativo (gli oggetti informativi esprimono se stessi).</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/SocialObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Object"/>
         <rdfs:comment xml:lang="en">Any Object that exists only within some communication Event, in which at least one PhysicalObject participates in. 
 In other words, all objects that have been or are created in the process of social communication: for the sake of communication (InformationObject), for incorporating new individuals (SocialAgent, Place), for contextualizing or intepreting existing entities (Description, Concept), or for collecting existing entities (Collection).
@@ -2674,7 +2972,35 @@ Being dependent on communication, all social objects need to be expressed by som
     <!-- https://w3id.org/hacid/onto/top-level/Task -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Task">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:comment xml:lang="it">Un EventType che classifica un&apos;Action da eseguire.
+Ad esempio, raggiungere una destinazione è un task che può essere eseguito compiendo certe azioni, ad es. guidare un&apos;automobile, comprare un biglietto del treno, ecc.
+Le azioni per eseguire un task possono anche essere organizzate secondo un Plan diverso da quello che definisce il task (se esiste).
+Ad esempio, raggiungere una destinazione potrebbe essere definito da un piano per andare in vacanza, mentre il piano per eseguire il task può consistere nel mettere in sequenza alcuni viaggi.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isTaskOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isExecutedIn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Action"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isTaskDefinedIn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/EventType"/>
         <rdfs:comment xml:lang="en">An EventType that classifies an Action to be executed. 
 For example, reaching a destination is a task that can be executed by performing certain actions, e.g. driving a car, buying a train ticket, etc. 
 The actions to execute a task can also be organized according to a Plan that is not the same as the one that defines the task (if any). 
@@ -2702,6 +3028,7 @@ For example, reaching a destination could be defined by a plan to get on holiday
     <!-- https://w3id.org/hacid/onto/top-level/TimeInterval -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/TimeInterval">
+        <rdfs:comment xml:lang="it">Qualsiasi Region in uno spazio dimensionale che intende rappresentare il tempo.</rdfs:comment>
         <rdfs:comment xml:lang="en">Any Region in a dimensional space that aims at representing time.</rdfs:comment>
         <skos:scopeNote xml:lang="en">In the top-level, TimeInterval is also a TemporalEntity, whose start and end can be given as literals with startTime and endTime.</skos:scopeNote>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
@@ -2732,6 +3059,13 @@ For example, reaching a destination could be defined by a plan to get on holiday
     <!-- https://w3id.org/hacid/onto/top-level/UnitOfMeasure -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/UnitOfMeasure">
+        <rdfs:comment xml:lang="it">Le unità di misura sono qui concettualizzate come parametri sulle regioni, che possono essere valorizzati come valori di un datatype.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/parametrises"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Units of measure are conceptualized here as parameters on regions, which can be valued as datatype values.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
         <skos:scopeNote xml:lang="it">Questa classe viene utilizzata per modellare un&apos;unità di misura, ad es. metro, chilometro, grammo, ecc...</skos:scopeNote>
@@ -2778,9 +3112,21 @@ For example, reaching a destination could be defined by a plan to get on holiday
     <!-- https://w3id.org/hacid/onto/top-level/Workflow -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Workflow">
+        <rdfs:comment xml:lang="it">Un Plan che definisce Role, Task e una struttura specifica per i task da eseguire, di solito a supporto del lavoro di un&apos;Organization.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/definesTask"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Task"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/definesRole"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed, usually supporting the work of an Organization</rdfs:comment>
-        <skos:scopeNote xml:lang="en">In the top-level, Plan is not replicated: Workflow is a direct subclass of Description.</skos:scopeNote>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Plan"/>
         <skos:scopeNote xml:lang="en">A workflow with tasks.</skos:scopeNote>
         <skos:scopeNote xml:lang="it">Un flusso di lavoro composto da attività.</skos:scopeNote>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
@@ -2793,6 +3139,7 @@ For example, reaching a destination could be defined by a plan to get on holiday
     <!-- https://w3id.org/hacid/onto/top-level/WorkflowExecution -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/WorkflowExecution">
+        <rdfs:comment xml:lang="it">L&apos;esecuzione di un workflow, cioè una situazione che soddisfa un workflow.</rdfs:comment>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/satisfies"/>

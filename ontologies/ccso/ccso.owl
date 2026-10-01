@@ -92,7 +92,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/assertsVulnerabilityToImpactType">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isImpactTypeOfAssertedVulnerability"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Vulnerability"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ImpactType"/>
         <rdfs:comment xml:lang="en">Associates a vulnerability with an impact type that the vulnerability asserts.</rdfs:comment>
