@@ -355,7 +355,7 @@ After the changes:
 |---|---|---|
 | **A1** | `hasProperPart` / `isProperPartOf`: `owl:AsymmetricProperty` replaced by `owl:TransitiveProperty`. DUL comment restored. Asymmetry is stated in the comment as a constraint that OWL 2 DL cannot express for a transitive property. The former "direct components" comments were removed; direct parthood is `hasComponent`. | Not used by any dependent module. The `hasComponent`/`isComponentOf` tests (`top9`, `top10`) are unaffected. |
 | **A2** | Removed `WorkflowRole ⊑ rdfs:Property`, `WorkflowRole ⊑ rdfs:domain only WorkflowExecution`, the `rdfs:Class` range of `hasExpectedType` and domain of `isExpectedTypeOf`, and the declarations of `rdfs:domain`, `rdfs:Class`, `rdfs:Property`. The constraints that cannot be expressed in OWL 2 DL are now stated in the `rdfs:comment` of `WorkflowRole`, `hasExpectedType` and `isExpectedTypeOf`. | Terms not used by any dependent module. |
-| **A3** | Removed `TemporalEntity ⊑ time some xsd:dateTime` and `⊑ time only xsd:dateTime`. The comment of `TemporalEntity` now says that the datatype follows the granularity (e.g. `xsd:dateTime`, `xsd:date`, `xsd:gYearMonth`, `xsd:gYear`). | **Fixes a latent inconsistency in the core tests.** `ar1`–`ar3` test data assert `top:time "2024-01"^^xsd:gYearMonth` on a `TemporalEntity`, which contradicts `time only xsd:dateTime`. Replacing the literal with a non-`dateTime` value that HermiT supports gives *inconsistent* before the change and *consistent* after. The ranges `xsd:gYear`, `xsd:date` and `xsd:time` of `year`/`startTime`/`endTime` were **kept**. They are outside the OWL 2 datatype map, so HermiT in strict mode still rejects them; replacing them is a modelling decision left open. |
+| **A3** | Removed `TemporalEntity ⊑ time some xsd:dateTime` and `⊑ time only xsd:dateTime`. The comment of `TemporalEntity` now says that the datatype follows the granularity (e.g. `xsd:dateTime`, `xsd:date`, `xsd:gYearMonth`, `xsd:gYear`). | **Fixes a latent inconsistency in the core tests.** `ar1`–`ar3` test data assert `top:time "2024-01"^^xsd:gYearMonth` on a `TemporalEntity`, which contradicts `time only xsd:dateTime`. Replacing the literal with a non-`dateTime` value that HermiT supports gives *inconsistent* before the change and *consistent* after. **Second round:** `time` now has range `xsd:dateTime` (instead of `rdfs:Literal`). Its sub-property `year` (range `xsd:gYear`) was removed, together with the restriction `Year ⊑ year max 1 xsd:gYear`. `startTime`/`endTime` and the `TimeInterval` restrictions on them now use `xsd:dateTime` instead of `xsd:date ∪ xsd:dateTime ∪ xsd:time`; under the new range of `time` they could only take `xsd:dateTime` values anyway. The top-level now uses only OWL 2 datatypes and **HermiT in strict mode accepts it**; before, it refused to load it. Same checks as above, with no result changes. After the core `ar1`–`ar3` test data were updated (see 5.3), all 39 runs load in strict mode (before: none), with only the pre-existing issues of 5.3. |
 | B1 | `TimeInterval ⊑ Region` added (it stays under `TemporalEntity` too). | `TimeInterval` not used by any dependent module. |
 | B2 | `associatedWith` now has DUL's axioms: `owl:SymmetricProperty`, `owl:TransitiveProperty`, domain and range `Entity`, inverse of itself. Its comment, which already described these characteristics, is unchanged. | Applied in a second round, after the same checks. **No change** in any of the 39 runs or in the DL profile. The dependent modules use `associatedWith` only as a super-property (plus one plain declaration in `data.owl`), so the restrictions that OWL 2 DL places on transitive properties are not violated. **Performance:** HermiT time per run rose from about 0.5–1 s to about 3 s on the test data, so the whole suite took 101 s instead of 50 s. With a forward-chaining (materialising) triple store, every connected group of n individuals yields n² `associatedWith` triples. On the test data the closure is 6.5 times the asserted links, and in a large, connected knowledge graph it grows quadratically. The repository's Fuseki configuration (`ontologies/integrate/fuseki-conf.ttl`) is a plain TDB2 dataset without a reasoner, so it is not affected. Any deployment that enables OWL RL or OWL materialisation should exclude this property or use backward chaining. |
 | B3 | `isRelatedToConcept` declared `owl:SymmetricProperty`. | Sub-properties `hasTask`/`isTaskOf` only; no dependent module uses them. |
@@ -372,8 +372,7 @@ The alignment file was regenerated: its divergence annotations now describe the 
 
 ### 5.3 Pre-existing issues found in the dependent modules
 
-These were present before any change, and the changes neither cause nor fix them (except the
-last one, fixed by A3). They are reported here because they surfaced during the checks.
+These were present before any change. The changes neither cause nor fix them, except the last one, which was fixed. They are reported here because they surfaced during the checks.
 
 - **`mdx:HeatlhcareProfessionalRole` is unsatisfiable.** It is `⊑ mdx:worksFor some top:Organization`
   and `⊑ ar:involvesAgent only mdx:HeatlhcareProfessional` (a `Person`). `mdx:worksFor` is a
@@ -391,12 +390,17 @@ last one, fixed by A3). They are reported here because they surfaced during the 
 - **`core/evidence.owl`** uses `rdf:Property` as a class (outside OWL 2 DL).
   **`core/agentrole.owl`** uses `ar:hasEventuality` without declaring it.
 - The four **ccso usage examples** are not valid Turtle.
-- The **core `ar1`–`ar3` test data** (`xsd:gYearMonth` time values) contradicted
-  `TemporalEntity ⊑ time only xsd:dateTime`. This is fixed by A3.
+- The **core `ar1`–`ar3` test data** asserted `top:time "2024-01"^^xsd:gYearMonth`, and the `ar3`
+  query matched that literal. This contradicted `TemporalEntity ⊑ time only xsd:dateTime` and the
+  later range `xsd:dateTime` of `time`, and `xsd:gYearMonth` is outside the OWL 2 datatype map.
+  **Fixed:** the role assignments are now situated in ten-year `TimeInterval`s, with
+  `startTime`/`endTime` as `xsd:dateTime`. John is a cardiologist from 2015 to 2024, and a second
+  agent, Mary, from 1990 to 1999. The `ar3` query now asks for an instant (2020-06-15) and uses a
+  `FILTER` to keep only the agents whose interval contains it, so it returns John and not Mary.
+  The expected result of `ar2` was updated to the new interval IRI.
 
 ### 5.4 Still open
 
-- The OWL 2 datatype-map issue of `xsd:gYear`, `xsd:date` and `xsd:time` (A3, second part).
 - Items not in the prioritised list: B6 (document or revert the widenings; they are now
   documented in scope notes), B7/B8 (flattening and additions, including the vacuous
   `Event ⊑ hasPart some Event`), the non-replicated DUL restrictions of section C, and the

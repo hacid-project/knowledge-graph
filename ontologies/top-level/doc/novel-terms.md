@@ -21,14 +21,14 @@ Four of those replicas have a local name that differs from DUL, so they are **no
 
 | | Classes | Object properties | Datatype properties | Total |
 |---|---:|---:|---:|---:|
-| Terms in top-level | 47 | 114 | 14 | 175 |
+| Terms in top-level | 47 | 114 | 13 | 174 |
 | Replicas of DUL terms | 28 | 54 | 1 | 83 |
-| **Novel terms (this document)** | **19** | **60** | **13** | **92** |
+| **Novel terms (this document)** | **19** | **60** | **12** | **91** |
 
 All novel terms are anchored in the DUL-derived backbone. Every novel class is a subclass of
 a replicated class (`Entity`, `Description`, `Situation`, `Role`, `Collection`, `Task`), and
 every novel object property is a sub-property of `top:associatedWith` (the replica of
-`dul:associatedWith`), directly or through another property. The 13 novel datatype properties
+`dul:associatedWith`), directly or through another property. The 12 novel datatype properties
 have no common super-property. DUL's own root for datatype properties, `dul:hasDataValue`, is
 not replicated in top-level.
 
@@ -64,12 +64,11 @@ The replicated `TimeInterval` is both a `Region` (as in DUL) and a `TemporalEnti
 
 | Term | Type | Placement | Meaning | Relation to DUL / notes | Used by |
 |---|---|---|---|---|---|
-| `TemporalEntity` | Class | ⊑ `Entity` | Any temporal entity (intervals, months, days…). Its literal representation is given with `time` or its sub-properties, using the XSD datatype that fits its granularity. | Comparable to `time:TemporalEntity` (OWL-Time). The DUL counterpart would be `dul:TimeInterval` or `dul:Region`. The former restrictions `time some/only xsd:dateTime` were removed: they conflicted with the sub-properties of `time` and with the core test data, which uses `xsd:gYearMonth` (review, finding A3). | core/agentrole.owl |
-| `Year` | Class | ⊑ `TemporalEntity`; `year max 1 xsd:gYear` | A calendar year. | No DUL counterpart. | – |
+| `TemporalEntity` | Class | ⊑ `Entity` | Any temporal entity (intervals, months, days…). Its literal representation is given with `time` or its sub-properties, as an `xsd:dateTime`. | Comparable to `time:TemporalEntity` (OWL-Time). The DUL counterpart would be `dul:TimeInterval` or `dul:Region`. The former restrictions `time some/only xsd:dateTime` were removed (review, finding A3); `time` now has range `xsd:dateTime`. | core/agentrole.owl |
+| `Year` | Class | ⊑ `TemporalEntity` | A calendar year. | No DUL counterpart. Its former restriction `year max 1 xsd:gYear` was removed together with the `year` property. | – |
 | `atTime` / `isTimeOf` | OP | ⊑ `associatedWith`; `Entity` → `TemporalEntity` | Any entity and a temporal entity. | Generalises `dul:hasTimeInterval` (which is limited to events). Candidate super-property of `hasTimeInterval`. | core/agentrole.owl (`atTime`) |
-| `time` | DP | `Entity` → `rdfs:Literal` | Literal representation of time. | Analogue of `dul:hasDataValue` for time. DUL has `dul:hasEventDate`, `dul:hasIntervalDate` (not replicated). | – |
-| `startTime`, `endTime` | DP | ⊑ `time`; `TimeInterval` → `xsd:date ∪ xsd:dateTime ∪ xsd:time` | Start and end of an interval. | Analogue of `dul:hasIntervalDate`. No `rdfs:comment`. `xsd:date` and `xsd:time` are not in the OWL 2 datatype map. | – |
-| `year` | DP | ⊑ `time`; `TemporalEntity` → `xsd:gYear` | Year value. | `xsd:gYear` is not in the OWL 2 datatype map. | – |
+| `time` | DP | `Entity` → `xsd:dateTime` | Literal representation of time. | Analogue of `dul:hasDataValue` for time. DUL has `dul:hasEventDate`, `dul:hasIntervalDate` (not replicated). | – |
+| `startTime`, `endTime` | DP | ⊑ `time`; `TimeInterval` → `xsd:dateTime` | Start and end of an interval. | Analogue of `dul:hasIntervalDate`. No `rdfs:comment`. The range was `xsd:date ∪ xsd:dateTime ∪ xsd:time`; it is now `xsd:dateTime`, like `time`. | – |
 
 ## 3. Data, media and identifiers
 
@@ -179,6 +178,6 @@ and connect a situation with its arguments.
 5. **OWL 2 DL.** The OWL 2 DL issues introduced by novel terms (`WorkflowRole`,
    `hasExpectedType`/`isExpectedTypeOf`, the `TemporalEntity` restrictions) were removed; the
    top-level is now in OWL 2 DL. The constraints that OWL 2 DL cannot express are stated in the
-   `rdfs:comment` of the terms concerned. `xsd:date`, `xsd:time` and `xsd:gYear`, used in the
-   ranges of `startTime`, `endTime` and `year`, are still outside the OWL 2 datatype map (see the
-   review document, finding A3).
+   `rdfs:comment` of the terms concerned. All temporal literals now use `xsd:dateTime` (`time`,
+   `startTime`, `endTime`; the `year` property was removed), so the top-level only uses datatypes
+   of the OWL 2 datatype map and is accepted by HermiT in strict mode.
