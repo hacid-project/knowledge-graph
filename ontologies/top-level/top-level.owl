@@ -90,6 +90,11 @@
     <!-- https://w3id.org/hacid/onto/top-level/associatedWith -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/associatedWith">
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:comment xml:lang="en">A catch-all object property, useful for alignment and querying purposes.
 It is declared as both transitive and symmetric, in order to reason an a maximal closure of associations between individuals.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>

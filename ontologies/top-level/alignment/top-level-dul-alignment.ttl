@@ -279,12 +279,6 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     rdfs:comment "top-level places Workflow directly under Description (DUL: under Plan, which is not replicated) and drops the definesRole/definesTask restrictions."@en .
 
 [] a owl:Axiom ;
-    owl:annotatedSource top:associatedWith ;
-    owl:annotatedProperty owl:equivalentProperty ;
-    owl:annotatedTarget dul:associatedWith ;
-    rdfs:comment "DUL declares it symmetric and transitive with domain/range Entity; top-level declares none of these although its comment says it is symmetric and transitive."@en .
-
-[] a owl:Axiom ;
     owl:annotatedSource top:hasMember ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:hasMember ;
