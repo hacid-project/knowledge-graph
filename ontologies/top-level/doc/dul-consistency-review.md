@@ -373,8 +373,8 @@ The alignment file was regenerated: its divergence annotations now describe the 
 ### 5.3 Pre-existing issues found in the dependent modules
 
 These errors in the dependent modules were present before any change. They are reported here
-because they surfaced during the checks. The core `ar1`–`ar3` test data were fixed. The ccso
-inverse-property error becomes an inconsistency only with the disjointness `Concept ⊥ Situation`
+because they surfaced during the checks. The core `ar1`–`ar3` test data and the ccso
+inverse-property error were fixed. The ccso error became an inconsistency only with the disjointness `Concept ⊥ Situation`
 (C); before, it silently produced wrong inferences.
 
 - **`mdx:HeatlhcareProfessionalRole` is unsatisfiable.** It is `⊑ mdx:worksFor some top:Organization`
@@ -410,9 +410,10 @@ inverse-property error becomes an inconsistency only with the disjointness `Conc
   (C, applied in 5.2), any data using that property is **inconsistent**. Before C, the same data
   silently made vulnerability types into vulnerabilities. The range of
   `isImpactTypeOfAssertedVulnerability` (`VulnerabilityType`) shows that it is meant to be the
-  inverse of `potentiallyAssertsVulnerabilityToImpactType` only. The `owl:inverseOf` on
-  `assertsVulnerabilityToImpactType` should be removed, or pointed to a separate inverse
-  property. This was found with the probe data of 5.5; no test dataset uses these properties.
+  inverse of `potentiallyAssertsVulnerabilityToImpactType` only. This was found with the probe
+  data of 5.5; no test dataset uses these properties. **Fixed:** the `owl:inverseOf` on
+  `assertsVulnerabilityToImpactType` was removed from `ccso.owl`; the probe data are consistent
+  with the real ccso.
 - The **`top20`/`top21` test data** use `top:AgentRole` and `top:hasAgent`, which do not exist in
   the top-level (`AgentRole` is `ar:AgentRole` in `core/agentrole.owl`).
 
@@ -457,7 +458,7 @@ combined, with three extensions:
 All the divergences that remain are recorded in the alignment file's axiom annotations (23).
 
 **Still open:**
-- The ccso inverse-property error and the other module issues listed in 5.3.
+- The module issues listed in 5.3 that are not marked as fixed.
 - Optional: declaring the novel datatype properties (`value`, `time`, `identifier`, …) as
   sub-properties of the newly replicated `hasDataValue` (see `novel-terms.md`).
 
