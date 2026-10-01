@@ -9,13 +9,25 @@ test-data:cardiologist a top:Role .
 
 test-data:John a top:Person .
 
-test-data:Dec24 a top:TemporalEntity ;
-                top:time "2024-01"^^xsd:gYearMonth .
+test-data:Mary a top:Person .
+
+test-data:From2015To2024 a top:TimeInterval ;
+                         top:startTime "2015-01-01T00:00:00Z"^^xsd:dateTime ;
+                         top:endTime "2024-12-31T23:59:59Z"^^xsd:dateTime .
+
+test-data:From1990To1999 a top:TimeInterval ;
+                         top:startTime "1990-01-01T00:00:00Z"^^xsd:dateTime ;
+                         top:endTime "1999-12-31T23:59:59Z"^^xsd:dateTime .
 
 
-test-data:JohnRoleDec24 a ar:AgentRole ;
+test-data:JohnRoleFrom2015To2024 a ar:AgentRole ;
                      ar:involvesAgent test-data:John ;
                      ar:involvesRole test-data:cardiologist ;
-                     top:atTime test-data:Dec24 .
+                     top:atTime test-data:From2015To2024 .
+
+test-data:MaryRoleFrom1990To1999 a ar:AgentRole ;
+                     ar:involvesAgent test-data:Mary ;
+                     ar:involvesRole test-data:cardiologist ;
+                     top:atTime test-data:From1990To1999 .
 
 

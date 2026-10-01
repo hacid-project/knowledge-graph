@@ -15,8 +15,11 @@ SELECT DISTINCT ?agent
 WHERE {
   ?ar ar:involvesAgent ?agent ;
       ar:involvesRole test-data:cardiologist ;
-      top:atTime ?time .
-  ?time top:time "2024-01"^^xsd:gYearMonth .
+      top:atTime ?interval .
+  ?interval top:startTime ?start ;
+            top:endTime ?end .
+  BIND ("2020-06-15T12:00:00Z"^^xsd:dateTime AS ?instant)
+  FILTER (?start <= ?instant && ?instant <= ?end)
 }
 """ ;
 

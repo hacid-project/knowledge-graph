@@ -37,7 +37,7 @@ WHERE {
         },
         \"time\":{
           \"type\":\"uri\",
-          \"value\":\"https://w3id.org/hacid/test-data/Dec24\"
+          \"value\":\"https://w3id.org/hacid/test-data/From2015To2024\"
         }
       }
     ]
