@@ -5,7 +5,7 @@ This document lists the terms of the HACID top-level ontology
 prefix `top:`) that have **no counterpart in DOLCE+DnS Ultralite (DUL)**
 (`ontologies/ccso/doc/external-ontologies/DUL.owl`, prefix `dul:`).
 
-The other 83 terms replicate a DUL term. They are declared equivalent to it (`owl:equivalentClass` / `owl:equivalentProperty`) in
+The other 88 terms replicate a DUL term. They are declared equivalent to it (`owl:equivalentClass` / `owl:equivalentProperty`) in
 [`../alignment/top-level-dul-alignment.ttl`](../alignment/top-level-dul-alignment.ttl), and
 [`dul-consistency-review.md`](dul-consistency-review.md) reviews how closely they match DUL.
 Four of those replicas have a local name that differs from DUL, so they are **not** listed here:
@@ -21,16 +21,17 @@ Four of those replicas have a local name that differs from DUL, so they are **no
 
 | | Classes | Object properties | Datatype properties | Total |
 |---|---:|---:|---:|---:|
-| Terms in top-level | 47 | 114 | 13 | 174 |
-| Replicas of DUL terms | 28 | 54 | 1 | 83 |
+| Terms in top-level | 51 | 114 | 14 | 179 |
+| Replicas of DUL terms | 32 | 54 | 2 | 88 |
 | **Novel terms (this document)** | **19** | **60** | **12** | **91** |
 
 All novel terms are anchored in the DUL-derived backbone. Every novel class is a subclass of
 a replicated class (`Entity`, `Description`, `Situation`, `Role`, `Collection`, `Task`), and
 every novel object property is a sub-property of `top:associatedWith` (the replica of
 `dul:associatedWith`), directly or through another property. The 12 novel datatype properties
-have no common super-property. DUL's own root for datatype properties, `dul:hasDataValue`, is
-not replicated in top-level.
+have no common super-property. DUL's own root for datatype properties, `hasDataValue`, is now
+replicated in top-level (with `hasRegionDataValue` as its sub-property); the novel datatype
+properties could be declared its sub-properties.
 
 "Used by" lists the other modules in `ontologies/` that reference the term, found by a text
 search excluding tests and the DUL copy. Terms with no users are marked "–".
@@ -50,7 +51,7 @@ a lighter "entity → characteristic → value + unit" modelling style. It also 
 | `Material` | Class | ⊑ `Characteristic` | The material (of something). | No DUL class. Materials are usually substances (cf. `dul:Substance`, a `PhysicalBody`), but here a material is a characteristic. The comment ("The material class") should say which reading is intended. | – |
 | `hasCharacteristic` / `isCharacteristicOf` | OP | ⊑ `associatedWith`; `Entity` → `Characteristic` | An entity and one of its characteristics. | Generalises `dul:hasQuality`/`dul:hasRegion` in spirit, but is not declared as their super-property. | – |
 | `hasValue` / `isValueOf` | OP | ⊑ `hasCharacteristic`; `Entity` → `Value` | An entity and its value. | Analogue of `dul:hasRegion` for `Value`. | core/judgement.owl (`hasValue`) |
-| `value` | DP | `Entity` → `rdfs:Literal` | Literal representation of a value. | Analogue of `dul:hasDataValue`/`dul:hasRegionDataValue`. It could be declared a sub-property of `hasDataValue` if that property is replicated. | core/judgement.owl |
+| `value` | DP | `Entity` → `rdfs:Literal` | Literal representation of a value. | Analogue of `dul:hasDataValue`/`dul:hasRegionDataValue`. It could be declared a sub-property of the replicated `hasDataValue`. | core/judgement.owl |
 | `hasUnitOfMeasure` / `isUnitOfMeasureOf` | OP | ⊑ `hasCharacteristic`; `Entity` → `UnitOfMeasure` | A measurable entity and its unit. | In DUL a unit is a `Parameter` that `parametrizes` a region. This property is effectively a specialisation of `top:isParametrisedBy`, but it is not declared as one. | – |
 | `symbol` | DP | `Entity` → `rdf:PlainLiteral` | A symbol, e.g. of a unit of measure. | No DUL counterpart. | – |
 | `hasExactRegion` / `isExactRegionFor` | OP | ⊑ `hasRegion` / `isRegionFor` | A region giving an exact quantification of an aspect of the entity. | Clean specialisation of `dul:hasRegion`. | data/data.owl |

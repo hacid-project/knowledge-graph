@@ -372,7 +372,10 @@ The alignment file was regenerated: its divergence annotations now describe the 
 
 ### 5.3 Pre-existing issues found in the dependent modules
 
-These were present before any change. The changes neither cause nor fix them, except the last one, which was fixed. They are reported here because they surfaced during the checks.
+These errors in the dependent modules were present before any change. They are reported here
+because they surfaced during the checks. The core `ar1`–`ar3` test data were fixed. The ccso
+inverse-property error becomes an inconsistency only with the disjointness `Concept ⊥ Situation`
+(C); before, it silently produced wrong inferences.
 
 - **`mdx:HeatlhcareProfessionalRole` is unsatisfiable.** It is `⊑ mdx:worksFor some top:Organization`
   and `⊑ ar:involvesAgent only mdx:HeatlhcareProfessional` (a `Person`). `mdx:worksFor` is a
@@ -399,12 +402,64 @@ These were present before any change. The changes neither cause nor fix them, ex
   `FILTER` to keep only the agents whose interval contains it, so it returns John and not Mary.
   The expected result of `ar2` was updated to the new interval IRI.
 
+- **`ccso:isImpactTypeOfAssertedVulnerability`** is declared the inverse of both
+  `assertsVulnerabilityToImpactType` (subject a `Vulnerability`, i.e. a `Situation`) and
+  `potentiallyAssertsVulnerabilityToImpactType` (subject a `VulnerabilityType`, i.e. a `Concept`).
+  This makes the two "asserts" properties equivalent, so every subject of
+  `potentiallyAssertsVulnerabilityToImpactType` is also a `Vulnerability`. Since `Concept ⊥ Situation`
+  (C, applied in 5.2), any data using that property is **inconsistent**. Before C, the same data
+  silently made vulnerability types into vulnerabilities. The range of
+  `isImpactTypeOfAssertedVulnerability` (`VulnerabilityType`) shows that it is meant to be the
+  inverse of `potentiallyAssertsVulnerabilityToImpactType` only. The `owl:inverseOf` on
+  `assertsVulnerabilityToImpactType` should be removed, or pointed to a separate inverse
+  property. This was found with the probe data of 5.5; no test dataset uses these properties.
+- The **`top20`/`top21` test data** use `top:AgentRole` and `top:hasAgent`, which do not exist in
+  the top-level (`AgentRole` is `ar:AgentRole` in `core/agentrole.owl`).
+
 ### 5.4 Still open
 
-- Items not in the prioritised list: B6 (document or revert the widenings; they are now
-  documented in scope notes), B7/B8 (flattening and additions, including the vacuous
-  `Event ⊑ hasPart some Event`), the non-replicated DUL restrictions of section C, and the
-  Italian comments of replicas that never had one.
+All items not in the prioritised list were handled in a second phase (5.5). What remains is
+listed at the end of 5.5.
+
+### 5.5 Second phase: items not in the prioritised list
+
+**Additional checks.** The checks of 5.1 were run again for each candidate change, separately and
+combined, with three extensions:
+
+- **Inferred-knowledge diff.** For every run, the reasoner's inferred superclasses of all module
+  classes and the inferred types of all individuals were compared with the current `main`. This
+  catches changes of meaning that cause no inconsistency, e.g. module concepts silently becoming
+  `Role`s.
+- **Probe data.** The test datasets use only a few properties. So for every object property of
+  `data`, `ccso`, `mdx` and the core modules with a declared domain or range, one pair of
+  individuals typed with that domain and range was generated and linked, plus one instance of
+  every module class (about 250 individuals). This emulates typical instance data. It revealed the
+  ccso inverse problem of 5.3, which was neutralised in memory for the rest of the analysis. Run on
+  the original top-level, before this review, the probe confirmed that the merged rounds of 5.2
+  changed no inferred class membership; the ccso inconsistency is their only effect on it.
+- **Crafted cases** for the specific risks found: a `HeatlhcareProfessional` with a `Specialty`, a
+  ccso `Asset` referring to an `EmissionScenario`, and a `PhysicalObject` parametrised by a
+  `Parameter`.
+
+| Item | Decision | Reason |
+|---|---|---|
+| **B6** `hasRole` / `isRoleOf` widened to `Entity` | **Kept** (documented in scope notes) | The widening is used: the `top20`/`top21` tests assign roles to reified agent-role nodes, which are not objects. Reverting it would make those nodes `Object`s. |
+| **B6** `parametrises` / `isParametrisedBy` widened to `Entity` | **Kept** (documented in scope notes) | Reverting it is harmless on the current modules. But it makes any parametrised non-region a `Region`, and with `Abstract ⊥ Object` (B7) a parametrised physical object becomes **inconsistent** (crafted case). |
+| **B7** flattened hierarchy | **Applied**: replicated `Abstract` (⊑ `Entity`, ⊥ `Event`, `Object`, `Quality`) with `FormalEntity ⊑ Abstract` and `Region ⊑ Abstract`; `SocialAgent` (⊑ `Agent`, `SocialObject`) with `Organization ⊑ SocialAgent`, `Concept ⊥ SocialAgent`, `Description ⊥ SocialAgent`; `EventType` (⊑ `Concept`, ⊥ `Parameter`, `Role`) with `Task ⊑ EventType`; `Plan` (⊑ `Description`) with `Workflow ⊑ Plan`. `Region ⊑ FormalEntity` is kept. | No inconsistency. New inferences are only the intended ones: data's regions and time intervals become `Abstract`, tasks `EventType`, workflows `Plan`, organisations (e.g. the range of `mdx:worksFor`) `SocialAgent`. |
+| **B8** additions | `Event ⊑ hasPart some Event` replaced by DUL's `hasPart only Event`. `Collection ⊑ hasMember some Entity` and `Organization ⊥ Person` **kept** and documented in the alignment. | The first was vacuous. The other two are compatible with DUL and cause no issue in the modules; `Organization ⊥ Person` is involved in the mdx problem of 5.3, but the error is in mdx. |
+| **C** DUL restrictions | **Applied**: `Event` (`hasPart`/`hasConstituent only Event`); `Object` (`hasPart`/`hasConstituent only Object`); `Action` (`hasParticipant some Agent`, `executesTask min 1`); `PhysicalObject`, `SocialObject`, `Concept`, `Role`, `Parameter`, `Task`, `Region` (their `hasPart only …`); `Task` (`isTaskOf only Role`, `isExecutedIn only Action`, `isTaskDefinedIn only Description`); `Region` (`precedes`/`hasConstituent only Region`); `UnitOfMeasure ⊑ parametrises some Region`; `Workflow` (`definesTask some Task`, `definesRole some Role`); `Location ⊑ isLocationOf min 1`; `EventType ⊑ classifies only Event`; `Plan ⊑ hasComponent some Goal`; explicit domain/range of `isDescribedBy`; `hasDataValue` replicated, with `hasRegionDataValue` as its sub-property. | No inconsistency, no new unsatisfiable class, no change in inferred knowledge, no DL violation. |
+| **C** `Object ⊑ isClassifiedBy only Role` | **Not applied** | `mdx:hasSpecialty` and `ccso:refersToScenario` / `refersToGlobalWarmingLevel` classify objects with concepts that are not roles, so specialties and scenarios would silently become `Role`s. A parametrised physical object becomes **inconsistent** (`Parameter ⊥ Role`). |
+| **C** `Role ⊑ classifies only Object`, `Parameter ⊑ classifies only Region` | **Not applied** | Same reasons as the two kept B6 widenings, which they would contradict. |
+| **C** `Object ⊑ isParticipantIn some Event`, `Object ⊑ hasLocation some Entity`, `Event ⊑ hasParticipant some Object`, `Event ⊑ hasTimeInterval some TimeInterval`, `Concept ⊑ isDefinedIn some Description` | **Not applied** | Logically harmless, but these existential restrictions form cycles (objects ↔ events) that make HermiT build chains of anonymous individuals. With them, reasoning on the module closure took 19 s instead of 3.6 s, and 143 s instead of 41 s on the probe data. Without them: 4.1 s and 42 s. |
+| **C** restrictions needing other DUL terms (`isExpressedBy some InformationObject`, `overlaps only Region`, `actsThrough some PhysicalAgent`, disjointness with `InformationObject`, `PhysicalAttribute`, `SpaceRegion`) | **Not applied** | They would require replicating further DUL terms, which the HACID modules do not use. |
+| **Italian comments** | **Applied** to the 65 replicas that had none and to the 5 new replicas, as translations of the DUL text (DUL term names left untranslated). Every replica now has an Italian comment. | Annotation only. |
+
+All the divergences that remain are recorded in the alignment file's axiom annotations (23).
+
+**Still open:**
+- The ccso inverse-property error and the other module issues listed in 5.3.
+- Optional: declaring the novel datatype properties (`value`, `time`, `identifier`, …) as
+  sub-properties of the newly replicated `hasDataValue` (see `novel-terms.md`).
 
 ## 6. Reproducing the checks
 

@@ -31,6 +31,8 @@ dcterms:source a owl:AnnotationProperty .
 # Classes
 # ----------------------------------------------------------------------
 
+top:Abstract a owl:Class ; owl:equivalentClass dul:Abstract .
+dul:Abstract a owl:Class .
 top:Action a owl:Class ; owl:equivalentClass dul:Action .
 dul:Action a owl:Class .
 top:Agent a owl:Class ; owl:equivalentClass dul:Agent .
@@ -47,6 +49,8 @@ top:Entity a owl:Class ; owl:equivalentClass dul:Entity .
 dul:Entity a owl:Class .
 top:Event a owl:Class ; owl:equivalentClass dul:Event .
 dul:Event a owl:Class .
+top:EventType a owl:Class ; owl:equivalentClass dul:EventType .
+dul:EventType a owl:Class .
 top:FormalEntity a owl:Class ; owl:equivalentClass dul:FormalEntity .
 dul:FormalEntity a owl:Class .
 top:Goal a owl:Class ; owl:equivalentClass dul:Goal .
@@ -67,6 +71,8 @@ top:Person a owl:Class ; owl:equivalentClass dul:Person .
 dul:Person a owl:Class .
 top:PhysicalObject a owl:Class ; owl:equivalentClass dul:PhysicalObject .
 dul:PhysicalObject a owl:Class .
+top:Plan a owl:Class ; owl:equivalentClass dul:Plan .
+dul:Plan a owl:Class .
 top:Quality a owl:Class ; owl:equivalentClass dul:Quality .
 dul:Quality a owl:Class .
 top:Region a owl:Class ; owl:equivalentClass dul:Region .
@@ -75,6 +81,8 @@ top:Role a owl:Class ; owl:equivalentClass dul:Role .
 dul:Role a owl:Class .
 top:Situation a owl:Class ; owl:equivalentClass dul:Situation .
 dul:Situation a owl:Class .
+top:SocialAgent a owl:Class ; owl:equivalentClass dul:SocialAgent .
+dul:SocialAgent a owl:Class .
 top:SocialObject a owl:Class ; owl:equivalentClass dul:SocialObject .
 dul:SocialObject a owl:Class .
 top:Task a owl:Class ; owl:equivalentClass dul:Task .
@@ -205,6 +213,8 @@ dul:usesConcept a owl:ObjectProperty .
 # Datatype properties
 # ----------------------------------------------------------------------
 
+top:hasDataValue a owl:DatatypeProperty ; owl:equivalentProperty dul:hasDataValue .
+dul:hasDataValue a owl:DatatypeProperty .
 top:hasRegionDataValue a owl:DatatypeProperty ; owl:equivalentProperty dul:hasRegionDataValue .
 dul:hasRegionDataValue a owl:DatatypeProperty .
 
@@ -213,58 +223,70 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
 # ----------------------------------------------------------------------
 
 [] a owl:Axiom ;
-    owl:annotatedSource top:Action ;
+    owl:annotatedSource top:Collection ;
     owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedTarget dul:Action ;
-    rdfs:comment "top-level drops the restrictions 'hasParticipant some Agent' and 'executesTask min 1'."@en .
+    owl:annotatedTarget dul:Collection ;
+    rdfs:comment "top-level adds the restriction 'hasMember some Entity' (no empty collections)."@en .
+
+[] a owl:Axiom ;
+    owl:annotatedSource top:Concept ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedTarget dul:Concept ;
+    rdfs:comment "DUL's existential restrictions 'isDefinedIn some Description' are not replicated: combined, they make the reasoner build chains of anonymous individuals and slowed down reasoning about five times on the HACID modules. DUL's disjointness with InformationObject is not replicated (InformationObject is not replicated)."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Event ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Event ;
-    rdfs:comment "top-level drops the DUL restrictions (participants, time interval, parts/constituents only Events); it adds 'hasPart some Event', which is trivially entailed by the reflexivity of hasPart."@en .
-
-[] a owl:Axiom ;
-    owl:annotatedSource top:FormalEntity ;
-    owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedTarget dul:FormalEntity ;
-    rdfs:comment "top-level places FormalEntity directly under Entity (DUL: under Abstract, which is not replicated)."@en .
+    rdfs:comment "DUL's existential restrictions 'hasParticipant some Object, hasTimeInterval some TimeInterval' are not replicated: combined, they make the reasoner build chains of anonymous individuals and slowed down reasoning about five times on the HACID modules."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Location ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Place ;
-    rdfs:comment "Renamed: top:Location replicates dul:Place (same labels 'Place'@en / 'Luogo'@it, same superclass SocialObject). The DUL restriction 'isLocationOf min 1' is not replicated."@en .
+    rdfs:comment "Renamed: top:Location replicates dul:Place (same labels 'Place'@en / 'Luogo'@it, same superclass SocialObject)."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Object ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Object ;
-    rdfs:comment "top-level drops the DUL restrictions (participation, location, parts/constituents, classification only by roles)."@en .
+    rdfs:comment "DUL's existential restrictions 'isParticipantIn some Event, hasLocation some Entity' are not replicated: combined, they make the reasoner build chains of anonymous individuals and slowed down reasoning about five times on the HACID modules. DUL's 'isClassifiedBy only Role' is not replicated either: HACID modules classify objects with concepts that are not roles (e.g. specialties, scenarios), and objects can be parametrised."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Organization ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Organization ;
-    rdfs:comment "top-level places Organization directly under Agent (DUL: under SocialAgent, which is not replicated) and adds disjointness with Person."@en .
+    rdfs:comment "top-level adds disjointness with Person."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Parameter ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Parameter ;
-    rdfs:comment "top-level adds Characteristic as superclass and drops 'classifies only Region'."@en .
+    rdfs:comment "top-level adds Characteristic as superclass. DUL's 'classifies only Region' is not replicated, consistently with the widened range of parametrises."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:Region ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:Region ;
-    rdfs:comment "top-level places Region under FormalEntity; in DUL both are siblings under Abstract (not replicated)."@en .
+    rdfs:comment "top-level also places Region under FormalEntity. DUL's restriction 'overlaps only Region' is not replicated (overlaps is not replicated)."@en .
 
 [] a owl:Axiom ;
-    owl:annotatedSource top:Task ;
+    owl:annotatedSource top:Role ;
     owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedTarget dul:Task ;
-    rdfs:comment "top-level places Task directly under Concept (DUL: under EventType, which is not replicated)."@en .
+    owl:annotatedTarget dul:Role ;
+    rdfs:comment "DUL's 'classifies only Object' is not replicated, consistently with the widened domain of hasRole (roles are also assigned to non-objects, e.g. reified agent-role situations)."@en .
+
+[] a owl:Axiom ;
+    owl:annotatedSource top:SocialAgent ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedTarget dul:SocialAgent ;
+    rdfs:comment "DUL's restriction 'actsThrough some PhysicalAgent' is not replicated (actsThrough and PhysicalAgent are not replicated)."@en .
+
+[] a owl:Axiom ;
+    owl:annotatedSource top:SocialObject ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedTarget dul:SocialObject ;
+    rdfs:comment "DUL's restriction 'isExpressedBy some InformationObject' is not replicated (isExpressedBy and InformationObject are not replicated)."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:TimeInterval ;
@@ -273,22 +295,10 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     rdfs:comment "top-level also places TimeInterval under the novel class TemporalEntity, and adds startTime/endTime restrictions."@en .
 
 [] a owl:Axiom ;
-    owl:annotatedSource top:Workflow ;
-    owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedTarget dul:Workflow ;
-    rdfs:comment "top-level places Workflow directly under Description (DUL: under Plan, which is not replicated) and drops the definesRole/definesTask restrictions."@en .
-
-[] a owl:Axiom ;
     owl:annotatedSource top:hasMember ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:hasMember ;
     rdfs:comment "top-level adds the super-property top:isCollectionOf."@en .
-
-[] a owl:Axiom ;
-    owl:annotatedSource top:hasRegionDataValue ;
-    owl:annotatedProperty owl:equivalentProperty ;
-    owl:annotatedTarget dul:hasRegionDataValue ;
-    rdfs:comment "DUL makes it a sub-property of hasDataValue (not replicated)."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:hasRole ;
@@ -318,7 +328,7 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:isParametrisedBy ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:isParametrizedBy ;
-    rdfs:comment "Renamed (British spelling of dul:isParametrizedBy). top-level widens the domain from Region to Entity."@en .
+    rdfs:comment "Renamed (British spelling of dul:isParametrizedBy). top-level widens the domain from Region to Entity, so that any entity can be parametrised."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:isProperPartOf ;
@@ -342,7 +352,7 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:parametrises ;
     owl:annotatedProperty owl:equivalentProperty ;
     owl:annotatedTarget dul:parametrizes ;
-    rdfs:comment "Renamed (British spelling of dul:parametrizes). top-level widens the range from Region to Entity."@en .
+    rdfs:comment "Renamed (British spelling of dul:parametrizes). top-level widens the range from Region to Entity, so that any entity can be parametrised."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:specializes ;
