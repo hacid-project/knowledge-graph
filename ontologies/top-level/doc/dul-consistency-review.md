@@ -319,8 +319,7 @@ are used extensively.
 
 ### 5.1 Compatibility checks
 
-Each recommendation of section 4 (except B2, excluded for now because of its possible
-performance impact) was applied to a copy of the top-level ontology, **alone and all together**,
+Each recommendation of section 4 (B2 in a second round, see 5.2) was applied to a copy of the top-level ontology, **alone and all together**,
 and checked against the local modules that depend on it:
 
 - `data/data.owl`, `ccso/ccso.owl`, `medical-dx/mdx.owl`, and `core/agentrole.owl`,
@@ -358,7 +357,7 @@ After the changes:
 | **A2** | Removed `WorkflowRole ⊑ rdfs:Property`, `WorkflowRole ⊑ rdfs:domain only WorkflowExecution`, the `rdfs:Class` range of `hasExpectedType` and domain of `isExpectedTypeOf`, and the declarations of `rdfs:domain`, `rdfs:Class`, `rdfs:Property`. The constraints that cannot be expressed in OWL 2 DL are now stated in the `rdfs:comment` of `WorkflowRole`, `hasExpectedType` and `isExpectedTypeOf`. | Terms not used by any dependent module. |
 | **A3** | Removed `TemporalEntity ⊑ time some xsd:dateTime` and `⊑ time only xsd:dateTime`. The comment of `TemporalEntity` now says that the datatype follows the granularity (e.g. `xsd:dateTime`, `xsd:date`, `xsd:gYearMonth`, `xsd:gYear`). | **Fixes a latent inconsistency in the core tests.** `ar1`–`ar3` test data assert `top:time "2024-01"^^xsd:gYearMonth` on a `TemporalEntity`, which contradicts `time only xsd:dateTime`. Replacing the literal with a non-`dateTime` value that HermiT supports gives *inconsistent* before the change and *consistent* after. The ranges `xsd:gYear`, `xsd:date` and `xsd:time` of `year`/`startTime`/`endTime` were **kept**. They are outside the OWL 2 datatype map, so HermiT in strict mode still rejects them; replacing them is a modelling decision left open. |
 | B1 | `TimeInterval ⊑ Region` added (it stays under `TemporalEntity` too). | `TimeInterval` not used by any dependent module. |
-| B2 | *Not applied* (excluded for now). | — |
+| B2 | `associatedWith` now has DUL's axioms: `owl:SymmetricProperty`, `owl:TransitiveProperty`, domain and range `Entity`, inverse of itself. Its comment, which already described these characteristics, is unchanged. | Applied in a second round, after the same checks. **No change** in any of the 39 runs or in the DL profile. The dependent modules use `associatedWith` only as a super-property (plus one plain declaration in `data.owl`), so the restrictions that OWL 2 DL places on transitive properties are not violated. **Performance:** HermiT time per run rose from about 0.5–1 s to about 3 s on the test data, so the whole suite took 101 s instead of 50 s. With a forward-chaining (materialising) triple store, every connected group of n individuals yields n² `associatedWith` triples. On the test data the closure is 6.5 times the asserted links, and in a large, connected knowledge graph it grows quadratically. The repository's Fuseki configuration (`ontologies/integrate/fuseki-conf.ttl`) is a plain TDB2 dataset without a reasoner, so it is not affected. Any deployment that enables OWL RL or OWL materialisation should exclude this property or use backward chaining. |
 | B3 | `isRelatedToConcept` declared `owl:SymmetricProperty`. | Sub-properties `hasTask`/`isTaskOf` only; no dependent module uses them. |
 | B4 | `includesEvent` / `includesObject`: now `⊑ isSettingFor`, domain `Situation`, range `Event` / `Object`. The DUL inverses `isEventIncludedIn` / `isObjectIncludedIn` were not added. | Not used by any dependent module. |
 | B5 | `hasLocation` range and `isLocationOf` domain restored to `Entity`. Labels ("has location" / "ha localizzazione", "è una localizzazione di") and comments (DUL, plus Italian translation) restored. | `mdx.owl` uses `HeatlhcareProfessional ⊑ hasLocation some Location`, which names `Location` explicitly, so nothing is lost. |
@@ -397,7 +396,6 @@ last one, fixed by A3). They are reported here because they surfaced during the 
 
 ### 5.4 Still open
 
-- B2 (`associatedWith` characteristics): excluded for now.
 - The OWL 2 datatype-map issue of `xsd:gYear`, `xsd:date` and `xsd:time` (A3, second part).
 - Items not in the prioritised list: B6 (document or revert the widenings; they are now
   documented in scope notes), B7/B8 (flattening and additions, including the vacuous
