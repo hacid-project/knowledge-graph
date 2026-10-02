@@ -9,8 +9,8 @@ changes described in
 [`../../data/doc/top-level-alignment-review.md`](../../data/doc/top-level-alignment-review.md)).
 **Other imports:** `core/judgement` (prefix `jdg:`), used only for `Assessment`.
 
-> This document describes the module **as reviewed**: no change has been applied to `ccso.owl` yet.
-> The impact of the proposed changes (section 5) was tested on copies.
+> Sections 2–7 describe the module **as reviewed**. Section 5 reports the impact of the proposed
+> changes, tested on copies. Section 8 lists the changes that were then applied to `ccso.owl`.
 
 ## 1. Scope and method
 
@@ -358,3 +358,35 @@ robot merge --input $T --input $D --input $J --input $C --output /tmp/ccso-all.o
 robot validate-profile --input /tmp/ccso-all.owl --profile DL --output ccso-dl.txt
 robot reason --reasoner hermit --input /tmp/ccso-all.owl --output /tmp/out.owl
 ```
+
+## 8. Changes applied
+
+| Finding | Change in `ccso.owl` |
+|---|---|
+| **A1** (Q3) | `PerturbedParameterClimateEnsembleSimulation` and `ClimateModelIntercomparisonExperiment` are now also subclasses of `EnsembleSimulation` and `ClimateSimulation`. |
+| **A2, B9** (Q8) | `isMaintainedBy` has range `top:Agent`; `maintains` has domain `top:Agent`. |
+| **B1** (Q1) | `GlobalWarmingLevel ⊑ top:Parameter`, instead of `top:Concept`. |
+| **B2** (Q2) | `ClimateModel ⊑ top:Description`, instead of `top:Entity`. |
+| **B4** (Q4) | `hasImpact`, `sufferedImpact`, `hasVulnerability` ⊑ `top:isInvolvedIn`; `isSufferedImpactOf`, `isVulnerabilityOf` ⊑ `top:involves` (instead of `top:associatedWith`). |
+| **B5** (Q5) | The 12 type-to-type properties ⊑ `top:isRelatedToConcept` (instead of `top:associatedWith`). |
+| **B6** | Instead of Q6, `isMemberSimulationOf` is removed: it was a remnant of a previous version. |
+| **B7** (Q7) | `productId ⊑ top:identifier`. |
+| **C2, D1** | The header comment no longer lists coverage and resolution properties as CCSO features; it refers to the data ontology for them. The dead `dc:description` image link (and the then unused `dc:description` declaration and `dc:` prefix) are removed. The default namespace is now `https://w3id.org/hacid/onto/ccso/`. |
+| **D2** | Comments were added to the 9 classes and the 18 object properties that had none. The comment of `usesModel` written from the model's point of view was moved to `isModelUsedBy`. |
+| **D3** | Labels fixed: "Ensemble Projection Production", "is potential impact type of", "Greenhouse Gas Concentration Pathway", "Shared Socioeconomic Pathway". |
+| **D4** | The 12 scenario individuals (RCPs and SSPs) are removed: they are now maintained in the corresponding knowledge graph. |
+
+Not applied: A3 (axioms of `relatedWithPhenomenon`; only a comment was added), A4 (input of
+downscaling), B3 (scenarios as descriptions), B8 (process properties, which depend on data B1), the
+`Aggregation` name clash (C1), and Italian annotations.
+
+**Checks after the changes**, with the same method as section 5:
+- No change in consistency or unsatisfiable classes, on the probe data and on all the test data of
+  the other modules: the only problems are the known mdx ones.
+- No new OWL 2 DL violation (the same 5, all from other modules).
+- The new inferences are exactly those of Q1, Q2, Q3 and Q8 (section 5).
+- The only lost inferences are the class memberships of the removed scenario individuals.
+
+The added comments (in particular those of `Asset`, `ClimatePhenomenon`, `Impact` and the
+type classes) were written from the class names, their axioms and the comments of related terms,
+since there was no other documentation. They should be checked by the module's authors.
