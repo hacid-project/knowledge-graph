@@ -995,7 +995,6 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasPeriodValue -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasPeriodValue">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/PeriodicBinning"/>
         <rdfs:comment xml:lang="en">Associates a periodic binning with its period (to associate a non-literal resource use data:hasPeriod).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>

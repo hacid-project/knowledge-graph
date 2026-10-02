@@ -359,3 +359,9 @@ Its inverse `isRegionOf` and the datatype property `hasRegionValue` keep their n
 - *Checks.* Data + top-level is still in OWL 2 DL and accepted by HermiT in strict mode. There is no
   change on the dependent modules with their test data. On the probe data, the only new inferences
   are the expected `top:Region` types of the probe's offsets, periods and in-period resolutions.
+
+## 12. Datatype properties (B7): change applied
+
+- The redundant axiom `hasPeriodValue ⊑ owl:topDataProperty` was removed. Every datatype property is
+  already a sub-property of `owl:topDataProperty`, so this changes no inference.
+- The `…Value` datatype properties are not made sub-properties of `top:hasDataValue`.
