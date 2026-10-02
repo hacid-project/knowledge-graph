@@ -82,6 +82,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/containsRegion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/containsRegion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isRegionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
+        <rdfs:comment xml:lang="en">Associates a dimensional space with a region of that dimensional space, i.e. any region that is contained and representable in that dimensional space (use data:hasRegionValue to directly associate a literal).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">contains region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/definesAggregation -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/definesAggregation">
@@ -358,20 +372,6 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a dimensional space with a point that is used as reference to identify the points of the dimensional space (e.g., the North Pole for geodetic coordinates on Earth).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has reference point</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/data/hasRegion -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasRegion">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isRegionOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
-        <rdfs:comment xml:lang="en">Associates a dimensional space with a region of that dimensional space, i.e. any region that is contained and representable in that dimensional space (use data:hasRegionValue to directly associate a literal).</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">has region</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1018,7 +1018,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/data/hasRegionValue">
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DimensionalSpace"/>
-        <rdfs:comment xml:lang="en">Associates a dimensional space with a region of that dimensional space, i.e. any region that is contained and representable in that dimensional space, directly expressed as literal (use data:hasRegion to associate a non-literal resource).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Associates a dimensional space with a region of that dimensional space, i.e. any region that is contained and representable in that dimensional space, directly expressed as literal (use data:containsRegion to associate a non-literal resource).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has region value</rdfs:label>
     </owl:DatatypeProperty>
@@ -1234,7 +1234,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
                 <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A dimension that can be somehow quantified, possibly structured by a system of measurement/classification. It can be bounded (e.g., a period of time) or not (e.g., the &quot;whole&quot; time), discrete (e.g., time by days) or continuous (e.g., a time continuum). It is a special case of an independent variable, specifically the most generic variable defined on the dimensional space. This enables a simple representation when the context of use does not require the distinction between variable and dimensional space. Unlike DOLCE+DnS Ultralite, where a dimensional space is a maximal Region, here a dimensional space is a variable, and hence a top:Concept. Since the top-level declares top:Abstract (which includes top:Region) disjoint from top:Object (which includes top:Concept), a dimensional space and its regions, including its bounding regions, are always distinct individuals, related by data:hasRegion, data:hasBoundingRegion, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A dimension that can be somehow quantified, possibly structured by a system of measurement/classification. It can be bounded (e.g., a period of time) or not (e.g., the &quot;whole&quot; time), discrete (e.g., time by days) or continuous (e.g., a time continuum). It is a special case of an independent variable, specifically the most generic variable defined on the dimensional space. This enables a simple representation when the context of use does not require the distinction between variable and dimensional space. Unlike DOLCE+DnS Ultralite, where a dimensional space is a maximal Region, here a dimensional space is a variable, and hence a top:Concept. Since the top-level declares top:Abstract (which includes top:Region) disjoint from top:Object (which includes top:Concept), a dimensional space and its regions, including its bounding regions, are always distinct individuals, related by data:containsRegion, data:hasBoundingRegion, etc.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Dimensional Space</rdfs:label>
     </owl:Class>
@@ -1362,7 +1362,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/PeriodicRegion">
         <rdfs:comment xml:lang="en">A region made of the parts of a continuum that are at the same position in every period of a periodic binning (e.g., all the Januaries).</rdfs:comment>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Region"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Region"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Periodic Region</rdfs:label>
     </owl:Class>

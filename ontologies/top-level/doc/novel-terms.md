@@ -21,14 +21,14 @@ Four of those replicas have a local name that differs from DUL, so they are **no
 
 | | Classes | Object properties | Datatype properties | Total |
 |---|---:|---:|---:|---:|
-| Terms in top-level | 51 | 114 | 14 | 179 |
+| Terms in top-level | 47 | 107 | 13 | 167 |
 | Replicas of DUL terms | 32 | 54 | 2 | 88 |
-| **Novel terms (this document)** | **19** | **60** | **12** | **91** |
+| **Novel terms (this document)** | **15** | **53** | **11** | **79** |
 
 All novel terms are anchored in the DUL-derived backbone. Every novel class is a subclass of
 a replicated class (`Entity`, `Description`, `Situation`, `Role`, `Collection`, `Task`), and
 every novel object property is a sub-property of `top:associatedWith` (the replica of
-`dul:associatedWith`), directly or through another property. The 12 novel datatype properties
+`dul:associatedWith`), directly or through another property. The 11 novel datatype properties
 have no common super-property. DUL's own root for datatype properties, `hasDataValue`, is now
 replicated in top-level (with `hasRegionDataValue` as its sub-property); the novel datatype
 properties could be declared its sub-properties.
@@ -46,7 +46,7 @@ a lighter "entity → characteristic → value + unit" modelling style. It also 
 
 | Term | Type | Placement | Meaning | Relation to DUL / notes | Used by |
 |---|---|---|---|---|---|
-| `Characteristic` | Class | ⊑ `Entity` | Any aspect, attribute or quality of an entity (size, aesthetic quality, colour…). | Overlaps `dul:Quality` (aspects) and `dul:Region` (values). Its subclasses mix social objects (`Parameter`, which is also a `Concept`) with value-like entities (`Value`), so it cuts across DUL's Object/Quality/Abstract split. Its intended ontological status should be documented. | ccso/dataset.rdf, core/judgement.owl |
+| `Characteristic` | Class | ⊑ `Entity` | Any aspect, attribute or quality of an entity (size, aesthetic quality, colour…). | Overlaps `dul:Quality` (aspects) and `dul:Region` (values). Its subclasses mix social objects (`Parameter`, which is also a `Concept`) with value-like entities (`Value`), so it cuts across DUL's Object/Quality/Abstract split. Its intended ontological status should be documented. | core/judgement.owl |
 | `Value` | Class | ⊑ `Characteristic`; `value exactly 1`; `hasUnitOfMeasure max 1 UnitOfMeasure`; key (`hasUnitOfMeasure`, `value`) | A value, typically with a unit of measure. | Close to `dul:Region`/`dul:Amount` combined with `dul:hasRegionDataValue` and `dul:UnitOfMeasure` (DUL: "units of measure are parameters on regions"). | core/naming.owl, core/judgement.owl |
 | `Material` | Class | ⊑ `Characteristic` | The material (of something). | No DUL class. Materials are usually substances (cf. `dul:Substance`, a `PhysicalBody`), but here a material is a characteristic. The comment ("The material class") should say which reading is intended. | – |
 | `hasCharacteristic` / `isCharacteristicOf` | OP | ⊑ `associatedWith`; `Entity` → `Characteristic` | An entity and one of its characteristics. | Generalises `dul:hasQuality`/`dul:hasRegion` in spirit, but is not declared as their super-property. | – |
@@ -71,24 +71,21 @@ The replicated `TimeInterval` is both a `Region` (as in DUL) and a `TemporalEnti
 | `time` | DP | `Entity` → `xsd:dateTime` | Literal representation of time. | Analogue of `dul:hasDataValue` for time. DUL has `dul:hasEventDate`, `dul:hasIntervalDate` (not replicated). | – |
 | `startTime`, `endTime` | DP | ⊑ `time`; `TimeInterval` → `xsd:dateTime` | Start and end of an interval. | Analogue of `dul:hasIntervalDate`. No `rdfs:comment`. The range was `xsd:date ∪ xsd:dateTime ∪ xsd:time`; it is now `xsd:dateTime`, like `time`. | – |
 
-## 3. Data, media and identifiers
+## 3. Identifiers and sources
 
-These terms are metadata-oriented and resemble DCAT and Dublin Core. DUL covers this area
-only abstractly, through `InformationObject`/`InformationRealization`, and those classes are
-not replicated.
+These terms are metadata-oriented and resemble Dublin Core and PROV. DUL covers this area only
+abstractly, through `InformationObject`/`InformationRealization`, and those classes are not
+replicated.
+
+The top-level used to define datasets and their distributions as well (`Dataset`, `DataSchema`,
+`SchemaAttribute`, `Media`, and the properties `hasDataSchema`, `hasSchemaAttribute`, `hasMedia`,
+`hasDownloadURL`, `mediaType` with their inverses). They duplicated the richer model of the data
+module (`data:Dataset`, `data:DataSource`, `data:DataFormat`, `data:hasURL`, …), and no module used
+them, so they were removed. See `../../data/doc/top-level-alignment-review.md`, section 9.
 
 | Term | Type | Placement | Meaning | Relation to DUL / notes | Used by |
 |---|---|---|---|---|---|
-| `Dataset` | Class | ⊑ `Collection`; `hasPart only Dataset` | A collection of data. | Specialises `dul:Collection`. Comparable to `dcat:Dataset`. | ccso/dataset.rdf |
-| `DataSchema` | Class | ⊑ `Description`; `hasSchemaAttribute some/only SchemaAttribute`; disjoint with `IdentifierSchema` | A data schema. | Specialises `dul:Description`. | ccso/dataset.rdf |
-| `SchemaAttribute` | Class | ⊑ `Characteristic`; `isClassifiedBy some Concept` | An attribute of a data schema. | No DUL counterpart. Arguably a `dul:Concept` defined in the schema (a `Description`), rather than a characteristic. | – |
 | `IdentifierSchema` | Class | ⊑ `Description` | A scheme for identifiers. | Specialises `dul:Description`. | – |
-| `Media` | Class | ⊑ `Entity`; `mediaType exactly 1`; `hasDownloadURL exactly 1`; `hasDataSchema exactly 1 DataSchema`; `isSourceOf some Entity` | Any media encoding data in some format. | Closest DUL notion is `dul:InformationRealization` (not replicated). Comparable to `dcat:Distribution`. | – |
-| `hasDataSchema` / `isDataSchemaOf` | OP | ⊑ `hasDescription` / `isDescriptionOf`; `Media` → `DataSchema` | A media item and its data schema. | Via `hasDescription` (≡ `isDescribedBy`) it is a specialisation of `dul:isDescribedBy`. | ccso/dataset.rdf (`hasDataSchema`, `isDataSchemaOf`) |
-| `hasSchemaAttribute` / `isSchemaAttributeOf` | OP | ⊑ `hasCharacteristic` / `isCharacteristicOf`; `DataSchema` → `SchemaAttribute` | A data schema and its attributes. | If attributes were concepts, this would be a specialisation of `dul:defines`/`usesConcept`. | – |
-| `hasMedia` / `isMediaOf` | OP | ⊑ `associatedWith`; `Entity` → `Media` | An entity and a media item. | DUL analogue: `dul:isRealizedBy` (not replicated). The English comment of `hasMedia` reads "instance of the middle class" (mistranslation of *Media*). | – |
-| `hasDownloadURL` | OP | ⊑ `associatedWith`; domain `Media` | URL of the downloadable file. | Comparable to `dcat:downloadURL`. No range; no inverse. | – |
-| `mediaType` | DP | `Media` → `rdfs:Literal` | Media (MIME) type. | Comparable to `dcat:mediaType`. | – |
 | `hasIdentifierSchema` / `isIdentifierSchemaOf` | OP | ⊑ `hasDescription` / `isDescriptionOf`; range `IdentifierSchema` | A unique identifier and its schema. | `hasIdentifierSchema` has no domain and `isIdentifierSchemaOf` no range. Presumably this is the object of `hasUniqueIdentifier`. | – |
 | `hasUniqueIdentifier` / `isUniqueIdentifierOf` | OP | ⊑ `hasCharacteristic` / `isCharacteristicOf`; domain `Entity` | An entity and its unique identifier. | No range (only `Characteristic`, inherited). The Italian comment of `isUniqueIdentifierOf` is tagged `@en`. | – |
 | `identifier` | DP | domain `Entity` | Literal value of an identifier (e.g. WMO code). | Comparable to `dcterms:identifier`. No range. | – |
@@ -147,7 +144,7 @@ and connect a situation with its arguments.
 | `hasSystem` / `isSystemOf` | OP | ⊑ `associatedWith`; `Entity` → `System` | Any entity and a system. | Relationship to `isComponentOf` is not stated. | – |
 | `Judgement` | Class | ⊑ `Entity` | The process of forming an opinion by discerning and comparing. | The comment describes a *process*, which in DUL would be an `Event`/`Action`. Placing it directly under `Entity` loses this. See `core/judgement.owl` for the full pattern. | ccso/Constraint.owl |
 | `hasCollection` / `isCollectionOf` | OP | ⊑ `associatedWith`; `Entity` → `Collection` | An entity and a collection. | Same signature as the replicated `isMemberOf` / `hasMember`, with a more generic comment. Membership is now declared as a specialisation: `isMemberOf ⊑ hasCollection`, `hasMember ⊑ isCollectionOf`. | – |
-| `hasDescription` / `isDescriptionOf` | OP | ⊑ `associatedWith`; `Entity` → `Description`; ≡ `isDescribedBy` / `describes` | An entity and its description. | Duplicate of the replicated `isDescribedBy` / `describes` (= DUL), with the same domain, range and meaning. Now declared equivalent to them; both IRIs remain usable. `hasDataSchema` and `hasIdentifierSchema` are sub-properties of it. | ccso doc (CSW case) |
+| `hasDescription` / `isDescriptionOf` | OP | ⊑ `associatedWith`; `Entity` → `Description`; ≡ `isDescribedBy` / `describes` | An entity and its description. | Duplicate of the replicated `isDescribedBy` / `describes` (= DUL), with the same domain, range and meaning. Now declared equivalent to them; both IRIs remain usable. `hasIdentifierSchema` is a sub-property of it. | ccso doc (CSW case) |
 | `hasCreator` / `isCreatorOf` | OP | ⊑ `associatedWith`; domain `Entity` | An entity and its creating agent. | No range (should be `Agent`). Comparable to `dcterms:creator`. | – |
 | `isIssuedBy` / `issues` | OP | ⊑ `associatedWith`; domain `Entity` | An entity and the agent that issued it. | Its labels and comments were copied from `hasCreator` / `isCreatorOf`. They now follow the IRI: "is issued by" / "issues", "è emesso da" / "emette". Issuing (cf. `dcterms:publisher`) and creating (cf. `dcterms:creator`) are kept as distinct relations. | – |
 | `specialises` / `isSpecialisedBy` | OP, transitive | ⊑ `associatedWith`; `Entity` → `Entity` | Specialisation relations. | Same relation as the replicated `specializes` / `isSpecializedBy` (= DUL), with a wider domain/range (`Entity` instead of `SocialObject`). The DUL replicas are now declared sub-properties of these. They still share the Italian labels "specializza" / "è specializzato da". | – |

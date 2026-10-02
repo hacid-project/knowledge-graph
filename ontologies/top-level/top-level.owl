@@ -392,22 +392,6 @@ In all these examples, we notice a typical discontinuity between the constituted
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/hasDataSchema -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasDataSchema">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasDescription"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDataSchemaOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
-        <rdfs:comment xml:lang="it">La relazione che sussiste tra un media e il suo schema di dati.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relation holding between a media and its data schema.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">ha schema di dati</rdfs:label>
-        <rdfs:label xml:lang="en">has data schema</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/top-level/hasDescription -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasDescription">
@@ -421,20 +405,6 @@ In all these examples, we notice a typical discontinuity between the constituted
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">ha descrizione</rdfs:label>
         <rdfs:label xml:lang="en">has description</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/hasDownloadURL -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasDownloadURL">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
-        <rdfs:comment xml:lang="it">Questo è un link diretto al file scaricabile in un dato formato. E.g. un file CSV o un file RDF. Il formato è descritto dal dct:format e/o dal dcat:mediaType della distribuzione.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution&apos;s dct:format and/or dcat:mediaType.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">ha URL di scaricamento</rdfs:label>
-        <rdfs:label xml:lang="en">has download URL</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -526,22 +496,6 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">ha localizzazione</rdfs:label>
         <rdfs:label xml:lang="en">has location</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/hasMedia -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasMedia">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isMediaOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
-        <rdfs:comment xml:lang="it">La relazione tra un&apos;entità ed un&apos;istanza della classe Media.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relationship between an entity and an instance of the middle class.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">ha media</rdfs:label>
-        <rdfs:label xml:lang="en">has media</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -739,22 +693,6 @@ Subproperties and restrictions can be used to specialize hasPart for objects, ev
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="it">ha ruolo</rdfs:label>
         <rdfs:label xml:lang="en">has role</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/hasSchemaAttribute -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/hasSchemaAttribute">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasCharacteristic"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/top-level/isSchemaAttributeOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
-        <rdfs:comment xml:lang="it">La relazione che consente di associare uno schema di dati ai suoi attributi dello schema.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relation that allows one to associate a data schema with its schema attributes.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">ha attributo di schema di dati</rdfs:label>
-        <rdfs:label xml:lang="en">has data schema attribute</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1114,21 +1052,6 @@ In all these examples, we notice a typical discontinuity between the constituted
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/isDataSchemaOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isDataSchemaOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDescriptionOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
-        <rdfs:comment xml:lang="it">La relazione esistente tra uno schema di dati e il supporto.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relation existing between a data schema and the media.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">is data schema of</rdfs:label>
-        <rdfs:label xml:lang="it">è schema di dati di</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/top-level/isDefinedIn -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isDefinedIn">
@@ -1305,21 +1228,6 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">is location of</rdfs:label>
         <rdfs:label xml:lang="it">è una localizzazione di</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/isMediaOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isMediaOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="it">La relazione tra un&apos;istanza di un&apos;entità di classe Media e un&apos;entità.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The relationship between an instance Media class entity and an entity.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">is media of</rdfs:label>
-        <rdfs:label xml:lang="it">è media di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1543,21 +1451,6 @@ Per localizzazioni &apos;assolute&apos;, vedere SpaceRegion.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">is satisfied by</rdfs:label>
         <rdfs:label xml:lang="it">è soddisfatta da</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/isSchemaAttributeOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/top-level/isSchemaAttributeOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isCharacteristicOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
-        <rdfs:comment xml:lang="it">La proprietà che permette di collegare un attributo allo schema di dati.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The property that allows you to link an attribute to the data schema.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">is data schema attribute of</rdfs:label>
-        <rdfs:label xml:lang="it">è attributo di schema di dati di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -2020,20 +1913,6 @@ Patterns (4) and (5) should be used instead when a constraint or a selection is 
     
 
 
-    <!-- https://w3id.org/hacid/onto/top-level/mediaType -->
-
-    <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/mediaType">
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Media"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <rdfs:comment xml:lang="en">A value for the media type, e.g. text/csv, rdf/xml, etc.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Un valore per il tipo di supporto, ad es. text/csv, rdf/xml, ecc.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">media type</rdfs:label>
-        <rdfs:label xml:lang="it">tipo di supporto</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/top-level/name -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/hacid/onto/top-level/name">
@@ -2262,51 +2141,6 @@ The classifies relation relates Concept(s) to Entity(s) at some TimeInterval</rd
         <rdfs:comment xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Concept scheme</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/DataSchema -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/DataSchema">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasSchemaAttribute"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasSchemaAttribute"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/SchemaAttribute"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/top-level/IdentifierSchema"/>
-        <rdfs:comment xml:lang="it">La classe per la rappresentazione di schemi di dati.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The class for representing data schemata.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">Data schema</rdfs:label>
-        <rdfs:label xml:lang="it">Schema di dati.</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Dataset -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Dataset">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Collection"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Dataset"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A collection of data.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Una collezione di dati.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">Dataset</rdfs:label>
-        <rdfs:label xml:lang="it">Dataset</rdfs:label>
     </owl:Class>
     
 
@@ -2558,44 +2392,6 @@ In this generic sense, a Place is a &apos;dependent&apos; location. For &apos;no
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Material</rdfs:label>
         <rdfs:label xml:lang="it">Materiale</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/Media -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/Media">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isSourceOf"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasDataSchema"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/hacid/onto/top-level/DataSchema"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasDownloadURL"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/mediaType"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Any media encoding data in any format.</rdfs:comment>
-        <rdfs:comment xml:lang="it">Qualsiasi supporto che codifica i dati in qualsiasi formato.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="en">Media</rdfs:label>
-        <rdfs:label xml:lang="it">Media</rdfs:label>
     </owl:Class>
     
 
@@ -2865,27 +2661,6 @@ Regions are not data values in the ordinary knowledge representation sense; in o
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <rdfs:label xml:lang="en">Role</rdfs:label>
         <rdfs:label xml:lang="it">Ruolo</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/hacid/onto/top-level/SchemaAttribute -->
-
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/top-level/SchemaAttribute">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Characteristic"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="it">La classe degli attributi di uno schema dati</rdfs:comment>
-        <rdfs:comment xml:lang="en">The class of the attributes of a data schema.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <rdfs:label xml:lang="it">Attributo dello Schema</rdfs:label>
-        <rdfs:label xml:lang="en">Schema attribute</rdfs:label>
-        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
-        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:Class>
     
 
