@@ -365,3 +365,16 @@ Its inverse `isRegionOf` and the datatype property `hasRegionValue` keep their n
 - The redundant axiom `hasPeriodValue ⊑ owl:topDataProperty` was removed. Every datatype property is
   already a sub-property of `owl:topDataProperty`, so this changes no inference.
 - The `…Value` datatype properties are not made sub-properties of `top:hasDataValue`.
+
+## 13. `Aggregation` renamed
+
+- `data:Aggregation` is renamed `data:AggregationSpecification` (label "Aggregation
+  Specification"), to avoid the clash with `ccso:Aggregation`, a rescaling process (see the CCSO
+  review, C1). The new name is the one its properties' comments already used ("aggregation
+  specification"); the class comment now begins "The specification of an aggregation …".
+- The domains and ranges of `aggregatesVariable`, `definesAggregation`, `hasSuggestedQuantization`,
+  `isAggregationDefinedFor`, `isSuggestedQuantizationFor` and `isVariableAggregatedBy`, the
+  ontology header, the competency questions (CQ18, CQ21) and the labels in the diagram sources
+  under `ccso/doc/visual` are updated accordingly. The property names are unchanged.
+- *Breaking change* for data that types individuals as `data:Aggregation`. None of the test data or
+  examples in the repository does.

@@ -82,10 +82,10 @@ against instance data such as the paper's usage example graph).
 
 | ID | Domain | Competency Question | Ontology terms exercised |
 |----|--------|----------------------|---------------------------|
-| CQ18 | Generic | Is a given dependent variable "aggregating", and if so, which aggregation(s) does it define? | `data:definesAggregation`, `data:Aggregation` |
+| CQ18 | Generic | Is a given dependent variable "aggregating", and if so, which aggregation(s) does it define? | `data:definesAggregation`, `data:AggregationSpecification` |
 | CQ19 | Generic | Over which variable does a given aggregation group values, and which quantizations are suggested as candidate granularities for it? | `data:aggregatesVariable`, `data:hasSuggestedQuantization` |
 | CQ20 | Climate | Along which two independent variables (time and geodetic space) is `tasmax` aggregated, and what quantization is suggested for each? | `data:definesAggregation`, `data:aggregatesVariable`, `data:hasSuggestedQuantization` |
-| CQ21 | Business intelligence | For a KPI defined by a SQL expression such as `AVG(sales)` with a deferred `GROUP BY`, what is the variable being aggregated, and which candidate quantizations (e.g., daily, monthly, quarterly grouping) are suggested before a specific granularity is chosen? | `data:Aggregation`, `data:aggregatesVariable`, `data:hasSuggestedQuantization` |
+| CQ21 | Business intelligence | For a KPI defined by a SQL expression such as `AVG(sales)` with a deferred `GROUP BY`, what is the variable being aggregated, and which candidate quantizations (e.g., daily, monthly, quarterly grouping) are suggested before a specific granularity is chosen? | `data:AggregationSpecification`, `data:aggregatesVariable`, `data:hasSuggestedQuantization` |
 | CQ22 | Energy / smart grid | Which aggregation function and axis produce "average daily household energy consumption" from raw smart-meter readings, and which temporal quantization (e.g., daily bins) does it suggest? | `data:definesAggregation`, `data:hasSuggestedQuantization` |
 
 ## 7. Dimensional-space structure and discretization

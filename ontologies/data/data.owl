@@ -14,7 +14,7 @@
 
 The aim is to represent the concept of variables in a flexible way, while preserving well-defined semantics. Here, as usual in mathematics and other fields, a variable is an abstraction that has meaning in the context of some relation between different variables and can be associated to different values in a set that is usually well defined (e.g., x is an element of ℝ). In the ontology module presented here, a data:Variable is akin to that concept and the set of possible values is represented by a data:DimensionalSpace; the two are linked via the data:hasValuesOn property. To a variable that is a data:DependentVariable can be implicitly associated with a function having as range the associated dimensional space and as domain the cartesian set of the dimensional spaces of the variables from which it depends. A data:IndependentVariable, conversely, is a variable that does not depend on other variables.
 
-A variable can be aggregating, i.e. include aggregation mechanisms whose execution is deferred to derived variables. This allows to represent variables defined using one or more aggregation functions for combining data along one or more independent variables, without specifying the actual granularity. A general purpose example of usage is representing as variables the SQL expressions including aggregation functions (e.g. AVG(...)) which are then derived to actual serializable variables by the usage of specific GROUP BY clauses. In the context of climate services, the CMOR Tables variables (e.g., tasmax) fall into this category. From the ontology point of view, a (dependent) variable is aggregating if it offers one or more aggregations: i.e. it is linked with one or more instances of  data:Aggregation via the property data:definesAggregation. Each aggregation is associated with one variable (which must be a variable the dependent variable depends on) and optionally one or more suggested options for the adopted aggregation grid (i.e. specific granularity).
+A variable can be aggregating, i.e. include aggregation mechanisms whose execution is deferred to derived variables. This allows to represent variables defined using one or more aggregation functions for combining data along one or more independent variables, without specifying the actual granularity. A general purpose example of usage is representing as variables the SQL expressions including aggregation functions (e.g. AVG(...)) which are then derived to actual serializable variables by the usage of specific GROUP BY clauses. In the context of climate services, the CMOR Tables variables (e.g., tasmax) fall into this category. From the ontology point of view, a (dependent) variable is aggregating if it offers one or more aggregations: i.e. it is linked with one or more instances of data:AggregationSpecification via the property data:definesAggregation. Each aggregation is associated with one variable (which must be a variable the dependent variable depends on) and optionally one or more suggested options for the adopted aggregation grid (i.e. specific granularity).
 
 A data:FiniteVariable is a variable for which the set of all the possible values is finite. For an independent variable it means being defined on a finite dimensional space (instance of data:FiniteDimensionalSpace); for a dependent variable it means that all the variables it depends on are finite variables. The concept of data:FiniteVariable is important because it corresponds to variables that can be fully represented extensively with a finite amount of resources. It corresponds functionally to the concept of a dataset. The property data:hasDataSerialization links such a dataset with a data source (data:DataSource) holding one or more concrete serializations of it. A data:DataSource (e.g., an URL resolving to a dump of a dataset) is associated to one or more supported data formats (data:DataFormat) via the data:hasAvailableDataFormat property. 
 
@@ -59,7 +59,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/aggregatesVariable">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isVariableAggregatedBy"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/AggregationSpecification"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:comment xml:lang="en">Associates an aggregation specification with each variable whose values will be grouped by the aggregation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
@@ -102,7 +102,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isAggregationDefinedFor"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/AggregationSpecification"/>
         <rdfs:comment xml:lang="en">Associates a dependent variable with an aggregation specification, when the value of such variable is obtained performing one or more aggregations. The aggregation specification is in turn associated with the variables whose values will be grouped by the aggregation and optionally with a set of suggested quantizations used for such groupings.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">defines aggregation</rdfs:label>
@@ -436,7 +436,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasSuggestedQuantization">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isSuggestedQuantizationFor"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/AggregationSpecification"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
         <rdfs:comment xml:lang="en">Associates an aggregation specification with a quantization which is suggested for that aggregation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
@@ -518,7 +518,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isAggregationDefinedFor">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/AggregationSpecification"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
         <rdfs:comment xml:lang="en">Associates an aggregation specification with a dependent variable, when the value of such variable is obtained performing that specified aggregation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
@@ -887,7 +887,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isSuggestedQuantizationFor">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/AggregationSpecification"/>
         <rdfs:comment xml:lang="en">Associates a quantization with an aggregation specification for which that aggregation is suggested.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is suggested quantization for</rdfs:label>
@@ -900,7 +900,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isVariableAggregatedBy">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Aggregation"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/AggregationSpecification"/>
         <rdfs:comment xml:lang="en">Associates a variable to an aggregation specification for which its values are grouped.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is variable aggregated by</rdfs:label>
@@ -1078,13 +1078,13 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
-    <!-- https://w3id.org/hacid/onto/data/Aggregation -->
+    <!-- https://w3id.org/hacid/onto/data/AggregationSpecification -->
 
-    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Aggregation">
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/AggregationSpecification">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
-        <rdfs:comment xml:lang="en">An aggregation of a dependent variable over a variable it depends on. While the actual application of the aggregation depends on a grouping (more in general a quantization) over the independent variable, the aggregation is agnostic to the chosen quantization. It represents just that an aggregation function is to be applied along that dimension.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The specification of an aggregation of a dependent variable over a variable it depends on. While the actual application of the aggregation depends on a grouping (more in general a quantization) over the independent variable, the aggregation is agnostic to the chosen quantization. It represents just that an aggregation function is to be applied along that dimension.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">Aggregation</rdfs:label>
+        <rdfs:label xml:lang="en">Aggregation Specification</rdfs:label>
     </owl:Class>
     
 
