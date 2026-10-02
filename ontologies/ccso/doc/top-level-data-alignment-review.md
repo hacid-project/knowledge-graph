@@ -379,7 +379,7 @@ robot reason --reasoner hermit --input /tmp/ccso-all.owl --output /tmp/out.owl
 
 Not applied: A3 (axioms of `relatedWithPhenomenon`; only a comment was added, and the property was
 removed afterwards, see below), A4 (input of
-downscaling), B3 (scenarios as descriptions), B8 (process properties, which depend on data B1),
+downscaling; applied afterwards, see below), B3 (scenarios as descriptions), B8 (process properties, which depend on data B1),
 and Italian annotations. The `Aggregation` clash (C1) was resolved afterwards in the data module
 (see below).
 
@@ -401,3 +401,11 @@ comments of its properties. `ccso:Aggregation` keeps its name. See the data revi
 **A3, applied afterwards.** `relatedWithPhenomenon` is removed: it had no domain, range or use in
 the module. The phenomenon relations it generalised in an earlier version are in
 `doc/modules/PhenomenaAndHazards.owl`, which defines its own `relatedWithPhenomenon`.
+
+**A4, applied afterwards.** `Downscaling ⊑ isDownscalingOf some ProjectionProduction` (instead of
+`some ClimateSimulation`), so a downscaling can start from any climate projection production, not
+only a simulation. For the change to take effect, the range of `isDownscalingOf` and the domain of
+`hasDownscaling` are also widened from `ClimateSimulation` to `ProjectionProduction`; otherwise they
+would still infer every source to be a simulation. The comments of `Downscaling`, `isDownscalingOf`
+and `hasDownscaling` are updated accordingly. Checks: no change in consistency, unsatisfiable
+classes, OWL 2 DL violations or inferences on the probe data.
