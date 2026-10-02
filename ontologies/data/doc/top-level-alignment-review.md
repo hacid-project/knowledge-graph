@@ -334,3 +334,15 @@ Its inverse `isRegionOf` and the datatype property `hasRegionValue` keep their n
   `PeriodicRegion ⊑ data:Region`. The only lost facts are about instances of the removed classes.
 
 **Still open from section C:** the name clash between `data:hasOutput` and `top:hasOutput`.
+
+## 10. Time (B3): change applied
+
+- `hasStartDateTime ⊑ top:startTime` and `hasEndDateTime ⊑ top:endTime`.
+- `TemporalRegion` is deliberately **not** declared a subclass of `top:TimeInterval`: a temporal
+  region may consist of more than one interval.
+- *Consequence.* `top:startTime` and `top:endTime` have domain `top:TimeInterval`, which the
+  sub-properties inherit. So a temporal region that has a start or end date-time is inferred to be
+  a `top:TimeInterval`; temporal regions without them are not (checked with HermiT). This matches
+  the comments of the two properties ("a temporal region (which happens to be an interval)").
+- *Checks.* Data + top-level is still in OWL 2 DL and accepted by HermiT in strict mode. There is no
+  change on the dependent modules and their test data, none of which use these properties.
