@@ -112,9 +112,9 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasDownscaling">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
-        <rdfs:comment xml:lang="en">The property that allows one to assert that the output of a climate simulation has been used for a simulation downscaling.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that the output of a climate projection production (e.g., a climate simulation) has been used for a downscaling.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">has downscaling</rdfs:label>
     </owl:ObjectProperty>
@@ -222,8 +222,8 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isDownscalingOf">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
-        <rdfs:comment xml:lang="en">The property that allows one to assert that a simulation downscaling has as source the output of climate simulation.</rdfs:comment>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
+        <rdfs:comment xml:lang="en">The property that allows one to assert that a downscaling has as source the output of a climate projection production (e.g., a climate simulation).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">is downscaling of</rdfs:label>
     </owl:ObjectProperty>
@@ -472,19 +472,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon">
-        <rdfs:comment xml:lang="en">A symmetric property that describes a generic relationship between two climate phenomena.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
-        <rdfs:label xml:lang="en">related with phenomenon</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/ccso/sufferedImpact -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/sufferedImpact">
@@ -697,10 +684,10 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A process taking as input the output of a climate simulation and obtaining finer granularity, usually at the cost of reduced geographic coverage.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A process taking as input the output of a climate projection production (e.g., a climate simulation) and obtaining finer granularity, usually at the cost of reduced geographic coverage.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Downscaling</rdfs:label>
     </owl:Class>

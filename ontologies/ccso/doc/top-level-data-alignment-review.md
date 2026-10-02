@@ -218,13 +218,14 @@ See A2. *Proposal Q8:* `isMaintainedBy` range `top:Agent`; `maintains` domain `t
 The two modules define two different `Aggregation` classes:
 
 - `ccso:Aggregation` is a process: a rescaling of a projection to a coarser resolution.
-- `data:Aggregation` is a `Concept`: the aggregation function or method (e.g. mean, maximum).
+- `data:Aggregation` is a `Concept`: the specification that a dependent variable is aggregated
+  along one or more variables (`aggregatesVariable`), with suggested quantizations. It does not
+  fix the aggregation function nor the quantization.
 
 They are disjoint in practice (a `DataGeneratingProcess` vs a `Concept`), and their IRIs differ, so
 there is no logical conflict. However, both are labelled "Aggregation", which is confusing in tools
-and queries that work on labels. Rename the ccso class (e.g. `ccso:AggregationRescaling`, or change
-its label to "Aggregation Rescaling"). Alternatively, link the two: the process could use the method
-(e.g. `ccso:usesAggregation` with range `data:Aggregation`).
+and queries that work on labels. Rename one of them. *Resolved* by renaming the data class to
+`data:AggregationSpecification` (see section 8).
 
 **C2. The header comment describes data terms.**
 The ontology's `rdfs:comment` mentions "object properties such as spatial and temporal coverage,
@@ -376,9 +377,11 @@ robot reason --reasoner hermit --input /tmp/ccso-all.owl --output /tmp/out.owl
 | **D3** | Labels fixed: "Ensemble Projection Production", "is potential impact type of", "Greenhouse Gas Concentration Pathway", "Shared Socioeconomic Pathway". |
 | **D4** | The 12 scenario individuals (RCPs and SSPs) are removed: they are now maintained in the corresponding knowledge graph. |
 
-Not applied: A3 (axioms of `relatedWithPhenomenon`; only a comment was added), A4 (input of
-downscaling), B3 (scenarios as descriptions), B8 (process properties, which depend on data B1), the
-`Aggregation` name clash (C1), and Italian annotations.
+Not applied: A3 (axioms of `relatedWithPhenomenon`; only a comment was added, and the property was
+removed afterwards, see below), A4 (input of
+downscaling; applied afterwards, see below), B3 (scenarios as descriptions), B8 (process properties, which depend on data B1),
+and Italian annotations. The `Aggregation` clash (C1) was resolved afterwards in the data module
+(see below).
 
 **Checks after the changes**, with the same method as section 5:
 - No change in consistency or unsatisfiable classes, on the probe data and on all the test data of
@@ -390,3 +393,19 @@ downscaling), B3 (scenarios as descriptions), B8 (process properties, which depe
 The added comments (in particular those of `Asset`, `ClimatePhenomenon`, `Impact` and the
 type classes) were written from the class names, their axioms and the comments of related terms,
 since there was no other documentation. They should be checked by the module's authors.
+
+**C1, applied afterwards.** The clash is resolved on the data side: `data:Aggregation` is renamed
+`data:AggregationSpecification` (label "Aggregation Specification"), the name already used by the
+comments of its properties. `ccso:Aggregation` keeps its name. See the data review, section 13.
+
+**A3, applied afterwards.** `relatedWithPhenomenon` is removed: it had no domain, range or use in
+the module. The phenomenon relations it generalised in an earlier version are in
+`doc/modules/PhenomenaAndHazards.owl`, which defines its own `relatedWithPhenomenon`.
+
+**A4, applied afterwards.** `Downscaling ⊑ isDownscalingOf some ProjectionProduction` (instead of
+`some ClimateSimulation`), so a downscaling can start from any climate projection production, not
+only a simulation. For the change to take effect, the range of `isDownscalingOf` and the domain of
+`hasDownscaling` are also widened from `ClimateSimulation` to `ProjectionProduction`; otherwise they
+would still infer every source to be a simulation. The comments of `Downscaling`, `isDownscalingOf`
+and `hasDownscaling` are updated accordingly. Checks: no change in consistency, unsatisfiable
+classes, OWL 2 DL violations or inferences on the probe data.
