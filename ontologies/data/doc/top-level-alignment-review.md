@@ -163,6 +163,8 @@ modelling decision for the module's authors.
 
 ### C. Overlaps and name clashes with the top-level
 
+> Resolved as described in section 9, except the `hasOutput` clash.
+
 | Data term | Top-level term | Relationship |
 |---|---|---|
 | `data:Dataset` (≡ `FiniteVariable`, ⊑ `Variable` ⊑ `Concept`) | `top:Dataset` (⊑ `Collection`, "a collection of data") | **Same local name, different notions.** Both are compatible with each other logically, but a dataset is a variable in one and a collection in the other. `top:Dataset` is used only in a ccso documentation file (`ccso/doc/modules/dataset.rdf`). |
@@ -287,3 +289,79 @@ and Italian annotations.
 The comments added for `IntervalSampling`, `SimpleRegularBinning`, `SinglePeriodicBinning` and
 `PeriodicRegion` interpret the class names and their position in the hierarchy, since there was
 no other documentation. They should be checked by the module's authors.
+
+## 9. Overlaps and name clashes (section C): changes applied
+
+**Datasets and their distribution.**
+- No ontology module used the top-level's dataset and distribution terms. The only user was
+  `ccso/doc/modules/dataset.rdf`, an RDF Data Cube–style draft in the old `onto/cs/` namespace that
+  nothing imported. The draft was deleted.
+- The following terms were removed from the top-level: the classes `top:Dataset`, `DataSchema`,
+  `SchemaAttribute` and `Media`, and the properties `hasDataSchema` / `isDataSchemaOf`,
+  `hasSchemaAttribute` / `isSchemaAttributeOf`, `hasMedia` / `isMediaOf`, `hasDownloadURL` and
+  `mediaType`.
+- The data module is now the only model of datasets and their serialisations: `data:Dataset`,
+  `data:DataSource`, `data:DataFormat`, `data:hasURL`, …
+- `top:IdentifierSchema` and `hasSource` / `isSourceOf` are not about datasets and were kept.
+
+**`data:hasRegion` renamed `data:containsRegion`** (label "contains region"). The two comments that
+referred to it (`hasRegionValue`, `DimensionalSpace`) were updated. No other file used the property.
+Its inverse `isRegionOf` and the datatype property `hasRegionValue` keep their names.
+
+**`data:Region` and `top:Region`.**
+- *Formal check.* `data:Region ≡ top:Region` was added to a copy and reasoned with all the modules,
+  their test data and probe data, which included an instance of every top-level class. There was no
+  inconsistency and no unsatisfiable class, so the two classes *can* formally be declared
+  equivalent.
+- *Consequences.* The equivalence would widen `data:Region`:
+  - `Point`, `GeodeticPoint` and `Instant` (already `top:Region`s, see B2) would become
+    `data:Region`s. The module would lose its class-level distinction between points and regions,
+    although `hasPoint` and `containsRegion` stay separate properties.
+  - The values of `hasResolution` and its exact and approximate variants (sub-properties of
+    `top:hasRegion`) would become `data:Region`s.
+  - `top:TimeInterval` and `top:Amount` would become `data:Region`s.
+
+  All of these are regions in the DUL sense, so the equivalence is coherent with the top-level.
+  But `data:Region` would then be a second IRI for `top:Region`.
+- *Decision.* The equivalence is **not** declared. The check showed, however, that
+  `data:PeriodicRegion` was a subclass of `top:Region` but not of `data:Region`, unlike the module's
+  other regions. It is now `PeriodicRegion ⊑ data:Region`.
+
+**Checks.**
+- The top-level alone is still OWL 2 DL, consistent and coherent.
+- Top-level + DUL + the alignment + data is too.
+- On the dependent modules with their test data and probe data, the only new inference is
+  `PeriodicRegion ⊑ data:Region`. The only lost facts are about instances of the removed classes.
+
+**Still open from section C:** the name clash between `data:hasOutput` and `top:hasOutput`.
+
+## 10. Time (B3): change applied
+
+- `hasStartDateTime ⊑ top:startTime` and `hasEndDateTime ⊑ top:endTime`.
+- `TemporalRegion` is deliberately **not** declared a subclass of `top:TimeInterval`: a temporal
+  region may consist of more than one interval.
+- *Consequence.* `top:startTime` and `top:endTime` have domain `top:TimeInterval`, which the
+  sub-properties inherit. So a temporal region that has a start or end date-time is inferred to be
+  a `top:TimeInterval`; temporal regions without them are not (checked with HermiT). This matches
+  the comments of the two properties ("a temporal region (which happens to be an interval)").
+- *Checks.* Data + top-level is still in OWL 2 DL and accepted by HermiT in strict mode. There is no
+  change on the dependent modules and their test data, none of which use these properties.
+
+## 11. Resolution-like properties (B8): change applied
+
+- `hasOffset`, `hasPeriod` and `hasInPeriodResolution` are now sub-properties of `top:hasRegion`, and
+  their inverses `isOffsetOf`, `isPeriodOf` and `isInPeriodResolutionOf` of `top:isRegionFor`
+  (instead of `top:associatedWith`). This is consistent with `hasResolution` and its exact and
+  approximate variants.
+- *Consequence.* Offsets, periods and in-period resolutions are inferred to be `top:Region`s, and
+  hence `top:Abstract`. Using as their value anything that is an `Object`, `Event` or `Quality`
+  (e.g. a concept) is therefore inconsistent.
+- *Checks.* Data + top-level is still in OWL 2 DL and accepted by HermiT in strict mode. There is no
+  change on the dependent modules with their test data. On the probe data, the only new inferences
+  are the expected `top:Region` types of the probe's offsets, periods and in-period resolutions.
+
+## 12. Datatype properties (B7): change applied
+
+- The redundant axiom `hasPeriodValue ⊑ owl:topDataProperty` was removed. Every datatype property is
+  already a sub-property of `owl:topDataProperty`, so this changes no inference.
+- The `…Value` datatype properties are not made sub-properties of `top:hasDataValue`.
