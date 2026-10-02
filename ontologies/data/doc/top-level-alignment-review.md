@@ -7,8 +7,8 @@ in its current state (after the DUL alignment, see
 **Dependent modules:** `ccso/ccso.owl` is the only module that uses `data:` terms
 (`Variable`, `Dataset`, `DataGeneratingProcess`, `DataTransformation`, `hasInput`, `hasOutput`).
 
-> This document is an analysis. **No change has been applied to `data.owl`.** Section 5 reports
-> the impact of the proposed changes, tested on copies.
+> Sections 2–7 describe the module **as reviewed**. Section 5 reports the impact of the proposed
+> changes, tested on copies. Section 8 lists the changes that were then applied to `data.owl`.
 
 ## 1. Scope and method
 
@@ -255,3 +255,35 @@ robot merge --input $T --input $D --output /tmp/data-top.owl
 robot validate-profile --input /tmp/data-top.owl --profile DL --output data-top-dl.txt
 robot reason --reasoner hermit --input /tmp/data-top.owl --output /tmp/out.owl
 ```
+
+## 8. Changes applied
+
+| Finding | Change in `data.owl` |
+|---|---|
+| **A1** | `hasStartDateTime` / `hasEndDateTime` are now only datatype properties (domain `TemporalRegion`, range `xsd:dateTime`). The declaration of `xsd:dateTime` as a class is removed. |
+| **A2** | The property chain `isSpecializedAccordingTo ∘ isSpecializationOn ⊑ isSpecializationOfVariable` is removed. |
+| **B2** | `Point ⊑ top:Region`, instead of `top:Entity`. `GeodeticPoint` and `Instant` follow. |
+| **B4** | The comment of `DimensionalSpace` now explains the divergence from DUL. A dimensional space is a variable, hence a `top:Concept`, so it is always a distinct individual from its regions, including its bounding regions. |
+| **B5** | `hasSelectedRegion ⊑ top:parametrises` and `isSelectedRegionFor ⊑ top:isParametrisedBy`, instead of `top:hasRegion` / `top:isRegionFor`. |
+| **B6** | `hasComponentVariable ⊑ top:hasComponent` and `isComponentVariableOf ⊑ top:isComponentOf`. The parthood restrictions on `Variable` and `FiniteVariable` now apply to component variables. |
+| **D** | Typos fixed in comments and in the ontology header. These include "corrisponding", "latitute" and "more specific that", found in a second pass. In the header, `data:hasDataSerialisation` became `data:hasDataSerialization`, and `data:Grid` (which does not exist) became `data:Binning`. "Serialisation" is now spelled "serialization", like the property names. Class labels are all in Title Case ("Temporal region" became "Temporal Region"); property labels stay in lower case. `rdfs:isDefinedBy` was added to `Instant` and `specifiesVariableSpecializationFor`. Comments were added to the 13 terms that had none. |
+
+Not applied: B1 and B3 (processes as `Event`s, time aligned with `top:TimeInterval`), B7 and
+B8 (value properties and resolution-like properties), the overlaps and name clashes of section C,
+and Italian annotations.
+
+**Checks after the changes**, with the same method as section 5:
+- Data + top-level is **in OWL 2 DL** and accepted by HermiT in strict mode.
+- On the dependent modules with their test data, and on the probe data regenerated from the
+  updated modules:
+  - no change in consistency or unsatisfiable classes;
+  - no new OWL 2 DL violation.
+- The only new inferences are those of B2: `Point`, `GeodeticPoint`, `Instant` and their instances
+  become `top:Region`s, hence `Abstract`.
+- The only lost inference comes from A2. On an example of the removed chain, the specialised
+  variable is no longer inferred to be a `DerivedVariable` through the wrong
+  `isSpecializationOfVariable` link.
+
+The comments added for `IntervalSampling`, `SimpleRegularBinning`, `SinglePeriodicBinning` and
+`PeriodicRegion` interpret the class names and their position in the hierarchy, since there was
+no other documentation. They should be checked by the module's authors.
