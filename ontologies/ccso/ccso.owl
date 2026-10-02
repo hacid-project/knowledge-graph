@@ -110,7 +110,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasDownscaling -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasDownscaling">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/precedes"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
@@ -220,7 +220,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isDownscalingOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isDownscalingOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/follows"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
         <rdfs:comment xml:lang="en">The property that allows one to assert that a downscaling has as source the output of a climate projection production (e.g., a climate simulation).</rdfs:comment>
@@ -289,7 +289,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isModelUsedBy">
         <rdfs:comment xml:lang="en">The property that allows one to assert that a climate model is used by an experiment to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isParticipantIn"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/usesModel"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
@@ -342,11 +342,11 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isScenarioReferredBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isScenarioReferredBy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/describes"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/refersToScenario"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
-        <rdfs:comment xml:lang="en">The object property that allows a scenario to be referred by an entity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The object property that allows a scenario to be referred by an entity (e.g., a projection production or a projection) framed by its assumptions.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">is scenario referred by</rdfs:label>
     </owl:ObjectProperty>
@@ -462,10 +462,10 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/refersToScenario -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/refersToScenario">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDescribedBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/EmissionScenario"/>
-        <rdfs:comment xml:lang="en">The object property that allows an entity to refer to a scenario.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The object property that allows an entity (e.g., a projection production or a projection) to refer to the scenario whose assumptions frame it.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">refers to scenario</rdfs:label>
     </owl:ObjectProperty>
@@ -501,7 +501,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/usesModel -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/usesModel">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasParticipant"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
         <rdfs:comment xml:lang="en">The property that allows one to assert that an experiment uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
@@ -709,7 +709,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/EmissionScenario -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/EmissionScenario">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
         <rdfs:comment xml:lang="en">A projected trajectory of future greenhouse gas emissions, atmospheric concentrations, and corresponding impacts on the climate system. These scenarios are used in climate modeling to explore how different levels of emissions might influence global temperatures, weather patterns, sea level rise, and other climate-related phenomena.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Emission Scenario</rdfs:label>

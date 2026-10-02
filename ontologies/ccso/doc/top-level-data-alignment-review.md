@@ -379,7 +379,9 @@ robot reason --reasoner hermit --input /tmp/ccso-all.owl --output /tmp/out.owl
 
 Not applied: A3 (axioms of `relatedWithPhenomenon`; only a comment was added, and the property was
 removed afterwards, see below), A4 (input of
-downscaling; applied afterwards, see below), B3 (scenarios as descriptions), B8 (process properties, which depend on data B1),
+downscaling; applied afterwards, see below), B3 (scenarios as descriptions;
+applied afterwards, see below), B8 (process properties, which depend on
+data B1; applied afterwards, see below),
 and Italian annotations. The `Aggregation` clash (C1) was resolved afterwards in the data module
 (see below).
 
@@ -409,3 +411,28 @@ only a simulation. For the change to take effect, the range of `isDownscalingOf`
 would still infer every source to be a simulation. The comments of `Downscaling`, `isDownscalingOf`
 and `hasDownscaling` are updated accordingly. Checks: no change in consistency, unsatisfiable
 classes, OWL 2 DL violations or inferences on the probe data.
+
+**B3, applied afterwards.** `EmissionScenario ⊑ top:Description` (instead of `top:Concept`), so
+scenarios are descriptions of possible futures. `refersToScenario` keeps its domain (`top:Entity`)
+and range, so it still links a scenario to both projection productions and projections; only its
+super-property changes, from `top:isClassifiedBy` to `top:isDescribedBy` (and `isScenarioReferredBy`
+from `top:classifies` to `top:describes`). `top:satisfies` was not used: its domain is
+`top:Situation`, and projections, being `Concept`s, are disjoint from situations. The comments of
+the two properties now mention productions and projections. Checks: no change in consistency,
+unsatisfiable classes or OWL 2 DL violations; the only changed inferences are that scenarios and
+their subclasses are now `Description`s instead of `Concept`s. Queries on `refersToScenario` are
+unaffected; queries through `top:isClassifiedBy` no longer return scenario links, which are now
+under `top:isDescribedBy`.
+
+**B8, applied afterwards, together with data B1.** In the data module, `DataGeneratingProcess`
+and `DataConsumingProcess` are now `top:Event`s, and `hasInput`, `hasOutput` / `isInputOf`,
+`isOutputOf` are sub-properties of `top:hasParticipant` / `top:isParticipantIn` (see the data
+review, section 14). As a result, all 20 CCSO process classes are `Event`s. In CCSO:
+- `usesModel ⊑ top:hasParticipant` and `isModelUsedBy ⊑ top:isParticipantIn`: the climate model
+  (a `Description`, hence an `Object`) participates in the simulation;
+- `hasDownscaling ⊑ top:precedes` and `isDownscalingOf ⊑ top:follows`: the production whose output
+  is downscaled precedes the downscaling.
+
+Checks: no change in consistency, unsatisfiable classes or OWL 2 DL violations, on the probe data
+and on all the test data. No inference is lost; the only new ones are the `top:Event` types of the
+data and CCSO process classes and their instances.

@@ -378,3 +378,17 @@ Its inverse `isRegionOf` and the datatype property `hasRegionValue` keep their n
   under `ccso/doc/visual` are updated accordingly. The property names are unchanged.
 - *Breaking change* for data that types individuals as `data:Aggregation`. None of the test data or
   examples in the repository does.
+
+## 14. Processes (B1): change applied
+
+- `DataGeneratingProcess` and `DataConsumingProcess` are now subclasses of `top:Event` (instead of
+  `top:Entity`); `DataTransformation` follows.
+- `hasInput` and `hasOutput` are sub-properties of `top:hasParticipant`, and `isInputOf` and
+  `isOutputOf` of `top:isParticipantIn` (instead of `top:associatedWith`). Their ranges and
+  domains (`Dataset`, a `Concept`, hence an `Object`) fit the signature of the top-level
+  properties.
+- *Consequence.* All data and CCSO processes are `Event`s, and so disjoint from objects, qualities
+  and abstracts. CCSO uses this for its own process properties (see the CCSO review, B8).
+- *Checks.* No change in consistency, unsatisfiable classes or OWL 2 DL violations on the
+  dependent modules with their test data and on the probe data. The only new inferences are the
+  `top:Event` types of the process classes and their instances (the results of P3 in section 5).
