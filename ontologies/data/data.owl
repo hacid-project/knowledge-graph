@@ -284,7 +284,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasInPeriodResolution -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasInPeriodResolution">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isInPeriodResolutionOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/PeriodicBinning"/>
         <rdfs:comment xml:lang="en">Associates a periodic binning with the resolution adopted inside each period (to associate a literal resource use data:hasInPeriodResolutionValue).</rdfs:comment>
@@ -311,7 +311,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasOffset -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOffset">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isOffsetOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
         <rdfs:comment xml:lang="en">Optionally associates a quantization with an offset in respect to the given reference frame (to associate directly a literal use data:hasOffsetValue).</rdfs:comment>
@@ -338,7 +338,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasPeriod -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasPeriod">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasRegion"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isPeriodOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/PeriodicBinning"/>
         <rdfs:comment xml:lang="en">Associates a periodic regular grid with its period (to associate directly a literal use data:hasPeriodValue).</rdfs:comment>
@@ -692,7 +692,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isInPeriodResolutionOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isInPeriodResolutionOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/PeriodicBinning"/>
         <rdfs:comment xml:lang="en">Associates a resource with a periodic binning of which the resource is the resolution adopted inside each period.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
@@ -717,7 +717,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isOffsetOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isOffsetOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
         <rdfs:comment xml:lang="en">Associates a resource with a quantization of which the resource is the offset.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
@@ -742,7 +742,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isPeriodOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isPeriodOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isRegionFor"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/PeriodicBinning"/>
         <rdfs:comment xml:lang="en">Associates a resource with a periodic binning of which the resource is the period.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>

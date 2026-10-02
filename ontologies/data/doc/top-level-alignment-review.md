@@ -346,3 +346,16 @@ Its inverse `isRegionOf` and the datatype property `hasRegionValue` keep their n
   the comments of the two properties ("a temporal region (which happens to be an interval)").
 - *Checks.* Data + top-level is still in OWL 2 DL and accepted by HermiT in strict mode. There is no
   change on the dependent modules and their test data, none of which use these properties.
+
+## 11. Resolution-like properties (B8): change applied
+
+- `hasOffset`, `hasPeriod` and `hasInPeriodResolution` are now sub-properties of `top:hasRegion`, and
+  their inverses `isOffsetOf`, `isPeriodOf` and `isInPeriodResolutionOf` of `top:isRegionFor`
+  (instead of `top:associatedWith`). This is consistent with `hasResolution` and its exact and
+  approximate variants.
+- *Consequence.* Offsets, periods and in-period resolutions are inferred to be `top:Region`s, and
+  hence `top:Abstract`. Using as their value anything that is an `Object`, `Event` or `Quality`
+  (e.g. a concept) is therefore inconsistent.
+- *Checks.* Data + top-level is still in OWL 2 DL and accepted by HermiT in strict mode. There is no
+  change on the dependent modules with their test data. On the probe data, the only new inferences
+  are the expected `top:Region` types of the probe's offsets, periods and in-period resolutions.
