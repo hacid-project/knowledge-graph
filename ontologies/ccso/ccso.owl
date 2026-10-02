@@ -472,19 +472,6 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
-    <!-- https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon">
-        <rdfs:comment xml:lang="en">A symmetric property that describes a generic relationship between two climate phenomena.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/relatedWithPhenomenon"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
-        <rdfs:label xml:lang="en">related with phenomenon</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/hacid/onto/ccso/sufferedImpact -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/sufferedImpact">

@@ -377,7 +377,8 @@ robot reason --reasoner hermit --input /tmp/ccso-all.owl --output /tmp/out.owl
 | **D3** | Labels fixed: "Ensemble Projection Production", "is potential impact type of", "Greenhouse Gas Concentration Pathway", "Shared Socioeconomic Pathway". |
 | **D4** | The 12 scenario individuals (RCPs and SSPs) are removed: they are now maintained in the corresponding knowledge graph. |
 
-Not applied: A3 (axioms of `relatedWithPhenomenon`; only a comment was added), A4 (input of
+Not applied: A3 (axioms of `relatedWithPhenomenon`; only a comment was added, and the property was
+removed afterwards, see below), A4 (input of
 downscaling), B3 (scenarios as descriptions), B8 (process properties, which depend on data B1),
 and Italian annotations. The `Aggregation` clash (C1) was resolved afterwards in the data module
 (see below).
@@ -396,3 +397,7 @@ since there was no other documentation. They should be checked by the module's a
 **C1, applied afterwards.** The clash is resolved on the data side: `data:Aggregation` is renamed
 `data:AggregationSpecification` (label "Aggregation Specification"), the name already used by the
 comments of its properties. `ccso:Aggregation` keeps its name. See the data review, section 13.
+
+**A3, applied afterwards.** `relatedWithPhenomenon` is removed: it had no domain, range or use in
+the module. The phenomenon relations it generalised in an earlier version are in
+`doc/modules/PhenomenaAndHazards.owl`, which defines its own `relatedWithPhenomenon`.
