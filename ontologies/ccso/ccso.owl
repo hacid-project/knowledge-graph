@@ -110,7 +110,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/hasDownscaling -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/hasDownscaling">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/precedes"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/isDownscalingOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
@@ -220,7 +220,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isDownscalingOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isDownscalingOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/follows"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/Downscaling"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ProjectionProduction"/>
         <rdfs:comment xml:lang="en">The property that allows one to assert that a downscaling has as source the output of a climate projection production (e.g., a climate simulation).</rdfs:comment>
@@ -289,7 +289,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isModelUsedBy">
         <rdfs:comment xml:lang="en">The property that allows one to assert that a climate model is used by an experiment to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isParticipantIn"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/usesModel"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
@@ -501,7 +501,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/usesModel -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/usesModel">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasParticipant"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateSimulation"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/ClimateModel"/>
         <rdfs:comment xml:lang="en">The property that allows one to assert that an experiment uses a climate model to simulate the behavior and evolution of the Earth’s climate system over a specified period.</rdfs:comment>

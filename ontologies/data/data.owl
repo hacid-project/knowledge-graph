@@ -297,7 +297,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasInput -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasInput">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasParticipant"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isInputOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataConsumingProcess"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
@@ -324,7 +324,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasOutput -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOutput">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/hasParticipant"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isOutputOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
@@ -704,7 +704,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isInputOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isInputOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isParticipantIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataConsumingProcess"/>
         <rdfs:comment xml:lang="en">Associates a dataset with a data consuming process that uses it.</rdfs:comment>
@@ -729,7 +729,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isOutputOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isOutputOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isParticipantIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataGeneratingProcess"/>
         <rdfs:comment xml:lang="en">Associates a dataset with the data generating process that produced it.</rdfs:comment>
@@ -1137,7 +1137,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/DataConsumingProcess -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataConsumingProcess">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
         <rdfs:comment xml:lang="en">A process that uses some data as input.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Data Consuming Process</rdfs:label>
@@ -1159,7 +1159,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/DataGeneratingProcess -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataGeneratingProcess">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Event"/>
         <rdfs:comment xml:lang="en">A process that generates some data as output.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Data Generating Process</rdfs:label>
