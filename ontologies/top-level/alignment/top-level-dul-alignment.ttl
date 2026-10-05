@@ -292,7 +292,7 @@ dul:hasRegionDataValue a owl:DatatypeProperty .
     owl:annotatedSource top:TimeInterval ;
     owl:annotatedProperty owl:equivalentClass ;
     owl:annotatedTarget dul:TimeInterval ;
-    rdfs:comment "top-level also places TimeInterval under the novel class TemporalEntity, and adds startTime/endTime restrictions."@en .
+    rdfs:comment "top-level places TimeInterval under the novel class Interval (a Region delimited by a lower and an upper boundary; startTime/endTime specialise its boundary values lowerBoundaryValue/upperBoundaryValue) and under the novel class TemporalEntity, and adds startTime/endTime restrictions."@en .
 
 [] a owl:Axiom ;
     owl:annotatedSource top:hasMember ;
