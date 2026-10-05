@@ -21,17 +21,19 @@ Four of those replicas have a local name that differs from DUL, so they are **no
 
 | | Classes | Object properties | Datatype properties | Total |
 |---|---:|---:|---:|---:|
-| Terms in top-level | 47 | 107 | 13 | 167 |
+| Terms in top-level | 48 | 111 | 15 | 174 |
 | Replicas of DUL terms | 32 | 54 | 2 | 88 |
-| **Novel terms (this document)** | **15** | **53** | **11** | **79** |
+| **Novel terms (this document)** | **16** | **57** | **13** | **86** |
 
 All novel terms are anchored in the DUL-derived backbone. Every novel class is a subclass of
-a replicated class (`Entity`, `Description`, `Situation`, `Role`, `Collection`, `Task`), and
+a replicated class (`Entity`, `Region`, `Description`, `Situation`, `Role`, `Collection`, `Task`), and
 every novel object property is a sub-property of `top:associatedWith` (the replica of
-`dul:associatedWith`), directly or through another property. The 11 novel datatype properties
-have no common super-property. DUL's own root for datatype properties, `hasDataValue`, is now
-replicated in top-level (with `hasRegionDataValue` as its sub-property); the novel datatype
-properties could be declared its sub-properties.
+`dul:associatedWith`), directly or through another property. DUL's own root for datatype
+properties, `hasDataValue`, is now replicated in top-level (with `hasRegionDataValue` as its
+sub-property). Four of the 13 novel datatype properties are below it: `lowerBoundaryValue` and
+`upperBoundaryValue` (sub-properties of `hasRegionDataValue`) and, through them, `startTime` and
+`endTime`. The other nine have no common super-property; they could be declared sub-properties of
+`hasDataValue` too.
 
 "Used by" lists the other modules in `ontologies/` that reference the term, found by a text
 search excluding tests and the DUL copy. Terms with no users are marked "–".
@@ -42,7 +44,8 @@ search excluding tests and the DUL copy. Terms with no users are marked "–".
 
 The top-level adds a **Characteristic** layer next to DUL's Quality/Region pattern. It gives
 a lighter "entity → characteristic → value + unit" modelling style. It also refines
-`hasRegion` into exact, approximate and nominal quantifications.
+`hasRegion` into exact, approximate and nominal quantifications, and adds `Interval`, the
+regions delimited by a lower and an upper boundary.
 
 | Term | Type | Placement | Meaning | Relation to DUL / notes | Used by |
 |---|---|---|---|---|---|
@@ -57,11 +60,15 @@ a lighter "entity → characteristic → value + unit" modelling style. It also 
 | `hasExactRegion` / `isExactRegionFor` | OP | ⊑ `hasRegion` / `isRegionFor` | A region giving an exact quantification of an aspect of the entity. | Clean specialisation of `dul:hasRegion`. | data/data.owl |
 | `hasApproximateRegion` / `isApproximateRegionFor` | OP | ⊑ `hasRegion` / `isRegionFor` | A region giving an approximate quantification. | Clean specialisation of `dul:hasRegion`. | data/data.owl |
 | `hasNominalRegion` / `isNominalRegionFor` | OP | ⊑ `hasRegion` / `isRegionFor` | A region giving the nominal quantification (according to some specification). | Clean specialisation of `dul:hasRegion`. | – |
+| `Interval` | Class | ⊑ `Region`; `hasLowerBoundary max 1 Region`, `hasUpperBoundary max 1 Region`, `lowerBoundaryValue max 1 rdfs:Literal`, `upperBoundaryValue max 1 rdfs:Literal` | A region delimited by a lower and an upper boundary. In the linear case (a totally ordered one-dimensional space), the points between the two boundaries. In general, in a (partially) ordered space, the points x with lower ≤ x ≤ upper: a box (hyperrectangle) in a multi-dimensional space ordered component-wise, e.g. a latitude-longitude bounding box; an arc from lower to upper in the positive direction in a cyclic space, e.g. longitude. Not defined for unordered (nominal) spaces. Open/closed boundaries are not specified. | No DUL counterpart; DUL has only `dul:TimeInterval` and `dul:SpaceRegion`. Super-class of the replicated `TimeInterval`. Comparable to the order intervals of mathematics and to the bounding regions of the data module (`data:hasBoundingRegion`). | – |
+| `hasLowerBoundary` / `isLowerBoundaryOf` | OP | ⊑ `associatedWith`; `Interval` → `Region` | An interval and its lower boundary (its start in the linear case; the corner with all coordinates minimal in a multi-dimensional space). | No DUL counterpart. Boundaries are regions of the same space, typically points (cf. `data:Point`). | – |
+| `hasUpperBoundary` / `isUpperBoundaryOf` | OP | ⊑ `associatedWith`; `Interval` → `Region` | An interval and its upper boundary (its end in the linear case; the corner with all coordinates maximal in a multi-dimensional space). | Same as above. | – |
+| `lowerBoundaryValue`, `upperBoundaryValue` | DP | ⊑ `hasRegionDataValue`; `Interval` → `rdfs:Literal` | Literal values of the boundaries of an interval in a linear space. | Shortcut for `hasLowerBoundary`/`hasUpperBoundary` followed by `hasRegionDataValue`. Super-properties of `startTime`/`endTime`. | – |
 
 ## 2. Time
 
 The top-level adds a temporal-entity layer with literal timestamps, in the style of OWL-Time.
-The replicated `TimeInterval` is both a `Region` (as in DUL) and a `TemporalEntity`.
+The replicated `TimeInterval` is both an `Interval` (hence a `Region`, as in DUL) and a `TemporalEntity`.
 
 | Term | Type | Placement | Meaning | Relation to DUL / notes | Used by |
 |---|---|---|---|---|---|
@@ -69,7 +76,7 @@ The replicated `TimeInterval` is both a `Region` (as in DUL) and a `TemporalEnti
 | `Year` | Class | ⊑ `TemporalEntity` | A calendar year. | No DUL counterpart. Its former restriction `year max 1 xsd:gYear` was removed together with the `year` property. | – |
 | `atTime` / `isTimeOf` | OP | ⊑ `associatedWith`; `Entity` → `TemporalEntity` | Any entity and a temporal entity. | Generalises `dul:hasTimeInterval` (which is limited to events). Candidate super-property of `hasTimeInterval`. | core/agentrole.owl (`atTime`) |
 | `time` | DP | `Entity` → `xsd:dateTime` | Literal representation of time. | Analogue of `dul:hasDataValue` for time. DUL has `dul:hasEventDate`, `dul:hasIntervalDate` (not replicated). | – |
-| `startTime`, `endTime` | DP | ⊑ `time`; `TimeInterval` → `xsd:dateTime` | Start and end of an interval. | Analogue of `dul:hasIntervalDate`. No `rdfs:comment`. The range was `xsd:date ∪ xsd:dateTime ∪ xsd:time`; it is now `xsd:dateTime`, like `time`. | – |
+| `startTime`, `endTime` | DP | ⊑ `time`, ⊑ `lowerBoundaryValue` / `upperBoundaryValue`; `TimeInterval` → `xsd:dateTime` | Start and end of a time interval, i.e. its lower and upper boundary. | Analogue of `dul:hasIntervalDate`. The range was `xsd:date ∪ xsd:dateTime ∪ xsd:time`; it is now `xsd:dateTime`, like `time`. | – |
 
 ## 3. Identifiers and sources
 
