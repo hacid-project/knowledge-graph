@@ -735,7 +735,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isLinearTransformationOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isLinearTransformationOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/derivedFromVariable"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
