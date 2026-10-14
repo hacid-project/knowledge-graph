@@ -122,4 +122,6 @@ against instance data such as the paper's usage example graph).
 |----|--------|----------------------|---------------------------|
 | CQ36 | Generic | Are two independently modelled variables asserted to always coincide in value, despite being derived through different chains? | `data:isEquivalentTo` |
 | CQ37 | Economics | Is "GDP per capita" as published by the World Bank equivalent to "GDP per capita" as published by the IMF, even though the two are modelled by different providers with different derivation chains? | `data:isEquivalentTo` |
-
+| CQ38 | Climate | Which variables are linear transformations of a given variable (e.g., temperature in °C, K and °F), so that values of one can be converted into the other without further information about how they were derived? | `data:isLinearTransformationOf` |
+| CQ39 | Finance and economics | Which variables always take the opposite value of a given variable (e.g., net exports and net imports, or a balance seen from the two counterparties)? | `data:hasOppositeValueOf` |
+| CQ40 | Generic | If a variable is the opposite of a second variable, which is in turn the opposite of a third one, is the first variable equivalent to the third one? | `data:hasOppositeValueOf`, `data:isEquivalentTo` |
