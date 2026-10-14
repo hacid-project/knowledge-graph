@@ -321,6 +321,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasOppositeValueOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOppositeValueOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isLinearTransformationOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:comment xml:lang="en">Associates two variables whose values are always opposite, i.e. the value of one is always -x where x is the value of the other. It is a special case of linear transformation (with a = -1 and b = 0). The composition of two opposite-value relations yields an equivalence (see the property chain axiom on data:isEquivalentTo).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has opposite value of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasOutput -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasOutput">
@@ -651,13 +665,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isEquivalentTo -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isEquivalentTo">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isLinearTransformationOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
         <rdfs:comment xml:lang="en">Associates two variables that are mathematically equivalent, i.e. they always have the same value.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is equivalent to</rdfs:label>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/hasOppositeValueOf"/>
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/hasOppositeValueOf"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -710,6 +728,21 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a dataset with a data consuming process that uses it.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is input of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isLinearTransformationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isLinearTransformationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/derivedFromVariable"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:comment xml:lang="en">Associates two variables such that the value of one can always be obtained by a linear transformation ax+b (with a ≠ 0) of the value x of the other. Since such a transformation is invertible and the composition of linear transformations is a linear transformation, the property is symmetric and transitive.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is linear transformation of</rdfs:label>
     </owl:ObjectProperty>
     
 
