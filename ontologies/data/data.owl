@@ -16,7 +16,7 @@ The aim is to represent the concept of variables in a flexible way, while preser
 
 A variable can be aggregating, i.e. include aggregation mechanisms whose execution is deferred to derived variables. This allows to represent variables defined using one or more aggregation functions for combining data along one or more independent variables, without specifying the actual granularity. A general purpose example of usage is representing as variables the SQL expressions including aggregation functions (e.g. AVG(...)) which are then derived to actual serializable variables by the usage of specific GROUP BY clauses. In the context of climate services, the CMOR Tables variables (e.g., tasmax) fall into this category. From the ontology point of view, a (dependent) variable is aggregating if it offers one or more aggregations: i.e. it is linked with one or more instances of data:AggregationSpecification via the property data:definesAggregation. Each aggregation is associated with one variable (which must be a variable the dependent variable depends on) and optionally one or more suggested options for the adopted aggregation grid (i.e. specific granularity).
 
-A data:FiniteVariable is a variable for which the set of all the possible values is finite. For an independent variable it means being defined on a finite dimensional space (instance of data:FiniteDimensionalSpace); for a dependent variable it means that all the variables it depends on are finite variables. The concept of data:FiniteVariable is important because it corresponds to variables that can be fully represented extensively with a finite amount of resources. It corresponds functionally to the concept of a dataset. The property data:hasDataSerialization links such a dataset with a data source (data:DataSource) holding one or more concrete serializations of it. A data:DataSource (e.g., an URL resolving to a dump of a dataset) is associated to one or more supported data formats (data:DataFormat) via the data:hasAvailableDataFormat property. 
+A data:FiniteVariable is a variable for which the set of all the possible values is finite. For an independent variable it means being defined on a finite dimensional space (instance of data:FiniteDimensionalSpace); for a dependent variable it means that all the variables it depends on are finite variables. The concept of data:FiniteVariable is important because it corresponds to variables that can be fully represented extensively with a finite amount of resources. A data:DeterministicVariable is a variable whose value is fully determined, while a data:RandomVariable is a variable whose value is described by a probability distribution; every variable is either deterministic or random. A random variable can be the random version (data:isRandomVersionOf) of a deterministic variable, and it can be represented by deterministic variables (data:isDeterministicRepresentationOf), such as its probability density function (data:ProbabilityDensityFunction), probability mass function (data:ProbabilityMassFunction), cumulative distribution function (data:CumulativeDistributionFunction), quantile function (data:QuantileFunction) or a sample of its realizations (data:Sample). A data:Dataset is a variable that is both finite and deterministic, e.g. a table of probabilities representing a random variable. The property data:hasDataSerialization links a dataset with a data source (data:DataSource) holding one or more concrete serializations of it. A data:DataSource (e.g., an URL resolving to a dump of a dataset) is associated to one or more supported data formats (data:DataFormat) via the data:hasAvailableDataFormat property. 
 
 A data:DimensionalSpace is composed of a set (not necessarily finite) of regions (data:Region). It can be either continuous (data:Continuum) or discrete (data:DiscreteDimensionalSpace). A discrete dimensional space can be a binning (data:Binning), i.e. composed of a set of regions that form a partition of all the space.
 
@@ -216,9 +216,9 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasDataSerialization">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDataSerializationOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataSource"/>
-        <rdfs:comment xml:lang="en">Associates a finite variable, i.e., a dataset, with a data source that offers one or more serializations of such dataset.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Associates a dataset with a data source that offers one or more serializations of such dataset.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has data serialization</rdfs:label>
     </owl:ObjectProperty>
@@ -234,6 +234,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a variable with a dependent variable that depends on the former.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has dependent-on variable</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasDeterministicRepresentation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasDeterministicRepresentation">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDeterministicRepresentationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:comment xml:lang="en">Associates a random variable with a deterministic variable that represents it, fully or partially, in a deterministic way (e.g., its probability density function or its cumulative distribution function).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has deterministic representation</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -372,6 +386,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a dimensional space with a point of that dimensional space, i.e. any point that is contained and representable in that dimensional space (use data:hasPointValue to directly associate a literal).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has point</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasRandomVersion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasRandomVersion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isRandomVersionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:comment xml:lang="en">Associates a deterministic variable with a random variable that is its random counterpart, i.e. a variable with the same meaning whose value is not fully determined but is described by a probability distribution.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has random version</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -641,10 +669,23 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isDataSerializationOf">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataSource"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
-        <rdfs:comment xml:lang="en">Associates a data source with the finite variable, i.e., the dataset, that is serialized by that source.</rdfs:comment>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Dataset"/>
+        <rdfs:comment xml:lang="en">Associates a data source with the dataset that is serialized by that source.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is data serialization of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isDeterministicRepresentationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isDeterministicRepresentationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:comment xml:lang="en">Associates a deterministic variable with a random variable that the former represents, fully or partially, in a deterministic way. Examples are the probability density function, the cumulative distribution function or the quantile function of the random variable. A finite deterministic representation (e.g., a table of probabilities) is a dataset, and can therefore be serialized.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is deterministic representation of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -793,6 +834,19 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a point with a dimensional space it is part of (any dimensional space that contains and is able to represent that point).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is point of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isRandomVersionOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isRandomVersionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:comment xml:lang="en">Associates a random variable with a deterministic variable of which the former is the random counterpart, i.e. a variable with the same meaning whose value is not fully determined but is described by a probability distribution (e.g., to represent uncertainty due to measurement errors or to the spread of a model ensemble).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is random version of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1167,6 +1221,18 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/CumulativeDistributionFunction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/CumulativeDistributionFunction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicRepresentation"/>
+        <rdfs:comment xml:lang="en">The cumulative distribution function (CDF) of a random variable X: a deterministic variable that depends on a variable x with values on the dimensional space of X and takes as value the probability P(X ≤ x), in [0, 1]. If X depends on other variables, the CDF depends on them too (conditional distribution).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Cumulative Distribution Function</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/DataConsumingProcess -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DataConsumingProcess">
@@ -1226,9 +1292,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/Dataset -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Dataset">
-        <owl:equivalentClass rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
-        <rdfs:comment xml:lang="en">A dataset is a variable (which can be composed of multiple sub-variables) whose extension is finitely expressible, i.e. a finite variable. This is an alias of data:FiniteVariable to be used when this alternative phrasing fits to the context  better.</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+        <rdfs:comment xml:lang="en">A dataset is a deterministic variable (which can be composed of multiple sub-variables) whose extension is finitely expressible, i.e. a variable that is both finite and deterministic.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Dataset</rdfs:label>
     </owl:Class>
@@ -1258,9 +1332,50 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/DeterministicRepresentation -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DeterministicRepresentation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/isDeterministicRepresentationOf"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:comment xml:lang="en">A deterministic variable that represents, fully or partially, a random variable (linked via data:isDeterministicRepresentationOf). Specific kinds of deterministic representations are modelled as subclasses (e.g., data:ProbabilityDensityFunction, data:CumulativeDistributionFunction).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Deterministic Representation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/DeterministicVariable -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DeterministicVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:comment xml:lang="en">A variable whose value is fully determined, without any randomness. For a dependent variable, it means that its value is a function of the values of the variables it depends on. Together with data:RandomVariable, it forms a dichotomy of variables.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Deterministic Variable</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/DimensionalSpace -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DimensionalSpace">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/IndependentVariable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1373,10 +1488,11 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/IntervalSampling -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/IntervalSampling">
-        <rdfs:comment xml:lang="en">A sampling whose points are evenly spaced, i.e. separated by a fixed interval, which is the resolution of the sampling (e.g., one sample every hour).</rdfs:comment>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Sampling"/>
+        <owl:equivalentClass rdf:resource="https://w3id.org/hacid/onto/data/RegularPointSampling"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:comment xml:lang="en">Deprecated former name of data:RegularPointSampling, kept for backward compatibility.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">Interval Sampling</rdfs:label>
+        <rdfs:label xml:lang="en">Interval Sampling (deprecated)</rdfs:label>
     </owl:Class>
     
 
@@ -1414,6 +1530,53 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/PointSampling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/PointSampling">
+        <rdfs:comment xml:lang="en">A quantization that discretizes a continuum by selecting a set of its points (e.g., the hourly instants of a temporal continuum). Not to be confused with data:Sample, which is a set of realizations of a random variable.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Point Sampling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/ProbabilityDensityFunction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/ProbabilityDensityFunction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicRepresentation"/>
+        <rdfs:comment xml:lang="en">The probability density function (PDF) of a continuous random variable X: a deterministic variable that depends on a variable x with values on the dimensional space of X and takes as value the probability density of X at x. If X depends on other variables, the PDF depends on them too (conditional distribution).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Probability Density Function</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/ProbabilityMassFunction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/ProbabilityMassFunction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicRepresentation"/>
+        <rdfs:comment xml:lang="en">The probability mass function (PMF) of a discrete random variable X: a deterministic variable that depends on a variable x with values on the dimensional space of X and takes as value the probability P(X = x), in [0, 1]. If X depends on other variables, the PMF depends on them too (conditional distribution).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Probability Mass Function</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/QuantileFunction -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/QuantileFunction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicRepresentation"/>
+        <rdfs:comment xml:lang="en">The quantile function of a random variable X (the generalized inverse of its cumulative distribution function): a deterministic variable that depends on a probability level p in (0, 1) and takes as value the corresponding quantile of X, on the dimensional space of X (e.g., the median for p = 0.5). If X depends on other variables, the quantile function depends on them too (conditional distribution).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Quantile Function</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/Quantization -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Quantization">
@@ -1421,6 +1584,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Quantization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/RandomVariable -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/RandomVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:comment xml:lang="en">A variable whose value is not fully determined but is described by a probability distribution. For a dependent variable, it means that the values of the variables it depends on determine a probability distribution over its values, rather than a single value. Together with data:DeterministicVariable, it forms a dichotomy of variables.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Random Variable</rdfs:label>
     </owl:Class>
     
 
@@ -1459,13 +1633,37 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/RegularPointSampling -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/RegularPointSampling">
+        <rdfs:comment xml:lang="en">A point sampling whose points are evenly spaced, i.e. separated by a fixed interval, which is the resolution of the sampling (e.g., one sample every hour).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/PointSampling"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Regular Point Sampling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/Sample -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Sample">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DependentVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicRepresentation"/>
+        <rdfs:comment xml:lang="en">A set of realizations of a random variable X (e.g., the members of an ensemble of model runs, or Monte Carlo draws): a deterministic variable that depends on a variable identifying the realizations and takes values on the dimensional space of X. If X depends on other variables, the sample depends on them too. It is a partial deterministic representation of X. Not to be confused with data:PointSampling, which is a quantization of a continuum.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Sample</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/Sampling -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Sampling">
-        <rdfs:comment xml:lang="en">A quantization that discretizes a continuum by selecting a set of its points (e.g., the hourly instants of a temporal continuum).</rdfs:comment>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <owl:equivalentClass rdf:resource="https://w3id.org/hacid/onto/data/PointSampling"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:comment xml:lang="en">Deprecated former name of data:PointSampling, kept for backward compatibility.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">Sampling</rdfs:label>
+        <rdfs:label xml:lang="en">Sampling (deprecated)</rdfs:label>
     </owl:Class>
     
 
@@ -1519,6 +1717,14 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Variable">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/RandomVariable"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
