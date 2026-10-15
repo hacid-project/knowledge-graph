@@ -238,6 +238,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/hasDeterministicRepresentation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasDeterministicRepresentation">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDeterministicRepresentationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:comment xml:lang="en">Associates a random variable with a deterministic variable that represents it, fully or partially, in a deterministic way (e.g., its probability density function or its cumulative distribution function).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has deterministic representation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/hasDiscretization -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasDiscretization">
@@ -372,6 +386,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">Associates a dimensional space with a point of that dimensional space, i.e. any point that is contained and representable in that dimensional space (use data:hasPointValue to directly associate a literal).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has point</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/hasRandomVersion -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasRandomVersion">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isRandomVersionOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:comment xml:lang="en">Associates a deterministic variable with a random variable that is its random counterpart, i.e. a variable with the same meaning whose value is not fully determined but is described by a probability distribution.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">has random version</rdfs:label>
     </owl:ObjectProperty>
     
 
