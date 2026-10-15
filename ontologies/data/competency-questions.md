@@ -138,3 +138,11 @@ against instance data such as the paper's usage example graph).
 | CQ46 | Epidemiology | Is a table giving, for each age group, the probability of hospitalization a probability mass function representing the random variable "hospitalization of an infected person"? | `data:ProbabilityMassFunction`, `data:isDistributionRepresentationOf`, `data:RandomVariable` |
 | CQ47 | Climate | Which samples of realizations (e.g., the members of a model ensemble) are available for the random variable describing the projected daily maximum temperature, and how many realizations do they contain? | `data:Sample`, `data:hasDistributionRepresentation`, `data:dependsOnVariable` |
 | CQ48 | Climate | Which probabilistic representations (e.g., an ensemble of model projections, or a probability density function) are available for the daily maximum temperature, without its random version being modelled explicitly? | `data:hasProbabilisticRepresentation`, `data:isProbabilisticRepresentationOf`, `data:DistributionRepresentation` |
+
+## 13. Anomalies
+
+| ID | Domain | Competency Question | Ontology terms exercised |
+|----|--------|----------------------|---------------------------|
+| CQ49 | Climate | Of which variable is a given temperature anomaly the anomaly, and over which baseline period (e.g., 1981-2010) is its baseline computed? | `data:Anomaly`, `data:isAnomalyOf`, `data:hasBaselineRegion` |
+| CQ50 | Epidemiology | Is the weekly excess mortality an absolute anomaly of the weekly mortality, and which variable (e.g., the expected mortality) provides its baseline? | `data:AbsoluteAnomaly`, `data:isAnomalyOf`, `data:hasBaseline` |
+| CQ51 | Generic | Is a given anomaly absolute, relative or standardized? | `data:AbsoluteAnomaly`, `data:RelativeAnomaly`, `data:StandardizedAnomaly` |
