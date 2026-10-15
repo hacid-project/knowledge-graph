@@ -125,3 +125,11 @@ against instance data such as the paper's usage example graph).
 | CQ38 | Climate | Which variables are linear transformations of a given variable (e.g., temperature in °C, K and °F), so that values of one can be converted into the other without further information about how they were derived? | `data:isLinearTransformationOf` |
 | CQ39 | Finance and economics | Which variables always take the opposite value of a given variable (e.g., net exports and net imports, or a balance seen from the two counterparties)? | `data:hasOppositeValueOf` |
 | CQ40 | Generic | If a variable is the opposite of a second variable, which is in turn the opposite of a third one, is the first variable equivalent to the third one? | `data:hasOppositeValueOf`, `data:isEquivalentTo` |
+
+## 12. Determinism and randomness
+
+| ID | Domain | Competency Question | Ontology terms exercised |
+|----|--------|----------------------|---------------------------|
+| CQ41 | Generic | Is a given variable deterministic (its value is fully determined) or random (its value is described by a probability distribution)? | `data:DeterministicVariable`, `data:RandomVariable` |
+| CQ42 | Climate | Is the output of a single climate-model run a dataset, as opposed to the random variable describing the model's ensemble projections? | `data:Dataset`, `data:DeterministicVariable`, `data:RandomVariable`, `data:FiniteVariable` |
+| CQ43 | Generic | Which finite variables are datasets, i.e. are also deterministic? | `data:Dataset`, `data:FiniteVariable`, `data:DeterministicVariable` |

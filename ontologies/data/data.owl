@@ -16,7 +16,7 @@ The aim is to represent the concept of variables in a flexible way, while preser
 
 A variable can be aggregating, i.e. include aggregation mechanisms whose execution is deferred to derived variables. This allows to represent variables defined using one or more aggregation functions for combining data along one or more independent variables, without specifying the actual granularity. A general purpose example of usage is representing as variables the SQL expressions including aggregation functions (e.g. AVG(...)) which are then derived to actual serializable variables by the usage of specific GROUP BY clauses. In the context of climate services, the CMOR Tables variables (e.g., tasmax) fall into this category. From the ontology point of view, a (dependent) variable is aggregating if it offers one or more aggregations: i.e. it is linked with one or more instances of data:AggregationSpecification via the property data:definesAggregation. Each aggregation is associated with one variable (which must be a variable the dependent variable depends on) and optionally one or more suggested options for the adopted aggregation grid (i.e. specific granularity).
 
-A data:FiniteVariable is a variable for which the set of all the possible values is finite. For an independent variable it means being defined on a finite dimensional space (instance of data:FiniteDimensionalSpace); for a dependent variable it means that all the variables it depends on are finite variables. The concept of data:FiniteVariable is important because it corresponds to variables that can be fully represented extensively with a finite amount of resources. It corresponds functionally to the concept of a dataset. The property data:hasDataSerialization links such a dataset with a data source (data:DataSource) holding one or more concrete serializations of it. A data:DataSource (e.g., an URL resolving to a dump of a dataset) is associated to one or more supported data formats (data:DataFormat) via the data:hasAvailableDataFormat property. 
+A data:FiniteVariable is a variable for which the set of all the possible values is finite. For an independent variable it means being defined on a finite dimensional space (instance of data:FiniteDimensionalSpace); for a dependent variable it means that all the variables it depends on are finite variables. The concept of data:FiniteVariable is important because it corresponds to variables that can be fully represented extensively with a finite amount of resources. A data:DeterministicVariable is a variable whose value is fully determined, while a data:RandomVariable is a variable whose value is described by a probability distribution; every variable is either deterministic or random. A data:Dataset is a variable that is both finite and deterministic. The property data:hasDataSerialization links a finite variable (typically a dataset) with a data source (data:DataSource) holding one or more concrete serializations of it. A data:DataSource (e.g., an URL resolving to a dump of a dataset) is associated to one or more supported data formats (data:DataFormat) via the data:hasAvailableDataFormat property. 
 
 A data:DimensionalSpace is composed of a set (not necessarily finite) of regions (data:Region). It can be either continuous (data:Continuum) or discrete (data:DiscreteDimensionalSpace). A discrete dimensional space can be a binning (data:Binning), i.e. composed of a set of regions that form a partition of all the space.
 
@@ -218,7 +218,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDataSerializationOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DataSource"/>
-        <rdfs:comment xml:lang="en">Associates a finite variable, i.e., a dataset, with a data source that offers one or more serializations of such dataset.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Associates a finite variable (typically a dataset) with a data source that offers one or more serializations of it.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">has data serialization</rdfs:label>
     </owl:ObjectProperty>
@@ -642,7 +642,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DataSource"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
-        <rdfs:comment xml:lang="en">Associates a data source with the finite variable, i.e., the dataset, that is serialized by that source.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Associates a data source with the finite variable (typically a dataset) that is serialized by that source.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">is data serialization of</rdfs:label>
     </owl:ObjectProperty>
@@ -1226,9 +1226,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/Dataset -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Dataset">
-        <owl:equivalentClass rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
-        <rdfs:comment xml:lang="en">A dataset is a variable (which can be composed of multiple sub-variables) whose extension is finitely expressible, i.e. a finite variable. This is an alias of data:FiniteVariable to be used when this alternative phrasing fits to the context  better.</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+        <rdfs:comment xml:lang="en">A dataset is a deterministic variable (which can be composed of multiple sub-variables) whose extension is finitely expressible, i.e. a variable that is both finite and deterministic.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Dataset</rdfs:label>
     </owl:Class>
@@ -1254,6 +1262,18 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
         <rdfs:comment xml:lang="en">A variable that has been derived mathematically from one or more variables</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Derived Variable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/DeterministicVariable -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/DeterministicVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/hacid/onto/data/RandomVariable"/>
+        <rdfs:comment xml:lang="en">A variable whose value is fully determined, without any randomness. For a dependent variable, it means that its value is a function of the values of the variables it depends on. Together with data:RandomVariable, it forms a dichotomy of variables.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Deterministic Variable</rdfs:label>
     </owl:Class>
     
 
@@ -1425,6 +1445,17 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/RandomVariable -->
+
+    <owl:Class rdf:about="https://w3id.org/hacid/onto/data/RandomVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/Variable"/>
+        <rdfs:comment xml:lang="en">A variable whose value is not fully determined but is described by a probability distribution. For a dependent variable, it means that the values of the variables it depends on determine a probability distribution over its values, rather than a single value. Together with data:DeterministicVariable, it forms a dichotomy of variables.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">Random Variable</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/Region -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Region">
@@ -1519,6 +1550,14 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Variable">
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Concept"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DeterministicVariable"/>
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/RandomVariable"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/top-level/hasPart"/>
