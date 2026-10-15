@@ -93,7 +93,7 @@ against instance data such as the paper's usage example graph).
 | ID | Domain | Competency Question | Ontology terms exercised |
 |----|--------|----------------------|---------------------------|
 | CQ23 | Generic | Is a given dimensional space continuous or discrete? | `data:Continuum`, `data:DiscreteDimensionalSpace` |
-| CQ24 | Generic | Of which continuum is a given quantization a discretization, and is it obtained by sampling or by binning? | `data:hasDiscretization`, `data:Sampling`, `data:Binning` |
+| CQ24 | Generic | Of which continuum is a given quantization a discretization, and is it obtained by point sampling or by binning? | `data:hasDiscretization`, `data:PointSampling`, `data:Binning` |
 | CQ25 | Climate | What is the (exact) resolution of the daily temporal quantization used to grid `tasmax` for the year 2024? | `data:hasResolution`, `data:hasExactResolution` |
 | CQ26 | Remote sensing | What is the spatial bin size (resolution) of a satellite-derived land-cover raster, and is it a regular binning? | `data:RegularBinning`, `data:hasResolution` |
 | CQ27 | Epidemiology | Are weekly disease-surveillance counts obtained via a periodic binning of a temporal continuum, and what are its period and in-period resolution? | `data:PeriodicBinning`, `data:hasPeriod`, `data:hasInPeriodResolution` |
@@ -136,3 +136,4 @@ against instance data such as the paper's usage example graph).
 | CQ44 | Generic | Of which deterministic variable is a given random variable the random version? | `data:isRandomVersionOf` |
 | CQ45 | Climate | Which deterministic representations (e.g., probability density function, cumulative distribution function, quantile function) are available for the random variable describing the projected daily maximum temperature, and which of them are datasets that can be downloaded? | `data:isDeterministicRepresentationOf`, `data:ProbabilityDensityFunction`, `data:CumulativeDistributionFunction`, `data:QuantileFunction`, `data:Dataset`, `data:hasDataSerialization` |
 | CQ46 | Epidemiology | Is a table giving, for each age group, the probability of hospitalization a probability mass function representing the random variable "hospitalization of an infected person"? | `data:ProbabilityMassFunction`, `data:isDeterministicRepresentationOf`, `data:RandomVariable` |
+| CQ47 | Climate | Which samples of realizations (e.g., the members of a model ensemble) are available for the random variable describing the projected daily maximum temperature, and how many realizations do they contain? | `data:Sample`, `data:hasDeterministicRepresentation`, `data:dependsOnVariable` |
