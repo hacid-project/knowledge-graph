@@ -1576,7 +1576,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
                 <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A finite variable, i.e. a variable whose set of possible values is finite. For an independent variable, it means the corresponding dimensional space is finite. For a dependent variable, it means the independent variables it depends on are finite.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A finite variable, i.e. a variable whose set of possible values is finite. For an independent variable, it means the corresponding dimensional space is finite. For a dependent variable, it means the variables it depends on are finite. These two conditions are formalised as general axioms: an independent variable is finite if and only if it has values on a finite dimensional space (data:FiniteDimensionalSpace), and a dependent variable is finite if and only if all the variables it depends on (data:dependsOnVariable) are finite. No assumption is made on variables that are neither declared independent nor dependent.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Finite Variable</rdfs:label>
     </owl:Class>
@@ -1916,6 +1916,48 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/IndependentVariable"/>
+        </owl:intersectionOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/IndependentVariable"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/hasValuesOn"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/hacid/onto/data/FiniteDimensionalSpace"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DependentVariable"/>
+            <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+        </owl:intersectionOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/DependentVariable"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/hacid/onto/data/dependsOnVariable"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/hacid/onto/data/FiniteVariable"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
 </rdf:RDF>
 
 
