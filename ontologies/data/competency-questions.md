@@ -93,7 +93,7 @@ against instance data such as the paper's usage example graph).
 | ID | Domain | Competency Question | Ontology terms exercised |
 |----|--------|----------------------|---------------------------|
 | CQ23 | Generic | Is a given dimensional space continuous or discrete? | `data:Continuum`, `data:DiscreteDimensionalSpace` |
-| CQ24 | Generic | Of which continuum is a given quantization a discretization, and is it obtained by point sampling or by binning? | `data:hasDiscretization`, `data:PointSampling`, `data:Binning` |
+| CQ24 | Generic | Which quantization does a given discrete dimensional space adopt, of which continuum is it a discretization, and is it obtained by point sampling or by binning? | `data:adoptsQuantization`, `data:basedOnDimensionalSpace`, `data:PointSampling`, `data:Binning` |
 | CQ25 | Climate | What is the (exact) resolution of the daily temporal quantization used to grid `tasmax` for the year 2024? | `data:hasResolution`, `data:hasExactResolution` |
 | CQ26 | Remote sensing | What is the spatial bin size (resolution) of a satellite-derived land-cover raster, and is it a regular binning? | `data:RegularBinning`, `data:hasResolution` |
 | CQ27 | Epidemiology | Are weekly disease-surveillance counts obtained via a periodic binning of a temporal continuum, and what are its period and in-period resolution? | `data:PeriodicBinning`, `data:hasPeriod`, `data:hasInPeriodResolution` |

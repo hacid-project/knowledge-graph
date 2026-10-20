@@ -56,6 +56,20 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     
 
 
+    <!-- https://w3id.org/hacid/onto/data/adoptsQuantization -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/adoptsQuantization">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/basedOnDimensionalSpace"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isQuantizationAdoptedBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:comment xml:lang="en">Associates a discrete dimensional space (based on a continuum) with the quantization it adopts, i.e. the discretization of the continuum of which it is a restriction (e.g., the daily time steps of 2024 adopt the quantization of time in daily bins). Formerly named data:hasDiscretization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">adopts quantization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/hacid/onto/data/aggregatesVariable -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/aggregatesVariable">
@@ -290,13 +304,11 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/hasDiscretization -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/hasDiscretization">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/basedOnDimensionalSpace"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/data/isDiscretizationFor"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
-        <rdfs:comment xml:lang="en">Associates a discrete dimensional space (based on a continuum) with the quantization adopted for discretization.</rdfs:comment>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/hacid/onto/data/adoptsQuantization"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:comment xml:lang="en">Deprecated former name of data:adoptsQuantization, kept for backward compatibility.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">has discretization</rdfs:label>
+        <rdfs:label xml:lang="en">has discretization (deprecated)</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -783,12 +795,11 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/isDiscretizationFor -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isDiscretizationFor">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isBasisOfDimensionalSpace"/>
-        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
-        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
-        <rdfs:comment xml:lang="en">Associates a quantization with a discrete dimensional space (based on a continuum) that has been discretized by such quantization.</rdfs:comment>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/hacid/onto/data/isQuantizationAdoptedBy"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:comment xml:lang="en">Deprecated former name of data:isQuantizationAdoptedBy, kept for backward compatibility.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
-        <rdfs:label xml:lang="en">is discretization for</rdfs:label>
+        <rdfs:label xml:lang="en">is discretization for (deprecated)</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -954,6 +965,19 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
             <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/isDistributionRepresentationOf"/>
             <rdf:Description rdf:about="https://w3id.org/hacid/onto/data/isRandomVersionOf"/>
         </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/hacid/onto/data/isQuantizationAdoptedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/data/isQuantizationAdoptedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/data/isBasisOfDimensionalSpace"/>
+        <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/data/Quantization"/>
+        <rdfs:range rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
+        <rdfs:comment xml:lang="en">Associates a quantization with a discrete dimensional space (based on a continuum) that adopts it. Formerly named data:isDiscretizationFor.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
+        <rdfs:label xml:lang="en">is quantization adopted by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1724,7 +1748,7 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     <!-- https://w3id.org/hacid/onto/data/Quantization -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/data/Quantization">
-        <rdfs:comment xml:lang="en">A discrete dimensional space obtained by discretizing a continuum (see data:hasDiscretization), e.g. by sampling it at given points or by partitioning it into bins. It can be characterized by a resolution and, optionally, by an offset with respect to the reference frame of the continuum.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A discrete dimensional space obtained by discretizing a continuum (the continuum it is based on, see data:basedOnDimensionalSpace), e.g. by sampling it at given points or by partitioning it into bins. Other discrete dimensional spaces, e.g. bounded ones, can adopt it (see data:adoptsQuantization). It can be characterized by a resolution and, optionally, by an offset with respect to the reference frame of the continuum.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/data"/>
         <rdfs:label xml:lang="en">Quantization</rdfs:label>
