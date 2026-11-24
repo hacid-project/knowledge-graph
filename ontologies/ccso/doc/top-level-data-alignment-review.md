@@ -464,3 +464,7 @@ configuration with DUL failed on those 6,103 nodes. The new inferences are only 
 lost inferences are their `Parameter` and `Characteristic` types and their `isClassifiedBy` /
 `classifies` links. The method and scripts are in `notes/ontology-decoupling-feasibility.md` of
 miguel76/CCKG-NatureScientificData.
+
+The version IRI of CCSO is now `https://w3id.org/hacid/onto/ccso/2.1/` (was `2.0/`, kept as
+`owl:priorVersion`): a minor version, because no term is removed or renamed, while some super-classes and
+super-properties change.

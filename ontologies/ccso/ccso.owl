@@ -10,7 +10,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/hacid/onto/ccso">
-        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/ccso/2.0/"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/ccso/2.1/"/>
+        <owl:priorVersion rdf:resource="https://w3id.org/hacid/onto/ccso/2.0/"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/data"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
         <terms:creator rdf:resource="https://w3id.org/hacid/data/cs/person/andrea-giovanni-nuzzolese"/>
