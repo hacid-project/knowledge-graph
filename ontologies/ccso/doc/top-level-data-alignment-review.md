@@ -7,7 +7,8 @@ the data ontology, `ontologies/data/data.owl` (prefix `data:`), in their current
 changes described in
 [`../../top-level/doc/dul-consistency-review.md`](../../top-level/doc/dul-consistency-review.md) and
 [`../../data/doc/top-level-alignment-review.md`](../../data/doc/top-level-alignment-review.md)).
-**Other imports:** `core/judgement` (prefix `jdg:`), used only for `Assessment`.
+**Other imports:** `core/judgement` (prefix `jdg:`), used only for `Assessment` (import removed on
+2026-11-24, see the end of section 8).
 
 > Sections 2–7 describe the module **as reviewed**. Section 5 reports the impact of the proposed
 > changes, tested on copies. Section 8 lists the changes that were then applied to `ccso.owl`.
@@ -137,6 +138,7 @@ A global warming level is "a threshold specified as global temperature increase"
 (as in DUL), this is exactly a `Parameter`: a concept that constrains or selects values of a region
 ("e.g. VeryHigh"). *Proposal Q1:* `GlobalWarmingLevel ⊑ top:Parameter`.
 `refersToGlobalWarmingLevel ⊑ isClassifiedBy` still holds, because `Parameter ⊑ Concept`.
+*Revised on 2026-11-24 (incompatible with DUL): see the end of section 8.*
 
 **B2. `ClimateModel` is a description.**
 A climate model is "a representation of the Earth's climate system". In the top-level, a
@@ -436,3 +438,29 @@ review, section 14). As a result, all 20 CCSO process classes are `Event`s. In C
 Checks: no change in consistency, unsatisfiable classes or OWL 2 DL violations, on the probe data
 and on all the test data. No inference is lost; the only new ones are the `top:Event` types of the
 data and CCSO process classes and their instances.
+
+**B1 revised, and the import of `core/judgement` removed (2026-11-24).** Checked against DUL and the
+published Climate Change Knowledge Graph (KG 1.0.0), Q1 turned out to be incompatible with DUL. DUL
+has `Parameter ⊑ ∀classifies.Region` and `Object ⊑ ∀isClassifiedBy.Role` (with `Parameter ⊥ Role`),
+which the top-level leaves out. So, with the DUL alignment, every projection referring to a level
+becomes a `Region`, an `Abstract`, while being a `data:Dataset ⊑ Concept ⊑ Object`. That made 6,103
+nodes of the KG inconsistent (all the GWL-based projections and productions, and the levels). In
+`ccso.owl`:
+- `GlobalWarmingLevel ⊑ top:Description` (instead of `top:Parameter`): like an emission scenario, a
+  level frames the projections that refer to it (comment extended);
+- `refersToGlobalWarmingLevel ⊑ top:isDescribedBy` and `isGlobalWarmingLevelReferredBy ⊑
+  top:describes` (instead of `isClassifiedBy` / `classifies`), the same pattern as
+  `refersToScenario` / `isScenarioReferredBy` (B3);
+- `Assessment ⊑ top:Situation` (instead of `jdg:Judgement`, itself a `top:Situation`), and the
+  import of `https://w3id.org/hacid/onto/core/judgement` is removed. The KG does not load that
+  module, and `Assessment` has no instances. What is lost is only the judgement pattern
+  (`jdg:hasJudge`, `hasJudgmentResult`, `isJudgementOn`), which CCSO never used.
+
+Checks (HermiT): top-level + data + CCSO, with and without DUL and the alignment, are consistent
+with no unsatisfiable classes, also together with test classes for every usage pattern of KG 1.0.0
+(each node's types with all its edges, and each predicate signature). Before the change, the
+configuration with DUL failed on those 6,103 nodes. The new inferences are only `Description`
+(hence `SocialObject`, `Object`) for the levels, and the `isDescribedBy` / `describes` links. The
+lost inferences are their `Parameter` and `Characteristic` types and their `isClassifiedBy` /
+`classifies` links. The method and scripts are in `notes/ontology-decoupling-feasibility.md` of
+miguel76/CCKG-NatureScientificData.
