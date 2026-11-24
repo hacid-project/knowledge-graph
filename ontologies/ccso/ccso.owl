@@ -10,10 +10,10 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/hacid/onto/ccso">
-        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/ccso/2.0/"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/ccso/2.1/"/>
+        <owl:priorVersion rdf:resource="https://w3id.org/hacid/onto/ccso/2.0/"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/data"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <owl:imports rdf:resource="https://w3id.org/hacid/onto/core/judgement"/>
         <terms:creator rdf:resource="https://w3id.org/hacid/data/cs/person/andrea-giovanni-nuzzolese"/>
         <terms:creator rdf:resource="https://w3id.org/hacid/data/cs/person/miguel-ceriani"/>
         <terms:title xml:lang="en">CCSO - Core Climate Services Ontology</terms:title>
@@ -233,7 +233,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/isGlobalWarmingLevelReferredBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/isGlobalWarmingLevelReferredBy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/classifies"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/describes"/>
         <owl:inverseOf rdf:resource="https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
@@ -449,7 +449,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isClassifiedBy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/hacid/onto/top-level/isDescribedBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/hacid/onto/top-level/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel"/>
         <rdfs:comment xml:lang="en">The object property that allows an entity to refer to a global warming level.</rdfs:comment>
@@ -560,7 +560,7 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/Assessment -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/Assessment">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/core/judgement/Judgement"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Situation"/>
         <rdfs:comment xml:lang="en">The assessment of a climate change related issue.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Assessment</rdfs:label>
@@ -776,8 +776,8 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     <!-- https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel -->
 
     <owl:Class rdf:about="https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Parameter"/>
-        <rdfs:comment xml:lang="en">A global warming threshold specified as global temperature increase in respect to pre-industrial levels.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/hacid/onto/top-level/Description"/>
+        <rdfs:comment xml:lang="en">A global warming threshold specified as global temperature increase in respect to pre-industrial levels. Like an emission scenario, it is a description that frames the projections and the productions referring to it (ccso:refersToGlobalWarmingLevel): they describe the climate when the global warming reaches that level.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/hacid/onto/ccso"/>
         <rdfs:label xml:lang="en">Global Warming Level</rdfs:label>
     </owl:Class>

@@ -110,7 +110,7 @@ These terms replicate part of SKOS and simple naming annotations as DUL-anchored
 | `hasBroader` / `hasNarrower` | OP, transitive | ⊑ `associatedWith`; `Concept` → `Concept` | Concept hierarchies. | Overlaps `dul:specializes`/`isSpecializedBy` (the replicas `top:specializes`/`isSpecializedBy`) and SKOS `broaderTransitive`/`narrowerTransitive` (not `broader`, which is not transitive). Could be declared sub-properties of `specializes`/`isSpecializedBy`, or of `isRelatedToConcept`. | – |
 | `definition` | DP | `Concept` → `rdfs:Literal` | Definition of a concept. | Corresponds to `skos:definition`. | – |
 | `name` | DP | `Entity` → `rdfs:Literal` | Name of an entity. | No DUL counterpart. See also `core/naming.owl`. | core/naming.owl |
-| `altLabel` | DP | `Entity` → `xsd:string` | An alternative label. | Corresponds to `skos:altLabel`. Its range `xsd:string` forbids language tags, which `skos:altLabel` allows. | – |
+| `altLabel` | DP | `Entity` → `rdfs:Literal` | An alternative label, with or without a language tag. | Corresponds to `skos:altLabel`. The range was `xsd:string`, which forbids language tags (`skos:altLabel` allows them); since the Climate Change Knowledge Graph has language-tagged alternative labels, that made it inconsistent with the ontology. Widened to `rdfs:Literal` on 2026-11-24. | – |
 | `acronym` | DP | `Entity` → `rdfs:Literal` | An acronym. | No DUL counterpart. | ccso/ccso.owl |
 
 ## 5. Tasks, workflows and roles
