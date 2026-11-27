@@ -14,8 +14,12 @@
         <owl:priorVersion rdf:resource="https://w3id.org/hacid/onto/ccso/2.0/"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/data"/>
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
-        <terms:creator rdf:resource="https://w3id.org/hacid/data/cs/person/andrea-giovanni-nuzzolese"/>
-        <terms:creator rdf:resource="https://w3id.org/hacid/data/cs/person/miguel-ceriani"/>
+        <owl:versionInfo>2.1</owl:versionInfo>
+        <terms:creator rdf:resource="https://orcid.org/0000-0002-5074-2112"/>
+        <terms:creator rdf:resource="https://orcid.org/0000-0003-2928-9496"/>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-14</terms:created>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-27</terms:modified>
         <terms:title xml:lang="en">CCSO - Core Climate Services Ontology</terms:title>
         <rdfs:comment xml:lang="en">The Core Climate Services Ontology (CCSO) is a comprehensive framework designed to facilitate the representation and integration of diverse climate-related data and knowledge. This ontology encompasses key concepts related to climate models, simulations, datasets, variables, and scenarios, along with their associated characteristics. The CCSO enables structured and standardized descriptions of these elements, promoting interoperability and data sharing among various stakeholders in climate science.
 
@@ -45,9 +49,27 @@ Overall, the Core Climate Services Ontology serves as a vital tool for organizin
     
 
 
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
     
 
 

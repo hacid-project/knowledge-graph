@@ -10,6 +10,14 @@
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <owl:Ontology rdf:about="https://w3id.org/hacid/onto/top-level">
+        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/top-level/1.0/"/>
+        <owl:versionInfo>1.0</owl:versionInfo>
+        <dcterms:title xml:lang="en">HACID top-level ontology</dcterms:title>
+        <dcterms:creator rdf:resource="https://orcid.org/0000-0003-2928-9496"/>
+        <dcterms:creator rdf:resource="https://orcid.org/0009-0006-9437-0249"/>
+        <dcterms:creator rdf:resource="https://orcid.org/0000-0002-5074-2112"/>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-23</dcterms:created>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-27</dcterms:modified>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <prov:wasDerivedFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
         <rdfs:comment xml:lang="en">The HACID top-level ontology. It replicates, in the HACID namespace, part of DOLCE+DnS Ultralite (DUL), and extends it with terms shared by the HACID ontology modules. The correspondence between replicated terms and DUL terms is formalised in https://github.com/hacid-project/knowledge-graph/blob/main/ontologies/top-level/alignment/top-level-dul-alignment.ttl; for replicated terms, rdfs:comment gives the DUL definition and skos:scopeNote gives HACID-specific notes.</rdfs:comment>
@@ -29,9 +37,33 @@
 
 
 
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
     
 
 
