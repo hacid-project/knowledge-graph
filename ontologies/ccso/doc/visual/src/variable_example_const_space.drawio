@@ -208,7 +208,7 @@
             <mxPoint x="950" y="925" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6SUdHhUjhmTMxfDbhx7a-105" connectable="0" parent="6SUdHhUjhmTMxfDbhx7a-104" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" value="data:hasDiscretization" vertex="1">
+        <mxCell id="6SUdHhUjhmTMxfDbhx7a-105" connectable="0" parent="6SUdHhUjhmTMxfDbhx7a-104" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" value="data:adoptsQuantization" vertex="1">
           <mxGeometry relative="1" x="-0.1269" as="geometry">
             <mxPoint x="-31" y="10" as="offset" />
           </mxGeometry>
