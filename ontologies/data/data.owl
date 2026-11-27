@@ -9,6 +9,13 @@
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/hacid/onto/data">
         <owl:imports rdf:resource="https://w3id.org/hacid/onto/top-level"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/hacid/onto/data/1.0/"/>
+        <owl:versionInfo>1.0</owl:versionInfo>
+        <terms:creator rdf:resource="https://orcid.org/0000-0002-5074-2112"/>
+        <terms:creator rdf:resource="https://orcid.org/0000-0003-2928-9496"/>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-05</terms:created>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-27</terms:modified>
         <terms:title xml:lang="en">HACID data ontology module</terms:title>
         <rdfs:comment xml:lang="en">This module provides a semantically rich way to represent variables (which may be dependent from other variables or not, computationally derived from other variables or not), the dimensional spaces they take values in (which can be discrete or continuous, made of points or extended regions, limited or not, derived-from/part-of other dimensional spaces), and concrete datasets.
 
@@ -36,6 +43,30 @@ In order to avoid unnecessary complexity in concrete usage, a data:DimensionalSp
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
     
 
 
